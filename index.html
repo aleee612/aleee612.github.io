@@ -13,13 +13,13 @@
       box-sizing: border-box;
     }
     
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-height: 100vh;
       background: url('images/bg1.png') center/cover fixed no-repeat;
-      position: relative;
-      overflow-x: hidden;
       color: #1a1a2e;
     }
 
@@ -35,7 +35,7 @@
       z-index: -1;
     }
 
-    /* 极致磨砂质感 - Apple Glass */
+    /* 极致磨砂质感 */
     .apple-glass {
       background: rgba(255, 255, 255, 0.55);
       backdrop-filter: blur(30px) saturate(160%);
@@ -54,52 +54,66 @@
                   inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
-    /* 滚动区域 */
-    .scroll-container {
-      height: calc(100vh - 200px);
+    /* 主容器 - 固定高度 */
+    .main-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    /* 内容区域 - 可滚动 */
+    .content-area {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 280px 1fr 280px;
+      gap: 1rem;
+      min-height: 0;
+      margin-top: 1rem;
+    }
+
+    /* 侧边栏滚动区域 */
+    .sidebar-scroll {
+      height: 100%;
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.1) transparent;
-      padding-bottom: 40px;
+      padding-right: 4px;
     }
-    
-    .scroll-container::-webkit-scrollbar {
-      width: 6px;
+
+    .sidebar-scroll::-webkit-scrollbar {
+      width: 4px;
     }
-    
-    .scroll-container::-webkit-scrollbar-track {
+
+    .sidebar-scroll::-webkit-scrollbar-track {
       background: transparent;
     }
-    
-    .scroll-container::-webkit-scrollbar-thumb {
+
+    .sidebar-scroll::-webkit-scrollbar-thumb {
       background: rgba(0,0,0,0.15);
       border-radius: 10px;
     }
 
-    /* 动画元素 */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.6s cubic-bezier(0.2, 1, 0.2, 1);
-    }
-    
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
+    /* 中间文章列表滚动 */
+    .posts-scroll {
+      height: 100%;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.1) transparent;
+      padding-right: 8px;
     }
 
-    /* 3D 卡片翻转效果 */
-    .flip-card { 
-      perspective: 1200px; 
+    .posts-scroll::-webkit-scrollbar {
+      width: 6px;
     }
-    
-    .flip-card-inner {
-      transition: transform 0.7s cubic-bezier(0.15, 1, 0.3, 1);
-      transform-style: preserve-3d;
+
+    .posts-scroll::-webkit-scrollbar-track {
+      background: transparent;
     }
-    
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+
+    .posts-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.15);
+      border-radius: 10px;
     }
 
     /* 卡片悬停效果 */
@@ -108,27 +122,16 @@
     }
     
     .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
     }
 
     /* iOS 风格蓝色 */
     .text-ios-blue { 
       color: #007AFF; 
     }
-    
-    .bg-ios-blue {
-      background-color: #007AFF;
-    }
 
     /* 渐变文字 */
-    .gradient-text {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
     .gradient-text-vibrant {
       background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
       -webkit-background-clip: text;
@@ -151,69 +154,58 @@
       50% { opacity: 0.6; }
     }
 
-    /* 文章卡片增强样式 */
-    .post-card-enhanced {
-      position: relative;
-      overflow: hidden;
+    /* 分类卡片样式 */
+    .category-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
     
-    .post-card-enhanced::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-    
-    .post-card-enhanced:hover::before {
-      opacity: 1;
-    }
-    
-    .post-card-enhanced:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 25px 50px -12px rgba(102, 126, 234, 0.25),
-                  0 0 0 1px rgba(255, 255, 255, 0.8);
-    }
-
-    /* 侧边栏分类样式 */
-    .sidebar-category {
-      transition: all 0.3s cubic-bezier(0.2, 1, 0.2, 1);
-    }
-    
-    .sidebar-category:hover {
-      background: rgba(255, 255, 255, 0.7);
+    .category-card:hover {
+      background: rgba(255, 255, 255, 0.8);
       transform: translateX(4px);
     }
 
-    .sidebar-category.active {
-      background: rgba(0, 122, 255, 0.1);
+    .category-card.active {
+      background: rgba(0, 122, 255, 0.15);
       border-left: 3px solid #007AFF;
     }
 
-    /* 子分类样式 */
-    .subcategory-item {
-      padding-left: 1.5rem;
-      border-left: 2px solid rgba(0, 0, 0, 0.1);
-      margin-left: 0.5rem;
+    /* 子分类 */
+    .subcategory-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .subcategory-card:hover {
+      background: rgba(255, 255, 255, 0.6);
+      color: #007AFF;
     }
 
-    /* 标签云样式 */
+    /* 文章元信息 */
+    .post-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 999px;
+      font-size: 0.7rem;
+      color: #718096;
+    }
+
+    /* 标签云 */
     .tag-cloud {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
     
     .tag-cloud-item {
-      padding: 0.5rem 1rem;
+      padding: 0.3rem 0.6rem;
       background: rgba(255, 255, 255, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.7);
       border-radius: 999px;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: #4a5568;
       transition: all 0.3s ease;
@@ -224,66 +216,15 @@
       background: rgba(0, 122, 255, 0.15);
       border-color: rgba(0, 122, 255, 0.4);
       color: #007AFF;
-      transform: translateY(-2px) scale(1.05);
-    }
-
-    /* 文章元信息样式 */
-    .post-meta-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 999px;
-      font-size: 0.75rem;
-      color: #718096;
-      transition: all 0.2s ease;
-    }
-    
-    .post-meta-item:hover {
-      background: rgba(255, 255, 255, 0.9);
-      color: #4a5568;
-    }
-
-    /* 阅读更多按钮 */
-    .read-more-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px -3px rgba(102, 126, 234, 0.4);
-    }
-    
-    .read-more-btn:hover {
-      transform: translateX(4px);
-      box-shadow: 0 6px 20px -3px rgba(102, 126, 234, 0.5);
-    }
-
-    /* 空状态样式 */
-    .empty-state {
-      text-align: center;
-      padding: 3rem 2rem;
-    }
-    
-    .empty-state-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      opacity: 0.5;
     }
 
     /* 顶部导航分类 */
     .nav-category {
-      position: relative;
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.8rem;
       border-radius: 999px;
       transition: all 0.3s ease;
       cursor: pointer;
+      font-size: 0.8rem;
     }
     
     .nav-category:hover {
@@ -295,15 +236,14 @@
       color: #007AFF;
     }
 
-    /* 头像样式 */
+    /* 头像 */
     .avatar-container {
-      position: relative;
-      width: 100px;
-      height: 100px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.2);
     }
     
     .avatar-container img {
@@ -312,135 +252,124 @@
       object-fit: cover;
     }
 
-    /* 响应式调整 */
+    /* 响应式 */
     @media (max-width: 1024px) {
-      .scroll-container {
-        height: auto;
-        max-height: none;
+      .content-area {
+        grid-template-columns: 1fr;
       }
-      
-      .sidebar {
+      .sidebar-left, .sidebar-right {
         display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .post-card-enhanced:hover {
-        transform: translateY(-4px) scale(1);
       }
     }
   </style>
 </head>
-<body class="p-4 md:p-6">
-
-  <!-- 顶部导航栏 -->
-  <header class="w-full flex justify-center mb-6 sticky top-4 z-50">
-    <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center w-full max-w-7xl">
-      <h1 class="font-black text-xl tracking-tight cursor-pointer flex items-center gap-2">
-        <span class="status-dot"></span>
-        <span class="gradient-text-vibrant">aleee</span>
-      </h1>
-      
-      <!-- 分类导航 -->
-      <nav id="categoryNav" class="hidden md:flex gap-2 font-medium text-sm text-gray-600">
-        <span class="nav-category active" data-cat="all">全部</span>
-        <!-- 动态加载分类 -->
-      </nav>
-      
-      <div class="flex items-center gap-3">
-        <button class="bg-gray-900 text-white px-5 py-2 rounded-full text-xs font-bold hover:shadow-xl active:scale-95 transition-all">
+<body>
+  <div class="main-container">
+    <!-- 顶部导航栏 -->
+    <header class="flex-none">
+      <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
+        <h1 class="font-black text-lg tracking-tight cursor-pointer flex items-center gap-2">
+          <span class="status-dot"></span>
+          <span class="gradient-text-vibrant">aleee</span>
+        </h1>
+        
+        <!-- 分类导航 -->
+        <nav id="categoryNav" class="hidden md:flex gap-1 font-medium text-sm text-gray-600">
+          <span class="nav-category active" data-cat="all">全部</span>
+        </nav>
+        
+        <button class="bg-gray-900 text-white px-4 py-1.5 rounded-full text-xs font-bold hover:shadow-xl transition-all">
           订阅
         </button>
       </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <div class="content-area">
+      <!-- 左侧边栏 -->
+      <aside class="sidebar-left flex flex-col gap-3">
+        <!-- 个人信息 - 压缩 -->
+        <div class="apple-glass rounded-2xl p-4 border border-white/50">
+          <div class="flex items-center gap-3">
+            <div class="avatar-container">
+              <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'">
+            </div>
+            <div>
+              <h2 class="text-lg font-black tracking-tight">aleee</h2>
+              <p class="text-xs text-gray-500">记录学习，分享知识</p>
+            </div>
+          </div>
+          <div class="flex gap-2 mt-3">
+            <div class="flex-1 apple-glass rounded-lg p-2 text-center border border-white/30">
+              <p class="text-xs text-gray-400">文章</p>
+              <p class="text-base font-black" id="totalPosts">0</p>
+            </div>
+            <div class="flex-1 apple-glass rounded-lg p-2 text-center border border-white/30">
+              <p class="text-xs text-gray-400">分类</p>
+              <p class="text-base font-black" id="totalCategories">0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分类列表 - 可滚动 -->
+        <div class="apple-glass rounded-2xl p-4 border border-white/50 flex-1 flex flex-col min-h-0">
+          <h3 class="font-bold text-xs text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
+            <img src="icon/file.png" class="w-4 h-4" alt="分类"> 文章分类
+          </h3>
+          <div id="sidebarCategories" class="sidebar-scroll flex-1 space-y-1">
+            <!-- 动态加载 -->
+          </div>
+        </div>
+      </aside>
+      
+      <!-- 中间：文章列表 -->
+      <main class="posts-scroll" id="mainContent">
+        <div id="postsList" class="space-y-3 pb-4">
+          <div class="apple-glass rounded-2xl p-8 text-center">
+            <div class="animate-pulse h-4 w-32 mx-auto rounded bg-gray-200 mb-4"></div>
+            <div class="animate-pulse h-3 w-48 mx-auto rounded bg-gray-200"></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- 右侧边栏 -->
+      <aside class="sidebar-right flex flex-col gap-3">
+        <!-- 最新文章 -->
+        <div class="apple-glass rounded-2xl p-4 border border-white/50 flex-1 flex flex-col min-h-0">
+          <h3 class="font-bold text-xs text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
+            <img src="icon/calendar.png" class="w-4 h-4" alt="最新"> 最新文章
+          </h3>
+          <div id="recentPosts" class="sidebar-scroll space-y-2">
+            <!-- 动态加载 -->
+          </div>
+        </div>
+
+        <!-- 标签云 -->
+        <div class="apple-glass rounded-2xl p-4 border border-white/50 flex-none">
+          <h3 class="font-bold text-xs text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
+            <img src="icon/discount.png" class="w-4 h-4" alt="标签"> 热门标签
+          </h3>
+          <div id="sidebarTags" class="tag-cloud">
+            <!-- 动态加载 -->
+          </div>
+        </div>
+
+        <!-- 关于 -->
+        <div class="apple-glass rounded-2xl p-4 border border-white/50 flex-none">
+          <p class="text-xs text-gray-600 leading-relaxed">
+            欢迎来到 aleee 的博客
+          </p>
+          <div class="mt-3 flex gap-2">
+            <a href="#" class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
+              <img src="icon/email.png" class="w-4 h-4" alt="邮箱">
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
+              <img src="icon/user.png" class="w-4 h-4" alt="关于">
+            </a>
+          </div>
+        </div>
+      </aside>
     </div>
-  </header>
-
-  <!-- 主布局容器 -->
-  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
-    
-    <!-- 左侧边栏：个人信息 + 分类 -->
-    <aside class="lg:col-span-3 space-y-6 sidebar">
-      <!-- 个人信息 -->
-      <div class="apple-glass rounded-[2rem] p-6 reveal active border border-white/50 text-center">
-        <div class="avatar-container mx-auto mb-4">
-          <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'">
-        </div>
-        
-        <h2 class="text-2xl font-black mb-1 tracking-tight">aleee</h2>
-        <p class="text-gray-500 font-medium mb-4 text-sm italic">"记录学习，分享知识"</p>
-        
-        <div class="space-y-2">
-          <div class="apple-glass rounded-xl p-3 border border-white/30">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">文章总数</p>
-            <p class="text-lg font-black text-gray-800" id="totalPosts">0</p>
-          </div>
-          <div class="apple-glass rounded-xl p-3 border border-white/30">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">分类数量</p>
-            <p class="text-lg font-black text-gray-800" id="totalCategories">0</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 分类侧边栏 -->
-      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
-        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
-          <img src="icon/file.png" class="w-5 h-5" alt="分类"> 文章分类
-        </h3>
-        <div id="sidebarCategories" class="space-y-1">
-          <!-- 动态加载 -->
-        </div>
-      </div>
-
-      <!-- 标签云 -->
-      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
-        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
-          <img src="icon/discount.png" class="w-5 h-5" alt="标签"> 热门标签
-        </h3>
-        <div id="sidebarTags" class="tag-cloud">
-          <!-- 动态加载 -->
-        </div>
-      </div>
-    </aside>
-    
-    <!-- 中间：文章列表 -->
-    <main class="lg:col-span-6 scroll-container" id="mainContent">
-      <!-- 文章列表 -->
-      <div id="postsList" class="space-y-4">
-        <div class="apple-glass rounded-[1.5rem] p-8 text-center">
-          <div class="loading-shimmer h-4 w-32 mx-auto rounded mb-4"></div>
-          <div class="loading-shimmer h-3 w-48 mx-auto rounded"></div>
-        </div>
-      </div>
-    </main>
-
-    <!-- 右侧：最新/推荐 -->
-    <aside class="lg:col-span-3 space-y-6">
-      <!-- 最新文章 -->
-      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
-        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
-          <img src="icon/calendar.png" class="w-5 h-5" alt="最新"> 最新文章
-        </h3>
-        <div id="recentPosts" class="space-y-3">
-          <!-- 动态加载 -->
-        </div>
-      </div>
-
-      <!-- 关于 -->
-      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
-        <h3 class="font-bold text-sm text-gray-600 mb-3 uppercase tracking-wider">关于</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          欢迎来到 aleee 的博客，这里记录着我的学习笔记和技术分享。
-        </p>
-        <div class="mt-4 flex gap-3">
-          <a href="#" class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
-            <img src="icon/email.png" class="w-5 h-5" alt="邮箱">
-          </a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
-            <img src="icon/user.png" class="w-5 h-5" alt="关于">
-          </a>
-        </div>
-      </div>
-    </aside>
   </div>
 
   <script>
@@ -451,7 +380,6 @@
     // 加载数据
     async function loadData() {
       try {
-        // 分别加载文章列表和分类
         const [postsResponse, categoriesResponse, tagsResponse] = await Promise.all([
           fetch('data/posts.json'),
           fetch('data/categories.json'),
@@ -462,23 +390,18 @@
         allCategories = await categoriesResponse.json();
         const tags = tagsResponse ? await tagsResponse.json() : [];
         
-        // 更新统计
         document.getElementById('totalPosts').textContent = allPosts.length;
         document.getElementById('totalCategories').textContent = allCategories.children?.length || 0;
         
-        // 渲染各部分
         renderNavCategories(allCategories);
         renderSidebarCategories(allCategories);
         renderPosts(allPosts);
         renderRecentPosts(allPosts);
         renderSidebarTags(tags);
-        
-        // 滚动动画
-        setupScrollAnimation();
       } catch (error) {
         console.error('加载数据失败:', error);
         document.getElementById('postsList').innerHTML = `
-          <div class="apple-glass rounded-[1.5rem] p-8 text-center text-gray-500">
+          <div class="apple-glass rounded-2xl p-8 text-center text-gray-500">
             <p class="text-4xl mb-4">😔</p>
             <p>加载失败，请刷新页面重试</p>
           </div>
@@ -491,7 +414,7 @@
       const nav = document.getElementById('categoryNav');
       if (!categories.children || categories.children.length === 0) return;
       
-      const catsHtml = categories.children.slice(0, 5).map(cat => `
+      const catsHtml = categories.children.slice(0, 6).map(cat => `
         <span class="nav-category" data-cat="${cat.name}" onclick="filterByCategory('${cat.name}')">
           ${cat.name}
         </span>
@@ -500,30 +423,37 @@
       nav.innerHTML = '<span class="nav-category active" data-cat="all" onclick="filterByCategory(\'all\')">全部</span>' + catsHtml;
     }
 
-    // 渲染侧边栏分类
+    // 渲染侧边栏分类 - 改为独立可点击的栏目
     function renderSidebarCategories(categories) {
       const container = document.getElementById('sidebarCategories');
       if (!categories.children || categories.children.length === 0) {
-        container.innerHTML = '<p class="text-sm text-gray-400 text-center py-4">暂无分类</p>';
+        container.innerHTML = '<p class="text-sm text-gray-400 p-2">暂无分类</p>';
         return;
       }
       
       container.innerHTML = categories.children.map(cat => `
-        <div class="sidebar-category rounded-xl p-3 cursor-pointer ${currentCategory === cat.name ? 'active' : ''}" 
-             onclick="filterByCategory('${cat.name}')">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <img src="icon/file.png" class="w-5 h-5" alt="分类">
-              <span class="font-medium text-sm">${cat.name}</span>
+        <div class="mb-2">
+          <!-- 主分类 - 独立卡片 -->
+          <div class="category-card rounded-lg p-2 ${currentCategory === cat.name ? 'active' : ''}" 
+               onclick="filterByCategory('${cat.name}')">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <img src="icon/file.png" class="w-4 h-4" alt="">
+                <span class="font-medium text-sm">${cat.name}</span>
+              </div>
+              <span class="text-xs bg-white/50 px-2 py-0.5 rounded-full">${cat.count}</span>
             </div>
-            <span class="text-xs bg-white/50 px-2 py-1 rounded-full">${cat.count}</span>
           </div>
+          
+          <!-- 子分类 - 独立可点击 -->
           ${cat.children && cat.children.length > 0 ? `
-            <div class="mt-2 space-y-1">
+            <div class="mt-1 ml-4 space-y-1">
               ${cat.children.map(child => `
-                <div class="subcategory-item py-1 text-xs text-gray-500 hover:text-ios-blue cursor-pointer"
-                     onclick="event.stopPropagation(); filterByCategory('${child.name}')">
-                  <img src="icon/file.png" class="w-3 h-3 inline-block mr-1" alt="子分类"> ${child.name} (${child.count})
+                <div class="subcategory-card rounded-md px-2 py-1.5 text-xs text-gray-600 flex items-center gap-1"
+                     onclick="filterByCategory('${child.name}')">
+                  <img src="icon/file.png" class="w-3 h-3" alt="">
+                  <span>${child.name}</span>
+                  <span class="text-gray-400">(${child.count})</span>
                 </div>
               `).join('')}
             </div>
@@ -542,8 +472,9 @@
       });
       
       // 更新侧边栏激活状态
-      document.querySelectorAll('.sidebar-category').forEach(el => {
-        el.classList.toggle('active', el.textContent.includes(catName) && catName !== 'all');
+      document.querySelectorAll('.category-card').forEach(el => {
+        const catText = el.querySelector('span.font-medium')?.textContent;
+        el.classList.toggle('active', catText === catName);
       });
       
       // 筛选文章
@@ -564,7 +495,7 @@
       
       if (posts.length === 0) {
         container.innerHTML = `
-          <div class="apple-glass rounded-[1.5rem] p-8 text-center text-gray-500">
+          <div class="apple-glass rounded-2xl p-8 text-center text-gray-500">
             <p class="text-4xl mb-4">📝</p>
             <p>该分类下暂无文章</p>
           </div>
@@ -573,50 +504,43 @@
       }
 
       container.innerHTML = posts.map((post, index) => `
-        <div class="flip-card reveal" style="animation-delay: ${index * 0.05}s">
-          <div class="flip-card-inner">
-            <div class="apple-glass post-card-enhanced hover-lift rounded-[1.5rem] p-5 border border-white/50">
-              <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
-                <div class="flex items-start justify-between gap-4">
-                  <div class="flex-1 min-w-0">
-                    <h3 class="font-bold text-base mb-3 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
-                    <div class="flex flex-wrap items-center gap-2 mb-3">
-                      <span class="post-meta-item">
-                        <img src="icon/file.png" class="w-3 h-3" alt="分类">
-                        <span class="truncate max-w-[120px]">${post.file.split('/')[0]}</span>
-                      </span>
-                      <span class="post-meta-item">
-                        <img src="icon/calendar.png" class="w-3 h-3" alt="日期">
-                        <span>${formatDate(post.date)}</span>
-                      </span>
-                    </div>
-                    <p class="text-xs text-gray-500 line-clamp-2 leading-relaxed">
-                      ${post.excerpt || '点击查看文章详情 →'}
-                    </p>
-                  </div>
-                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 flex items-center justify-center text-gray-600 hover:text-ios-blue transition-all">
-                    <img src="icon/increase.png" class="w-5 h-5" alt="查看">
-                  </div>
+        <div class="apple-glass hover-lift rounded-2xl p-4 border border-white/50">
+          <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-bold text-sm mb-2 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
+                <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                  <span class="post-meta-item">
+                    <img src="icon/file.png" class="w-3 h-3" alt="">
+                    <span class="truncate max-w-[100px]">${post.file.split('/')[0]}</span>
+                  </span>
+                  <span class="post-meta-item">
+                    <img src="icon/calendar.png" class="w-3 h-3" alt="">
+                    <span>${formatDate(post.date)}</span>
+                  </span>
                 </div>
-              </a>
+                <p class="text-xs text-gray-500 line-clamp-2">
+                  ${post.excerpt || '点击查看文章详情'}
+                </p>
+              </div>
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center">
+                <img src="icon/increase.png" class="w-4 h-4" alt="">
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       `).join('');
-      
-      // 触发滚动动画
-      setTimeout(setupScrollAnimation, 100);
     }
 
     // 渲染最新文章
     function renderRecentPosts(posts) {
       const container = document.getElementById('recentPosts');
-      const recent = posts.slice(0, 5);
+      const recent = posts.slice(0, 8);
       
       container.innerHTML = recent.map(post => `
-        <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/50 transition-all group">
-          <img src="icon/document.png" class="w-4 h-4 flex-shrink-0" alt="文章">
-          <span class="text-sm text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
+        <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/50 transition-all group">
+          <img src="icon/document.png" class="w-4 h-4 flex-shrink-0" alt="">
+          <span class="text-xs text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
         </a>
       `).join('');
     }
@@ -625,23 +549,23 @@
     function renderSidebarTags(tags) {
       const container = document.getElementById('sidebarTags');
       if (!tags || tags.length === 0) {
-        container.innerHTML = '<p class="text-sm text-gray-400">暂无标签</p>';
+        container.innerHTML = '<p class="text-xs text-gray-400">暂无标签</p>';
         return;
       }
       
-      container.innerHTML = tags.slice(0, 12).map(tag => `
-        <span class="tag-cloud-item" style="font-size: ${0.75 + (tag.count / Math.max(...tags.map(t => t.count))) * 0.3}rem">
-          <img src="icon/discount.png" class="w-3 h-3 inline-block mr-1" alt="标签">${tag.tag}
+      container.innerHTML = tags.slice(0, 15).map(tag => `
+        <span class="tag-cloud-item" onclick="filterByTag('${tag.tag}')">
+          ${tag.tag}
         </span>
       `).join('');
     }
 
-    // 滚动动画
-    function setupScrollAnimation() {
-      const reveals = document.querySelectorAll('.reveal');
-      reveals.forEach(el => {
-        el.classList.add('active');
-      });
+    // 按标签筛选
+    function filterByTag(tagName) {
+      const filtered = allPosts.filter(post => 
+        post.tags && post.tags.includes(tagName)
+      );
+      renderPosts(filtered);
     }
 
     // 格式化日期
