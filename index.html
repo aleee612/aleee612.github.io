@@ -451,7 +451,7 @@
     // 加载数据
     async function loadData() {
       try {
-        const response = await fetch('posts.json');
+        const response = await fetch('data/posts.json');
         const data = await response.json();
         
         allPosts = data.posts || [];
