@@ -384,7 +384,7 @@
       <!-- 分类侧边栏 -->
       <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
         <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
-          <span>📂</span> 文章分类
+          <img src="icon/file.png" class="w-5 h-5" alt="分类"> 文章分类
         </h3>
         <div id="sidebarCategories" class="space-y-1">
           <!-- 动态加载 -->
@@ -394,7 +394,7 @@
       <!-- 标签云 -->
       <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
         <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
-          <span>🏷️</span> 热门标签
+          <img src="icon/discount.png" class="w-5 h-5" alt="标签"> 热门标签
         </h3>
         <div id="sidebarTags" class="tag-cloud">
           <!-- 动态加载 -->
@@ -418,7 +418,7 @@
       <!-- 最新文章 -->
       <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
         <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
-          <span>🔥</span> 最新文章
+          <img src="icon/calendar.png" class="w-5 h-5" alt="最新"> 最新文章
         </h3>
         <div id="recentPosts" class="space-y-3">
           <!-- 动态加载 -->
@@ -433,10 +433,10 @@
         </p>
         <div class="mt-4 flex gap-3">
           <a href="#" class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
-            📧
+            <img src="icon/email.png" class="w-5 h-5" alt="邮箱">
           </a>
           <a href="#" class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
-            💻
+            <img src="icon/user.png" class="w-5 h-5" alt="关于">
           </a>
         </div>
       </div>
@@ -513,7 +513,7 @@
              onclick="filterByCategory('${cat.name}')">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="text-lg">📁</span>
+              <img src="icon/file.png" class="w-5 h-5" alt="分类">
               <span class="font-medium text-sm">${cat.name}</span>
             </div>
             <span class="text-xs bg-white/50 px-2 py-1 rounded-full">${cat.count}</span>
@@ -523,7 +523,7 @@
               ${cat.children.map(child => `
                 <div class="subcategory-item py-1 text-xs text-gray-500 hover:text-ios-blue cursor-pointer"
                      onclick="event.stopPropagation(); filterByCategory('${child.name}')">
-                  📂 ${child.name} (${child.count})
+                  <img src="icon/file.png" class="w-3 h-3 inline-block mr-1" alt="子分类"> ${child.name} (${child.count})
                 </div>
               `).join('')}
             </div>
@@ -582,11 +582,11 @@
                     <h3 class="font-bold text-base mb-3 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
                     <div class="flex flex-wrap items-center gap-2 mb-3">
                       <span class="post-meta-item">
-                        <span>📁</span>
+                        <img src="icon/file.png" class="w-3 h-3" alt="分类">
                         <span class="truncate max-w-[120px]">${post.file.split('/')[0]}</span>
                       </span>
                       <span class="post-meta-item">
-                        <span>📅</span>
+                        <img src="icon/calendar.png" class="w-3 h-3" alt="日期">
                         <span>${formatDate(post.date)}</span>
                       </span>
                     </div>
@@ -594,8 +594,8 @@
                       ${post.excerpt || '点击查看文章详情 →'}
                     </p>
                   </div>
-                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 flex items-center justify-center text-lg text-gray-600 hover:text-ios-blue transition-all">
-                    →
+                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 flex items-center justify-center text-gray-600 hover:text-ios-blue transition-all">
+                    <img src="icon/increase.png" class="w-5 h-5" alt="查看">
                   </div>
                 </div>
               </a>
@@ -615,7 +615,7 @@
       
       container.innerHTML = recent.map(post => `
         <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/50 transition-all group">
-          <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex-shrink-0"></span>
+          <img src="icon/document.png" class="w-4 h-4 flex-shrink-0" alt="文章">
           <span class="text-sm text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
         </a>
       `).join('');
@@ -631,7 +631,7 @@
       
       container.innerHTML = tags.slice(0, 12).map(tag => `
         <span class="tag-cloud-item" style="font-size: ${0.75 + (tag.count / Math.max(...tags.map(t => t.count))) * 0.3}rem">
-          #${tag.tag}
+          <img src="icon/discount.png" class="w-3 h-3 inline-block mr-1" alt="标签">${tag.tag}
         </span>
       `).join('');
     }
