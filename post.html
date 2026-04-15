@@ -13,13 +13,13 @@
       box-sizing: border-box;
     }
     
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-height: 100vh;
       background: url('images/bg1.png') center/cover fixed no-repeat;
-      position: relative;
-      overflow-x: hidden;
       color: #1a1a2e;
     }
 
@@ -33,6 +33,39 @@
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(20px);
       z-index: -1;
+    }
+
+    /* 主容器 */
+    .main-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 内容滚动区域 */
+    .content-scroll {
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.1) transparent;
+      padding-right: 8px;
+    }
+
+    .content-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .content-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .content-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.15);
+      border-radius: 10px;
     }
 
     /* 极致磨砂质感 */
@@ -61,40 +94,40 @@
     }
     
     .post-content h1 {
-      font-size: 2rem;
+      font-size: 1.75rem;
       font-weight: 800;
-      margin: 2rem 0 1rem;
+      margin: 1.5rem 0 1rem;
       color: #1a202c;
       line-height: 1.3;
     }
     
     .post-content h2 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      margin: 1.75rem 0 0.875rem;
+      margin: 1.25rem 0 0.75rem;
       color: #2d3748;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid rgba(0, 122, 255, 0.2);
     }
     
     .post-content h3 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 600;
-      margin: 1.5rem 0 0.75rem;
+      margin: 1rem 0 0.5rem;
       color: #4a5568;
     }
     
     .post-content p {
-      margin: 1rem 0;
+      margin: 0.75rem 0;
     }
     
     .post-content ul, .post-content ol {
-      margin: 1rem 0;
+      margin: 0.75rem 0;
       padding-left: 1.5rem;
     }
     
     .post-content li {
-      margin: 0.5rem 0;
+      margin: 0.35rem 0;
     }
     
     .post-content code {
@@ -103,93 +136,109 @@
       border-radius: 4px;
       font-family: 'Monaco', 'Menlo', monospace;
       font-size: 0.9em;
-      color: #e53e3e;
     }
     
     .post-content pre {
-      background: #1a202c;
-      color: #e2e8f0;
-      padding: 1.5rem;
-      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
       overflow-x: auto;
-      margin: 1.5rem 0;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+      margin: 1rem 0;
     }
     
     .post-content pre code {
-      background: transparent;
-      color: inherit;
+      background: none;
       padding: 0;
     }
     
     .post-content blockquote {
-      border-left: 4px solid #667eea;
+      border-left: 4px solid rgba(0, 122, 255, 0.3);
       padding-left: 1rem;
-      margin: 1.5rem 0;
-      color: #718096;
+      margin: 1rem 0;
+      color: #4a5568;
       font-style: italic;
-      background: rgba(102, 126, 234, 0.05);
-      padding: 1rem 1rem 1rem 1.5rem;
-      border-radius: 0 8px 8px 0;
-    }
-    
-    .post-content a {
-      color: #007AFF;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(0, 122, 255, 0.3);
-      transition: all 0.2s;
-    }
-    
-    .post-content a:hover {
-      border-bottom-color: #007AFF;
     }
     
     .post-content img {
       max-width: 100%;
       height: auto;
-      border-radius: 12px;
-      margin: 1.5rem 0;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
-      display: block;
+      border-radius: 8px;
+      margin: 1rem 0;
     }
-    
+
+    /* 表格样式 */
     .post-content table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1.5rem 0;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      margin: 1rem 0;
+      font-size: 0.9rem;
     }
     
-    .post-content th, .post-content td {
-      padding: 0.75rem 1rem;
+    .post-content th,
+    .post-content td {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 0.6rem 0.8rem;
       text-align: left;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     
     .post-content th {
-      background: rgba(102, 126, 234, 0.1);
+      background: rgba(0, 0, 0, 0.03);
       font-weight: 600;
     }
     
-    .post-content tr:hover {
+    .post-content tr:nth-child(even) {
       background: rgba(0, 0, 0, 0.02);
     }
 
-    /* 状态指示器 */
-    .status-dot {
-      width: 8px;
-      height: 8px;
+    /* 返回顶部按钮 */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
-      background: #34c759;
-      box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.2);
-      animation: pulse 2s infinite;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.95);
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+    /* 返回按钮 */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #4a5568;
+      transition: all 0.3s ease;
+    }
+    
+    .back-btn:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: #2d3748;
     }
 
     /* 渐变文字 */
@@ -200,140 +249,93 @@
       background-clip: text;
     }
 
-    /* 返回按钮 */
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 999px;
-      font-weight: 600;
-      color: #4a5568;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.9);
-      transform: translateX(-4px);
-      box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 滚动条 */
-    .custom-scroll {
-      scrollbar-width: thin;
-      scrollbar-color: rgba(0,0,0,0.15) transparent;
-    }
-    
-    .custom-scroll::-webkit-scrollbar {
-      width: 8px;
-    }
-    
-    .custom-scroll::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    
-    .custom-scroll::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.15);
-      border-radius: 10px;
-    }
-
     /* 加载动画 */
     @keyframes shimmer {
       0% { background-position: -200% 0; }
       100% { background-position: 200% 0; }
     }
-
+    
     .loading-shimmer {
-      background: linear-gradient(90deg, rgba(255,255,255,0.4) 25%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 75%);
+      background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.06) 75%);
       background-size: 200% 100%;
       animation: shimmer 1.5s infinite;
     }
-
-    /* 响应式 */
-    @media (max-width: 768px) {
-      .post-content h1 { font-size: 1.5rem; }
-      .post-content h2 { font-size: 1.25rem; }
-      .post-content h3 { font-size: 1.1rem; }
-    }
   </style>
 </head>
-<body class="p-4 md:p-6">
-
-  <!-- 顶部导航 -->
-  <header class="w-full flex justify-center mb-6 sticky top-4 z-50">
-    <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center w-full max-w-5xl">
-      <a href="index.html" class="flex items-center gap-2 font-black text-xl tracking-tight">
-        <span class="status-dot"></span>
-        <span class="gradient-text-vibrant">aleee</span>
-      </a>
-      
-      <button onclick="history.back()" class="back-btn text-sm">
-        ← 返回
-      </button>
-    </div>
-  </header>
-
-  <!-- 主内容区 -->
-  <main class="max-w-4xl mx-auto">
-    <!-- 文章容器 -->
-    <article class="apple-glass rounded-[2rem] p-8 md:p-12 border border-white/50">
-      <!-- 加载状态 -->
-      <div id="loadingState">
-        <div class="loading-shimmer h-8 w-3/4 rounded mb-6"></div>
-        <div class="loading-shimmer h-4 w-1/2 rounded mb-8"></div>
-        <div class="space-y-4">
-          <div class="loading-shimmer h-4 w-full rounded"></div>
-          <div class="loading-shimmer h-4 w-full rounded"></div>
-          <div class="loading-shimmer h-4 w-3/4 rounded"></div>
-        </div>
-      </div>
-      
-      <!-- 文章内容 -->
-      <div id="postContent" class="hidden">
-        <!-- 文章头部 -->
-        <header class="mb-8 pb-8 border-b border-gray-200/50">
-          <h1 id="postTitle" class="text-3xl md:text-4xl font-black text-gray-900 mb-4 leading-tight"></h1>
-          <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500">
-            <span id="postCategory" class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full font-medium"></span>
-            <span id="postDate" class="flex items-center gap-1">
-              📅 <span></span>
-            </span>
-          </div>
-        </header>
+<body>
+  <div class="main-container">
+    <!-- 顶部导航 -->
+    <header class="flex-none mb-4">
+      <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 font-black text-lg tracking-tight">
+          <span class="gradient-text-vibrant">aleee</span>
+        </a>
         
-        <!-- 正文 -->
-        <div id="postBody" class="post-content"></div>
-        
-        <!-- 文章底部 -->
-        <footer class="mt-12 pt-8 border-t border-gray-200/50">
-          <div class="flex items-center justify-between">
-            <a href="index.html" class="back-btn">
-              ← 返回首页
-            </a>
-            <div class="flex items-center gap-2 text-sm text-gray-500">
-              <span>分享:</span>
-              <button onclick="sharePost()" class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
-                🔗
-              </button>
-            </div>
-          </div>
-        </footer>
-      </div>
-      
-      <!-- 错误状态 -->
-      <div id="errorState" class="hidden text-center py-12">
-        <p class="text-6xl mb-4">😔</p>
-        <h2 class="text-xl font-bold text-gray-700 mb-2">文章加载失败</h2>
-        <p class="text-gray-500 mb-6">抱歉，无法找到该文章</p>
-        <a href="index.html" class="back-btn inline-flex">
-          ← 返回首页
+        <a href="index.html" class="back-btn">
+          <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回
         </a>
       </div>
-    </article>
-  </main>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="content-scroll">
+      <article class="apple-glass rounded-2xl p-6 md:p-8 border border-white/50">
+        <!-- 加载状态 -->
+        <div id="loadingState">
+          <div class="loading-shimmer h-8 w-3/4 rounded mb-4"></div>
+          <div class="loading-shimmer h-4 w-1/2 rounded mb-6"></div>
+          <div class="space-y-3">
+            <div class="loading-shimmer h-3 w-full rounded"></div>
+            <div class="loading-shimmer h-3 w-full rounded"></div>
+            <div class="loading-shimmer h-3 w-3/4 rounded"></div>
+          </div>
+        </div>
+        
+        <!-- 文章内容 -->
+        <div id="postContent" class="hidden">
+          <!-- 文章头部 -->
+          <header class="mb-6 pb-4 border-b border-gray-200/50">
+            <h1 id="postTitle" class="text-2xl md:text-3xl font-black text-gray-900 mb-3 leading-tight"></h1>
+            <div class="flex flex-wrap items-center gap-2 text-sm text-gray-500">
+              <span id="postCategory" class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full font-medium"></span>
+            </div>
+          </header>
+          
+          <!-- 正文 -->
+          <div id="postBody" class="post-content"></div>
+          
+          <!-- 文章底部 -->
+          <footer class="mt-8 pt-6 border-t border-gray-200/50">
+            <div class="flex items-center justify-between">
+              <a href="index.html" class="back-btn">
+                <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回首页
+              </a>
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <button onclick="sharePost()" class="w-9 h-9 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
+                  <img src="icon/share.png" class="w-4 h-4" alt="分享">
+                </button>
+              </div>
+            </div>
+          </footer>
+        </div>
+        
+        <!-- 错误状态 -->
+        <div id="errorState" class="hidden text-center py-12">
+          <p class="text-5xl mb-4">😔</p>
+          <h2 class="text-lg font-bold text-gray-700 mb-2">文章加载失败</h2>
+          <p class="text-gray-500 mb-4 text-sm">抱歉，无法找到该文章</p>
+          <a href="index.html" class="back-btn inline-flex">
+            <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回首页
+          </a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <img src="icon/increase.png" class="w-5 h-5" alt="顶部">
+  </button>
 
   <script>
     // 获取 URL 参数
@@ -344,7 +346,7 @@
 
     // 格式化日期
     function formatDate(dateString) {
-      if (!dateString) return '无日期';
+      if (!dateString) return '';
       const date = new Date(dateString);
       if (isNaN(date.getTime())) return dateString;
       return new Intl.DateTimeFormat('zh-CN', {
@@ -354,7 +356,7 @@
       }).format(date);
     }
 
-    // 简单的 Markdown 解析
+    // Markdown 解析 - 支持表格
     function parseMarkdown(content) {
       if (!content) return '';
       
@@ -369,6 +371,34 @@
       // 行内代码
       content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
       
+      // 表格处理 - 支持 | 分隔的表格
+      content = content.replace(/\|(.+)\|\n\|[-:\| ]+\|\n((?:\|.+)\n?)+/g, (match) => {
+        const lines = match.trim().split('\n');
+        if (lines.length < 2) return match;
+        
+        // 解析表头
+        const headerCells = lines[0].split('|').filter(c => c.trim() !== '');
+        let html = '<table><thead><tr>';
+        headerCells.forEach(cell => {
+          html += `<th>${cell.trim()}</th>`;
+        });
+        html += '</tr></thead><tbody>';
+        
+        // 跳过分隔行，解析数据行
+        for (let i = 2; i < lines.length; i++) {
+          const cells = lines[i].split('|').filter(c => c.trim() !== '');
+          if (cells.length > 0) {
+            html += '<tr>';
+            cells.forEach(cell => {
+              html += `<td>${cell.trim()}</td>`;
+            });
+            html += '</tr>';
+          }
+        }
+        html += '</tbody></table>';
+        return html;
+      });
+      
       // 标题
       content = content.replace(/^### (.*$)/gim, '<h3>$1</h3>');
       content = content.replace(/^## (.*$)/gim, '<h2>$1</h2>');
@@ -382,15 +412,8 @@
       // 链接
       content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
       
-      // 图片 - 修复路径问题
-      content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
-        // 处理相对路径
-        let imgSrc = src;
-        if (!src.startsWith('http') && !src.startsWith('/')) {
-          imgSrc = src;
-        }
-        return `<img src="${imgSrc}" alt="${alt}" onerror="this.style.display='none'" onload="this.style.display='block'">`;
-      });
+      // 图片
+      content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%">');
       
       // 引用
       content = content.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
@@ -404,18 +427,19 @@
       content = content.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
       
       // 分隔线
-      content = content.replace(/^---$/gim, '<hr style="border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 2rem 0;">');
+      content = content.replace(/^---$/gim, '<hr style="border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 1.5rem 0;">');
       
       // 段落
       content = content.replace(/\n\n/g, '</p><p>');
       content = '<p>' + content + '</p>';
       
-      // 清理空段落
+      // 清理
       content = content.replace(/<p><\/p>/g, '');
       content = content.replace(/<p>(<h[1-6]>.*?<\/h[1-6]>)<\/p>/g, '$1');
       content = content.replace(/<p>(<pre>.*?<\/pre>)<\/p>/gs, '$1');
       content = content.replace(/<p>(<blockquote>.*?<\/blockquote>)<\/p>/gs, '$1');
       content = content.replace(/<p>(<ul>.*?<\/ul>)<\/p>/gs, '$1');
+      content = content.replace(/<p>(<table>.*?<\/table>)<\/p>/gs, '$1');
       content = content.replace(/<p>(<hr[^>]*>)<\/p>/g, '$1');
       content = content.replace(/<p>(<img[^>]*>)<\/p>/g, '$1');
       
@@ -432,7 +456,6 @@
       }
       
       try {
-        // 加载文章列表
         const response = await fetch('data/posts.json');
         const posts = await response.json();
         
@@ -443,33 +466,23 @@
           return;
         }
         
-        // 加载文章内容 - 文件在 posts/ 目录下
+        // 加载文章内容
         const filePath = 'posts/' + post.file;
         const contentResponse = await fetch(filePath);
         let content = '';
         
         if (contentResponse.ok) {
           content = await contentResponse.text();
-          // 移除 YAML front matter
           content = content.replace(/^---[\s\S]*?---\n*/, '');
         }
         
         // 显示文章
         document.getElementById('postTitle').textContent = post.title;
         document.getElementById('postCategory').textContent = post.file.split('/')[0];
-        // 文章数据中没有 date 字段，隐藏日期显示
-        const dateEl = document.getElementById('postDate');
-        if (post.date) {
-          dateEl.querySelector('span').textContent = formatDate(post.date);
-        } else {
-          dateEl.style.display = 'none';
-        }
         document.getElementById('postBody').innerHTML = parseMarkdown(content) || '<p>暂无内容</p>';
         
-        // 更新页面标题
         document.title = post.title + ' - aleee';
         
-        // 切换显示
         document.getElementById('loadingState').classList.add('hidden');
         document.getElementById('postContent').classList.remove('hidden');
         
@@ -497,6 +510,24 @@
         alert('链接已复制到剪贴板');
       }
     }
+
+    // 返回顶部
+    function scrollToTop() {
+      document.querySelector('.content-scroll').scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // 监听滚动显示/隐藏返回顶部按钮
+    document.querySelector('.content-scroll').addEventListener('scroll', function() {
+      const btn = document.getElementById('backToTop');
+      if (this.scrollTop > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
 
     // 初始化
     loadPost();
