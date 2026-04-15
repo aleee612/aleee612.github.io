@@ -23,6 +23,7 @@
       color: #1a1a2e;
     }
 
+    /* 背景模糊层 */
     body::before {
       content: '';
       position: fixed;
@@ -30,9 +31,9 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(30px) saturate(180%);
-      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(60px) saturate(200%);
+      -webkit-backdrop-filter: blur(60px) saturate(200%);
       z-index: -1;
     }
 
@@ -45,20 +46,39 @@
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
+      overflow: hidden;
     }
 
-    /* 内容区域 */
+    /* 内容区域 - 使用calc确保不超出 */
     .content-area {
       flex: 1;
       display: grid;
-      grid-template-columns: 280px 1fr 260px;
+      grid-template-columns: 260px 1fr 240px;
       gap: 1rem;
       min-height: 0;
       margin-top: 1rem;
+      overflow: hidden;
     }
 
-    /* 滚动区域 */
-    .sidebar-scroll, .posts-scroll {
+    /* 侧边栏容器 */
+    .sidebar-left, .sidebar-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* 可滚动区域 */
+    .sidebar-scroll {
+      flex: 1;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.1) transparent;
+      min-height: 0;
+    }
+
+    .posts-scroll {
       height: 100%;
       overflow-y: auto;
       scrollbar-width: thin;
@@ -76,23 +96,23 @@
       border-radius: 10px;
     }
 
-    /* 磨砂质感 - 加强 */
+    /* 磨砂质感 */
     .apple-glass {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(40px) saturate(200%);
-      -webkit-backdrop-filter: blur(40px) saturate(200%);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.15), 
-                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.1), 
+                  inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
     .apple-glass-strong {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(50px) saturate(220%);
-      -webkit-backdrop-filter: blur(50px) saturate(220%);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.15),
-                  inset 0 1px 0 rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(30px) saturate(200%);
+      -webkit-backdrop-filter: blur(30px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.12),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
     /* 卡片悬停 */
@@ -101,8 +121,8 @@
     }
     
     .hover-lift:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.12);
     }
 
     .text-ios-blue { 
@@ -117,11 +137,11 @@
     }
 
     .status-dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #34c759;
-      box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.2);
+      box-shadow: 0 0 0 2px rgba(52, 199, 89, 0.2);
       animation: pulse 2s infinite;
     }
 
@@ -130,38 +150,63 @@
       50% { opacity: 0.6; }
     }
 
-    /* 分类样式 */
-    .category-card {
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 12px;
-      padding: 0.875rem 1rem;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-    
-    .category-card:hover {
-      background: rgba(255, 255, 255, 0.9);
-      border-color: rgba(0, 122, 255, 0.3);
-      transform: translateX(4px);
-    }
-
-    .category-card.active {
-      background: rgba(0, 122, 255, 0.15);
-      border-color: rgba(0, 122, 255, 0.4);
-    }
-
-    .subcategory-card {
-      background: rgba(255, 255, 255, 0.4);
+    /* 分类样式 - 原有排版 */
+    .category-item {
       border-radius: 10px;
-      padding: 0.625rem 0.875rem;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .category-header {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       transition: all 0.2s ease;
+    }
+
+    .category-header:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .category-header.active {
+      background: rgba(0, 122, 255, 0.15);
+    }
+
+    .category-arrow {
+      transition: transform 0.2s ease;
+      font-size: 0.75rem;
+    }
+
+    .category-arrow.expanded {
+      transform: rotate(90deg);
+    }
+
+    .subcategory-list {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .subcategory-list.expanded {
+      max-height: 500px;
+    }
+
+    .subcategory-item {
+      padding: 0.5rem 1rem 0.5rem 2.5rem;
       cursor: pointer;
       font-size: 0.9rem;
+      color: #666;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    
-    .subcategory-card:hover {
-      background: rgba(255, 255, 255, 0.8);
+
+    .subcategory-item:hover {
+      background: rgba(255, 255, 255, 0.5);
       color: #007AFF;
     }
 
@@ -169,10 +214,10 @@
       display: inline-flex;
       align-items: center;
       gap: 0.375rem;
-      padding: 0.375rem 0.75rem;
-      background: rgba(255, 255, 255, 0.7);
+      padding: 0.25rem 0.625rem;
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #718096;
     }
 
@@ -183,29 +228,28 @@
     }
     
     .tag-cloud-item {
-      padding: 0.375rem 0.75rem;
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      padding: 0.25rem 0.625rem;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      font-size: 0.8rem;
       color: #4a5568;
       transition: all 0.2s ease;
       cursor: pointer;
     }
     
     .tag-cloud-item:hover {
-      background: rgba(0, 122, 255, 0.2);
-      border-color: rgba(0, 122, 255, 0.5);
+      background: rgba(0, 122, 255, 0.15);
+      border-color: rgba(0, 122, 255, 0.4);
       color: #007AFF;
     }
 
     .nav-category {
-      padding: 0.5rem 1rem;
+      padding: 0.375rem 0.875rem;
       border-radius: 999px;
       transition: all 0.25s ease;
       cursor: pointer;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     
     .nav-category:hover {
@@ -213,17 +257,17 @@
     }
     
     .nav-category.active {
-      background: rgba(0, 122, 255, 0.2);
+      background: rgba(0, 122, 255, 0.15);
       color: #007AFF;
     }
 
     .avatar-container {
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       overflow: hidden;
-      border: 3px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.15);
     }
     
     .avatar-container img {
@@ -232,19 +276,12 @@
       object-fit: cover;
     }
 
-    /* Icon 容器 */
-    .icon-wrapper {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.2em;
-      height: 1.2em;
-    }
-    
-    .icon-wrapper img {
-      width: 100%;
-      height: 100%;
+    /* Icon 样式 - 使用emoji作为fallback */
+    .icon-img {
+      width: 16px;
+      height: 16px;
       object-fit: contain;
+      vertical-align: middle;
     }
 
     @media (max-width: 1024px) {
@@ -261,17 +298,17 @@
   <div class="main-container">
     <!-- 顶部导航栏 -->
     <header class="flex-none">
-      <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
-        <h1 class="font-black text-lg tracking-tight cursor-pointer flex items-center gap-2">
+      <div class="apple-glass-strong rounded-full px-5 py-2.5 flex justify-between items-center">
+        <h1 class="font-black text-base tracking-tight cursor-pointer flex items-center gap-2">
           <span class="status-dot"></span>
           <span class="gradient-text-vibrant">aleee</span>
         </h1>
         
-        <nav id="categoryNav" class="hidden md:flex gap-2 font-medium text-gray-600">
+        <nav id="categoryNav" class="hidden md:flex gap-1.5 font-medium text-gray-600">
           <span class="nav-category active" data-cat="all">全部</span>
         </nav>
         
-        <button class="bg-gray-900 text-white px-4 py-2 rounded-full text-sm font-bold hover:shadow-lg transition-all">
+        <button class="bg-gray-900 text-white px-3 py-1.5 rounded-full text-xs font-bold hover:shadow-lg transition-all">
           订阅
         </button>
       </div>
@@ -280,39 +317,37 @@
     <!-- 主内容区 -->
     <div class="content-area">
       <!-- 左侧边栏 -->
-      <aside class="sidebar-left flex flex-col gap-3">
+      <aside class="sidebar-left">
         <!-- 个人信息 -->
-        <div class="apple-glass rounded-2xl p-5 border border-white/50">
+        <div class="apple-glass rounded-xl p-4 border border-white/50 flex-none">
           <div class="flex items-center gap-3">
             <div class="avatar-container">
               <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'">
             </div>
             <div>
-              <h2 class="text-xl font-black tracking-tight">aleee</h2>
-              <p class="text-sm text-gray-500">记录学习，分享知识</p>
+              <h2 class="text-lg font-black tracking-tight">aleee</h2>
+              <p class="text-xs text-gray-500">记录学习，分享知识</p>
             </div>
           </div>
-          <div class="flex gap-3 mt-4">
-            <div class="flex-1 bg-white/50 rounded-xl p-3 text-center">
-              <p class="text-xs text-gray-400 mb-1">文章</p>
-              <p class="text-lg font-black" id="totalPosts">0</p>
+          <div class="flex gap-2 mt-3">
+            <div class="flex-1 bg-white/40 rounded-lg p-2 text-center">
+              <p class="text-xs text-gray-400 mb-0.5">文章</p>
+              <p class="text-base font-black" id="totalPosts">0</p>
             </div>
-            <div class="flex-1 bg-white/50 rounded-xl p-3 text-center">
-              <p class="text-xs text-gray-400 mb-1">分类</p>
-              <p class="text-lg font-black" id="totalCategories">0</p>
+            <div class="flex-1 bg-white/40 rounded-lg p-2 text-center">
+              <p class="text-xs text-gray-400 mb-0.5">分类</p>
+              <p class="text-base font-black" id="totalCategories">0</p>
             </div>
           </div>
         </div>
 
-        <!-- 分类列表 -->
-        <div class="apple-glass rounded-2xl p-5 border border-white/50 flex-1 flex flex-col min-h-0">
-          <h3 class="font-bold text-sm text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
-            <span class="icon-wrapper">
-              <img src="icon/file.png" alt="">
-            </span>
+        <!-- 分类列表 - 可折叠 -->
+        <div class="apple-glass rounded-xl p-4 border border-white/50 flex-1 flex flex-col min-h-0">
+          <h3 class="font-bold text-xs text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2 flex-none">
+            <span>📁</span>
             文章分类
           </h3>
-          <div id="sidebarCategories" class="sidebar-scroll flex-1 space-y-2">
+          <div id="sidebarCategories" class="sidebar-scroll">
           </div>
         </div>
       </aside>
@@ -320,33 +355,29 @@
       <!-- 中间：文章列表 -->
       <main class="posts-scroll" id="mainContent">
         <div id="postsList" class="space-y-3 pb-4">
-          <div class="apple-glass rounded-2xl p-8 text-center">
-            <div class="animate-pulse h-5 w-32 mx-auto rounded bg-gray-200 mb-4"></div>
-            <div class="animate-pulse h-4 w-48 mx-auto rounded bg-gray-200"></div>
+          <div class="apple-glass rounded-xl p-6 text-center">
+            <div class="animate-pulse h-4 w-28 mx-auto rounded bg-gray-200 mb-3"></div>
+            <div class="animate-pulse h-3 w-40 mx-auto rounded bg-gray-200"></div>
           </div>
         </div>
       </main>
 
       <!-- 右侧边栏 -->
-      <aside class="sidebar-right flex flex-col gap-3">
+      <aside class="sidebar-right">
         <!-- 最新文章 -->
-        <div class="apple-glass rounded-2xl p-5 border border-white/50 flex-1 flex flex-col min-h-0">
-          <h3 class="font-bold text-sm text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
-            <span class="icon-wrapper">
-              <img src="icon/calendar.png" alt="">
-            </span>
+        <div class="apple-glass rounded-xl p-4 border border-white/50 flex-1 flex flex-col min-h-0">
+          <h3 class="font-bold text-xs text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2 flex-none">
+            <span>📅</span>
             最新文章
           </h3>
-          <div id="recentPosts" class="sidebar-scroll space-y-2">
+          <div id="recentPosts" class="sidebar-scroll space-y-1">
           </div>
         </div>
 
         <!-- 标签云 -->
-        <div class="apple-glass rounded-2xl p-5 border border-white/50 flex-none">
-          <h3 class="font-bold text-sm text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
-            <span class="icon-wrapper">
-              <img src="icon/discount.png" alt="">
-            </span>
+        <div class="apple-glass rounded-xl p-4 border border-white/50 flex-none">
+          <h3 class="font-bold text-xs text-gray-500 mb-3 uppercase tracking-wider flex items-center gap-2">
+            <span>🏷️</span>
             热门标签
           </h3>
           <div id="sidebarTags" class="tag-cloud">
@@ -354,20 +385,16 @@
         </div>
 
         <!-- 关于 -->
-        <div class="apple-glass rounded-2xl p-5 border border-white/50 flex-none">
-          <p class="text-sm text-gray-600 leading-relaxed">
+        <div class="apple-glass rounded-xl p-4 border border-white/50 flex-none">
+          <p class="text-xs text-gray-600 leading-relaxed">
             欢迎来到 aleee 的博客
           </p>
-          <div class="mt-3 flex gap-2">
-            <a href="#" class="w-9 h-9 rounded-full bg-white/60 flex items-center justify-center hover:bg-white/90 transition-all">
-              <span class="icon-wrapper">
-                <img src="icon/email.png" alt="">
-              </span>
+          <div class="mt-2 flex gap-2">
+            <a href="#" class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all text-sm">
+              ✉️
             </a>
-            <a href="#" class="w-9 h-9 rounded-full bg-white/60 flex items-center justify-center hover:bg-white/90 transition-all">
-              <span class="icon-wrapper">
-                <img src="icon/user.png" alt="">
-              </span>
+            <a href="#" class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all text-sm">
+              👤
             </a>
           </div>
         </div>
@@ -376,9 +403,14 @@
   </div>
 
   <script>
+    // 检测是否在GitHub Pages上
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    const basePath = isGitHubPages ? '/aleee612.github.io' : '';
+    
     let allPosts = [];
     let allCategories = [];
     let currentCategory = 'all';
+    let expandedCategories = new Set();
 
     async function loadData() {
       try {
@@ -403,9 +435,9 @@
       } catch (error) {
         console.error('加载数据失败:', error);
         document.getElementById('postsList').innerHTML = `
-          <div class="apple-glass rounded-2xl p-8 text-center text-gray-500">
-            <p class="text-4xl mb-4">😔</p>
-            <p>加载失败，请刷新页面重试</p>
+          <div class="apple-glass rounded-xl p-6 text-center text-gray-500">
+            <p class="text-3xl mb-3">😔</p>
+            <p class="text-sm">加载失败，请刷新页面重试</p>
           </div>
         `;
       }
@@ -427,41 +459,58 @@
     function renderSidebarCategories(categories) {
       const container = document.getElementById('sidebarCategories');
       if (!categories.children || categories.children.length === 0) {
-        container.innerHTML = '<p class="text-sm text-gray-400 p-2">暂无分类</p>';
+        container.innerHTML = '<p class="text-xs text-gray-400 p-2">暂无分类</p>';
         return;
       }
       
-      container.innerHTML = categories.children.map(cat => `
-        <div class="mb-2">
-          <div class="category-card ${currentCategory === cat.name ? 'active' : ''}" 
-               onclick="filterByCategory('${cat.name}')">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="icon-wrapper">
-                  <img src="icon/file.png" alt="">
-                </span>
-                <span class="font-medium text-base">${cat.name}</span>
-              </div>
-              <span class="text-sm bg-white/60 px-2 py-0.5 rounded-full">${cat.count}</span>
+      container.innerHTML = categories.children.map((cat, index) => {
+        const hasChildren = cat.children && cat.children.length > 0;
+        const isExpanded = expandedCategories.has(cat.name);
+        
+        return `
+        <div class="category-item">
+          <div class="category-header ${currentCategory === cat.name ? 'active' : ''}" 
+               onclick="toggleCategory('${cat.name}', ${hasChildren})">
+            <div class="flex items-center gap-2">
+              <span class="text-sm">📂</span>
+              <span class="font-medium text-sm">${cat.name}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs bg-white/50 px-1.5 py-0.5 rounded-full">${cat.count}</span>
+              ${hasChildren ? `<span class="category-arrow ${isExpanded ? 'expanded' : ''}">▶</span>` : ''}
             </div>
           </div>
           
-          ${cat.children && cat.children.length > 0 ? `
-            <div class="mt-2 ml-4 space-y-2">
+          ${hasChildren ? `
+            <div class="subcategory-list ${isExpanded ? 'expanded' : ''}">
               ${cat.children.map(child => `
-                <div class="subcategory-card flex items-center gap-2 text-gray-600"
+                <div class="subcategory-item"
                      onclick="event.stopPropagation(); filterByCategory('${child.name}')">
-                  <span class="icon-wrapper" style="width:1em;height:1em;">
-                    <img src="icon/file.png" alt="">
+                  <span class="flex items-center gap-2">
+                    <span class="text-xs">📄</span>
+                    <span class="truncate">${child.name}</span>
                   </span>
-                  <span class="flex-1 truncate">${child.name}</span>
-                  <span class="text-gray-400 text-sm">${child.count}</span>
+                  <span class="text-xs text-gray-400">${child.count}</span>
                 </div>
               `).join('')}
             </div>
           ` : ''}
         </div>
-      `).join('');
+      `}).join('');
+    }
+
+    function toggleCategory(catName, hasChildren) {
+      if (!hasChildren) {
+        filterByCategory(catName);
+        return;
+      }
+      
+      if (expandedCategories.has(catName)) {
+        expandedCategories.delete(catName);
+      } else {
+        expandedCategories.add(catName);
+      }
+      renderSidebarCategories(allCategories);
     }
 
     function filterByCategory(catName) {
@@ -471,7 +520,7 @@
         el.classList.toggle('active', el.dataset.cat === catName);
       });
       
-      document.querySelectorAll('.category-card').forEach(el => {
+      document.querySelectorAll('.category-header').forEach(el => {
         const catText = el.querySelector('span.font-medium')?.textContent;
         el.classList.toggle('active', catText === catName);
       });
@@ -492,36 +541,32 @@
       
       if (posts.length === 0) {
         container.innerHTML = `
-          <div class="apple-glass rounded-2xl p-8 text-center text-gray-500">
-            <p class="text-4xl mb-4">📝</p>
-            <p>该分类下暂无文章</p>
+          <div class="apple-glass rounded-xl p-6 text-center text-gray-500">
+            <p class="text-3xl mb-3">📝</p>
+            <p class="text-sm">该分类下暂无文章</p>
           </div>
         `;
         return;
       }
 
       container.innerHTML = posts.map((post) => `
-        <div class="apple-glass hover-lift rounded-2xl p-5 border border-white/50">
+        <div class="apple-glass hover-lift rounded-xl p-4 border border-white/50">
           <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
-            <div class="flex items-start justify-between gap-4">
+            <div class="flex items-start justify-between gap-3">
               <div class="flex-1 min-w-0">
-                <h3 class="font-bold text-base mb-3 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
-                <div class="flex flex-wrap items-center gap-2 mb-3">
+                <h3 class="font-bold text-sm mb-2 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
+                <div class="flex flex-wrap items-center gap-1.5 mb-2">
                   <span class="post-meta-item">
-                    <span class="icon-wrapper" style="width:1em;height:1em;">
-                      <img src="icon/file.png" alt="">
-                    </span>
-                    <span class="truncate max-w-[100px]">${post.file.split('/')[0]}</span>
+                    <span class="text-xs">📁</span>
+                    <span class="truncate max-w-[80px]">${post.file.split('/')[0]}</span>
                   </span>
                 </div>
-                <p class="text-sm text-gray-500 line-clamp-2">
+                <p class="text-xs text-gray-500 line-clamp-2">
                   ${post.excerpt || '点击查看文章详情'}
                 </p>
               </div>
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center">
-                <span class="icon-wrapper" style="width:1.2em;height:1.2em;">
-                  <img src="icon/increase.png" alt="">
-                </span>
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center text-xs">
+                →
               </div>
             </div>
           </a>
@@ -531,14 +576,12 @@
 
     function renderRecentPosts(posts) {
       const container = document.getElementById('recentPosts');
-      const recent = posts.slice(0, 8);
+      const recent = posts.slice(0, 10);
       
       container.innerHTML = recent.map(post => `
-        <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/50 transition-all group">
-          <span class="icon-wrapper" style="width:1.2em;height:1.2em;">
-            <img src="icon/document.png" alt="">
-          </span>
-          <span class="text-sm text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
+        <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-2 p-1.5 rounded-lg hover:bg-white/40 transition-all group">
+          <span class="text-xs flex-shrink-0">📄</span>
+          <span class="text-xs text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
         </a>
       `).join('');
     }
@@ -546,11 +589,11 @@
     function renderSidebarTags(tags) {
       const container = document.getElementById('sidebarTags');
       if (!tags || tags.length === 0) {
-        container.innerHTML = '<p class="text-sm text-gray-400">暂无标签</p>';
+        container.innerHTML = '<p class="text-xs text-gray-400">暂无标签</p>';
         return;
       }
       
-      container.innerHTML = tags.slice(0, 12).map(tag => `
+      container.innerHTML = tags.slice(0, 15).map(tag => `
         <span class="tag-cloud-item" onclick="filterByTag('${tag.tag}')">
           ${tag.tag}
         </span>
