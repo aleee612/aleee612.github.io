@@ -443,8 +443,9 @@
           return;
         }
         
-        // 加载文章内容
-        const contentResponse = await fetch(post.file);
+        // 加载文章内容 - 文件在 posts/ 目录下
+        const filePath = 'posts/' + post.file;
+        const contentResponse = await fetch(filePath);
         let content = '';
         
         if (contentResponse.ok) {
@@ -456,7 +457,13 @@
         // 显示文章
         document.getElementById('postTitle').textContent = post.title;
         document.getElementById('postCategory').textContent = post.file.split('/')[0];
-        document.getElementById('postDate').querySelector('span').textContent = formatDate(post.date);
+        // 文章数据中没有 date 字段，隐藏日期显示
+        const dateEl = document.getElementById('postDate');
+        if (post.date) {
+          dateEl.querySelector('span').textContent = formatDate(post.date);
+        } else {
+          dateEl.style.display = 'none';
+        }
         document.getElementById('postBody').innerHTML = parseMarkdown(content) || '<p>暂无内容</p>';
         
         // 更新页面标题
