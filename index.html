@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Blog - Frosted Glass</title>
+  <title>aleee - Blog</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,76 +17,46 @@
       margin: 0;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(120deg, #f0e4ff 0%, #e0f2ff 50%, #f5e6ff 100%);
+      background: url('images/bg1.png') center/cover fixed no-repeat;
       position: relative;
       overflow-x: hidden;
       color: #1a1a2e;
     }
 
-    /* 动态背景球体 */
-    .glow-sphere {
+    body::before {
+      content: '';
       position: fixed;
-      border-radius: 50%;
-      filter: blur(100px);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
       z-index: -1;
-      opacity: 0.5;
-      transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
-      pointer-events: none;
-    }
-    
-    .sphere-1 { 
-      width: 600px; 
-      height: 600px; 
-      background: linear-gradient(135deg, #ffcdd2 0%, #f8bbd0 100%);
-      top: -150px; 
-      right: -150px; 
-    }
-    
-    .sphere-2 { 
-      width: 500px; 
-      height: 500px; 
-      background: linear-gradient(135deg, #c8e6c9 0%, #b2dfdb 100%);
-      bottom: -100px; 
-      left: -100px; 
-    }
-    
-    .sphere-3 {
-      width: 400px;
-      height: 400px;
-      background: linear-gradient(135deg, #e1bee7 0%, #d1c4e9 100%);
-      top: 40%;
-      right: 10%;
-      opacity: 0.3;
     }
 
     /* 极致磨砂质感 - Apple Glass */
     .apple-glass {
-      background: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.55);
       backdrop-filter: blur(30px) saturate(160%);
       -webkit-backdrop-filter: blur(30px) saturate(160%);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05), 
-                  inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    }
-
-    .apple-glass-strong {
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(40px) saturate(180%);
-      -webkit-backdrop-filter: blur(40px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.08),
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1), 
                   inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
-    /* 动态导航栏 */
-    .dynamic-nav-container {
-      transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
-      will-change: width, transform, padding, border-radius;
+    .apple-glass-strong {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
     /* 滚动区域 */
     .scroll-container {
-      height: calc(100vh - 180px);
+      height: calc(100vh - 200px);
       overflow-y: auto;
       scrollbar-width: thin;
       scrollbar-color: rgba(0,0,0,0.1) transparent;
@@ -102,7 +72,7 @@
     }
     
     .scroll-container::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.15);
       border-radius: 10px;
     }
 
@@ -181,61 +151,6 @@
       50% { opacity: 0.6; }
     }
 
-    /* 加载动画 */
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    .loading-shimmer {
-      background: linear-gradient(90deg, rgba(255,255,255,0.4) 25%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-    }
-
-    /* 链接样式 */
-    .post-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .post-link:hover .post-title {
-      color: #007AFF;
-    }
-
-    /* 标签样式 */
-    .tag-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.35rem 0.9rem;
-      background: rgba(0, 122, 255, 0.1);
-      color: #007AFF;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .tag-badge:hover {
-      background: rgba(0, 122, 255, 0.2);
-      transform: scale(1.05);
-    }
-
-    /* 分类计数 */
-    .category-count {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 1.75rem;
-      padding: 0.15rem 0.5rem;
-      background: rgba(0, 122, 255, 0.1);
-      color: #007AFF;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
     /* 文章卡片增强样式 */
     .post-card-enhanced {
       position: relative;
@@ -264,30 +179,26 @@
                   0 0 0 1px rgba(255, 255, 255, 0.8);
     }
 
-    /* 分类树样式增强 */
-    .category-tree {
-      position: relative;
-    }
-    
-    .category-tree::before {
-      content: '';
-      position: absolute;
-      left: 19px;
-      top: 50px;
-      bottom: 20px;
-      width: 2px;
-      background: linear-gradient(180deg, rgba(102, 126, 234, 0.3) 0%, transparent 100%);
-      border-radius: 2px;
-    }
-
-    .category-item {
-      position: relative;
+    /* 侧边栏分类样式 */
+    .sidebar-category {
       transition: all 0.3s cubic-bezier(0.2, 1, 0.2, 1);
     }
     
-    .category-item:hover {
-      background: rgba(255, 255, 255, 0.5);
+    .sidebar-category:hover {
+      background: rgba(255, 255, 255, 0.7);
       transform: translateX(4px);
+    }
+
+    .sidebar-category.active {
+      background: rgba(0, 122, 255, 0.1);
+      border-left: 3px solid #007AFF;
+    }
+
+    /* 子分类样式 */
+    .subcategory-item {
+      padding-left: 1.5rem;
+      border-left: 2px solid rgba(0, 0, 0, 0.1);
+      margin-left: 0.5rem;
     }
 
     /* 标签云样式 */
@@ -299,8 +210,8 @@
     
     .tag-cloud-item {
       padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.7);
       border-radius: 999px;
       font-size: 0.875rem;
       font-weight: 500;
@@ -310,8 +221,8 @@
     }
     
     .tag-cloud-item:hover {
-      background: rgba(0, 122, 255, 0.1);
-      border-color: rgba(0, 122, 255, 0.3);
+      background: rgba(0, 122, 255, 0.15);
+      border-color: rgba(0, 122, 255, 0.4);
       color: #007AFF;
       transform: translateY(-2px) scale(1.05);
     }
@@ -322,7 +233,7 @@
       align-items: center;
       gap: 0.375rem;
       padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 999px;
       font-size: 0.75rem;
       color: #718096;
@@ -330,7 +241,7 @@
     }
     
     .post-meta-item:hover {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       color: #4a5568;
     }
 
@@ -366,19 +277,54 @@
       opacity: 0.5;
     }
 
+    /* 顶部导航分类 */
+    .nav-category {
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .nav-category:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
+    .nav-category.active {
+      background: rgba(0, 122, 255, 0.15);
+      color: #007AFF;
+    }
+
+    /* 头像样式 */
+    .avatar-container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .avatar-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* 响应式调整 */
     @media (max-width: 1024px) {
       .scroll-container {
         height: auto;
         max-height: none;
       }
+      
+      .sidebar {
+        display: none;
+      }
     }
 
     @media (max-width: 640px) {
-      .sphere-1 { width: 300px; height: 300px; }
-      .sphere-2 { width: 250px; height: 250px; }
-      .sphere-3 { display: none; }
-      
       .post-card-enhanced:hover {
         transform: translateY(-4px) scale(1);
       }
@@ -387,25 +333,21 @@
 </head>
 <body class="p-4 md:p-6">
 
-  <!-- 动态背景球体 -->
-  <div class="glow-sphere sphere-1" id="bg1"></div>
-  <div class="glow-sphere sphere-2" id="bg2"></div>
-  <div class="glow-sphere sphere-3" id="bg3"></div>
-
-  <!-- 动态导航栏 -->
+  <!-- 顶部导航栏 -->
   <header class="w-full flex justify-center mb-6 sticky top-4 z-50">
-    <div id="navBox" class="dynamic-nav-container apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center w-full max-w-6xl">
-      <h1 id="navLogo" class="font-black text-lg tracking-tight cursor-pointer flex items-center gap-2 transition-all duration-500">
+    <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center w-full max-w-7xl">
+      <h1 class="font-black text-xl tracking-tight cursor-pointer flex items-center gap-2">
         <span class="status-dot"></span>
-        <span class="gradient-text-vibrant">BLOG.</span>
+        <span class="gradient-text-vibrant">aleee</span>
       </h1>
-      <nav id="navLinks" class="hidden md:flex gap-6 font-semibold text-sm text-gray-600">
-        <a href="index.html" class="hover:text-ios-blue transition-all">首页</a>
-        <a href="#posts" class="hover:text-ios-blue transition-all">文章</a>
-        <a href="#categories" class="hover:text-ios-blue transition-all">分类</a>
-        <a href="#tags" class="hover:text-ios-blue transition-all">标签</a>
+      
+      <!-- 分类导航 -->
+      <nav id="categoryNav" class="hidden md:flex gap-2 font-medium text-sm text-gray-600">
+        <span class="nav-category active" data-cat="all">全部</span>
+        <!-- 动态加载分类 -->
       </nav>
-      <div id="navBtnBox" class="flex items-center gap-3">
+      
+      <div class="flex items-center gap-3">
         <button class="bg-gray-900 text-white px-5 py-2 rounded-full text-xs font-bold hover:shadow-xl active:scale-95 transition-all">
           订阅
         </button>
@@ -414,217 +356,229 @@
   </header>
 
   <!-- 主布局容器 -->
-  <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
     
-    <!-- 左侧：个人信息栏 -->
-    <aside class="lg:col-span-4 space-y-6">
-      <div class="apple-glass rounded-[2rem] p-8 reveal active border border-white/50">
-        <div class="relative w-24 h-24 mb-6 group mx-auto lg:mx-0">
-          <div class="w-24 h-24 rounded-[1.5rem] bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 p-[3px]">
-            <div class="w-full h-full rounded-[1.4rem] bg-white flex items-center justify-center text-3xl">
-              ✨
-            </div>
-          </div>
-          <div class="absolute -bottom-1 -right-1 bg-green-400 w-5 h-5 rounded-full border-3 border-white shadow-md"></div>
+    <!-- 左侧边栏：个人信息 + 分类 -->
+    <aside class="lg:col-span-3 space-y-6 sidebar">
+      <!-- 个人信息 -->
+      <div class="apple-glass rounded-[2rem] p-6 reveal active border border-white/50 text-center">
+        <div class="avatar-container mx-auto mb-4">
+          <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'">
         </div>
         
-        <h2 class="text-2xl font-black mb-2 tracking-tight text-center lg:text-left">我的博客</h2>
-        <p class="text-gray-500 font-medium mb-6 text-sm italic text-center lg:text-left">"记录学习，分享知识"</p>
+        <h2 class="text-2xl font-black mb-1 tracking-tight">aleee</h2>
+        <p class="text-gray-500 font-medium mb-4 text-sm italic">"记录学习，分享知识"</p>
         
-        <div class="space-y-3">
-          <!-- 状态标签 -->
-          <div class="bg-white/40 p-4 rounded-2xl border border-white/40 hover:bg-white/60 transition-all cursor-default">
-            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">文章总数</p>
-            <p class="text-lg font-bold gradient-text" id="totalPosts">加载中...</p>
+        <div class="space-y-2">
+          <div class="apple-glass rounded-xl p-3 border border-white/30">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">文章总数</p>
+            <p class="text-lg font-black text-gray-800" id="totalPosts">0</p>
           </div>
-          
-          <!-- 分类统计 -->
-          <div class="bg-purple-50/50 p-4 rounded-2xl border border-purple-100/30 hover:bg-purple-100/50 transition-all">
-            <p class="text-[10px] font-black text-purple-400 uppercase tracking-widest mb-1">分类数量</p>
-            <p class="text-lg font-bold text-purple-600" id="totalCategories">加载中...</p>
-          </div>
-          
-          <!-- 标签统计 -->
-          <div class="bg-blue-50/50 p-4 rounded-2xl border border-blue-100/30 hover:bg-blue-100/50 transition-all">
-            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-1">标签数量</p>
-            <p class="text-lg font-bold text-blue-600" id="totalTags">加载中...</p>
+          <div class="apple-glass rounded-xl p-3 border border-white/30">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">分类数量</p>
+            <p class="text-lg font-black text-gray-800" id="totalCategories">0</p>
           </div>
         </div>
       </div>
 
-      <!-- 快速导航 -->
-      <div class="apple-glass rounded-[2rem] p-6 reveal active border border-white/50">
-        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider">快速导航</h3>
-        <nav class="space-y-2">
-          <a href="#posts" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/50 transition-all group">
-            <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-sm">📝</span>
-            <span class="font-medium text-sm group-hover:text-ios-blue transition-colors">最新文章</span>
-          </a>
-          <a href="#categories" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/50 transition-all group">
-            <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-400 to-purple-500 flex items-center justify-center text-white text-sm">📁</span>
-            <span class="font-medium text-sm group-hover:text-ios-blue transition-colors">文章分类</span>
-          </a>
-          <a href="#tags" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/50 transition-all group">
-            <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center text-white text-sm">🏷️</span>
-            <span class="font-medium text-sm group-hover:text-ios-blue transition-colors">标签云</span>
-          </a>
-        </nav>
+      <!-- 分类侧边栏 -->
+      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
+        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
+          <span>📂</span> 文章分类
+        </h3>
+        <div id="sidebarCategories" class="space-y-1">
+          <!-- 动态加载 -->
+        </div>
+      </div>
+
+      <!-- 标签云 -->
+      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
+        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
+          <span>🏷️</span> 热门标签
+        </h3>
+        <div id="sidebarTags" class="tag-cloud">
+          <!-- 动态加载 -->
+        </div>
       </div>
     </aside>
-
-    <!-- 右侧：内容区域 -->
-    <main class="lg:col-span-8 scroll-container" id="mainContent">
-      
-      <!-- 最新文章 -->
-      <section id="posts" class="mb-8 reveal">
-        <div class="apple-glass rounded-[2rem] p-6 mb-6 border border-white/50">
-          <div class="flex items-center justify-between mb-4">
-            <div>
-              <h2 class="text-xl font-black tracking-tight">最新文章</h2>
-              <p class="text-sm text-gray-500 mt-1">探索知识的海洋</p>
-            </div>
-            <span class="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded-full">Latest</span>
-          </div>
+    
+    <!-- 中间：文章列表 -->
+    <main class="lg:col-span-6 scroll-container" id="mainContent">
+      <!-- 文章列表 -->
+      <div id="postsList" class="space-y-4">
+        <div class="apple-glass rounded-[1.5rem] p-8 text-center">
+          <div class="loading-shimmer h-4 w-32 mx-auto rounded mb-4"></div>
+          <div class="loading-shimmer h-3 w-48 mx-auto rounded"></div>
         </div>
-        
-        <div id="postsList" class="space-y-4">
-          <!-- 文章列表将在这里动态生成 -->
-          <div class="apple-glass rounded-[1.5rem] p-6 loading-shimmer h-24"></div>
-          <div class="apple-glass rounded-[1.5rem] p-6 loading-shimmer h-24"></div>
-          <div class="apple-glass rounded-[1.5rem] p-6 loading-shimmer h-24"></div>
-        </div>
-      </section>
-
-      <!-- 分类 -->
-      <section id="categories" class="mb-8 reveal">
-        <div class="apple-glass rounded-[2rem] p-6 mb-6 border border-white/50">
-          <div class="flex items-center justify-between">
-            <div>
-              <h2 class="text-xl font-black tracking-tight">文章分类</h2>
-              <p class="text-sm text-gray-500 mt-1">按文件夹结构自动分组</p>
-            </div>
-            <span class="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded-full">Categories</span>
-          </div>
-        </div>
-        
-        <div id="categoriesList">
-          <!-- 分类列表将在这里动态生成 -->
-          <div class="apple-glass rounded-[1.5rem] p-6 loading-shimmer h-16"></div>
-        </div>
-      </section>
-
-      <!-- 标签 -->
-      <section id="tags" class="mb-8 reveal">
-        <div class="apple-glass rounded-[2rem] p-6 mb-6 border border-white/50">
-          <div class="flex items-center justify-between">
-            <div>
-              <h2 class="text-xl font-black tracking-tight">标签云</h2>
-              <p class="text-sm text-gray-500 mt-1">按主题标签浏览</p>
-            </div>
-            <span class="text-xs font-semibold text-gray-400 bg-white/50 px-3 py-1 rounded-full">Tags</span>
-          </div>
-        </div>
-        
-        <div id="tagsList" class="space-y-4">
-          <!-- 标签列表将在这里动态生成 -->
-          <div class="apple-glass rounded-[1.5rem] p-6 loading-shimmer h-20"></div>
-        </div>
-      </section>
-
+      </div>
     </main>
+
+    <!-- 右侧：最新/推荐 -->
+    <aside class="lg:col-span-3 space-y-6">
+      <!-- 最新文章 -->
+      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
+        <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider flex items-center gap-2">
+          <span>🔥</span> 最新文章
+        </h3>
+        <div id="recentPosts" class="space-y-3">
+          <!-- 动态加载 -->
+        </div>
+      </div>
+
+      <!-- 关于 -->
+      <div class="apple-glass rounded-[2rem] p-5 border border-white/50">
+        <h3 class="font-bold text-sm text-gray-600 mb-3 uppercase tracking-wider">关于</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          欢迎来到 aleee 的博客，这里记录着我的学习笔记和技术分享。
+        </p>
+        <div class="mt-4 flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
+            📧
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
+            💻
+          </a>
+        </div>
+      </div>
+    </aside>
   </div>
 
   <script>
-    // 动态背景球体跟随鼠标
-    document.addEventListener('mousemove', (e) => {
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-      
-      const bg1 = document.getElementById('bg1');
-      const bg2 = document.getElementById('bg2');
-      const bg3 = document.getElementById('bg3');
-      
-      if (bg1) bg1.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
-      if (bg2) bg2.style.transform = `translate(${-x * 20}px, ${-y * 20}px)`;
-      if (bg3) bg3.style.transform = `translate(${x * 15}px, ${-y * 15}px)`;
-    });
-
-    // 滚动显示动画
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    let allPosts = [];
+    let allCategories = [];
+    let currentCategory = 'all';
 
     // 加载数据
     async function loadData() {
       try {
-        const [postsRes, tagsRes, categoriesRes] = await Promise.all([
-          fetch('data/posts.json'),
-          fetch('data/tags.json'),
-          fetch('data/categories.json')
-        ]);
-
-        const posts = await postsRes.json();
-        const tags = await tagsRes.json();
-        const categories = await categoriesRes.json();
-
+        const response = await fetch('posts.json');
+        const data = await response.json();
+        
+        allPosts = data.posts || [];
+        allCategories = data.categories || { children: [] };
+        
         // 更新统计
-        document.getElementById('totalPosts').textContent = posts.length;
-        document.getElementById('totalTags').textContent = tags.length;
-        document.getElementById('totalCategories').textContent = categories.children?.length || 0;
-
-        // 渲染文章列表
-        renderPosts(posts);
+        document.getElementById('totalPosts').textContent = allPosts.length;
+        document.getElementById('totalCategories').textContent = allCategories.children?.length || 0;
         
-        // 渲染分类
-        renderCategories(categories);
+        // 渲染各部分
+        renderNavCategories(allCategories);
+        renderSidebarCategories(allCategories);
+        renderPosts(allPosts);
+        renderRecentPosts(allPosts);
+        renderSidebarTags(data.tags || []);
         
-        // 渲染标签
-        renderTags(tags);
-
+        // 滚动动画
+        setupScrollAnimation();
       } catch (error) {
         console.error('加载数据失败:', error);
         document.getElementById('postsList').innerHTML = `
-          <div class="apple-glass rounded-[1.5rem] p-6 text-center text-gray-500">
+          <div class="apple-glass rounded-[1.5rem] p-8 text-center text-gray-500">
+            <p class="text-4xl mb-4">😔</p>
             <p>加载失败，请刷新页面重试</p>
           </div>
         `;
       }
     }
 
+    // 渲染顶部导航分类
+    function renderNavCategories(categories) {
+      const nav = document.getElementById('categoryNav');
+      if (!categories.children || categories.children.length === 0) return;
+      
+      const catsHtml = categories.children.slice(0, 5).map(cat => `
+        <span class="nav-category" data-cat="${cat.name}" onclick="filterByCategory('${cat.name}')">
+          ${cat.name}
+        </span>
+      `).join('');
+      
+      nav.innerHTML = '<span class="nav-category active" data-cat="all" onclick="filterByCategory(\'all\')">全部</span>' + catsHtml;
+    }
+
+    // 渲染侧边栏分类
+    function renderSidebarCategories(categories) {
+      const container = document.getElementById('sidebarCategories');
+      if (!categories.children || categories.children.length === 0) {
+        container.innerHTML = '<p class="text-sm text-gray-400 text-center py-4">暂无分类</p>';
+        return;
+      }
+      
+      container.innerHTML = categories.children.map(cat => `
+        <div class="sidebar-category rounded-xl p-3 cursor-pointer ${currentCategory === cat.name ? 'active' : ''}" 
+             onclick="filterByCategory('${cat.name}')">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">📁</span>
+              <span class="font-medium text-sm">${cat.name}</span>
+            </div>
+            <span class="text-xs bg-white/50 px-2 py-1 rounded-full">${cat.count}</span>
+          </div>
+          ${cat.children && cat.children.length > 0 ? `
+            <div class="mt-2 space-y-1">
+              ${cat.children.map(child => `
+                <div class="subcategory-item py-1 text-xs text-gray-500 hover:text-ios-blue cursor-pointer"
+                     onclick="event.stopPropagation(); filterByCategory('${child.name}')">
+                  📂 ${child.name} (${child.count})
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    // 按分类筛选
+    function filterByCategory(catName) {
+      currentCategory = catName;
+      
+      // 更新导航激活状态
+      document.querySelectorAll('.nav-category').forEach(el => {
+        el.classList.toggle('active', el.dataset.cat === catName);
+      });
+      
+      // 更新侧边栏激活状态
+      document.querySelectorAll('.sidebar-category').forEach(el => {
+        el.classList.toggle('active', el.textContent.includes(catName) && catName !== 'all');
+      });
+      
+      // 筛选文章
+      if (catName === 'all') {
+        renderPosts(allPosts);
+      } else {
+        const filtered = allPosts.filter(post => {
+          const postCat = post.file.split('/')[0];
+          return postCat === catName || post.file.includes('/' + catName + '/');
+        });
+        renderPosts(filtered);
+      }
+    }
+
+    // 渲染文章列表
     function renderPosts(posts) {
       const container = document.getElementById('postsList');
+      
       if (posts.length === 0) {
         container.innerHTML = `
-          <div class="apple-glass rounded-[1.5rem] p-6 text-center text-gray-500">
-            <p>暂无文章</p>
+          <div class="apple-glass rounded-[1.5rem] p-8 text-center text-gray-500">
+            <p class="text-4xl mb-4">📝</p>
+            <p>该分类下暂无文章</p>
           </div>
         `;
         return;
       }
 
-      container.innerHTML = posts.slice(0, 10).map((post, index) => `
-        <div class="flip-card" style="animation-delay: ${index * 0.05}s">
+      container.innerHTML = posts.map((post, index) => `
+        <div class="flip-card reveal" style="animation-delay: ${index * 0.05}s">
           <div class="flip-card-inner">
             <div class="apple-glass post-card-enhanced hover-lift rounded-[1.5rem] p-5 border border-white/50">
-              <a href="post.html?id=${encodeURIComponent(post.id)}" class="post-link">
+              <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
                 <div class="flex items-start justify-between gap-4">
                   <div class="flex-1 min-w-0">
-                    <h3 class="post-title font-bold text-base mb-3 transition-colors line-clamp-1 text-gray-800">${post.title}</h3>
+                    <h3 class="font-bold text-base mb-3 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
                     <div class="flex flex-wrap items-center gap-2 mb-3">
                       <span class="post-meta-item">
                         <span>📁</span>
-                        <span class="truncate max-w-[150px]">${post.file.split('/')[0]}</span>
+                        <span class="truncate max-w-[120px]">${post.file.split('/')[0]}</span>
                       </span>
                       <span class="post-meta-item">
                         <span>📅</span>
@@ -632,10 +586,10 @@
                       </span>
                     </div>
                     <p class="text-xs text-gray-500 line-clamp-2 leading-relaxed">
-                      点击查看文章详情 →
+                      ${post.excerpt || '点击查看文章详情 →'}
                     </p>
                   </div>
-                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 flex items-center justify-center text-lg text-gray-600 group-hover:text-ios-blue transition-all">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-pink-400/20 flex items-center justify-center text-lg text-gray-600 hover:text-ios-blue transition-all">
                     →
                   </div>
                 </div>
@@ -644,167 +598,48 @@
           </div>
         </div>
       `).join('');
-    }
-
-    function renderCategories(categories) {
-      const container = document.getElementById('categoriesList');
-      if (!categories || !categories.children) {
-        container.innerHTML = `
-          <div class="apple-glass rounded-[1.5rem] p-6 text-center text-gray-500">
-            <p>暂无分类</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = `
-        <div class="category-tree space-y-3">
-          ${categories.children.map((cat, index) => `
-            <details class="apple-glass rounded-[1.5rem] border border-white/50 overflow-hidden group" ${index < 2 ? 'open' : ''} style="animation-delay: ${index * 0.05}s">
-              <summary class="category-item p-5 flex items-center justify-between cursor-pointer list-none rounded-[1.5rem]">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-400/30 to-pink-400/30 flex items-center justify-center text-lg shadow-sm">
-                    📂
-                  </div>
-                  <div>
-                    <span class="font-bold text-sm text-gray-800 block">${cat.name}</span>
-                    <span class="text-xs text-gray-500">${cat.count} 篇文章</span>
-                  </div>
-                </div>
-                <div class="flex items-center gap-2">
-                  <span class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center transition-transform duration-300 group-open:rotate-90">
-                    <span class="text-gray-400 text-lg">›</span>
-                  </span>
-                </div>
-              </summary>
-              <div class="px-5 pb-5 pt-2 border-t border-white/30">
-                ${cat.posts.length > 0 ? `
-                  <div class="space-y-1">
-                    ${cat.posts.slice(0, 5).map(post => `
-                      <a href="post.html?id=${encodeURIComponent(post.id)}" class="category-item flex items-center gap-3 p-3 rounded-xl text-sm group">
-                        <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400"></span>
-                        <span class="truncate flex-1 text-gray-700 group-hover:text-ios-blue transition-colors">${post.title}</span>
-                        <span class="text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                      </a>
-                    `).join('')}
-                    ${cat.posts.length > 5 ? `
-                      <p class="text-xs text-gray-400 text-center py-2">还有 ${cat.posts.length - 5} 篇文章...</p>
-                    ` : ''}
-                  </div>
-                ` : '<div class="empty-state py-4"><p class="text-sm text-gray-400">暂无文章</p></div>'}
-                
-                ${cat.children && cat.children.length > 0 ? `
-                  <div class="mt-4 pt-4 border-t border-white/30">
-                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">子分类</p>
-                    <div class="space-y-2">
-                      ${cat.children.map(child => `
-                        <details class="apple-glass rounded-xl overflow-hidden">
-                          <summary class="flex items-center gap-2 p-3 cursor-pointer hover:bg-white/30 transition-all text-sm list-none">
-                            <span class="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-400/20 to-purple-400/20 flex items-center justify-center text-xs">📁</span>
-                            <span class="flex-1 font-medium text-gray-700">${child.name}</span>
-                            <span class="category-count text-xs">${child.count}</span>
-                          </summary>
-                        </details>
-                      `).join('')}
-                    </div>
-                  </div>
-                ` : ''}
-              </div>
-            </details>
-          `).join('')}
-        </div>
-      `;
-    }
-
-    function renderTags(tags) {
-      const container = document.getElementById('tagsList');
-      if (tags.length === 0) {
-        container.innerHTML = `
-          <div class="apple-glass rounded-[1.5rem] p-6 text-center text-gray-500">
-            <p>暂无标签</p>
-          </div>
-        `;
-        return;
-      }
-
-      // 先渲染标签云
-      const tagCloudHtml = `
-        <div class="apple-glass rounded-[1.5rem] p-5 border border-white/50 mb-6">
-          <h3 class="font-bold text-sm text-gray-600 mb-4 uppercase tracking-wider">热门标签</h3>
-          <div class="tag-cloud">
-            ${tags.slice(0, 15).map((tag, idx) => `
-              <span class="tag-cloud-item" style="font-size: ${0.75 + (tag.count / Math.max(...tags.map(t => t.count))) * 0.4}rem" onclick="document.getElementById('tag-${tag.tag}').scrollIntoView({behavior: 'smooth'})">
-                #${tag.tag}
-                <span class="ml-1 text-xs opacity-60">${tag.count}</span>
-              </span>
-            `).join('')}
-          </div>
-        </div>
-      `;
       
-      // 渲染详细标签卡片
-      const tagCardsHtml = tags.map((tagGroup, index) => `
-        <div id="tag-${tagGroup.tag}" class="apple-glass rounded-[1.5rem] p-5 border border-white/50 hover-lift" style="animation-delay: ${index * 0.05}s">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400/30 to-cyan-400/30 flex items-center justify-center text-lg shadow-sm">
-                #
-              </div>
-              <div>
-                <span class="tag-badge text-sm">${tagGroup.tag}</span>
-                <span class="text-xs text-gray-500 block mt-1">${tagGroup.count} 篇文章</span>
-              </div>
-            </div>
-            <a href="#" class="read-more-btn" onclick="event.preventDefault(); toggleTagPosts('${tagGroup.tag}')">
-              展开
-              <span id="arrow-${tagGroup.tag}">↓</span>
-            </a>
-          </div>
-          <div id="posts-${tagGroup.tag}" class="space-y-2 overflow-hidden transition-all duration-500 max-h-0">
-            ${tagGroup.posts.map(post => `
-              <a href="post.html?id=${encodeURIComponent(post.id)}" class="category-item flex items-center gap-3 p-3 rounded-xl text-sm group">
-                <span class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400"></span>
-                <span class="truncate flex-1 text-gray-700 group-hover:text-ios-blue transition-colors">${post.title}</span>
-                <span class="text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            `).join('')}
-          </div>
-          ${tagGroup.posts.length > 3 ? `
-            <div class="mt-3 pt-3 border-t border-white/30 text-center">
-              <button class="text-xs text-gray-500 hover:text-ios-blue transition-colors" onclick="toggleTagPosts('${tagGroup.tag}')">
-                查看全部 ${tagGroup.count} 篇文章
-              </button>
-            </div>
-          ` : ''}
-        </div>
+      // 触发滚动动画
+      setTimeout(setupScrollAnimation, 100);
+    }
+
+    // 渲染最新文章
+    function renderRecentPosts(posts) {
+      const container = document.getElementById('recentPosts');
+      const recent = posts.slice(0, 5);
+      
+      container.innerHTML = recent.map(post => `
+        <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/50 transition-all group">
+          <span class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex-shrink-0"></span>
+          <span class="text-sm text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
+        </a>
       `).join('');
+    }
+
+    // 渲染侧边栏标签
+    function renderSidebarTags(tags) {
+      const container = document.getElementById('sidebarTags');
+      if (!tags || tags.length === 0) {
+        container.innerHTML = '<p class="text-sm text-gray-400">暂无标签</p>';
+        return;
+      }
       
-      container.innerHTML = tagCloudHtml + '<div class="space-y-4">' + tagCardsHtml + '</div>';
-      
-      // 默认展开前3个标签的文章
-      tags.slice(0, 3).forEach(tag => {
-        const postsDiv = document.getElementById(`posts-${tag.tag}`);
-        if (postsDiv) {
-          postsDiv.style.maxHeight = postsDiv.scrollHeight + 'px';
-        }
+      container.innerHTML = tags.slice(0, 12).map(tag => `
+        <span class="tag-cloud-item" style="font-size: ${0.75 + (tag.count / Math.max(...tags.map(t => t.count))) * 0.3}rem">
+          #${tag.tag}
+        </span>
+      `).join('');
+    }
+
+    // 滚动动画
+    function setupScrollAnimation() {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        el.classList.add('active');
       });
     }
 
-    // 切换标签文章显示
-    function toggleTagPosts(tagName) {
-      const postsDiv = document.getElementById(`posts-${tagName}`);
-      const arrow = document.getElementById(`arrow-${tagName}`);
-      if (postsDiv) {
-        if (postsDiv.style.maxHeight === '0px' || !postsDiv.style.maxHeight) {
-          postsDiv.style.maxHeight = postsDiv.scrollHeight + 'px';
-          if (arrow) arrow.textContent = '↑';
-        } else {
-          postsDiv.style.maxHeight = '0px';
-          if (arrow) arrow.textContent = '↓';
-        }
-      }
-    }
-
+    // 格式化日期
     function formatDate(dateString) {
       if (!dateString) return '无日期';
       const date = new Date(dateString);
