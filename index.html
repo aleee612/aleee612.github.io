@@ -451,11 +451,16 @@
     // 加载数据
     async function loadData() {
       try {
-        const response = await fetch('data/posts.json');
-        const data = await response.json();
+        // 分别加载文章列表和分类
+        const [postsResponse, categoriesResponse, tagsResponse] = await Promise.all([
+          fetch('data/posts.json'),
+          fetch('data/categories.json'),
+          fetch('data/tags.json').catch(() => null)
+        ]);
         
-        allPosts = data.posts || [];
-        allCategories = data.categories || { children: [] };
+        allPosts = await postsResponse.json();
+        allCategories = await categoriesResponse.json();
+        const tags = tagsResponse ? await tagsResponse.json() : [];
         
         // 更新统计
         document.getElementById('totalPosts').textContent = allPosts.length;
@@ -466,7 +471,7 @@
         renderSidebarCategories(allCategories);
         renderPosts(allPosts);
         renderRecentPosts(allPosts);
-        renderSidebarTags(data.tags || []);
+        renderSidebarTags(tags);
         
         // 滚动动画
         setupScrollAnimation();
