@@ -352,6 +352,30 @@
         }
         @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
         
+        .scrollbar-thin {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.2) transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
+            border-radius: 2px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.3);
+        }
+        body.dark-mode .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.2);
+        }
+        body.dark-mode .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
         @media (max-width: 1200px) {
             .three-column-layout { grid-template-columns: 240px 1fr; }
             .sidebar-right { display: none; }
@@ -511,80 +535,56 @@
             </main>
 
             <!-- 右侧栏 -->
-            <aside class="sidebar-column sidebar-right space-y-3 pl-2">
-                <!-- 公告卡片 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-2 text-gray-400 text-xs uppercase tracking-widest">公告</h3>
-                    <div class="text-sm text-gray-600">
-                        <span id="typingText"></span><span class="typing-cursor"></span>
-                    </div>
+            <aside class="flex flex-col gap-3 pl-2 h-full">
+                <!-- 热门文章卡片 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active flex-1 flex flex-col min-h-0">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">🔥 热门文章</h3>
+                    <div id="hotPosts" class="space-y-2 overflow-y-auto flex-1 min-h-0 scrollbar-thin"></div>
                 </div>
 
-                <!-- 热门文章 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">热门文章</h3>
-                    <div id="hotPosts" class="space-y-2"></div>
-                </div>
-
-                <!-- 最新评论 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">最新评论</h3>
-                    <div id="recentComments" class="space-y-2">
-                        <div class="mini-card">
-                            <div class="flex items-center gap-2 mb-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-500"></div>
-                                <span class="text-xs font-bold">访客</span>
+                <!-- 综合信息卡片 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active flex-1 flex flex-col min-h-0">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">📊 综合信息</h3>
+                    <div class="overflow-y-auto flex-1 min-h-0 space-y-3 scrollbar-thin">
+                        <!-- 公告 -->
+                        <div class="pb-3 border-b border-white/20">
+                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">公告</p>
+                            <div class="text-sm text-gray-600">
+                                <span id="typingText"></span><span class="typing-cursor"></span>
                             </div>
-                            <p class="text-xs text-gray-500">这篇文章写得真好！</p>
                         </div>
-                        <div class="mini-card">
-                            <div class="flex items-center gap-2 mb-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-pink-400 to-red-500"></div>
-                                <span class="text-xs font-bold">读者</span>
+                        
+                        <!-- 访客统计 -->
+                        <div class="pb-3 border-b border-white/20">
+                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">访客统计</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="mini-card text-center">
+                                    <p class="text-lg font-black text-ios-blue" id="todayVisitors">128</p>
+                                    <p class="text-[10px] text-gray-400">今日访问</p>
+                                </div>
+                                <div class="mini-card text-center">
+                                    <p class="text-lg font-black text-purple-500" id="totalVisitors">9,999</p>
+                                    <p class="text-[10px] text-gray-400">总访问量</p>
+                                </div>
                             </div>
-                            <p class="text-xs text-gray-500">学习了，感谢分享！</p>
+                        </div>
+                        
+                        <!-- 友情链接 -->
+                        <div class="pb-3 border-b border-white/20">
+                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">友情链接</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <a href="#" class="tag-cloud-item">GitHub</a>
+                                <a href="#" class="tag-cloud-item">掘金</a>
+                                <a href="#" class="tag-cloud-item">知乎</a>
+                            </div>
+                        </div>
+                        
+                        <!-- 版权信息 -->
+                        <div class="text-center pt-1">
+                            <p class="text-xs text-gray-400">© 2024 aleee</p>
+                            <p class="text-xs text-gray-400">Powered by ❤️</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- 访客统计 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">访客统计</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <div class="mini-card text-center">
-                            <p class="text-lg font-black text-ios-blue" id="todayVisitors">128</p>
-                            <p class="text-[10px] text-gray-400">今日访问</p>
-                        </div>
-                        <div class="mini-card text-center">
-                            <p class="text-lg font-black text-purple-500" id="totalVisitors">9,999</p>
-                            <p class="text-[10px] text-gray-400">总访问量</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 友情链接 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">友情链接</h3>
-                    <div class="space-y-1.5">
-                        <a href="#" class="subcategory-card">
-                            <span>🔗</span>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="#" class="subcategory-card">
-                            <span>🔗</span>
-                            <span>掘金</span>
-                        </a>
-                        <a href="#" class="subcategory-card">
-                            <span>🔗</span>
-                            <span>知乎</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 版权信息 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active text-center">
-                    <p class="text-xs text-gray-400">© 2024 aleee</p>
-                    <p class="text-xs text-gray-400 mt-1">Powered by ❤️</p>
                 </div>
             </aside>
         </div>
