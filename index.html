@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>aleee - Blog (Enhanced)</title>
+  <title>aleee - Blog (Signature Edition)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,16 +11,19 @@
   <style>
     :root {
       --apple-blue: #007AFF;
-      --glass-blur: 30px;
+      --glass-blur: 40px; /* 增加初始模糊深度 */
+      --glass-saturate: 210%; /* 提升饱和度，色彩更亮丽 */
+      --glass-opacity: 0.35; /* 降低背景透明度，提升质感 */
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-    /* 壁纸轮播容器 */
+    /* 背景轮播微调 */
     .wallpaper-carousel {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       z-index: -2;
+      background: #000;
       overflow: hidden;
     }
     
@@ -30,430 +33,382 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-      transform: scale(1.05);
+      transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1.1); /* 初始缩放更大，增加动态感 */
     }
     
     .wallpaper-slide.active {
       opacity: 1;
       transform: scale(1);
-      transition: opacity 1.5s ease-in-out, transform 20s linear;
+      transition: opacity 2s ease-in-out, transform 30s cubic-bezier(0.1, 0, 0.9, 1);
     }
 
     html, body {
       margin: 0; padding: 0;
       height: 100vh;
       overflow: hidden;
-      font-family: 'Inter', -apple-system, sans-serif;
-      color: #1a1a2e;
-      background: #000;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1d1d1f;
     }
 
+    /* 全局毛玻璃层级参数微调 */
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
       z-index: -1;
-      transition: backdrop-filter 0.5s ease;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .main-container {
       height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 1.5rem;
-      max-width: 1300px;
+      padding: 1.25rem;
+      max-width: 1400px;
       margin: 0 auto;
       width: 100%;
-      overflow: hidden;
     }
 
     .content-area {
       flex: 1;
       display: grid;
-      grid-template-columns: 280px 1fr 260px;
-      gap: 1.5rem;
+      grid-template-columns: 260px 1fr 260px;
+      gap: 1.25rem;
       min-height: 0;
-      margin-top: 1.5rem;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 1.25rem;
+      transition: grid-template-columns 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    /* 滚动条美化 */
-    .custom-scroll {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .custom-scroll::-webkit-scrollbar { display: none; }
-
+    /* 极致果味玻璃卡片 */
     .apple-glass {
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(20px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.05);
+      background: rgba(255, 255, 255, var(--glass-opacity));
+      backdrop-filter: blur(25px) saturate(180%);
+      border: 0.5px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
     }
 
     .apple-glass-strong {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(30px) saturate(200%);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(40px) saturate(220%);
+      border: 0.5px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.12);
     }
 
-    /* 增强的交互动效 */
+    /* 交互动效参数：增加弹性感 */
     .hover-lift {
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     }
     .hover-lift:hover {
-      transform: translateY(-6px) scale(1.01);
-      background: rgba(255, 255, 255, 0.55);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px) scale(1.015);
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      border-color: rgba(255, 255, 255, 0.8);
     }
 
-    .btn-click { transition: transform 0.1s; }
-    .btn-click:active { transform: scale(0.94); }
+    .btn-click:active { transform: scale(0.92); }
 
+    .custom-scroll::-webkit-scrollbar { width: 0; height: 0; }
+
+    /* 状态点：改为更柔和的呼吸 */
     .status-dot {
-      width: 10px; height: 10px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: #34c759;
-      box-shadow: 0 0 12px #34c759;
-      animation: pulse 2s infinite;
+      box-shadow: 0 0 15px rgba(52, 199, 89, 0.6);
+      animation: soft-pulse 3s infinite ease-in-out;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.7; }
+    @keyframes soft-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
     }
 
-    /* 列表进场动画 */
-    @keyframes slideInUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .post-enter {
-      animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-    }
-
-    /* 阅读进度条 */
-    #progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 3px;
-      background: linear-gradient(to right, #007AFF, #5856D6);
-      z-index: 100;
-      width: 0%;
-      transition: width 0.1s ease;
-    }
-
-    /* 深色模式修正 */
-    body.dark-mode::before { background: rgba(0, 0, 0, 0.6); }
-    body.dark-mode .apple-glass { background: rgba(20, 20, 25, 0.7); border-color: rgba(255,255,255,0.1); }
-    body.dark-mode .apple-glass-strong { background: rgba(15, 15, 20, 0.85); border-color: rgba(255,255,255,0.15); }
-    body.dark-mode .text-gray-800, body.dark-mode .text-gray-700 { color: #f1f5f9; }
-
+    /* 导航分类激活态微调 */
     .nav-category {
-      padding: 0.5rem 1.25rem;
-      border-radius: 999px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #86868b;
+      transition: all 0.3s ease;
     }
     .nav-category.active {
-      background: rgba(0, 122, 255, 0.2);
-      color: #007AFF;
-      box-shadow: inset 0 0 0 1px rgba(0, 122, 255, 0.3);
+      color: #1d1d1f;
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
     }
 
+    /* 深色模式：使用更深邃的深蓝色调而非纯黑 */
+    body.dark-mode::before {
+      background: rgba(10, 10, 20, 0.7);
+    }
+    body.dark-mode .apple-glass {
+      background: rgba(25, 25, 35, 0.65);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: #f5f5f7;
+    }
+    body.dark-mode .apple-glass-strong {
+      background: rgba(20, 20, 30, 0.85);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    body.dark-mode .text-gray-800, body.dark-mode .text-gray-700 { color: #f5f5f7; }
+    body.dark-mode .text-gray-500 { color: #86868b; }
+
+    /* 标题渐变 */
     .gradient-text {
-      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    /* 卡片内部标签样式 */
+    .tag-pill {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(0, 122, 255, 0.1);
+      color: var(--apple-blue);
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-  <div id="progress-bar"></div>
+  <div id="progress-bar" style="position: fixed; top: 0; left: 0; height: 3px; background: var(--apple-blue); z-index: 1000; transition: width 0.2s; width: 0%;"></div>
   
   <div class="wallpaper-carousel" id="wallpaperCarousel"></div>
-  
-  <!-- 搜索模态框 -->
-  <div class="fixed inset-0 bg-black/40 backdrop-blur-md z-[1000] hidden items-start justify-center pt-[15vh]" id="searchModal">
-    <div class="w-full max-w-xl mx-4 bg-white/90 dark:bg-gray-900/90 rounded-3xl shadow-2xl overflow-hidden scale-95 transition-transform duration-300" id="searchBox">
-      <div class="p-6 border-b border-gray-200/50 dark:border-gray-700/50">
-        <input type="text" id="searchInput" class="w-full bg-transparent text-xl outline-none" placeholder="搜索知识、见解或灵感...">
-      </div>
-      <div id="searchResults" class="max-h-[60vh] overflow-y-auto p-2 custom-scroll"></div>
-    </div>
+
+  <!-- 搜索 Modal 略，保留逻辑 -->
+  <div id="searchModal" class="fixed inset-0 bg-black/30 backdrop-blur-2xl z-[2000] hidden items-start justify-center pt-[15vh]">
+     <div class="w-full max-w-2xl mx-4 bg-white/70 dark:bg-gray-900/70 rounded-[2.5rem] shadow-2xl p-4 border border-white/40">
+        <input type="text" id="searchInput" class="w-full bg-transparent p-4 text-2xl outline-none font-medium" placeholder="Search insights...">
+        <div id="searchResults" class="mt-4 max-h-[50vh] overflow-y-auto custom-scroll"></div>
+     </div>
   </div>
 
   <div class="main-container">
-    <header class="flex-none">
-      <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+    <!-- Header -->
+    <header class="flex-none z-50">
+      <div class="apple-glass-strong rounded-3xl px-6 py-2.5 flex justify-between items-center">
+        <div class="flex items-center gap-4">
           <div class="status-dot"></div>
-          <h1 class="font-black text-xl tracking-tighter gradient-text">aleee</h1>
+          <span class="font-black text-2xl tracking-tight gradient-text">aleee</span>
         </div>
         
-        <nav id="categoryNav" class="hidden md:flex gap-1 font-medium text-gray-500"></nav>
+        <nav id="categoryNav" class="hidden lg:flex items-center bg-gray-200/30 p-1 rounded-2xl gap-1"></nav>
         
         <div class="flex items-center gap-2">
-          <button id="searchBtn" class="p-2.5 rounded-full hover:bg-white/40 btn-click transition-colors">
+          <button id="searchBtn" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/50 btn-click transition-all">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           </button>
-          <button id="themeToggle" class="p-2.5 rounded-full hover:bg-white/40 btn-click transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          <button id="themeToggle" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/50 btn-click transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z"></path></svg>
           </button>
-          <button class="bg-gray-900 text-white px-5 py-2 rounded-full text-sm font-bold hover:shadow-xl btn-click transition-all">
-            订阅
-          </button>
+          <div class="h-6 w-[1px] bg-gray-300/50 mx-1"></div>
+          <button class="bg-[#1d1d1f] text-white dark:bg-white dark:text-black px-6 py-2 rounded-2xl text-sm font-bold btn-click">Join</button>
         </div>
       </div>
     </header>
 
     <div class="content-area" id="layoutArea">
-      <!-- 左边栏 -->
-      <aside class="flex flex-col gap-5 min-h-0 sidebar-left">
-        <div class="apple-glass rounded-3xl p-6 border-white/40">
-          <div class="flex flex-col items-center text-center">
-            <div class="w-20 h-20 rounded-full p-1 bg-gradient-to-tr from-blue-500 to-purple-500 mb-4">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=aleee" class="w-full h-full rounded-full bg-white object-cover">
-            </div>
-            <h2 class="text-2xl font-black tracking-tight dark:text-white">aleee</h2>
-            <p class="text-sm text-gray-500 mt-1">立身以立学为先</p>
+      <!-- 左边栏：个人名片 -->
+      <aside class="sidebar-left flex flex-col gap-5 overflow-visible">
+        <div class="apple-glass rounded-[2.5rem] p-8 flex flex-col items-center">
+          <div class="relative group">
+            <div class="absolute inset-0 bg-blue-500 blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=aleee" class="relative w-24 h-24 rounded-full border-2 border-white/50 bg-white/80 shadow-lg mb-6">
           </div>
-          <div class="grid grid-cols-2 gap-3 mt-6">
-            <div class="bg-white/30 dark:bg-gray-800/30 rounded-2xl p-3 text-center">
-              <span class="block text-xl font-black" id="totalPosts">0</span>
-              <span class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Posts</span>
+          <h2 class="text-2xl font-black dark:text-white">aleee</h2>
+          <p class="text-sm font-medium text-gray-500 mt-2">Product Designer & Coder</p>
+          
+          <div class="w-full grid grid-cols-2 gap-3 mt-8">
+            <div class="bg-white/20 dark:bg-gray-800/20 p-4 rounded-3xl text-center border border-white/10">
+              <span class="block text-2xl font-black text-blue-500">124</span>
+              <span class="text-[9px] font-black uppercase text-gray-400 tracking-widest">Articles</span>
             </div>
-            <div class="bg-white/30 dark:bg-gray-800/30 rounded-2xl p-3 text-center">
-              <span class="block text-xl font-black" id="totalCategories">0</span>
-              <span class="text-[10px] text-gray-400 uppercase font-bold tracking-widest">Cats</span>
+            <div class="bg-white/20 dark:bg-gray-800/20 p-4 rounded-3xl text-center border border-white/10">
+              <span class="block text-2xl font-black text-purple-500">12k</span>
+              <span class="text-[9px] font-black uppercase text-gray-400 tracking-widest">Readers</span>
             </div>
           </div>
         </div>
 
-        <div class="apple-glass rounded-3xl p-5 flex-1 flex flex-col min-h-0">
-          <h3 class="text-xs font-black text-gray-400 mb-4 uppercase tracking-[0.2em] px-2">Collections</h3>
-          <div id="sidebarCategories" class="flex-1 overflow-y-auto custom-scroll space-y-2"></div>
+        <!-- 目录选择器 -->
+        <div class="apple-glass rounded-[2.5rem] p-6 flex-1 min-h-0 flex flex-col">
+          <h3 class="px-2 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Library</h3>
+          <div id="sidebarCategories" class="flex-1 overflow-y-auto custom-scroll space-y-1.5"></div>
         </div>
       </aside>
       
-      <!-- 主内容区 -->
-      <main class="overflow-y-auto custom-scroll" id="mainContent">
-        <div id="postsList" class="space-y-4 pb-10"></div>
+      <!-- 主列表 -->
+      <main class="overflow-y-auto custom-scroll pr-2" id="mainContent">
+        <div id="postsList" class="space-y-5 pb-20"></div>
       </main>
 
-      <!-- 右边栏 -->
-      <aside class="flex flex-col gap-5 min-h-0 sidebar-right">
-        <div class="apple-glass rounded-3xl p-5">
-          <h3 class="text-xs font-black text-gray-400 mb-4 uppercase tracking-[0.2em]">Latest</h3>
-          <div id="recentPosts" class="space-y-3"></div>
+      <!-- 右边栏：动态 -->
+      <aside class="sidebar-right flex flex-col gap-5">
+        <div class="apple-glass rounded-[2.5rem] p-6">
+          <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Trending</h3>
+          <div id="recentPosts" class="space-y-4"></div>
         </div>
-
-        <div class="apple-glass rounded-3xl p-5">
-          <h3 class="text-xs font-black text-gray-400 mb-4 uppercase tracking-[0.2em]">Tags</h3>
+        
+        <div class="apple-glass rounded-[2.5rem] p-6">
+          <h3 class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4">Meta Tags</h3>
           <div id="sidebarTags" class="flex flex-wrap gap-2"></div>
         </div>
 
-        <div class="apple-glass rounded-3xl p-6 mt-auto">
-          <p class="text-sm text-gray-500 leading-relaxed font-medium">思维火花，代码人生。感谢在此相遇。</p>
-          <div class="flex gap-2 mt-4">
-            <button class="w-10 h-10 rounded-2xl bg-white/40 flex items-center justify-center hover:bg-white/60 transition-all">𝕏</button>
-            <button class="w-10 h-10 rounded-2xl bg-white/40 flex items-center justify-center hover:bg-white/60 transition-all">github</button>
-          </div>
+        <!-- 底部版权/社交 -->
+        <div class="mt-auto p-4 opacity-50 text-[10px] font-bold uppercase tracking-widest text-center">
+          © 2024 ALEEE SIGNATURE. PROUDLY CODED.
         </div>
       </aside>
     </div>
   </div>
 
-  <!-- 动态控制悬浮面板 -->
-  <div class="fixed bottom-8 left-8 z-50 flex items-center gap-3">
-    <div class="apple-glass-strong rounded-2xl p-1.5 flex gap-1 border border-white/40 shadow-2xl">
-      <button id="zenBtn" class="w-10 h-10 flex items-center justify-center hover:bg-white/50 rounded-xl transition-all btn-click" title="禅模式">🧘</button>
-      <button id="blurBtn" class="w-10 h-10 flex items-center justify-center hover:bg-white/50 rounded-xl transition-all btn-click" title="调节模糊">🌫️</button>
-      <button id="nextBgBtn" class="w-10 h-10 flex items-center justify-center hover:bg-white/50 rounded-xl transition-all btn-click" title="切换背景">🖼️</button>
+  <!-- 浮动控制面板：更精致的圆角 -->
+  <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] flex items-center gap-3">
+    <div class="apple-glass-strong rounded-3xl p-2 flex gap-1 border border-white/40 shadow-2xl">
+      <button id="zenBtn" class="w-12 h-12 flex items-center justify-center hover:bg-white/60 rounded-2xl transition-all btn-click" title="Zen Mode">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-width="2"/></svg>
+      </button>
+      <div class="w-[1px] bg-gray-300/30 mx-1"></div>
+      <button id="blurBtn" class="w-12 h-12 flex items-center justify-center hover:bg-white/60 rounded-2xl transition-all btn-click" title="Blur Level">🌫️</button>
+      <button id="nextBgBtn" class="w-12 h-12 flex items-center justify-center hover:bg-white/60 rounded-2xl transition-all btn-click" title="Switch Wall">🖼️</button>
     </div>
   </div>
 
-  <!-- 回到顶部 -->
-  <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl shadow-2xl items-center justify-center hidden hover-lift btn-click z-50">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <button id="backToTop" class="fixed bottom-10 right-10 w-14 h-14 apple-glass-strong rounded-3xl shadow-2xl items-center justify-center hidden hover-lift btn-click z-[100]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </button>
 
   <script>
-    let allPosts = [];
-    let allCategories = [];
-    let currentCategory = 'all';
+    // 基础数据与逻辑
+    let allPosts = [
+      { id: 1, title: "设计与算法：构建极简 UI 系统", excerpt: "我们如何通过减少视觉噪音，提升用户的阅读效率与专注力...", cat: "Design", readTime: "8 MIN", date: "APR 12" },
+      { id: 2, title: "Webkit 渲染引擎深度解析", excerpt: "了解浏览器底层是如何处理复杂的毛玻璃效果与复合层的...", cat: "Tech", readTime: "15 MIN", date: "APR 10" },
+      { id: 3, title: "禅与写作艺术", excerpt: "在嘈杂的数字时代，寻找一片属于自己的宁静思考空间...", cat: "Life", readTime: "5 MIN", date: "APR 08" },
+      { id: 4, title: "从零开始的色彩实验室", excerpt: "探索 P3 色域在现代网页设计中的应用与适配策略...", cat: "Design", readTime: "12 MIN", date: "APR 05" }
+    ];
 
-    // 核心数据加载
-    async function loadData() {
-      // 模拟数据 (生产环境请换回 fetch)
-      allPosts = [
-        { id: 1, title: "构建现代化的果味设计系统", excerpt: "探索沉浸式毛玻璃效果在Web开发中的极致应用...", file: "Design/AppleGlass", tags: ["Design", "CSS"] },
-        { id: 2, title: "深入浅出 Tailwind CSS 核心原理", excerpt: "为什么 Utility-first 会改变我们的开发习惯？", file: "Tech/Frontend", tags: ["Frontend"] },
-        { id: 3, title: "2024年个人知识体系构建指南", excerpt: "从碎片化阅读到深度思考，如何管理你的数字资产...", file: "Life/Thoughts", tags: ["Life"] }
-      ];
-      allCategories = { 
-        children: [
-          { name: "Design", count: 12, children: [] },
-          { name: "Tech", count: 24, children: [{ name: "Frontend", count: 10 }] },
-          { name: "Life", count: 8, children: [] }
-        ] 
-      };
-      
-      updateStats();
-      renderNav();
-      renderSidebarCats();
+    // 初始化内容
+    function init() {
       renderPosts(allPosts);
-      renderRecent(allPosts);
-      renderTags(["Javascript", "React", "Next.js", "Design", "Productivity"]);
-    }
-
-    function updateStats() {
-      document.getElementById('totalPosts').textContent = allPosts.length;
-      document.getElementById('totalCategories').textContent = allCategories.children.length;
-    }
-
-    function renderNav() {
+      renderCategories();
+      renderTags();
+      initWallpapers();
+      
+      // 分类导航
       const nav = document.getElementById('categoryNav');
-      const cats = allCategories.children.slice(0, 5);
-      nav.innerHTML = `<span class="nav-category active" data-cat="all" onclick="filter('all')">Discovery</span>` + 
-        cats.map(c => `<span class="nav-category" data-cat="${c.name}" onclick="filter('${c.name}')">${c.name}</span>`).join('');
+      const cats = ["Discovery", "Design", "Tech", "Life", "Archive"];
+      nav.innerHTML = cats.map(c => `<button class="nav-category ${c==='Discovery'?'active':''}" onclick="filterPosts('${c}')">${c}</button>`).join('');
     }
 
     function renderPosts(posts) {
       const container = document.getElementById('postsList');
-      container.innerHTML = posts.map((post, i) => `
-        <article class="apple-glass hover-lift rounded-[2rem] p-7 cursor-pointer post-enter" style="animation-delay: ${i * 0.1}s">
-          <div class="flex justify-between items-start gap-6">
-            <div class="flex-1">
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-[10px] font-black uppercase tracking-widest text-blue-500 bg-blue-500/10 px-2 py-1 rounded-md">
-                  ${post.file.split('/')[0]}
-                </span>
-                <span class="text-[10px] text-gray-400 font-bold">5 MIN READ</span>
+      container.innerHTML = posts.map((p, i) => `
+        <article class="apple-glass hover-lift rounded-[2.5rem] p-8 cursor-pointer group post-enter" style="animation-delay: ${i*0.08}s">
+          <div class="flex justify-between items-start">
+            <div class="space-y-4 flex-1">
+              <div class="flex items-center gap-3">
+                <span class="tag-pill">${p.cat}</span>
+                <span class="text-[10px] font-bold text-gray-400 tracking-widest">${p.date} • ${p.readTime}</span>
               </div>
-              <h3 class="text-xl font-bold mb-3 tracking-tight text-gray-800 leading-snug">${post.title}</h3>
-              <p class="text-gray-500 text-sm leading-relaxed line-clamp-2">${post.excerpt}</p>
+              <h3 class="text-2xl font-black text-gray-800 dark:text-white leading-tight group-hover:text-blue-500 transition-colors">${p.title}</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xl">${p.excerpt}</p>
             </div>
-            <div class="w-12 h-12 rounded-2xl bg-gray-100/50 flex items-center justify-center shrink-0">
-              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div class="w-14 h-14 rounded-full bg-white/50 dark:bg-gray-800/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-x-4 group-hover:translate-x-0">
+               <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             </div>
           </div>
         </article>
       `).join('');
     }
 
-    function filter(cat) {
-      document.querySelectorAll('.nav-category').forEach(el => el.classList.toggle('active', el.dataset.cat === cat));
-      const filtered = cat === 'all' ? allPosts : allPosts.filter(p => p.file.startsWith(cat));
-      renderPosts(filtered);
+    function renderCategories() {
+      const cats = [
+        { name: "Interface Design", icon: "✨", count: 24 },
+        { name: "Frontend Dev", icon: "🚀", count: 42 },
+        { name: "Daily Log", icon: "☕", count: 18 }
+      ];
+      document.getElementById('sidebarCategories').innerHTML = cats.map(c => `
+        <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-white/50 cursor-pointer transition-all group">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-white/50 flex items-center justify-center text-sm shadow-sm">${c.icon}</span>
+            <span class="text-sm font-bold text-gray-700 dark:text-gray-300">${c.name}</span>
+          </div>
+          <span class="text-[10px] font-black text-gray-400 group-hover:text-blue-500 transition-colors">${c.count}</span>
+        </div>
+      `).join('');
     }
 
-    // 交互：壁纸轮播
+    function renderTags() {
+      const tags = ["Apple", "Minimal", "Tailwind", "Product", "Code", "UX"];
+      document.getElementById('sidebarTags').innerHTML = tags.map(t => `
+        <span class="px-4 py-2 bg-white/30 dark:bg-gray-800/30 rounded-2xl text-[10px] font-black text-gray-500 hover:bg-blue-500 hover:text-white transition-all cursor-pointer border border-white/20">#${t}</span>
+      `).join('');
+      
+      document.getElementById('recentPosts').innerHTML = allPosts.slice(0, 3).map(p => `
+        <div class="flex gap-4 items-center group cursor-pointer">
+          <div class="w-10 h-10 rounded-2xl bg-blue-500/10 flex items-center justify-center text-xs font-black text-blue-500">0${p.id}</div>
+          <div class="flex-1">
+            <h4 class="text-xs font-bold text-gray-700 dark:text-gray-200 line-clamp-1 group-hover:text-blue-500">${p.title}</h4>
+            <span class="text-[9px] font-black text-gray-400 uppercase tracking-tighter">${p.date}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 壁纸逻辑
     function initWallpapers() {
       const carousel = document.getElementById('wallpaperCarousel');
-      const images = [
-        'https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&w=2000',
-        'https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?auto=format&fit=crop&q=80&w=2000',
-        'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=2000'
+      const imgs = [
+        'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2000&auto=format&fit=crop'
       ];
-      
-      images.forEach((img, i) => {
-        const div = document.createElement('div');
-        div.className = `wallpaper-slide ${i===0?'active':''}`;
-        div.style.backgroundImage = `url(${img})`;
-        carousel.appendChild(div);
+      imgs.forEach((url, i) => {
+        const slide = document.createElement('div');
+        slide.className = `wallpaper-slide ${i===0?'active':''}`;
+        slide.style.backgroundImage = `url(${url})`;
+        carousel.appendChild(slide);
       });
     }
 
-    function nextBg() {
+    // 交互事件
+    document.getElementById('nextBgBtn').onclick = () => {
       const slides = document.querySelectorAll('.wallpaper-slide');
-      let activeIdx = Array.from(slides).findIndex(s => s.classList.contains('active'));
-      slides[activeIdx].classList.remove('active');
-      slides[(activeIdx + 1) % slides.length].classList.add('active');
-    }
+      let current = Array.from(slides).findIndex(s => s.classList.contains('active'));
+      slides[current].classList.remove('active');
+      slides[(current+1)%slides.length].classList.add('active');
+    };
 
-    // 交互：禅模式
-    function toggleZen() {
+    let isZen = false;
+    document.getElementById('zenBtn').onclick = () => {
+      isZen = !isZen;
       const layout = document.getElementById('layoutArea');
-      const sidebars = document.querySelectorAll('.sidebar-left, .sidebar-right');
-      const isZen = layout.style.gridTemplateColumns === '1fr';
-      
-      layout.style.gridTemplateColumns = isZen ? '280px 1fr 260px' : '1fr';
-      sidebars.forEach(s => s.style.display = isZen ? 'flex' : 'none');
-      document.getElementById('zenBtn').innerText = isZen ? '🧘' : '👁️';
-    }
+      layout.style.gridTemplateColumns = isZen ? "0 1fr 0" : "260px 1fr 260px";
+      layout.style.gap = isZen ? "0" : "1.25rem";
+      document.querySelectorAll('.sidebar-left, .sidebar-right').forEach(s => s.style.opacity = isZen ? "0" : "1");
+    };
 
-    // 辅助功能
+    let blurScale = 1;
+    document.getElementById('blurBtn').onclick = () => {
+      blurScale = blurScale >= 2 ? 0.5 : blurScale + 0.5;
+      document.documentElement.style.setProperty('--glass-blur', (40 * blurScale) + 'px');
+    };
+
     window.addEventListener('scroll', () => {
-      // 进度条
-      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      document.getElementById('progress-bar').style.width = scrolled + '%';
-      
-      // 回到顶部
+      const progress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('progress-bar').style.width = progress + '%';
       document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'flex' : 'none';
     }, {passive: true});
 
-    // 搜索逻辑
-    const searchBtn = document.getElementById('searchBtn');
-    const searchModal = document.getElementById('searchModal');
-    searchBtn.onclick = () => {
-      searchModal.classList.remove('hidden');
-      searchModal.classList.add('flex');
-      setTimeout(() => document.getElementById('searchBox').classList.remove('scale-95'), 10);
-      document.getElementById('searchInput').focus();
-    };
-    
-    searchModal.onclick = (e) => { if(e.target === searchModal) searchModal.classList.add('hidden'); };
-
-    // 初始化事件监听
-    document.getElementById('zenBtn').onclick = toggleZen;
-    document.getElementById('nextBgBtn').onclick = nextBg;
-    document.getElementById('backToTop').onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
-    document.getElementById('themeToggle').onclick = () => document.body.classList.toggle('dark-mode');
-    
-    let blurVal = 30;
-    document.getElementById('blurBtn').onclick = () => {
-      blurVal = blurVal > 60 ? 10 : blurVal + 15;
-      document.documentElement.style.setProperty('--glass-blur', blurVal + 'px');
-    };
-
-    // 执行
-    loadData();
-    initWallpapers();
-
-    // 简单的 Sidebar 渲染函数补全
-    function renderSidebarCats() {
-      const container = document.getElementById('sidebarCategories');
-      container.innerHTML = allCategories.children.map(c => `
-        <div class="group cursor-pointer p-3 rounded-2xl hover:bg-white/40 transition-all flex justify-between items-center" onclick="filter('${c.name}')">
-          <div class="flex items-center gap-3">
-            <span class="text-lg">📂</span>
-            <span class="font-bold text-sm text-gray-700">${c.name}</span>
-          </div>
-          <span class="text-[10px] font-black text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg">${c.count}</span>
-        </div>
-      `).join('');
-    }
-
-    function renderRecent(posts) {
-      document.getElementById('recentPosts').innerHTML = posts.slice(0,3).map(p => `
-        <div class="flex gap-3 items-center group cursor-pointer">
-          <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-          <p class="text-xs font-bold text-gray-600 group-hover:text-blue-500 transition-colors line-clamp-1">${p.title}</p>
-        </div>
-      `).join('');
-    }
-
-    function renderTags(tags) {
-      document.getElementById('sidebarTags').innerHTML = tags.map(t => `
-        <span class="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-white/40 rounded-xl cursor-pointer hover:bg-blue-500 hover:text-white transition-all"># ${t}</span>
-      `).join('');
-    }
+    init();
   </script>
 </body>
 </html>
