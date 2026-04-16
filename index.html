@@ -371,17 +371,113 @@
     let allCategories = [];
     let currentCategory = 'all';
 
+    // GitHub仓库配置
+    const GITHUB_REPO = 'aleee612/StudyNotes';
+    const GITHUB_BRANCH = 'main';
+    const GITHUB_API_URL = `https://api.github.com/repos/${GITHUB_REPO}/contents`;
+    const GITHUB_RAW_URL = `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}`;
+
+    // 从GitHub API获取文件列表
+    async function fetchGitHubContents(path = '') {
+      try {
+        const response = await fetch(`${GITHUB_API_URL}/${path}`);
+        if (!response.ok) throw new Error('GitHub API请求失败');
+        return await response.json();
+      } catch (error) {
+        console.error('获取GitHub内容失败:', error);
+        return [];
+      }
+    }
+
+    // 递归获取所有Markdown文件
+    async function getAllMarkdownFiles(path = '', allFiles = []) {
+      const contents = await fetchGitHubContents(path);
+      
+      for (const item of contents) {
+        if (item.type === 'file' && item.name.endsWith('.md')) {
+          allFiles.push({
+            name: item.name,
+            path: item.path,
+            download_url: item.download_url,
+            sha: item.sha
+          });
+        } else if (item.type === 'dir' && !item.name.startsWith('.')) {
+          await getAllMarkdownFiles(item.path, allFiles);
+        }
+      }
+      
+      return allFiles;
+    }
+
+    // 构建分类结构
+    function buildCategoryStructure(files) {
+      const categories = {
+        name: 'root',
+        count: files.length,
+        children: []
+      };
+      
+      const categoryMap = new Map();
+      
+      files.forEach(file => {
+        const parts = file.path.split('/');
+        if (parts.length > 1) {
+          const categoryName = parts[0];
+          if (!categoryMap.has(categoryName)) {
+            categoryMap.set(categoryName, {
+              name: categoryName,
+              count: 0,
+              children: []
+            });
+          }
+          const category = categoryMap.get(categoryName);
+          category.count++;
+          
+          // 处理子分类
+          if (parts.length > 2) {
+            const subCategoryName = parts[1];
+            let subCategory = category.children.find(c => c.name === subCategoryName);
+            if (!subCategory) {
+              subCategory = {
+                name: subCategoryName,
+                count: 0
+              };
+              category.children.push(subCategory);
+            }
+            subCategory.count++;
+          }
+        }
+      });
+      
+      categories.children = Array.from(categoryMap.values());
+      return categories;
+    }
+
     async function loadData() {
       try {
-        const [postsResponse, categoriesResponse, tagsResponse] = await Promise.all([
-          fetch('data/posts.json'),
-          fetch('data/categories.json'),
-          fetch('data/tags.json').catch(() => null)
-        ]);
+        // 显示加载状态
+        document.getElementById('postsList').innerHTML = `
+          <div class="apple-glass rounded-2xl p-8 text-center text-gray-500">
+            <p class="text-4xl mb-4">⏳</p>
+            <p>正在从GitHub加载文章...</p>
+          </div>
+        `;
         
-        allPosts = await postsResponse.json();
-        allCategories = await categoriesResponse.json();
-        const tags = tagsResponse ? await tagsResponse.json() : [];
+        // 从GitHub获取所有Markdown文件
+        const files = await getAllMarkdownFiles();
+        
+        // 构建文章列表
+        allPosts = files.map((file, index) => ({
+          id: index + 1,
+          title: file.name.replace('.md', ''),
+          file: file.path,
+          folder: file.path.split('/').slice(0, -1).join('/'),
+          folders: file.path.split('/').slice(0, -1),
+          github_url: `${GITHUB_RAW_URL}/${file.path}`
+        }));
+        
+        // 构建分类结构
+        allCategories = buildCategoryStructure(allPosts);
         
         document.getElementById('totalPosts').textContent = allPosts.length;
         document.getElementById('totalCategories').textContent = allCategories.children?.length || 0;
@@ -390,13 +486,14 @@
         renderSidebarCategories(allCategories);
         renderPosts(allPosts);
         renderRecentPosts(allPosts);
-        renderSidebarTags(tags);
+        renderSidebarTags([]);
       } catch (error) {
         console.error('加载数据失败:', error);
         document.getElementById('postsList').innerHTML = `
           <div class="apple-glass rounded-2xl p-8 text-center text-gray-500">
             <p class="text-4xl mb-4">😔</p>
             <p>加载失败，请刷新页面重试</p>
+            <p class="text-sm mt-2">错误信息: ${error.message}</p>
           </div>
         `;
       }
@@ -489,7 +586,7 @@
 
       container.innerHTML = posts.map((post) => `
         <div class="apple-glass hover-lift rounded-2xl p-5 border border-white/50">
-          <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
+          <a href="post.html?path=${encodeURIComponent(post.file)}&title=${encodeURIComponent(post.title)}" class="block text-inherit no-underline">
             <div class="flex items-start justify-between gap-4">
               <div class="flex-1 min-w-0">
                 <h3 class="font-bold text-base mb-3 text-gray-800 hover:text-ios-blue transition-colors line-clamp-2">${post.title}</h3>
@@ -516,7 +613,7 @@
       const recent = posts.slice(0, 5);
       
       container.innerHTML = recent.map(post => `
-        <a href="post.html?id=${encodeURIComponent(post.id)}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/50 transition-all group">
+        <a href="post.html?path=${encodeURIComponent(post.file)}&title=${encodeURIComponent(post.title)}" class="flex items-center gap-3 p-2 rounded-xl hover:bg-white/50 transition-all group">
           <span>📄</span>
           <span class="text-sm text-gray-700 group-hover:text-ios-blue transition-colors line-clamp-2 flex-1">${post.title}</span>
         </a>
