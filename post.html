@@ -827,40 +827,41 @@
     }
 
     // 加载文章
-    // GitHub仓库配置
-    const GITHUB_REPO = 'aleee612/StudyNotes';
-    const GITHUB_BRANCH = 'main';
-    const GITHUB_API_URL = `https://api.github.com/repos/${GITHUB_REPO}/contents`;
-    const GITHUB_RAW_URL = `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}`;
-
     async function loadPost() {
-      const postPath = getUrlParam('path');
-      const postTitle = getUrlParam('title');
+      const postId = getUrlParam('id');
       
-      if (!postPath) {
+      if (!postId) {
         showError();
         return;
       }
       
       try {
-        // 从GitHub raw内容获取文章
-        const contentUrl = `${GITHUB_RAW_URL}/${postPath}`;
-        const response = await fetch(contentUrl);
+        const response = await fetch('data/posts.json');
+        const posts = await response.json();
         
-        if (!response.ok) {
-          throw new Error('文章加载失败');
+        const post = posts.find(p => p.id == postId);
+        
+        if (!post) {
+          showError();
+          return;
         }
         
-        let content = await response.text();
-        content = content.replace(/^---[\s\S]*?---\n*/, '');
+        // 加载文章内容
+        const filePath = 'posts/' + post.file;
+        const contentResponse = await fetch(filePath);
+        let content = '';
+        
+        if (contentResponse.ok) {
+          content = await contentResponse.text();
+          content = content.replace(/^---[\s\S]*?---\n*/, '');
+        }
         
         // 显示文章
-        const title = postTitle || postPath.split('/').pop().replace('.md', '');
-        document.getElementById('postTitle').textContent = title;
-        document.getElementById('postCategory').textContent = postPath.split('/')[0];
+        document.getElementById('postTitle').textContent = post.title;
+        document.getElementById('postCategory').textContent = post.file.split('/')[0];
         document.getElementById('postBody').innerHTML = parseMarkdown(content) || '<p>暂无内容</p>';
         
-        document.title = title + ' - aleee';
+        document.title = post.title + ' - aleee';
         
         document.getElementById('loadingState').classList.add('hidden');
         document.getElementById('postContent').classList.remove('hidden');
