@@ -30,7 +30,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.35);
       backdrop-filter: blur(20px);
       z-index: -1;
     }
@@ -122,6 +122,13 @@
       font-weight: 600;
       margin: 0.75rem 0 0.5rem;
       color: #5a6578;
+    }
+    
+    .post-content h5 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0.6rem 0 0.4rem;
+      color: #6a7588;
     }
     
     .post-content p {
@@ -292,10 +299,52 @@
       text-decoration: line-through;
     }
     
-    /* 列表样式增强 */
+    /* 列表样式增强 - Obsidian风格 */
     .post-content ul, .post-content ol {
-      margin: 1rem 0;
+      margin: 1.25rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .post-content ul {
+      counter-reset: ul-counter;
+    }
+    
+    .post-content ul > li {
+      position: relative;
       padding-left: 1.75rem;
+      margin: 0.75rem 0;
+      line-height: 1.7;
+    }
+    
+    .post-content ul > li::before {
+      content: '•';
+      position: absolute;
+      left: 0.5rem;
+      color: #007aff;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    
+    .post-content ol {
+      counter-reset: ol-counter;
+    }
+    
+    .post-content ol > li {
+      position: relative;
+      padding-left: 2rem;
+      margin: 0.75rem 0;
+      line-height: 1.7;
+      counter-increment: ol-counter;
+    }
+    
+    .post-content ol > li::before {
+      content: counter(ol-counter) '.';
+      position: absolute;
+      left: 0.5rem;
+      color: #007aff;
+      font-weight: 600;
+      font-size: 0.95em;
     }
     
     .post-content li {
@@ -305,19 +354,42 @@
     
     .post-content ul ul, .post-content ol ol,
     .post-content ul ol, .post-content ol ul {
+      margin: 0.5rem 0 0.5rem 0.5rem;
+    }
+    
+    .post-content ul ul > li::before {
+      content: '○';
+      font-size: 1em;
+    }
+    
+    .post-content ul ul ul > li::before {
+      content: '▪';
+      font-size: 0.9em;
+    }
+    
+    /* 引用样式增强 - Obsidian风格 */
+    .post-content blockquote {
+      border-left: 4px solid #007aff;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      color: #2d3748;
+      background: linear-gradient(90deg, rgba(0, 122, 255, 0.08) 0%, rgba(0, 122, 255, 0.02) 100%);
+      border-radius: 0 12px 12px 0;
+      box-shadow: 0 2px 8px rgba(0, 122, 255, 0.1);
+      font-style: normal;
+      line-height: 1.7;
+    }
+    
+    .post-content blockquote p {
       margin: 0.5rem 0;
     }
     
-    /* 引用样式增强 */
-    .post-content blockquote {
-      border-left: 4px solid rgba(0, 122, 255, 0.4);
-      padding-left: 1.25rem;
-      margin: 1.5rem 0;
-      color: #4a5568;
-      font-style: italic;
-      background: rgba(0, 122, 255, 0.03);
-      padding: 1rem 1.25rem;
-      border-radius: 0 8px 8px 0;
+    .post-content blockquote p:first-child {
+      margin-top: 0;
+    }
+    
+    .post-content blockquote p:last-child {
+      margin-bottom: 0;
     }
 
     /* 返回顶部按钮 */
