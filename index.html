@@ -105,12 +105,34 @@
             gap: 1rem;
             flex: 1;
             overflow: hidden;
-            padding: 0 1rem;
-            height: calc(100vh - 100px);
+            padding: 0.5rem 1rem;
+            height: calc(100vh - 2rem);
+        }
+        
+        .sidebar-left {
+            height: calc(100vh - 2rem);
+            position: sticky;
+            top: 1rem;
+            overflow: hidden;
+        }
+        
+        .sidebar-right {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.2) transparent;
+        }
+        .sidebar-right::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-right::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-right::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
+            border-radius: 2px;
         }
         
         .sidebar-column {
-            overflow-y: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -406,48 +428,7 @@
         </div>
     </div>
 
-    <div class="main-container">
-        <header class="w-full flex justify-center mb-3 sticky top-0 z-50 flex-none px-3 md:px-4">
-            <div id="navBox" class="dynamic-nav-container apple-glass-strong rounded-[2rem] px-6 py-3 flex justify-between items-center w-full max-w-7xl">
-                <h1 id="navLogo" class="font-black text-lg tracking-tighter cursor-pointer flex items-center gap-2 transition-all duration-500">
-                    <span class="status-dot"></span>
-                    <span class="logo-text gradient-text-vibrant">aleee</span>
-                </h1>
-                <nav id="navLinks" class="hidden md:flex gap-6 font-bold text-sm opacity-60 transition-all duration-500">
-                    <a href="#" class="hover:text-ios-blue transition-all">首页</a>
-                    <a href="#" class="hover:text-ios-blue transition-all">归档</a>
-                    <a href="#" class="hover:text-ios-blue transition-all">标签</a>
-                    <a href="#" class="hover:text-ios-blue transition-all">关于</a>
-                </nav>
-                <div id="navBtnBox" class="flex items-center gap-2 transition-all duration-500">
-                    <button id="randomPostBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="随机文章">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                        </svg>
-                    </button>
-                    <button id="searchBtn" class="p-2 rounded-full hover:bg-white/50 transition-all relative" title="搜索">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </button>
-                    <button id="themeToggle" class="p-2 rounded-full hover:bg-white/50 transition-all" title="切换主题">
-                        <svg class="w-5 h-5 theme-icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                        </svg>
-                        <svg class="w-5 h-5 theme-icon-dark hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                        </svg>
-                    </button>
-                    <button id="fontSizeBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="字体大小">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                    <button class="bg-black text-white px-4 py-1.5 rounded-full text-xs font-bold hover:shadow-xl active:scale-95 transition-all">订阅</button>
-                </div>
-            </div>
-        </header>
-
+    <div class="main-container flex flex-col h-screen">
         <div class="max-w-7xl w-full mx-auto three-column-layout flex-1 overflow-hidden px-3 md:px-4">
             
             <!-- 左侧栏 -->
@@ -489,7 +470,7 @@
                     <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">📂 导航</h3>
                     <div class="overflow-y-auto flex-1 min-h-0 space-y-3 scrollbar-thin">
                         <!-- 快捷操作 -->
-                        <div class="grid grid-cols-4 gap-2">
+                        <div class="grid grid-cols-5 gap-2">
                             <div class="quick-action-btn" onclick="scrollToTop()">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
@@ -502,17 +483,26 @@
                                 </svg>
                                 <span class="text-[9px]">底部</span>
                             </div>
+                            <div class="quick-action-btn" id="themeToggle">
+                                <svg class="w-4 h-4 theme-icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                                </svg>
+                                <svg class="w-4 h-4 theme-icon-dark hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                </svg>
+                                <span class="text-[9px]">主题</span>
+                            </div>
+                            <div class="quick-action-btn" id="searchBtn">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                <span class="text-[9px]">搜索</span>
+                            </div>
                             <div class="quick-action-btn" onclick="toggleFullscreen()">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
                                 </svg>
                                 <span class="text-[9px]">全屏</span>
-                            </div>
-                            <div class="quick-action-btn" onclick="sharePage()">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
-                                </svg>
-                                <span class="text-[9px]">分享</span>
                             </div>
                         </div>
                         
@@ -620,7 +610,6 @@
         let allPosts = [];
         let allCategories = [];
         let currentCategory = 'all';
-        let currentFontSize = 1;
 
         async function loadData() {
             try {
@@ -718,16 +707,20 @@
             container.innerHTML = posts.map((post, index) => `
                 <article class="apple-glass rounded-[2rem] overflow-hidden group cursor-pointer reveal active hover-lift">
                     <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
-                        <div class="p-5">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="text-xs font-black bg-black text-white px-3 py-1 rounded-full uppercase tracking-tighter">${post.file.split('/')[0]}</span>
-                                <span class="text-xs text-gray-400">${new Date().toLocaleDateString()}</span>
+                        <div class="flex">
+                            <!-- 左侧信息 -->
+                            <div class="w-32 flex-shrink-0 p-4 border-r border-white/10 flex flex-col justify-center items-center bg-white/20">
+                                <span class="text-xs font-black bg-black text-white px-3 py-1 rounded-full uppercase tracking-tighter mb-2">${post.file.split('/')[0]}</span>
+                                <span class="text-xs text-gray-500">${new Date().toLocaleDateString()}</span>
+                                <div class="flex items-center gap-2 mt-3 text-xs text-gray-400">
+                                    <span>📖</span>
+                                    <span>💬</span>
+                                </div>
                             </div>
-                            <h3 class="text-lg font-black mb-2 tracking-tight leading-tight group-hover:text-ios-blue transition-colors">${post.title}</h3>
-                            <p class="text-sm text-gray-500 mb-3 line-clamp-2">探索技术的边界，记录学习的点滴...</p>
-                            <div class="flex items-center gap-2">
-                                <span class="post-meta-item">📖 阅读</span>
-                                <span class="post-meta-item">💬 评论</span>
+                            <!-- 右侧内容 -->
+                            <div class="flex-1 p-4">
+                                <h3 class="text-lg font-black mb-2 tracking-tight leading-tight group-hover:text-ios-blue transition-colors">${post.title}</h3>
+                                <p class="text-sm text-gray-500 line-clamp-3">探索技术的边界，记录学习的点滴，分享成长的喜悦。每一篇文章都是一次思维的碰撞，每一个观点都值得被记录...</p>
                             </div>
                         </div>
                     </a>
@@ -871,23 +864,6 @@
             });
         }
 
-        function initRandomPost() {
-            document.getElementById('randomPostBtn').addEventListener('click', () => {
-                if (allPosts.length > 0) {
-                    const randomPost = allPosts[Math.floor(Math.random() * allPosts.length)];
-                    window.location.href = `post.html?id=${encodeURIComponent(randomPost.id)}`;
-                }
-            });
-        }
-
-        function initFontSize() {
-            document.getElementById('fontSizeBtn').addEventListener('click', () => {
-                currentFontSize = currentFontSize >= 3 ? 1 : currentFontSize + 1;
-                const sizes = [1, 1.1, 1.2];
-                document.getElementById('contentScroll').style.fontSize = sizes[currentFontSize - 1] + 'rem';
-            });
-        }
-
         function scrollToTop() { document.getElementById('contentScroll').scrollTo({ top: 0, behavior: 'smooth' }); }
         function scrollToBottom() { 
             const container = document.getElementById('contentScroll');
@@ -952,8 +928,6 @@
         initTimeWeather();
         initTypingEffect();
         initReadingProgress();
-        initRandomPost();
-        initFontSize();
     </script>
 </body>
 </html>
