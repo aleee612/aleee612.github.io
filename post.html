@@ -166,28 +166,151 @@
       margin: 1rem 0;
     }
 
+    /* Obsidian 风格的 Markdown 样式 */
+    
     /* 表格样式 */
     .post-content table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1rem 0;
+      margin: 1.5rem 0;
       font-size: 0.9rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
     
     .post-content th,
     .post-content td {
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0.8rem 1rem;
       text-align: left;
     }
     
     .post-content th {
-      background: rgba(0, 0, 0, 0.03);
+      background: rgba(0, 122, 255, 0.08);
       font-weight: 600;
+      color: #1a202c;
+      border-bottom: 2px solid rgba(0, 122, 255, 0.2);
     }
     
     .post-content tr:nth-child(even) {
       background: rgba(0, 0, 0, 0.02);
+    }
+    
+    .post-content tr:hover {
+      background: rgba(0, 122, 255, 0.03);
+    }
+    
+    /* 任务列表样式 */
+    .post-content .task-item {
+      display: flex;
+      align-items: flex-start;
+      margin: 0.5rem 0;
+      padding: 0.3rem 0;
+    }
+    
+    .post-content .task-item input[type="checkbox"] {
+      margin-right: 0.75rem;
+      margin-top: 0.2rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      accent-color: #007aff;
+    }
+    
+    .post-content .task-item span {
+      flex: 1;
+      line-height: 1.5;
+    }
+    
+    /* 代码高亮样式 */
+    .post-content pre {
+      background: rgba(0, 0, 0, 0.03);
+      padding: 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    .post-content code {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+      font-size: 0.85em;
+    }
+    
+    .post-content pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+    }
+    
+    /* 图片样式 */
+    .post-content .markdown-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 分隔线样式 */
+    .post-content .markdown-divider {
+      border: none;
+      border-top: 2px solid rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+      height: 0;
+    }
+    
+    /* 链接样式 */
+    .post-content .external-link {
+      color: #007aff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 122, 255, 0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .post-content .external-link:hover {
+      color: #0056cc;
+      border-bottom-color: #0056cc;
+    }
+    
+    /* 删除线样式 */
+    .post-content del {
+      color: #6b7280;
+      text-decoration: line-through;
+    }
+    
+    /* 列表样式增强 */
+    .post-content ul, .post-content ol {
+      margin: 1rem 0;
+      padding-left: 1.75rem;
+    }
+    
+    .post-content li {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+    
+    .post-content ul ul, .post-content ol ol,
+    .post-content ul ol, .post-content ol ul {
+      margin: 0.5rem 0;
+    }
+    
+    /* 引用样式增强 */
+    .post-content blockquote {
+      border-left: 4px solid rgba(0, 122, 255, 0.4);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      color: #4a5568;
+      font-style: italic;
+      background: rgba(0, 122, 255, 0.03);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
     }
 
     /* 返回顶部按钮 */
@@ -356,7 +479,7 @@
       }).format(date);
     }
 
-    // Markdown 解析 - 支持表格
+    // Obsidian 风格的 Markdown 解析器
     function parseMarkdown(content) {
       if (!content) return '';
       
@@ -365,32 +488,44 @@
                        .replace(/</g, '&lt;')
                        .replace(/>/g, '&gt;');
       
-      // 代码块
-      content = content.replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>');
+      // 代码块 - 支持语言高亮
+      content = content.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+        const language = lang ? ` class="language-${lang}"` : '';
+        return `<pre><code${language}>${code.trim()}</code></pre>`;
+      });
       
       // 行内代码
       content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
       
-      // 表格处理 - 支持 | 分隔的表格
-      content = content.replace(/\|(.+)\|\n\|[-:\| ]+\|\n((?:\|.+)\n?)+/g, (match) => {
+      // 表格处理 - 支持对齐方式和复杂表格
+      content = content.replace(/\|(.+)\|\n\|([-:\| ]+)\|\n((?:\|.+\|\n?)+)/g, (match, headerLine, alignLine, dataLines) => {
         const lines = match.trim().split('\n');
         if (lines.length < 2) return match;
         
         // 解析表头
         const headerCells = lines[0].split('|').filter(c => c.trim() !== '');
+        const alignments = lines[1].split('|').filter(c => c.trim() !== '').map(align => {
+          const trimmed = align.trim();
+          if (trimmed.startsWith(':') && trimmed.endsWith(':')) return 'center';
+          if (trimmed.endsWith(':')) return 'right';
+          return 'left';
+        });
+        
         let html = '<table><thead><tr>';
-        headerCells.forEach(cell => {
-          html += `<th>${cell.trim()}</th>`;
+        headerCells.forEach((cell, index) => {
+          const align = alignments[index] || 'left';
+          html += `<th style="text-align: ${align}">${cell.trim()}</th>`;
         });
         html += '</tr></thead><tbody>';
         
-        // 跳过分隔行，解析数据行
+        // 解析数据行
         for (let i = 2; i < lines.length; i++) {
           const cells = lines[i].split('|').filter(c => c.trim() !== '');
           if (cells.length > 0) {
             html += '<tr>';
-            cells.forEach(cell => {
-              html += `<td>${cell.trim()}</td>`;
+            cells.forEach((cell, index) => {
+              const align = alignments[index] || 'left';
+              html += `<td style="text-align: ${align}">${parseInlineMarkdown(cell.trim())}</td>`;
             });
             html += '</tr>';
           }
@@ -399,7 +534,16 @@
         return html;
       });
       
+      // 任务列表
+      content = content.replace(/^\s*-\s*\[([ x])\]\s+(.*)$/gim, (match, checked, text) => {
+        const isChecked = checked.trim().toLowerCase() === 'x';
+        return `<div class="task-item"><input type="checkbox" ${isChecked ? 'checked' : ''} disabled> <span>${parseInlineMarkdown(text)}</span></div>`;
+      });
+      
       // 标题
+      content = content.replace(/^###### (.*$)/gim, '<h6>$1</h6>');
+      content = content.replace(/^##### (.*$)/gim, '<h5>$1</h5>');
+      content = content.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
       content = content.replace(/^### (.*$)/gim, '<h3>$1</h3>');
       content = content.replace(/^## (.*$)/gim, '<h2>$1</h2>');
       content = content.replace(/^# (.*$)/gim, '<h1>$1</h1>');
@@ -408,42 +552,129 @@
       content = content.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
       content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
       content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      content = content.replace(/__(.*?)__/g, '<strong>$1</strong>');
+      content = content.replace(/_(.*?)_/g, '<em>$1</em>');
+      
+      // 删除线
+      content = content.replace(/~~(.*?)~~/g, '<del>$1</del>');
       
       // 链接
-      content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+      content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="external-link">$1</a>');
       
       // 图片
-      content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width:100%">');
+      content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="markdown-image">');
       
       // 引用
-      content = content.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
+      content = content.replace(/^>\s*(.*$)/gim, '<blockquote>$1</blockquote>');
       
-      // 无序列表
-      content = content.replace(/^\- (.*$)/gim, '<li>$1</li>');
-      content = content.replace(/(<li>.*<\/li>\n)+/g, '<ul>$&</ul>');
-      content = content.replace(/<\/ul>\n<ul>/g, '');
-      
-      // 有序列表
-      content = content.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
+      // 无序列表 - 支持嵌套
+      content = parseLists(content);
       
       // 分隔线
-      content = content.replace(/^---$/gim, '<hr style="border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 1.5rem 0;">');
+      content = content.replace(/^\s*[-*_]{3,}\s*$/gim, '<hr class="markdown-divider">');
       
-      // 段落
-      content = content.replace(/\n\n/g, '</p><p>');
-      content = '<p>' + content + '</p>';
-      
-      // 清理
-      content = content.replace(/<p><\/p>/g, '');
-      content = content.replace(/<p>(<h[1-6]>.*?<\/h[1-6]>)<\/p>/g, '$1');
-      content = content.replace(/<p>(<pre>.*?<\/pre>)<\/p>/gs, '$1');
-      content = content.replace(/<p>(<blockquote>.*?<\/blockquote>)<\/p>/gs, '$1');
-      content = content.replace(/<p>(<ul>.*?<\/ul>)<\/p>/gs, '$1');
-      content = content.replace(/<p>(<table>.*?<\/table>)<\/p>/gs, '$1');
-      content = content.replace(/<p>(<hr[^>]*>)<\/p>/g, '$1');
-      content = content.replace(/<p>(<img[^>]*>)<\/p>/g, '$1');
+      // 段落处理
+      content = parseParagraphs(content);
       
       return content;
+    }
+
+    // 解析行内 Markdown
+    function parseInlineMarkdown(text) {
+      if (!text) return '';
+      
+      // 粗体和斜体
+      text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
+      text = text.replace(/_(.*?)_/g, '<em>$1</em>');
+      
+      // 删除线
+      text = text.replace(/~~(.*?)~~/g, '<del>$1</del>');
+      
+      // 行内代码
+      text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+      
+      // 链接
+      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="external-link">$1</a>');
+      
+      return text;
+    }
+
+    // 解析列表
+    function parseLists(content) {
+      const lines = content.split('\n');
+      let result = [];
+      let currentList = null;
+      let currentLevel = 0;
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        
+        // 检测列表项
+        const ulMatch = line.match(/^(\s*)[-*+]\s+(.*)$/);
+        const olMatch = line.match(/^(\s*)\d+\.\s+(.*)$/);
+        
+        if (ulMatch || olMatch) {
+          const match = ulMatch || olMatch;
+          const indent = match[1].length;
+          const itemText = match[2];
+          const isOrdered = !!olMatch;
+          const level = Math.floor(indent / 2);
+          
+          if (!currentList || level !== currentLevel) {
+            if (currentList) {
+              result.push(currentList.html + (isOrdered ? '</ol>' : '</ul>'));
+            }
+            currentList = {
+              isOrdered: isOrdered,
+              level: level,
+              html: isOrdered ? '<ol>' : '<ul>'
+            };
+            currentLevel = level;
+          }
+          
+          currentList.html += `<li>${parseInlineMarkdown(itemText)}</li>`;
+        } else {
+          if (currentList) {
+            result.push(currentList.html + (currentList.isOrdered ? '</ol>' : '</ul>'));
+            currentList = null;
+            currentLevel = 0;
+          }
+          result.push(line);
+        }
+      }
+      
+      if (currentList) {
+        result.push(currentList.html + (currentList.isOrdered ? '</ol>' : '</ul>'));
+      }
+      
+      return result.join('\n');
+    }
+
+    // 解析段落
+    function parseParagraphs(content) {
+      const blocks = content.split('\n\n');
+      let result = [];
+      
+      for (let block of blocks) {
+        if (!block.trim()) continue;
+        
+        // 跳过已经是 HTML 标签的块
+        if (block.match(/^<(h[1-6]|pre|blockquote|ul|ol|table|hr|img)/)) {
+          result.push(block);
+        } else if (block.match(/^<li>/)) {
+          result.push(block);
+        } else if (block.match(/^\s*[-*+]\s+\[([ x])\]/)) {
+          // 任务列表
+          result.push(block);
+        } else {
+          result.push(`<p>${parseInlineMarkdown(block)}</p>`);
+        }
+      }
+      
+      return result.join('\n');
     }
 
     // 加载文章
