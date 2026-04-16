@@ -13,13 +13,40 @@
       box-sizing: border-box;
     }
     
+    /* 壁纸轮播容器 */
+    .wallpaper-carousel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+    
+    .wallpaper-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    
+    .wallpaper-slide.active {
+      opacity: 1;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
       height: 100vh;
       overflow: hidden;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: url('images/bg1.png') center/cover fixed no-repeat;
       color: #1a1a2e;
     }
 
@@ -240,6 +267,11 @@
   </style>
 </head>
 <body>
+  <!-- 壁纸轮播 -->
+  <div class="wallpaper-carousel" id="wallpaperCarousel">
+    <!-- 壁纸将通过JavaScript动态添加 -->
+  </div>
+
   <div class="main-container">
     <header class="flex-none">
       <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
@@ -512,7 +544,58 @@
       renderPosts(filtered);
     }
 
+    // 壁纸轮播功能
+    function initWallpaperCarousel() {
+      const carousel = document.getElementById('wallpaperCarousel');
+      
+      // 壁纸列表 - 使用相对路径
+      const wallpapers = [
+        'images/bg1.png',
+        'images/bg2.png',
+        'images/wallpaper1.png',
+        'images/wallpaper2.png',
+        'images/wallpaper3.jpg',
+        'images/wallpaper4.jpg',
+        'images/wallpaper5.jpg'
+      ];
+      
+      // 创建壁纸幻灯片
+      wallpapers.forEach((wallpaper, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'wallpaper-slide';
+        slide.style.backgroundImage = `url('${wallpaper}')`;
+        slide.dataset.index = index;
+        carousel.appendChild(slide);
+      });
+      
+      let currentSlide = 0;
+      const slides = carousel.querySelectorAll('.wallpaper-slide');
+      
+      // 显示第一张壁纸
+      if (slides.length > 0) {
+        slides[0].classList.add('active');
+      }
+      
+      // 轮播函数
+      function nextSlide() {
+        // 移除当前激活状态
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // 切换到下一张
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+        
+        // 10分钟后切换到下一张
+        setTimeout(nextSlide, 10 * 60 * 1000); // 10分钟
+      }
+      
+      // 开始轮播
+      setTimeout(nextSlide, 10 * 60 * 1000); // 10分钟后开始第一次切换
+    }
+
+    // 初始化
     loadData();
+    initWallpaperCarousel();
   </script>
 </body>
 </html>
