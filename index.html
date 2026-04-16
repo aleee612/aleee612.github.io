@@ -43,10 +43,14 @@
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(30px) saturate(180%);
             -webkit-backdrop-filter: blur(30px) saturate(180%);
             z-index: -1;
+        }
+        
+        body.dark-mode::before {
+            background: rgba(0, 0, 0, 0.75);
         }
         
         .glow-sphere {
@@ -106,13 +110,11 @@
             flex: 1;
             overflow: hidden;
             padding: 0.5rem 1rem;
-            height: calc(100vh - 2rem);
+            height: calc(100vh - 80px);
         }
         
         .sidebar-left {
-            height: calc(100vh - 2rem);
-            position: sticky;
-            top: 1rem;
+            height: calc(100vh - 80px);
             overflow: hidden;
         }
         
@@ -510,34 +512,6 @@
                 <div class="apple-glass rounded-[2rem] p-4 reveal active flex-1 flex flex-col min-h-0">
                     <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">📂 导航</h3>
                     <div class="overflow-y-auto flex-1 min-h-0 space-y-3 scrollbar-thin">
-                        <!-- 快捷操作 -->
-                        <div class="grid grid-cols-4 gap-2">
-                            <div class="quick-action-btn" onclick="scrollToTop()">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                                </svg>
-                                <span class="text-[9px]">顶部</span>
-                            </div>
-                            <div class="quick-action-btn" onclick="scrollToBottom()">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                                </svg>
-                                <span class="text-[9px]">底部</span>
-                            </div>
-                            <div class="quick-action-btn" onclick="toggleFullscreen()">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
-                                </svg>
-                                <span class="text-[9px]">全屏</span>
-                            </div>
-                            <div class="quick-action-btn" onclick="sharePage()">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
-                                </svg>
-                                <span class="text-[9px]">分享</span>
-                            </div>
-                        </div>
-                        
                         <!-- 分类 -->
                         <div class="pt-2 border-t border-white/20">
                             <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">分类</p>
@@ -572,27 +546,6 @@
                 <div class="apple-glass rounded-[2rem] p-4 reveal active">
                     <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">热门文章</h3>
                     <div id="hotPosts" class="space-y-2"></div>
-                </div>
-
-                <!-- 最新评论 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">最新评论</h3>
-                    <div id="recentComments" class="space-y-2">
-                        <div class="mini-card">
-                            <div class="flex items-center gap-2 mb-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-500"></div>
-                                <span class="text-xs font-bold">访客</span>
-                            </div>
-                            <p class="text-xs text-gray-500">这篇文章写得真好！</p>
-                        </div>
-                        <div class="mini-card">
-                            <div class="flex items-center gap-2 mb-1">
-                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-pink-400 to-red-500"></div>
-                                <span class="text-xs font-bold">读者</span>
-                            </div>
-                            <p class="text-xs text-gray-500">学习了，感谢分享！</p>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- 访客统计 -->
@@ -744,10 +697,6 @@
                             <div class="w-32 flex-shrink-0 p-4 border-r border-white/10 flex flex-col justify-center items-center bg-white/20">
                                 <span class="text-xs font-black bg-black text-white px-3 py-1 rounded-full uppercase tracking-tighter mb-2">${post.file.split('/')[0]}</span>
                                 <span class="text-xs text-gray-500">${new Date().toLocaleDateString()}</span>
-                                <div class="flex items-center gap-2 mt-3 text-xs text-gray-400">
-                                    <span>📖</span>
-                                    <span>💬</span>
-                                </div>
                             </div>
                             <!-- 右侧内容 -->
                             <div class="flex-1 p-4">
