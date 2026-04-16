@@ -106,16 +106,20 @@
         .three-column-layout {
             display: grid;
             grid-template-columns: 260px 1fr 260px;
+            grid-template-rows: 1fr;
             gap: 1rem;
             flex: 1;
             overflow: hidden;
             padding: 0.5rem 1rem;
-            height: calc(100vh - 80px);
+            min-height: 0;
         }
         
         .sidebar-left {
-            height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
             overflow: hidden;
+            min-height: 0;
         }
         
         .sidebar-right {
@@ -475,7 +479,7 @@
         <div class="max-w-7xl w-full mx-auto three-column-layout flex-1 overflow-hidden px-3 md:px-4">
             
             <!-- 左侧栏 -->
-            <aside class="flex flex-col gap-3 pr-2 h-full">
+            <aside class="sidebar-left">
                 <!-- 个人信息卡片 -->
                 <div class="apple-glass rounded-[2rem] p-5 reveal active border-b-8 border-white/20 flex-shrink-0">
                     <div class="relative w-16 h-16 mb-4 group">
