@@ -9,40 +9,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --apple-blue: #007aff; 
-            --glass-bg: rgba(255, 255, 255, 0.72); 
-            --glass-border: rgba(255, 255, 255, 0.5); 
-            --soft-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08); 
-            --bezier: cubic-bezier(0.23, 1, 0.32, 1); 
+        * {
+            box-sizing: border-box;
         }
         
-        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; margin: 0; padding: 0; }
-        
-        body { 
-            height: 100vh; 
-            width: 100vw;
-            background: linear-gradient(120deg, #f0e4ff 0%, #e0f2ff 100%); 
-            position: relative; 
-            overflow: hidden; 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+        /* 1. 动态背景 */
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(120deg, #f0e4ff 0%, #e0f2ff 100%);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
         
-        .wallpaper-carousel { 
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -2; 
-        } 
-        .wallpaper-slide { 
-            position: absolute; inset: 0; background-size: cover; background-position: center; 
-            opacity: 0; transition: opacity 2.5s var(--bezier), transform 10s linear; 
-            transform: scale(1.1); 
-        } 
-        .wallpaper-slide.active { opacity: 1; transform: scale(1); } 
- 
-        body::before { 
-            content: ''; position: fixed; inset: 0; 
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.15) 100%); 
-            backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%); 
-            z-index: -1; 
+        /* 壁纸轮播容器 */
+        .wallpaper-carousel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .wallpaper-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        
+        .wallpaper-slide.active {
+            opacity: 1;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            z-index: -1;
         }
         
         .glow-sphere {
@@ -50,645 +69,483 @@
             border-radius: 50%;
             filter: blur(100px);
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.5;
             transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
             pointer-events: none;
         }
-        .sphere-1 { width: 500px; height: 500px; background: #ffcdd2; top: -100px; right: -100px; }
-        .sphere-2 { width: 400px; height: 400px; background: #c8e6c9; bottom: -80px; left: -80px; }
+        .sphere-1 { width: 600px; height: 600px; background: #ffcdd2; top: -150px; right: -150px; }
+        .sphere-2 { width: 500px; height: 500px; background: #c8e6c9; bottom: -100px; left: -100px; }
 
-        .apple-glass { 
-            background: var(--glass-bg); 
-            backdrop-filter: blur(25px) saturate(180%); 
-            border: 1px solid var(--glass-border); 
-            border-radius: 10px; 
-            box-shadow: var(--soft-shadow); 
-            transition: transform 0.3s var(--bezier), box-shadow 0.3s var(--bezier); 
-        } 
- 
-        .apple-glass-strong { 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(30px) saturate(180%); 
-            border: 1px solid rgba(255, 255, 255, 0.7); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        /* 2. 极致磨砂质感 */
+        .apple-glass {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(30px) saturate(160%);
+            -webkit-backdrop-filter: blur(30px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
         }
         
-        .main-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            padding: 6px;
-            gap: 6px;
+        .apple-glass-strong {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
-        
-        .top-nav {
-            height: 44px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 12px;
+
+        /* 3. 动态导航栏容器 */
+        .dynamic-nav-container {
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+            will-change: width, transform, padding, border-radius;
         }
-        
-        .nav-categories {
-            display: flex;
-            gap: 4px;
-            overflow-x: auto;
+
+        /* 4. 滚动区域 */
+        .scroll-container {
+            height: calc(100vh - 140px);
+            overflow-y: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            flex: 1;
-            margin: 0 12px;
-            justify-content: center;
+            padding-bottom: 80px;
+        }
+        .scroll-container::-webkit-scrollbar { display: none; }
+        
+        /* 主容器 */
+        .main-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
         
-        .nav-categories::-webkit-scrollbar { display: none; }
+        .content-area {
+            flex: 1;
+            display: flex;
+            gap: 1.5rem;
+            padding: 0 1.5rem 1.5rem;
+            overflow: hidden;
+        }
         
-        .nav-category {
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .sidebar-left {
+            width: 280px;
+            flex-shrink: 0;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .sidebar-left::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .content-scroll {
+            flex: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .content-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .sidebar-right {
+            width: 260px;
+            flex-shrink: 0;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .sidebar-right::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 5. 动画元素 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .flip-card { perspective: 1200px; }
+        .flip-card-inner {
+            transition: transform 0.7s cubic-bezier(0.15, 1, 0.3, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+        
+        /* 渐变文字 */
+        .gradient-text-vibrant {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-ios-blue { color: #007AFF; }
+        
+        /* 状态点 */
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* 分类卡片 */
+        .subcategory-card {
+            padding: 0.5rem 0.75rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #4a5568;
             cursor: pointer;
             transition: all 0.2s ease;
-            white-space: nowrap;
-            background: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .subcategory-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #007AFF;
+        }
+        
+        /* 文章元数据 */
+        .post-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        
+        /* 标签云 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag-cloud-item {
+            padding: 0.375rem 0.75rem;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #4a5568;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .tag-cloud-item:hover {
+            background: rgba(0, 122, 255, 0.2);
+            border-color: rgba(0, 122, 255, 0.5);
+            color: #007AFF;
+        }
+        
+        /* 导航分类 */
+        .nav-category {
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
         
         .nav-category:hover {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.6);
         }
         
         .nav-category.active {
-            background: var(--apple-blue);
-            color: white;
+            background: rgba(0, 122, 255, 0.2);
+            color: #007AFF;
         }
         
-        .three-column-layout {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 180px 1fr 180px;
-            gap: 6px;
-            min-height: 0;
+        /* 深色主题样式 */
+        body.dark-mode {
+            color: #e2e8f0;
         }
         
-        .left-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            min-height: 0;
+        body.dark-mode .apple-glass {
+            background: rgba(26, 32, 44, 0.8);
+            border-color: rgba(74, 85, 104, 0.3);
         }
         
-        .profile-card {
-            padding: 10px;
-            flex-shrink: 0;
+        body.dark-mode .apple-glass-strong {
+            background: rgba(26, 32, 44, 0.9);
+            border-color: rgba(74, 85, 104, 0.4);
         }
         
-        .profile-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.8);
+        body.dark-mode .gradient-text-vibrant {
+            background: linear-gradient(135deg, #63b3ed 0%, #805ad5 50%, #d53f8c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .mini-card {
-            padding: 8px;
-            flex-shrink: 0;
+        body.dark-mode .text-gray-800 {
+            color: #e2e8f0;
         }
         
-        .mini-card-title {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: #86868b;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 3px;
+        body.dark-mode .text-gray-700 {
+            color: #cbd5e0;
         }
         
-        .mini-card-content {
-            font-size: 0.7rem;
-            color: #4a5568;
-            line-height: 1.4;
+        body.dark-mode .text-gray-600 {
+            color: #a0aec0;
         }
         
-        .hot-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
+        body.dark-mode .text-gray-500 {
+            color: #718096;
         }
         
-        .hot-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 0;
-            font-size: 0.7rem;
-            color: #4a5568;
-            cursor: pointer;
-            transition: all 0.2s ease;
+        body.dark-mode .post-meta-item {
+            background: rgba(74, 85, 104, 0.5);
+            color: #cbd5e0;
         }
         
-        .hot-item:hover {
-            color: var(--apple-blue);
+        body.dark-mode .tag-cloud-item {
+            background: rgba(74, 85, 104, 0.4);
+            border-color: rgba(74, 85, 104, 0.6);
+            color: #cbd5e0;
         }
         
-        .hot-rank {
-            width: 16px;
-            height: 16px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-            font-weight: 700;
-            background: rgba(0, 0, 0, 0.05);
-            color: #86868b;
-            flex-shrink: 0;
+        body.dark-mode .tag-cloud-item:hover {
+            background: rgba(99, 179, 237, 0.3);
+            border-color: rgba(99, 179, 237, 0.6);
+            color: #63b3ed;
         }
         
-        .hot-rank.top-1 { background: #ffd700; color: #fff; }
-        .hot-rank.top-2 { background: #c0c0c0; color: #fff; }
-        .hot-rank.top-3 { background: #cd7f32; color: #fff; }
-        
-        .categories-card {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
-            padding: 8px;
+        body.dark-mode .nav-category:hover {
+            background: rgba(74, 85, 104, 0.4);
         }
         
-        .categories-title {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: #86868b;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 3px;
+        body.dark-mode .nav-category.active {
+            background: rgba(99, 179, 237, 0.3);
+            color: #63b3ed;
         }
         
-        .categories-list {
-            flex: 1;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        body.dark-mode .bg-white\/50 {
+            background: rgba(74, 85, 104, 0.3);
         }
         
-        .categories-list::-webkit-scrollbar { display: none; }
-        
-        .category-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 5px 6px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 1px;
+        body.dark-mode .hover\:bg-white\/50:hover {
+            background: rgba(74, 85, 104, 0.4);
         }
         
-        .category-item:hover {
-            background: rgba(0, 122, 255, 0.1);
+        body.dark-mode .border-white\/50 {
+            border-color: rgba(74, 85, 104, 0.3);
         }
         
-        .category-item.active {
-            background: rgba(0, 122, 255, 0.15);
-            color: var(--apple-blue);
-            font-weight: 600;
+        body.dark-mode .hover\:text-ios-blue:hover {
+            color: #63b3ed;
         }
         
-        .category-count {
-            margin-left: auto;
-            font-size: 0.65rem;
-            color: #86868b;
-            background: rgba(0, 0, 0, 0.05);
-            padding: 1px 5px;
-            border-radius: 999px;
+        body.dark-mode .subcategory-card {
+            background: rgba(74, 85, 104, 0.4);
+            color: #cbd5e0;
         }
         
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
+        body.dark-mode .subcategory-card:hover {
+            background: rgba(99, 179, 237, 0.3);
+            color: #63b3ed;
         }
         
-        .posts-container {
-            flex: 1;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            -ms-overflow-style: none;
-            padding: 6px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-            align-content: start;
-        }
-        
-        .posts-container::-webkit-scrollbar { width: 3px; }
-        .posts-container::-webkit-scrollbar-track { background: transparent; }
-        .posts-container::-webkit-scrollbar-thumb { 
-            background: rgba(0, 0, 0, 0.1); 
-            border-radius: 3px; 
-        }
-        
-        .post-card {
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.3s var(--bezier);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        
-        .post-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .post-title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #1d1d1f;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .post-excerpt {
-            font-size: 0.7rem;
-            color: #86868b;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .post-meta {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.65rem;
-            color: #86868b;
-        }
-        
-        .post-category-tag {
-            padding: 2px 6px;
-            background: rgba(0, 122, 255, 0.1);
-            color: var(--apple-blue);
-            border-radius: 999px;
-            font-weight: 600;
-        }
-        
-        .right-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            min-height: 0;
-        }
-        
-        .stats-card {
-            padding: 8px;
-            flex-shrink: 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 6px;
-            background: rgba(0, 0, 0, 0.02);
-            border-radius: 6px;
-        }
-        
-        .stat-label {
-            font-size: 0.6rem;
-            color: #86868b;
-            display: block;
-            margin-bottom: 1px;
-        }
-        
-        .stat-value {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1d1d1f;
-        }
-        
-        .tags-card {
-            padding: 8px;
-            flex-shrink: 0;
-            max-height: 100px;
-        }
-        
-        .tags-list {
-            max-height: 70px;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .tags-list::-webkit-scrollbar { display: none; }
-        
-        .tag-item {
-            display: inline-block;
-            padding: 2px 6px;
-            margin: 1px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 999px;
-            font-size: 0.65rem;
-            color: #4a5568;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .tag-item:hover {
-            background: rgba(0, 122, 255, 0.15);
-            color: var(--apple-blue);
-        }
-        
-        .recent-card {
-            padding: 8px;
-            flex-shrink: 0;
-            max-height: 120px;
-        }
-        
-        .recent-list {
-            max-height: 80px;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .recent-list::-webkit-scrollbar { display: none; }
-        
-        .recent-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 0;
-            font-size: 0.7rem;
-            color: #4a5568;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-        }
-        
-        .recent-item:hover {
-            color: var(--apple-blue);
-        }
-        
-        .recent-item:last-child {
-            border-bottom: none;
-        }
-        
-        .links-card {
-            padding: 8px;
-            flex-shrink: 0;
-        }
-        
-        .links-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3px;
-        }
-        
-        .link-item {
-            padding: 2px 6px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 5px;
-            font-size: 0.65rem;
-            color: #4a5568;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .link-item:hover {
-            background: rgba(0, 122, 255, 0.15);
-            color: var(--apple-blue);
-        }
-        
-        .calendar-card {
-            padding: 8px;
-            flex-shrink: 0;
-        }
-        
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1px;
-            font-size: 0.6rem;
-        }
-        
-        .calendar-day {
-            text-align: center;
-            padding: 2px;
-            color: #86868b;
-        }
-        
-        .calendar-day.today {
-            background: var(--apple-blue);
-            color: white;
-            border-radius: 3px;
-            font-weight: 700;
-        }
-        
-        .calendar-day.has-post {
-            background: rgba(0, 122, 255, 0.1);
-            border-radius: 3px;
-        }
-        
-        .gradient-text { 
-            background: linear-gradient(135deg, #007aff 0%, #ff2d55 100%); 
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-        }
-        
+        /* 搜索模态框 */
         .search-modal {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             z-index: 1000;
             display: none;
             align-items: flex-start;
             justify-content: center;
-            padding-top: 12vh;
+            padding-top: 15vh;
         }
         
         .search-modal.active {
             display: flex;
+            animation: fadeIn 0.2s ease;
         }
         
         .search-container {
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-        }
-        
-        .search-input-wrapper {
-            padding: 16px 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-        
-        .search-input {
-            width: 100%;
-            font-size: 1rem;
-            border: none;
-            outline: none;
-            background: transparent;
-            color: #1d1d1f;
-        }
-        
-        .search-results {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .search-result-item {
-            padding: 12px 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .search-result-item:hover {
-            background: rgba(0, 122, 255, 0.08);
-        }
-        
-        body.dark-mode {
-            color: #e2e8f0;
-        }
-        
-        body.dark-mode .apple-glass {
-            background: rgba(26, 32, 44, 0.75);
-            border-color: rgba(74, 85, 104, 0.3);
-        }
-        
-        body.dark-mode .apple-glass-strong {
-            background: rgba(26, 32, 44, 0.85);
-            border-color: rgba(74, 85, 104, 0.4);
-        }
-        
-        body.dark-mode .gradient-text {
-            background: linear-gradient(135deg, #63b3ed 0%, #d53f8c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        body.dark-mode .post-title {
-            color: #e2e8f0;
-        }
-        
-        body.dark-mode .post-meta,
-        body.dark-mode .stat-label,
-        body.dark-mode .categories-title,
-        body.dark-mode .category-count,
-        body.dark-mode .mini-card-title {
-            color: #a0aec0;
-        }
-        
-        body.dark-mode .nav-category,
-        body.dark-mode .category-item,
-        body.dark-mode .tag-item,
-        body.dark-mode .recent-item,
-        body.dark-mode .hot-item,
-        body.dark-mode .link-item,
-        body.dark-mode .mini-card-content {
-            background: rgba(74, 85, 104, 0.4);
-            color: #cbd5e0;
-        }
-        
-        body.dark-mode .stat-item {
-            background: rgba(74, 85, 104, 0.3);
-        }
-        
-        body.dark-mode .stat-value {
-            color: #e2e8f0;
-        }
-        
-        body.dark-mode .nav-category:hover,
-        body.dark-mode .category-item:hover {
-            background: rgba(99, 179, 237, 0.2);
-        }
-        
-        body.dark-mode .nav-category.active {
-            background: var(--apple-blue);
-            color: white;
-        }
-        
-        body.dark-mode .category-item.active {
-            background: rgba(99, 179, 237, 0.25);
-            color: #63b3ed;
+            animation: slideDown 0.3s ease;
         }
         
         body.dark-mode .search-container {
             background: rgba(26, 32, 44, 0.95);
         }
         
+        .search-input-wrapper {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .search-input-wrapper {
+            border-color: rgba(74, 85, 104, 0.3);
+        }
+        
+        .search-input {
+            width: 100%;
+            font-size: 1.25rem;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #1a202c;
+        }
+        
         body.dark-mode .search-input {
             color: #e2e8f0;
         }
         
-        body.dark-mode .hot-rank {
-            background: rgba(255, 255, 255, 0.1);
+        .search-input::placeholder {
+            color: #a0aec0;
         }
         
-        @media (max-width: 1200px) {
-            .three-column-layout {
-                grid-template-columns: 160px 1fr 160px;
+        .search-results {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .search-result-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        body.dark-mode .search-result-item {
+            border-color: rgba(74, 85, 104, 0.2);
+        }
+        
+        .search-result-item:hover {
+            background: rgba(0, 122, 255, 0.1);
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* 动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
-        @media (max-width: 900px) {
-            .right-sidebar {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* 增强悬浮动画 */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        body.dark-mode .hover-lift:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* 点击波纹效果 */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .ripple:active::after {
+            width: 200px;
+            height: 200px;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .sidebar-left, .sidebar-right {
                 display: none;
             }
-            .three-column-layout {
-                grid-template-columns: 160px 1fr;
+            
+            .content-area {
+                padding: 0 1rem 1rem;
             }
         }
         
-        @media (max-width: 640px) {
-            .left-sidebar {
-                display: none;
-            }
-            .three-column-layout {
-                grid-template-columns: 1fr;
-            }
-            .posts-container {
-                grid-template-columns: 1fr;
-            }
-            .nav-categories {
-                flex-wrap: nowrap;
+        @media (max-width: 768px) {
+            .content-area {
+                flex-direction: column;
             }
         }
     </style>
 </head>
-<body>
-    <div class="glow-sphere sphere-1"></div>
-    <div class="glow-sphere sphere-2"></div>
+<body class="p-4 md:p-6 text-gray-900 font-sans flex flex-col">
+
+    <div class="glow-sphere sphere-1" id="bg1"></div>
+    <div class="glow-sphere sphere-2" id="bg2"></div>
     
+    <!-- 壁纸轮播 -->
     <div class="wallpaper-carousel" id="wallpaperCarousel"></div>
     
+    <!-- 搜索模态框 -->
     <div class="search-modal" id="searchModal">
         <div class="search-container">
             <div class="search-input-wrapper">
@@ -699,109 +556,79 @@
     </div>
 
     <div class="main-container">
-        <header class="top-nav apple-glass-strong">
-            <h1 class="font-black text-sm tracking-tight flex items-center gap-1">
-                <span class="gradient-text">aleee</span>
-            </h1>
-            
-            <nav class="nav-categories" id="navCategories">
-                <span class="nav-category active" data-category="all">全部</span>
-            </nav>
-            
-            <div class="flex items-center gap-1">
-                <button id="searchBtn" class="p-1.5 rounded-full hover:bg-white/50 transition-all" title="搜索">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                </button>
-                <button id="themeToggle" class="p-1.5 rounded-full hover:bg-white/50 transition-all" title="切换主题">
-                    <svg class="w-4 h-4 theme-icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
-                    <svg class="w-4 h-4 theme-icon-dark hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                </button>
+        <!-- 动态导航栏 -->
+        <header class="w-full flex justify-center mb-6 sticky top-0 z-50 flex-none px-4 md:px-6">
+            <div id="navBox" class="dynamic-nav-container apple-glass-strong rounded-[2.5rem] px-8 py-4 flex justify-between items-center w-full max-w-6xl">
+                <h1 id="navLogo" class="font-black text-xl tracking-tighter cursor-pointer flex items-center gap-2 transition-all duration-500">
+                    <span class="status-dot"></span>
+                    <span class="logo-text gradient-text-vibrant">aleee</span>
+                </h1>
+                <nav id="navLinks" class="hidden md:flex gap-8 font-bold text-sm opacity-60 transition-all duration-500">
+                    <a href="#" class="hover:text-ios-blue transition-all">首页</a>
+                    <a href="#" class="hover:text-ios-blue transition-all">实验室</a>
+                    <a href="#" class="hover:text-ios-blue transition-all">关于</a>
+                </nav>
+                <div id="navBtnBox" class="flex items-center gap-4 transition-all duration-500">
+                    <button id="searchBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="搜索">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <button id="themeToggle" class="p-2 rounded-full hover:bg-white/50 transition-all" title="切换主题">
+                        <svg class="w-5 h-5 theme-icon-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 theme-icon-dark hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </button>
+                    <button class="bg-black text-white px-6 py-2 rounded-full text-xs font-bold hover:shadow-xl active:scale-95 transition-all">订阅</button>
+                </div>
             </div>
         </header>
 
-        <div class="three-column-layout">
-            <aside class="left-sidebar">
-                <div class="profile-card apple-glass">
-                    <div class="flex items-center gap-2">
-                        <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'" class="profile-avatar">
-                        <div>
-                            <h2 class="font-bold text-xs">aleee</h2>
-                            <p class="text-xs text-gray-500">记录学习，分享知识</p>
+        <!-- 主布局容器 -->
+        <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 flex-1 overflow-hidden px-4 md:px-6">
+            
+            <!-- 左侧：信息栏 -->
+            <aside class="lg:col-span-4 space-y-6 sidebar-left">
+                <div class="apple-glass rounded-[3.5rem] p-10 reveal active border-b-8 border-white/20">
+                    <div class="relative w-28 h-28 mb-8 group">
+                        <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'" class="rounded-[2.5rem] bg-white p-2 border border-white/50 shadow-xl group-hover:rotate-6 transition-transform duration-500 w-full h-full object-cover">
+                        <div class="absolute -bottom-2 -right-2 bg-green-400 w-7 h-7 rounded-full border-4 border-white/50 shadow-md"></div>
+                    </div>
+                    <h2 class="text-4xl font-black mb-3 tracking-tight">aleee</h2>
+                    <p class="text-gray-500 font-medium mb-8 text-lg italic">"记录学习，分享知识"</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white/50 p-5 rounded-[2rem] border border-white/30 hover:bg-white/80 transition-all cursor-default">
+                            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">文章数</p>
+                            <p class="text-sm font-bold text-gray-800" id="totalPosts">0</p>
+                        </div>
+                        <div class="bg-blue-50/50 p-5 rounded-[2rem] border border-blue-100/30 group cursor-pointer hover:bg-blue-100/50 transition-all">
+                            <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-1">分类数</p>
+                            <p class="text-sm font-black text-blue-600" id="totalCategories">0</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="mini-card apple-glass">
-                    <div class="mini-card-title">📢 公告</div>
-                    <div class="mini-card-content">欢迎来到我的博客！这里记录着我的学习笔记和技术分享。</div>
+
+                <!-- 分类 -->
+                <div class="apple-glass rounded-[2.5rem] p-8 reveal active">
+                    <h3 class="font-bold mb-4 text-gray-400 text-xs uppercase tracking-widest">分类</h3>
+                    <div id="sidebarCategories" class="space-y-2"></div>
                 </div>
                 
-                <div class="mini-card apple-glass">
-                    <div class="mini-card-title">🔥 热门文章</div>
-                    <div class="hot-list" id="hotList"></div>
-                </div>
-                
-                <div class="categories-card apple-glass">
-                    <div class="categories-title">📁 分类</div>
-                    <div class="categories-list" id="categoriesList"></div>
+                <!-- 标签 -->
+                <div class="apple-glass rounded-[2.5rem] p-8 reveal active">
+                    <h3 class="font-bold mb-4 text-gray-400 text-xs uppercase tracking-widest">标签</h3>
+                    <div id="sidebarTags" class="tag-cloud"></div>
                 </div>
             </aside>
 
-            <main class="main-content">
-                <div class="posts-container apple-glass" id="postsContainer"></div>
+            <!-- 右侧：文章列表 -->
+            <main id="contentScroll" class="lg:col-span-8 scroll-container pr-2">
+                <div id="postsContainer" class="space-y-10"></div>
             </main>
-
-            <aside class="right-sidebar">
-                <div class="stats-card apple-glass">
-                    <div class="stat-item">
-                        <span class="stat-label">文章</span>
-                        <span class="stat-value" id="totalPosts">0</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">分类</span>
-                        <span class="stat-value" id="totalCategories">0</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">今日</span>
-                        <span class="stat-value" id="todayPosts">0</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-label">本周</span>
-                        <span class="stat-value" id="weekPosts">0</span>
-                    </div>
-                </div>
-                
-                <div class="tags-card apple-glass">
-                    <div class="categories-title">🏷️ 标签</div>
-                    <div class="tags-list" id="tagsList"></div>
-                </div>
-                
-                <div class="calendar-card apple-glass">
-                    <div class="categories-title">📅 日历</div>
-                    <div class="calendar-grid" id="calendarGrid"></div>
-                </div>
-                
-                <div class="recent-card apple-glass">
-                    <div class="categories-title">📄 最新</div>
-                    <div class="recent-list" id="recentList"></div>
-                </div>
-                
-                <div class="links-card apple-glass">
-                    <div class="categories-title">🔗 友链</div>
-                    <div class="links-list">
-                        <span class="link-item">GitHub</span>
-                        <span class="link-item">知乎</span>
-                        <span class="link-item">掘金</span>
-                        <span class="link-item">CSDN</span>
-                    </div>
-                </div>
-            </aside>
         </div>
     </div>
 
@@ -825,132 +652,47 @@
                 document.getElementById('totalPosts').textContent = allPosts.length;
                 document.getElementById('totalCategories').textContent = allCategories.children?.length || 0;
                 
-                const today = new Date().toDateString();
-                const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-                document.getElementById('todayPosts').textContent = allPosts.filter(p => new Date(p.date).toDateString() === today).length;
-                document.getElementById('weekPosts').textContent = allPosts.filter(p => new Date(p.date) >= weekAgo).length;
-                
-                renderNavCategories(allCategories);
                 renderSidebarCategories(allCategories);
                 renderPosts(allPosts);
-                renderTags(tags);
-                renderRecent(allPosts);
-                renderHotPosts(allPosts);
-                renderCalendar(allPosts);
+                renderSidebarTags(tags);
             } catch (error) {
                 console.error('加载数据失败:', error);
             }
         }
 
-        function renderNavCategories(categories) {
-            const container = document.getElementById('navCategories');
-            if (!categories.children || categories.children.length === 0) return;
-            
-            const html = '<span class="nav-category active" data-category="all">全部</span>' + 
-                categories.children.map(cat => `
-                    <span class="nav-category" data-category="${cat.name}">${cat.name}</span>
-                `).join('');
-            
-            container.innerHTML = html;
-            
-            container.querySelectorAll('.nav-category').forEach(item => {
-                item.addEventListener('click', () => {
-                    container.querySelectorAll('.nav-category').forEach(i => i.classList.remove('active'));
-                    item.classList.add('active');
-                    document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
-                    filterByCategory(item.dataset.category);
-                });
-            });
-        }
-
         function renderSidebarCategories(categories) {
-            const container = document.getElementById('categoriesList');
+            const container = document.getElementById('sidebarCategories');
             if (!categories.children || categories.children.length === 0) {
-                container.innerHTML = '<div class="text-gray-400 text-xs p-2">暂无分类</div>';
+                container.innerHTML = '<div class="text-gray-400 text-sm">暂无分类</div>';
                 return;
             }
             
             container.innerHTML = categories.children.map(cat => `
-                <div class="category-item" data-category="${cat.name}">
+                <div class="subcategory-card" data-category="${cat.name}">
                     <span>📁</span>
                     <span>${cat.name}</span>
-                    <span class="category-count">${cat.count || 0}</span>
+                    <span class="ml-auto text-xs opacity-60">(${cat.count || 0})</span>
                 </div>
             `).join('');
             
-            container.querySelectorAll('.category-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    container.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
-                    item.classList.add('active');
-                    document.querySelectorAll('.nav-category').forEach(i => i.classList.remove('active'));
-                    document.querySelector('.nav-category[data-category="all"]').classList.add('active');
-                    filterByCategory(item.dataset.category);
+            container.querySelectorAll('.subcategory-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const category = card.dataset.category;
+                    filterByCategory(category);
                 });
             });
         }
 
-        function renderTags(tags) {
-            const container = document.getElementById('tagsList');
+        function renderSidebarTags(tags) {
+            const container = document.getElementById('sidebarTags');
             if (!tags || tags.length === 0) {
-                container.innerHTML = '<div class="text-gray-400 text-xs">暂无标签</div>';
+                container.innerHTML = '<div class="text-gray-400 text-sm">暂无标签</div>';
                 return;
             }
             
             container.innerHTML = tags.slice(0, 15).map(tag => `
-                <span class="tag-item">${tag.name || tag}</span>
+                <span class="tag-cloud-item">${tag.name || tag}</span>
             `).join('');
-        }
-
-        function renderRecent(posts) {
-            const container = document.getElementById('recentList');
-            const recent = posts.slice(0, 4);
-            
-            container.innerHTML = recent.map(post => `
-                <a href="post.html?id=${encodeURIComponent(post.id)}" class="recent-item">
-                    <span>📄</span>
-                    <span class="truncate flex-1">${post.title}</span>
-                </a>
-            `).join('');
-        }
-
-        function renderHotPosts(posts) {
-            const container = document.getElementById('hotList');
-            const hot = posts.slice(0, 5);
-            
-            container.innerHTML = hot.map((post, index) => `
-                <a href="post.html?id=${encodeURIComponent(post.id)}" class="hot-item">
-                    <span class="hot-rank ${index < 3 ? 'top-' + (index + 1) : ''}">${index + 1}</span>
-                    <span class="truncate">${post.title}</span>
-                </a>
-            `).join('');
-        }
-
-        function renderCalendar(posts) {
-            const container = document.getElementById('calendarGrid');
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = now.getMonth();
-            const today = now.getDate();
-            
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            
-            const postDates = new Set(posts.map(p => new Date(p.date).getDate()));
-            
-            const days = ['日', '一', '二', '三', '四', '五', '六'];
-            let html = days.map(d => `<div class="calendar-day" style="font-weight:600">${d}</div>`).join('');
-            
-            for (let i = 0; i < firstDay; i++) {
-                html += '<div class="calendar-day"></div>';
-            }
-            
-            for (let day = 1; day <= daysInMonth; day++) {
-                const isToday = day === today;
-                const hasPost = postDates.has(day);
-                html += `<div class="calendar-day ${isToday ? 'today' : ''} ${hasPost && !isToday ? 'has-post' : ''}">${day}</div>`;
-            }
-            
-            container.innerHTML = html;
         }
 
         function filterByCategory(category) {
@@ -965,112 +707,203 @@
             const container = document.getElementById('postsContainer');
             
             if (posts.length === 0) {
-                container.innerHTML = '<div class="p-8 text-center text-gray-400 col-span-2">暂无文章</div>';
+                container.innerHTML = `
+                    <div class="apple-glass rounded-[4rem] p-12 text-center">
+                        <p class="text-gray-400 italic font-bold">暂无文章</p>
+                    </div>
+                `;
                 return;
             }
             
-            container.innerHTML = posts.map(post => `
-                <a href="post.html?id=${encodeURIComponent(post.id)}" class="post-card apple-glass block">
-                    <h3 class="post-title">${post.title}</h3>
-                    <p class="post-excerpt">${post.excerpt || '点击查看详情...'}</p>
-                    <div class="post-meta">
-                        <span class="post-category-tag">${post.file.split('/')[0]}</span>
-                        <span>${post.date || ''}</span>
-                    </div>
-                </a>
+            container.innerHTML = posts.slice(0, 10).map((post, index) => `
+                <article class="apple-glass rounded-[4rem] overflow-hidden group cursor-pointer reveal active hover-lift">
+                    <a href="post.html?id=${encodeURIComponent(post.id)}" class="block text-inherit no-underline">
+                        <div class="p-12">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-black bg-black text-white px-4 py-1.5 rounded-full uppercase tracking-tighter">${post.file.split('/')[0]}</span>
+                            </div>
+                            <h3 class="text-3xl font-black mb-4 tracking-tight leading-tight group-hover:text-ios-blue transition-colors">${post.title}</h3>
+                            <div class="flex items-center gap-3">
+                                <span class="post-meta-item">📁 ${post.file.split('/')[0]}</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
             `).join('');
         }
 
+        // 壁纸轮播功能
         function initWallpaperCarousel() {
             const carousel = document.getElementById('wallpaperCarousel');
+            
             const wallpapers = [
-                'images/bg1.png', 'images/bg2.png', 'images/wallpaper1.png',
-                'images/wallpaper2.png', 'images/wallpaper3.jpg',
-                'images/wallpaper4.jpg', 'images/wallpaper5.jpg'
+                'images/bg1.png',
+                'images/bg2.png',
+                'images/wallpaper1.png',
+                'images/wallpaper2.png',
+                'images/wallpaper3.jpg',
+                'images/wallpaper4.jpg',
+                'images/wallpaper5.jpg'
             ];
             
             wallpapers.forEach((wallpaper, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'wallpaper-slide';
                 slide.style.backgroundImage = `url('${wallpaper}')`;
+                slide.dataset.index = index;
                 carousel.appendChild(slide);
             });
             
-            const slides = carousel.querySelectorAll('.wallpaper-slide');
-            if (slides.length > 0) slides[0].classList.add('active');
-            
             let currentSlide = 0;
+            const slides = carousel.querySelectorAll('.wallpaper-slide');
+            
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+            }
+            
             function nextSlide() {
-                slides.forEach(s => s.classList.remove('active'));
+                slides.forEach(slide => slide.classList.remove('active'));
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
                 setTimeout(nextSlide, 10 * 60 * 1000);
             }
+            
             setTimeout(nextSlide, 10 * 60 * 1000);
         }
-
+        
+        // 主题切换功能
         function initThemeToggle() {
-            const toggle = document.getElementById('themeToggle');
-            const iconLight = document.querySelector('.theme-icon-light');
-            const iconDark = document.querySelector('.theme-icon-dark');
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIconLight = document.querySelector('.theme-icon-light');
+            const themeIconDark = document.querySelector('.theme-icon-dark');
             
-            if (localStorage.getItem('theme') === 'dark') {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
-                iconLight.classList.add('hidden');
-                iconDark.classList.remove('hidden');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
             }
             
-            toggle.addEventListener('click', () => {
+            themeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
                 const isDark = document.body.classList.contains('dark-mode');
-                iconLight.classList.toggle('hidden', isDark);
-                iconDark.classList.toggle('hidden', !isDark);
+                
+                themeIconLight.classList.toggle('hidden', isDark);
+                themeIconDark.classList.toggle('hidden', !isDark);
+                
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            });
-        }
-
-        function initSearch() {
-            const btn = document.getElementById('searchBtn');
-            const modal = document.getElementById('searchModal');
-            const input = document.getElementById('searchInput');
-            const results = document.getElementById('searchResults');
-            
-            btn.addEventListener('click', () => {
-                modal.classList.add('active');
-                setTimeout(() => input.focus(), 100);
-            });
-            
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.classList.remove('active');
-            });
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') modal.classList.remove('active');
-            });
-            
-            let timeout;
-            input.addEventListener('input', (e) => {
-                clearTimeout(timeout);
-                const query = e.target.value.trim().toLowerCase();
-                if (!query) {
-                    results.innerHTML = '<div style="padding: 2rem; text-align: center; color: #a0aec0;">输入关键词搜索</div>';
-                    return;
-                }
-                timeout = setTimeout(() => {
-                    const found = allPosts.filter(p => 
-                        p.title.toLowerCase().includes(query) || 
-                        p.file.toLowerCase().includes(query)
-                    );
-                    results.innerHTML = found.length ? found.map(p => `
-                        <a href="post.html?id=${encodeURIComponent(p.id)}" class="search-result-item block">
-                            <div class="font-semibold">${p.title}</div>
-                            <div class="text-sm text-gray-500 mt-1">📁 ${p.file.split('/')[0]}</div>
-                        </a>
-                    `).join('') : '<div style="padding: 2rem; text-align: center; color: #a0aec0;">未找到</div>';
+                
+                themeToggle.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeToggle.style.transform = 'rotate(0deg)';
                 }, 300);
             });
         }
+        
+        // 搜索功能
+        function initSearch() {
+            const searchBtn = document.getElementById('searchBtn');
+            const searchModal = document.getElementById('searchModal');
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            
+            searchBtn.addEventListener('click', () => {
+                searchModal.classList.add('active');
+                setTimeout(() => searchInput.focus(), 100);
+            });
+            
+            searchModal.addEventListener('click', (e) => {
+                if (e.target === searchModal) {
+                    searchModal.classList.remove('active');
+                }
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+                    searchModal.classList.remove('active');
+                }
+            });
+            
+            let searchTimeout;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                const query = e.target.value.trim().toLowerCase();
+                
+                if (!query) {
+                    searchResults.innerHTML = '<div style="padding: 2rem; text-align: center; color: #a0aec0;">输入关键词开始搜索</div>';
+                    return;
+                }
+                
+                searchTimeout = setTimeout(() => {
+                    const results = allPosts.filter(post => 
+                        post.title.toLowerCase().includes(query) ||
+                        post.file.toLowerCase().includes(query)
+                    );
+                    
+                    if (results.length === 0) {
+                        searchResults.innerHTML = '<div style="padding: 2rem; text-align: center; color: #a0aec0;">未找到相关文章</div>';
+                    } else {
+                        searchResults.innerHTML = results.map(post => `
+                            <a href="post.html?id=${encodeURIComponent(post.id)}" class="search-result-item block">
+                                <div class="font-semibold text-gray-800">${post.title}</div>
+                                <div class="text-sm text-gray-500 mt-1">📁 ${post.file.split('/')[0]}</div>
+                            </a>
+                        `).join('');
+                    }
+                }, 300);
+            });
+            
+            searchResults.innerHTML = '<div style="padding: 2rem; text-align: center; color: #a0aec0;">输入关键词开始搜索</div>';
+        }
 
+        // 滚动效果
+        const scrollContainer = document.getElementById('contentScroll');
+        const navBox = document.getElementById('navBox');
+        const navLogo = document.getElementById('navLogo');
+        const navLinks = document.getElementById('navLinks');
+        const reveals = document.querySelectorAll('.reveal');
+
+        const mapRange = (value, inMin, inMax, outMin, outMax) => {
+            const result = (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+            return Math.max(Math.min(result, Math.max(outMin, outMax)), Math.min(outMin, outMax));
+        };
+
+        scrollContainer.addEventListener('scroll', () => {
+            const st = scrollContainer.scrollTop;
+            
+            const navWidth = mapRange(st, 0, 150, 100, 60);
+            const navPadding = mapRange(st, 0, 150, 16, 8);
+            const navRadius = mapRange(st, 0, 150, 40, 20);
+            const navOpacity = mapRange(st, 0, 100, 1, 0.4);
+
+            navBox.style.width = `${navWidth}%`;
+            navBox.style.paddingTop = `${navPadding}px`;
+            navBox.style.paddingBottom = `${navPadding}px`;
+            navBox.style.borderRadius = `${navRadius}px`;
+            
+            navLinks.style.opacity = navOpacity;
+            navLinks.style.transform = `translateX(${mapRange(st, 0, 150, 0, -15)}px)`;
+            navLogo.style.transform = `scale(${mapRange(st, 0, 150, 1, 0.85)})`;
+
+            const bg1 = document.getElementById('bg1');
+            const bg2 = document.getElementById('bg2');
+            bg1.style.transform = `translateY(${st * 0.12}px)`;
+            bg2.style.transform = `translateY(${st * -0.12}px)`;
+
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) el.classList.add('active');
+            });
+        });
+
+        // 鼠标微光效果
+        document.addEventListener('mousemove', (e) => {
+            const x = (e.clientX - window.innerWidth / 2) * 0.02;
+            const y = (e.clientY - window.innerHeight / 2) * 0.02;
+            navBox.style.boxShadow = `${x}px ${y + 10}px 40px -10px rgba(0,0,0,0.1)`;
+        });
+
+        // 初始化
         loadData();
         initWallpaperCarousel();
         initThemeToggle();
