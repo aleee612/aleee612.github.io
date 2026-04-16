@@ -479,6 +479,142 @@
       transform: translateY(-4px);
       background: rgba(255, 255, 255, 0.95);
     }
+    
+    /* 阅读进度条 */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    .reading-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #007aff 0%, #5856d6 50%, #ff2d55 100%);
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+    
+    /* 目录导航侧边栏 */
+    .toc-sidebar {
+      position: fixed;
+      right: -320px;
+      top: 100px;
+      width: 300px;
+      max-height: 60vh;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      padding: 1.5rem;
+      z-index: 900;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+    
+    .toc-sidebar.active {
+      right: 20px;
+    }
+    
+    .toc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1a202c;
+    }
+    
+    .toc-item {
+      padding: 0.5rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(0, 122, 255, 0.2);
+      color: #4a5568;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .toc-item:hover {
+      color: #007aff;
+      border-left-color: #007aff;
+      padding-left: 1.25rem;
+    }
+    
+    .toc-item.active {
+      color: #007aff;
+      border-left-color: #007aff;
+      font-weight: 600;
+    }
+    
+    /* 字体大小选择器 */
+    .font-size-panel {
+      position: fixed;
+      right: -200px;
+      top: 80px;
+      width: 180px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      padding: 1rem;
+      z-index: 900;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .font-size-panel.active {
+      right: 20px;
+    }
+    
+    .font-size-option {
+      padding: 0.75rem;
+      margin: 0.25rem 0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    
+    .font-size-option:hover {
+      background: rgba(0, 122, 255, 0.1);
+    }
+    
+    .font-size-option.active {
+      background: rgba(0, 122, 255, 0.2);
+      color: #007aff;
+      font-weight: 600;
+    }
+    
+    /* 点赞动画 */
+    .like-btn-active {
+      color: #ff2d55 !important;
+      animation: heartBeat 0.6s ease;
+    }
+    
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.3); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.2); }
+    }
+    
+    /* 字体大小类 */
+    .font-size-small .post-content {
+      font-size: 0.9rem;
+    }
+    
+    .font-size-medium .post-content {
+      font-size: 1rem;
+    }
+    
+    .font-size-large .post-content {
+      font-size: 1.15rem;
+    }
+    
+    .font-size-xlarge .post-content {
+      font-size: 1.3rem;
+    }
 
     /* 返回按钮 */
     .back-btn {
@@ -527,6 +663,11 @@
   </div>
 
   <div class="main-container">
+    <!-- 阅读进度条 -->
+    <div class="reading-progress" id="readingProgress">
+      <div class="reading-progress-bar" id="readingProgressBar"></div>
+    </div>
+    
     <!-- 顶部导航 -->
     <header class="flex-none mb-4">
       <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
@@ -534,9 +675,26 @@
           <span class="gradient-text-vibrant">aleee</span>
         </a>
         
-        <a href="index.html" class="back-btn">
-          <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回
-        </a>
+        <div class="flex items-center gap-2">
+          <button id="fontSizeBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="字体大小">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <button id="tocBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="目录">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+            </svg>
+          </button>
+          <button id="likeBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="点赞">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </button>
+          <a href="index.html" class="back-btn">
+            <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回
+          </a>
+        </div>
       </div>
     </header>
 
@@ -974,6 +1132,180 @@
     }
     
     initWallpaperCarousel();
+    
+    // 目录导航侧边栏
+    const tocSidebar = document.createElement('div');
+    tocSidebar.className = 'toc-sidebar';
+    tocSidebar.id = 'tocSidebar';
+    tocSidebar.innerHTML = `
+      <div class="toc-title">📑 目录</div>
+      <div id="tocList"></div>
+    `;
+    document.body.appendChild(tocSidebar);
+    
+    // 字体大小选择器
+    const fontSizePanel = document.createElement('div');
+    fontSizePanel.className = 'font-size-panel';
+    fontSizePanel.id = 'fontSizePanel';
+    fontSizePanel.innerHTML = `
+      <div class="font-size-option" data-size="small">小</div>
+      <div class="font-size-option active" data-size="medium">中</div>
+      <div class="font-size-option" data-size="large">大</div>
+      <div class="font-size-option" data-size="xlarge">特大</div>
+    `;
+    document.body.appendChild(fontSizePanel);
+    
+    // 阅读进度条功能
+    function initReadingProgress() {
+      const progressBar = document.getElementById('readingProgressBar');
+      const contentScroll = document.querySelector('.content-scroll');
+      
+      contentScroll.addEventListener('scroll', () => {
+        const scrollTop = contentScroll.scrollTop;
+        const scrollHeight = contentScroll.scrollHeight - contentScroll.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = progress + '%';
+      });
+    }
+    
+    // 目录导航功能
+    function initTOC() {
+      const tocBtn = document.getElementById('tocBtn');
+      const tocSidebar = document.getElementById('tocSidebar');
+      const tocList = document.getElementById('tocList');
+      const postBody = document.getElementById('postBody');
+      
+      let tocVisible = false;
+      
+      // 生成目录
+      function generateTOC() {
+        const headings = postBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        if (headings.length === 0) {
+          tocList.innerHTML = '<div style="color: #a0aec0; font-size: 0.9rem;">暂无目录</div>';
+          return;
+        }
+        
+        tocList.innerHTML = Array.from(headings).map((heading, index) => {
+          const level = parseInt(heading.tagName.charAt(1));
+          const indent = (level - 1) * 0.75;
+          heading.id = `heading-${index}`;
+          return `<div class="toc-item" data-target="heading-${index}" style="padding-left: ${1 + indent}rem;">${heading.textContent}</div>`;
+        }).join('');
+        
+        // 点击目录项跳转
+        tocList.querySelectorAll('.toc-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const targetId = item.dataset.target;
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      }
+      
+      // 切换目录显示
+      tocBtn.addEventListener('click', () => {
+        tocVisible = !tocVisible;
+        tocSidebar.classList.toggle('active', tocVisible);
+        if (tocVisible) {
+          generateTOC();
+        }
+      });
+      
+      // 点击其他地方关闭
+      document.addEventListener('click', (e) => {
+        if (tocVisible && !tocSidebar.contains(e.target) && !tocBtn.contains(e.target)) {
+          tocVisible = false;
+          tocSidebar.classList.remove('active');
+        }
+      });
+    }
+    
+    // 字体大小功能
+    function initFontSize() {
+      const fontSizeBtn = document.getElementById('fontSizeBtn');
+      const fontSizePanel = document.getElementById('fontSizePanel');
+      const postContent = document.getElementById('postContent');
+      
+      let panelVisible = false;
+      const savedFontSize = localStorage.getItem('fontSize') || 'medium';
+      
+      // 应用保存的字体大小
+      postContent.classList.add(`font-size-${savedFontSize}`);
+      fontSizePanel.querySelector(`[data-size="${savedFontSize}"]`).classList.add('active');
+      fontSizePanel.querySelectorAll(`[data-size]:not([data-size="${savedFontSize}"])`).forEach(opt => opt.classList.remove('active'));
+      
+      // 切换面板显示
+      fontSizeBtn.addEventListener('click', () => {
+        panelVisible = !panelVisible;
+        fontSizePanel.classList.toggle('active', panelVisible);
+      });
+      
+      // 选择字体大小
+      fontSizePanel.querySelectorAll('.font-size-option').forEach(option => {
+        option.addEventListener('click', () => {
+          const size = option.dataset.size;
+          
+          // 移除所有字体大小类
+          postContent.classList.remove('font-size-small', 'font-size-medium', 'font-size-large', 'font-size-xlarge');
+          postContent.classList.add(`font-size-${size}`);
+          
+          // 更新选中状态
+          fontSizePanel.querySelectorAll('.font-size-option').forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          
+          // 保存到本地存储
+          localStorage.setItem('fontSize', size);
+        });
+      });
+      
+      // 点击其他地方关闭
+      document.addEventListener('click', (e) => {
+        if (panelVisible && !fontSizePanel.contains(e.target) && !fontSizeBtn.contains(e.target)) {
+          panelVisible = false;
+          fontSizePanel.classList.remove('active');
+        }
+      });
+    }
+    
+    // 点赞功能
+    function initLike() {
+      const likeBtn = document.getElementById('likeBtn');
+      const postId = getUrlParam('id');
+      const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
+      
+      // 恢复点赞状态
+      if (likedPosts.includes(postId)) {
+        likeBtn.classList.add('like-btn-active');
+        likeBtn.querySelector('svg').style.fill = '#ff2d55';
+      }
+      
+      likeBtn.addEventListener('click', () => {
+        const isLiked = likeBtn.classList.contains('like-btn-active');
+        
+        if (isLiked) {
+          // 取消点赞
+          likeBtn.classList.remove('like-btn-active');
+          likeBtn.querySelector('svg').style.fill = 'none';
+          const index = likedPosts.indexOf(postId);
+          if (index > -1) likedPosts.splice(index, 1);
+        } else {
+          // 点赞
+          likeBtn.classList.add('like-btn-active');
+          likeBtn.querySelector('svg').style.fill = '#ff2d55';
+          likedPosts.push(postId);
+        }
+        
+        localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+      });
+    }
+    
+    // 初始化所有功能
+    initReadingProgress();
+    initTOC();
+    initFontSize();
+    initLike();
   </script>
 </body>
 </html>
