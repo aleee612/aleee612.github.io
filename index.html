@@ -106,6 +106,7 @@
             flex: 1;
             overflow: hidden;
             padding: 0 1rem;
+            height: calc(100vh - 100px);
         }
         
         .sidebar-column {
@@ -450,9 +451,9 @@
         <div class="max-w-7xl w-full mx-auto three-column-layout flex-1 overflow-hidden px-3 md:px-4">
             
             <!-- 左侧栏 -->
-            <aside class="sidebar-column sidebar-left space-y-3 pr-2">
+            <aside class="flex flex-col gap-3 pr-2 h-full">
                 <!-- 个人信息卡片 -->
-                <div class="apple-glass rounded-[2rem] p-5 reveal active border-b-8 border-white/20">
+                <div class="apple-glass rounded-[2rem] p-5 reveal active border-b-8 border-white/20 flex-shrink-0">
                     <div class="relative w-16 h-16 mb-4 group">
                         <img src="images/avatar.jpg" alt="aleee" onerror="this.src='https://api.dicebear.com/7.x/avataaars/svg?seed=aleee'" class="rounded-[1.5rem] bg-white p-1.5 border border-white/50 shadow-xl group-hover:rotate-6 transition-transform duration-500 w-full h-full object-cover">
                         <div class="absolute -bottom-1 -right-1 bg-green-400 w-4 h-4 rounded-full border-2 border-white/50 shadow-md"></div>
@@ -470,62 +471,63 @@
                             <p class="text-[10px] font-bold text-blue-400 uppercase">分类</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- 时间天气卡片 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <div class="text-center mb-3">
-                        <div class="time-display gradient-text-vibrant" id="currentTime">00:00</div>
-                        <div class="date-display" id="currentDate">2024年1月1日</div>
-                    </div>
-                    <div class="flex items-center justify-center gap-2 text-sm">
-                        <span class="weather-icon" id="weatherIcon">🌤️</span>
-                        <span id="weatherText">晴朗</span>
-                        <span class="text-gray-500" id="weatherTemp">22°C</span>
-                    </div>
-                </div>
-
-                <!-- 快捷操作 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">快捷操作</h3>
-                    <div class="grid grid-cols-4 gap-2">
-                        <div class="quick-action-btn" onclick="scrollToTop()">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                            </svg>
-                            <span class="text-[10px]">顶部</span>
-                        </div>
-                        <div class="quick-action-btn" onclick="scrollToBottom()">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                            </svg>
-                            <span class="text-[10px]">底部</span>
-                        </div>
-                        <div class="quick-action-btn" onclick="toggleFullscreen()">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
-                            </svg>
-                            <span class="text-[10px]">全屏</span>
-                        </div>
-                        <div class="quick-action-btn" onclick="sharePage()">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
-                            </svg>
-                            <span class="text-[10px]">分享</span>
+                    
+                    <!-- 时间天气 -->
+                    <div class="mt-4 pt-4 border-t border-white/20 text-center">
+                        <div class="time-display gradient-text-vibrant text-2xl" id="currentTime">00:00</div>
+                        <div class="date-display text-xs" id="currentDate">2024年1月1日</div>
+                        <div class="flex items-center justify-center gap-2 text-sm mt-2">
+                            <span id="weatherIcon">🌤️</span>
+                            <span id="weatherText">晴朗</span>
+                            <span class="text-gray-500" id="weatherTemp">22°C</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 分类 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">分类</h3>
-                    <div id="sidebarCategories" class="space-y-1.5"></div>
-                </div>
-                
-                <!-- 标签 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">标签</h3>
-                    <div id="sidebarTags" class="tag-cloud"></div>
+                <!-- 综合信息卡片 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active flex-1 flex flex-col min-h-0">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">📂 导航</h3>
+                    <div class="overflow-y-auto flex-1 min-h-0 space-y-3 scrollbar-thin">
+                        <!-- 快捷操作 -->
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="quick-action-btn" onclick="scrollToTop()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                                <span class="text-[9px]">顶部</span>
+                            </div>
+                            <div class="quick-action-btn" onclick="scrollToBottom()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                                <span class="text-[9px]">底部</span>
+                            </div>
+                            <div class="quick-action-btn" onclick="toggleFullscreen()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                                </svg>
+                                <span class="text-[9px]">全屏</span>
+                            </div>
+                            <div class="quick-action-btn" onclick="sharePage()">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                                </svg>
+                                <span class="text-[9px]">分享</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 分类 -->
+                        <div class="pt-2 border-t border-white/20">
+                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">分类</p>
+                            <div id="sidebarCategories" class="space-y-1.5"></div>
+                        </div>
+                        
+                        <!-- 标签 -->
+                        <div class="pt-2 border-t border-white/20">
+                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">标签</p>
+                            <div id="sidebarTags" class="tag-cloud"></div>
+                        </div>
+                    </div>
                 </div>
             </aside>
 
@@ -535,56 +537,80 @@
             </main>
 
             <!-- 右侧栏 -->
-            <aside class="flex flex-col gap-3 pl-2 h-full">
-                <!-- 热门文章卡片 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active flex-1 flex flex-col min-h-0">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">🔥 热门文章</h3>
-                    <div id="hotPosts" class="space-y-2 overflow-y-auto flex-1 min-h-0 scrollbar-thin"></div>
+            <aside class="sidebar-column sidebar-right space-y-3 pl-2">
+                <!-- 公告卡片 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active">
+                    <h3 class="font-bold mb-2 text-gray-400 text-xs uppercase tracking-widest">公告</h3>
+                    <div class="text-sm text-gray-600">
+                        <span id="typingText"></span><span class="typing-cursor"></span>
+                    </div>
                 </div>
 
-                <!-- 综合信息卡片 -->
-                <div class="apple-glass rounded-[2rem] p-4 reveal active flex-1 flex flex-col min-h-0">
-                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest flex-shrink-0">📊 综合信息</h3>
-                    <div class="overflow-y-auto flex-1 min-h-0 space-y-3 scrollbar-thin">
-                        <!-- 公告 -->
-                        <div class="pb-3 border-b border-white/20">
-                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">公告</p>
-                            <div class="text-sm text-gray-600">
-                                <span id="typingText"></span><span class="typing-cursor"></span>
+                <!-- 热门文章 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">热门文章</h3>
+                    <div id="hotPosts" class="space-y-2"></div>
+                </div>
+
+                <!-- 最新评论 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">最新评论</h3>
+                    <div id="recentComments" class="space-y-2">
+                        <div class="mini-card">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-500"></div>
+                                <span class="text-xs font-bold">访客</span>
                             </div>
+                            <p class="text-xs text-gray-500">这篇文章写得真好！</p>
                         </div>
-                        
-                        <!-- 访客统计 -->
-                        <div class="pb-3 border-b border-white/20">
-                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">访客统计</p>
-                            <div class="grid grid-cols-2 gap-2">
-                                <div class="mini-card text-center">
-                                    <p class="text-lg font-black text-ios-blue" id="todayVisitors">128</p>
-                                    <p class="text-[10px] text-gray-400">今日访问</p>
-                                </div>
-                                <div class="mini-card text-center">
-                                    <p class="text-lg font-black text-purple-500" id="totalVisitors">9,999</p>
-                                    <p class="text-[10px] text-gray-400">总访问量</p>
-                                </div>
+                        <div class="mini-card">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-br from-pink-400 to-red-500"></div>
+                                <span class="text-xs font-bold">读者</span>
                             </div>
-                        </div>
-                        
-                        <!-- 友情链接 -->
-                        <div class="pb-3 border-b border-white/20">
-                            <p class="text-[10px] font-bold text-gray-400 uppercase mb-2">友情链接</p>
-                            <div class="flex flex-wrap gap-1.5">
-                                <a href="#" class="tag-cloud-item">GitHub</a>
-                                <a href="#" class="tag-cloud-item">掘金</a>
-                                <a href="#" class="tag-cloud-item">知乎</a>
-                            </div>
-                        </div>
-                        
-                        <!-- 版权信息 -->
-                        <div class="text-center pt-1">
-                            <p class="text-xs text-gray-400">© 2024 aleee</p>
-                            <p class="text-xs text-gray-400">Powered by ❤️</p>
+                            <p class="text-xs text-gray-500">学习了，感谢分享！</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- 访客统计 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">访客统计</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="mini-card text-center">
+                            <p class="text-lg font-black text-ios-blue" id="todayVisitors">128</p>
+                            <p class="text-[10px] text-gray-400">今日访问</p>
+                        </div>
+                        <div class="mini-card text-center">
+                            <p class="text-lg font-black text-purple-500" id="totalVisitors">9,999</p>
+                            <p class="text-[10px] text-gray-400">总访问量</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 友情链接 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active">
+                    <h3 class="font-bold mb-3 text-gray-400 text-xs uppercase tracking-widest">友情链接</h3>
+                    <div class="space-y-1.5">
+                        <a href="#" class="subcategory-card">
+                            <span>🔗</span>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="#" class="subcategory-card">
+                            <span>🔗</span>
+                            <span>掘金</span>
+                        </a>
+                        <a href="#" class="subcategory-card">
+                            <span>🔗</span>
+                            <span>知乎</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 版权信息 -->
+                <div class="apple-glass rounded-[2rem] p-4 reveal active text-center">
+                    <p class="text-xs text-gray-400">© 2024 aleee</p>
+                    <p class="text-xs text-gray-400 mt-1">Powered by ❤️</p>
                 </div>
             </aside>
         </div>
