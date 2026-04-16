@@ -8,9 +8,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <!-- KaTeX JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <!-- KaTeX auto-render -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
   <style>
     * {
       box-sizing: border-box;
+    }
+    
+    /* 壁纸轮播容器 */
+    .wallpaper-carousel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+    
+    .wallpaper-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    
+    .wallpaper-slide.active {
+      opacity: 1;
     }
     
     html, body {
@@ -19,7 +53,6 @@
       height: 100vh;
       overflow: hidden;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: url('images/bg1.png') center/cover fixed no-repeat;
       color: #1a1a2e;
     }
 
@@ -111,10 +144,12 @@
     }
     
     .post-content h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin: 1rem 0 0.5rem;
-      color: #4a5568;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 1.25rem 0 0.75rem;
+      color: #2d3748;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid rgba(0, 122, 255, 0.15);
     }
     
     .post-content h4 {
@@ -391,6 +426,26 @@
     .post-content blockquote p:last-child {
       margin-bottom: 0;
     }
+    
+    /* 数学公式样式 - Obsidian风格 */
+    .post-content .math-block {
+      display: block;
+      margin: 1.5rem auto;
+      padding: 1rem 1.5rem;
+      background: rgba(0, 122, 255, 0.03);
+      border-radius: 8px;
+      text-align: center;
+      overflow-x: auto;
+      font-size: 1.1em;
+    }
+    
+    .post-content .math-inline {
+      display: inline;
+      padding: 0.2rem 0.4rem;
+      background: rgba(0, 122, 255, 0.05);
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
 
     /* 返回顶部按钮 */
     .back-to-top {
@@ -465,6 +520,11 @@
   </style>
 </head>
 <body>
+  <!-- 壁纸轮播 -->
+  <div class="wallpaper-carousel" id="wallpaperCarousel">
+    <!-- 壁纸将通过JavaScript动态添加 -->
+  </div>
+
   <div class="main-container">
     <!-- 顶部导航 -->
     <header class="flex-none mb-4">
@@ -575,6 +635,16 @@
       
       // 行内代码
       content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
+      
+      // LaTeX数学公式 - 块级公式 $$...$$
+      content = content.replace(/\$\$([\s\S]+?)\$\$/g, (match, formula) => {
+        return `<div class="math-block">${formula.trim()}</div>`;
+      });
+      
+      // LaTeX数学公式 - 行内公式 $...$（但不匹配$$）
+      content = content.replace(/\$([^\$\n]+?)\$/g, (match, formula) => {
+        return `<span class="math-inline">${formula.trim()}</span>`;
+      });
       
       // 表格处理 - 支持对齐方式和复杂表格
       content = content.replace(/\|(.+)\|\n\|([-:\| ]+)\|\n((?:\|.+\|\n?)+)/g, (match, headerLine, alignLine, dataLines) => {
@@ -796,6 +866,17 @@
         document.getElementById('loadingState').classList.add('hidden');
         document.getElementById('postContent').classList.remove('hidden');
         
+        // 渲染LaTeX数学公式
+        if (typeof renderMathInElement !== 'undefined') {
+          renderMathInElement(document.getElementById('postBody'), {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+            ],
+            throwOnError: false
+          });
+        }
+        
       } catch (error) {
         console.error('加载文章失败:', error);
         showError();
@@ -841,6 +922,57 @@
 
     // 初始化
     loadPost();
+    
+    // 壁纸轮播功能
+    function initWallpaperCarousel() {
+      const carousel = document.getElementById('wallpaperCarousel');
+      
+      // 壁纸列表 - 使用相对路径
+      const wallpapers = [
+        'images/bg1.png',
+        'images/bg2.png',
+        'images/wallpaper1.png',
+        'images/wallpaper2.png',
+        'images/wallpaper3.jpg',
+        'images/wallpaper4.jpg',
+        'images/wallpaper5.jpg'
+      ];
+      
+      // 创建壁纸幻灯片
+      wallpapers.forEach((wallpaper, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'wallpaper-slide';
+        slide.style.backgroundImage = `url('${wallpaper}')`;
+        slide.dataset.index = index;
+        carousel.appendChild(slide);
+      });
+      
+      let currentSlide = 0;
+      const slides = carousel.querySelectorAll('.wallpaper-slide');
+      
+      // 显示第一张壁纸
+      if (slides.length > 0) {
+        slides[0].classList.add('active');
+      }
+      
+      // 轮播函数
+      function nextSlide() {
+        // 移除当前激活状态
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // 切换到下一张
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+        
+        // 10分钟后切换到下一张
+        setTimeout(nextSlide, 10 * 60 * 1000); // 10分钟
+      }
+      
+      // 开始轮播
+      setTimeout(nextSlide, 10 * 60 * 1000); // 10分钟后开始第一次切换
+    }
+    
+    initWallpaperCarousel();
   </script>
 </body>
 </html>
