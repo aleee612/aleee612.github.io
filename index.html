@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>aleee - 笔记堆</title>
-  <meta name="description" content="开发、考研、系统和日常笔记都放在这里。">
+  <title>aleee</title>
+  <meta name="description" content="aleee notes home">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
@@ -22,8 +22,8 @@
 
       <div class="site-top__search">
         <label class="search-box" for="searchInput">
-          <span class="search-box__icon">⌕</span>
-          <input id="searchInput" type="search" placeholder="搜标题、路径、分类">
+          <span class="search-box__icon">/</span>
+          <input id="searchInput" type="search" placeholder="">
         </label>
       </div>
     </div>
@@ -32,25 +32,22 @@
   <main class="page-shell">
     <section class="hero-strip">
       <div class="hero-strip__copy">
-        <p class="hero-strip__eyebrow">笔记首页</p>
-        <h1>平时记的东西，先放这儿。</h1>
-        <p>
-          主要是开发、操作系统、计算机网络、考研整理，还有一些零散记录。
-          想看新的就往下翻，想找旧的就直接搜。
-        </p>
+        <p id="heroEyebrow" class="hero-strip__eyebrow"></p>
+        <h1 id="heroTitle"></h1>
+        <p id="heroIntro"></p>
       </div>
 
       <div class="hero-strip__stats">
         <div class="stat-chip">
-          <span>文章</span>
+          <span id="statPostsLabel"></span>
           <strong id="totalPosts">0</strong>
         </div>
         <div class="stat-chip">
-          <span>分类</span>
+          <span id="statTopicsLabel"></span>
           <strong id="totalTopics">0</strong>
         </div>
         <div class="stat-chip">
-          <span>标签</span>
+          <span id="statTagsLabel"></span>
           <strong id="totalTags">0</strong>
         </div>
       </div>
@@ -61,20 +58,20 @@
         <section class="panel">
           <div class="section-head">
             <div>
-              <p class="section-head__eyebrow">最近在写</p>
-              <h2>先看这几篇</h2>
+              <p id="featuredEyebrow" class="section-head__eyebrow"></p>
+              <h2 id="featuredSectionTitle"></h2>
             </div>
-            <a id="featuredLink" class="section-head__action" href="./post.html">打开</a>
+            <a id="featuredLink" class="section-head__action" href="./post.html"></a>
           </div>
 
           <div class="spotlight-grid">
             <a id="featuredCard" class="featured-card" href="./post.html">
               <div class="featured-card__meta">
-                <span id="featuredDate">最近整理</span>
-                <span id="featuredCategory">分类</span>
+                <span id="featuredDate"></span>
+                <span id="featuredCategory"></span>
               </div>
-              <h3 id="featuredTitle">载入中...</h3>
-              <p id="featuredPath">正在读取文章路径</p>
+              <h3 id="featuredTitle"></h3>
+              <p id="featuredPath"></p>
             </a>
 
             <div id="recentList" class="recent-list"></div>
@@ -84,8 +81,8 @@
         <section class="panel">
           <div class="section-head">
             <div>
-              <p class="section-head__eyebrow">常看分类</p>
-              <h2>按分类翻</h2>
+              <p id="topicsEyebrow" class="section-head__eyebrow"></p>
+              <h2 id="topicsTitle"></h2>
             </div>
           </div>
 
@@ -95,35 +92,35 @@
         <section class="panel">
           <div class="toolbar">
             <div class="toolbar__title">
-              <p class="section-head__eyebrow">全部文章</p>
-              <h2>慢慢翻</h2>
+              <p id="postsEyebrow" class="section-head__eyebrow"></p>
+              <h2 id="postsTitle"></h2>
             </div>
 
             <div class="toolbar__actions">
               <label class="select-box" for="sortSelect">
                 <select id="sortSelect">
-                  <option value="latest">最近更新</option>
-                  <option value="title">标题 A-Z</option>
+                  <option value="latest"></option>
+                  <option value="title"></option>
                 </select>
               </label>
-              <button id="resetFiltersBtn" class="ghost-btn" type="button">清空</button>
+              <button id="resetFiltersBtn" class="ghost-btn" type="button"></button>
             </div>
           </div>
 
           <div class="active-row">
-            <span class="active-row__label">当前筛选</span>
+            <span id="activeFiltersLabel" class="active-row__label"></span>
             <div id="activeFilters" class="active-row__chips"></div>
           </div>
 
-          <div id="resultMeta" class="result-meta">0 篇结果</div>
+          <div id="resultMeta" class="result-meta"></div>
           <div id="postList" class="post-grid"></div>
         </section>
 
-        <section id="vault-browser" class="panel">
+        <section class="panel">
           <div class="section-head">
             <div>
-              <p class="section-head__eyebrow">目录</p>
-              <h2>按文件夹翻</h2>
+              <p id="archiveEyebrow" class="section-head__eyebrow"></p>
+              <h2 id="archiveTitle"></h2>
             </div>
           </div>
 
@@ -135,18 +132,16 @@
         <section class="panel profile-card">
           <img class="profile-card__avatar" src="./images/avatar.jpg" alt="avatar">
           <div>
-            <h2 class="profile-card__title">Alee</h2>
-            <p class="profile-card__text">
-              这页主要拿来放自己的笔记。没太多废话，先能找、能看、能回头翻再说。
-            </p>
+            <h2 id="profileTitle" class="profile-card__title"></h2>
+            <p id="profileText" class="profile-card__text"></p>
           </div>
         </section>
 
         <section class="panel side-panel">
           <div class="section-head section-head--compact">
             <div>
-              <p class="section-head__eyebrow">标签</p>
-              <h2>常用标签</h2>
+              <p id="tagsEyebrow" class="section-head__eyebrow"></p>
+              <h2 id="tagsTitle"></h2>
             </div>
           </div>
           <div id="tagCloud" class="tag-cloud"></div>
@@ -155,8 +150,8 @@
         <section class="panel side-panel">
           <div class="section-head section-head--compact">
             <div>
-              <p class="section-head__eyebrow">最新</p>
-              <h2>最近更新</h2>
+              <p id="recentEyebrow" class="section-head__eyebrow"></p>
+              <h2 id="recentTitle"></h2>
             </div>
           </div>
           <div id="recentMiniList" class="mini-list"></div>

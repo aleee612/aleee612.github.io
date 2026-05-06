@@ -1,4 +1,47 @@
 (function () {
+  const text = {
+    searchPlaceholder: "\u641c\u6807\u9898\u3001\u8def\u5f84\u3001\u5206\u7c7b",
+    heroEyebrow: "\u7b14\u8bb0\u9996\u9875",
+    heroTitle: "\u5e73\u65f6\u8bb0\u7684\u4e1c\u897f\uff0c\u5148\u653e\u8fd9\u513f\u3002",
+    heroIntro: "\u4e3b\u8981\u662f\u5f00\u53d1\u3001\u64cd\u4f5c\u7cfb\u7edf\u3001\u8ba1\u7b97\u673a\u7f51\u7edc\u3001\u8003\u7814\u6574\u7406\uff0c\u8fd8\u6709\u4e00\u4e9b\u96f6\u6563\u8bb0\u5f55\u3002\u60f3\u770b\u65b0\u7684\u5c31\u5f80\u4e0b\u7ffb\uff0c\u60f3\u627e\u65e7\u7684\u5c31\u76f4\u63a5\u641c\u3002",
+    statPosts: "\u6587\u7ae0",
+    statTopics: "\u5206\u7c7b",
+    statTags: "\u6807\u7b7e",
+    featuredEyebrow: "\u6700\u8fd1\u5728\u5199",
+    featuredTitle: "\u5148\u770b\u8fd9\u51e0\u7bc7",
+    featuredAction: "\u6253\u5f00",
+    topicsEyebrow: "\u5e38\u770b\u5206\u7c7b",
+    topicsTitle: "\u6309\u5206\u7c7b\u7ffb",
+    postsEyebrow: "\u5168\u90e8\u6587\u7ae0",
+    postsTitle: "\u6162\u6162\u7ffb",
+    archiveEyebrow: "\u76ee\u5f55",
+    archiveTitle: "\u6309\u6587\u4ef6\u5939\u7ffb",
+    tagsEyebrow: "\u6807\u7b7e",
+    tagsTitle: "\u5e38\u7528\u6807\u7b7e",
+    recentEyebrow: "\u6700\u65b0",
+    recentTitle: "\u6700\u8fd1\u66f4\u65b0",
+    profileTitle: "Alee",
+    profileText: "\u8fd9\u9875\u4e3b\u8981\u62ff\u6765\u653e\u81ea\u5df1\u7684\u7b14\u8bb0\u3002\u6ca1\u592a\u591a\u5e9f\u8bdd\uff0c\u5148\u80fd\u627e\u3001\u80fd\u770b\u3001\u80fd\u56de\u5934\u7ffb\u518d\u8bf4\u3002",
+    sortLatest: "\u6700\u8fd1\u66f4\u65b0",
+    sortTitle: "\u6807\u9898 A-Z",
+    reset: "\u6e05\u7a7a",
+    activeFilters: "\u5f53\u524d\u7b5b\u9009",
+    emptyFilters: "\u73b0\u5728\u662f\u5168\u90e8\u5185\u5bb9",
+    recentFallback: "\u6700\u8fd1\u6574\u7406",
+    undated: "\u672a\u6807\u6ce8\u65e5\u671f",
+    noTags: "\u8fd9\u91cc\u8fd8\u6ca1\u6709\u6807\u7b7e\u3002",
+    noTopics: "\u5f53\u524d\u7b5b\u9009\u4e0b\u6ca1\u6709\u5206\u7c7b\u3002",
+    noPosts: "\u8fd9\u6b21\u6ca1\u641c\u5230\uff0c\u6362\u4e2a\u8bcd\u8bd5\u8bd5\u3002",
+    archiveUnavailable: "\u76ee\u5f55\u6682\u65f6\u4e0d\u53ef\u7528\u3002",
+    loadFailure: "\u9996\u9875\u52a0\u8f7d\u5931\u8d25",
+    loadRetry: "\u7a0d\u540e\u5237\u65b0\u518d\u8bd5",
+    resultUnit: "\u7bc7\u7ed3\u679c",
+    searchPrefix: "\u641c\u7d22",
+    topicPrefix: "\u5206\u7c7b",
+    tagPrefix: "\u6807\u7b7e",
+    sortPrefix: "\u6392\u5e8f"
+  };
+
   const state = {
     posts: [],
     tags: [],
@@ -33,11 +76,43 @@
   };
 
   function init() {
+    applyStaticText();
     bindEvents();
     loadHome().catch((error) => {
       console.error(error);
       renderFailure();
     });
+  }
+
+  function applyStaticText() {
+    document.title = "aleee - \u7b14\u8bb0\u5806";
+    document.querySelector('meta[name="description"]').setAttribute("content", "\u5f00\u53d1\u3001\u8003\u7814\u3001\u7cfb\u7edf\u548c\u65e5\u5e38\u7b14\u8bb0\u90fd\u653e\u5728\u8fd9\u91cc\u3002");
+    document.getElementById("heroEyebrow").textContent = text.heroEyebrow;
+    document.getElementById("heroTitle").textContent = text.heroTitle;
+    document.getElementById("heroIntro").textContent = text.heroIntro;
+    document.getElementById("statPostsLabel").textContent = text.statPosts;
+    document.getElementById("statTopicsLabel").textContent = text.statTopics;
+    document.getElementById("statTagsLabel").textContent = text.statTags;
+    document.getElementById("featuredEyebrow").textContent = text.featuredEyebrow;
+    document.getElementById("featuredSectionTitle").textContent = text.featuredTitle;
+    document.getElementById("featuredLink").textContent = text.featuredAction;
+    document.getElementById("topicsEyebrow").textContent = text.topicsEyebrow;
+    document.getElementById("topicsTitle").textContent = text.topicsTitle;
+    document.getElementById("postsEyebrow").textContent = text.postsEyebrow;
+    document.getElementById("postsTitle").textContent = text.postsTitle;
+    document.getElementById("archiveEyebrow").textContent = text.archiveEyebrow;
+    document.getElementById("archiveTitle").textContent = text.archiveTitle;
+    document.getElementById("tagsEyebrow").textContent = text.tagsEyebrow;
+    document.getElementById("tagsTitle").textContent = text.tagsTitle;
+    document.getElementById("recentEyebrow").textContent = text.recentEyebrow;
+    document.getElementById("recentTitle").textContent = text.recentTitle;
+    document.getElementById("profileTitle").textContent = text.profileTitle;
+    document.getElementById("profileText").textContent = text.profileText;
+    document.getElementById("activeFiltersLabel").textContent = text.activeFilters;
+    elements.searchInput.placeholder = text.searchPlaceholder;
+    elements.sortSelect.options[0].textContent = text.sortLatest;
+    elements.sortSelect.options[1].textContent = text.sortTitle;
+    elements.resetFiltersBtn.textContent = text.reset;
   }
 
   function bindEvents() {
@@ -96,7 +171,7 @@
       const href = getPostHref(featured.id);
       elements.featuredCard.href = href;
       elements.featuredLink.href = href;
-      elements.featuredDate.textContent = featured.date ? formatDate(featured.date) : "最近整理";
+      elements.featuredDate.textContent = featured.date ? formatDate(featured.date) : text.recentFallback;
       elements.featuredCategory.textContent = getPrimaryCategory(featured);
       elements.featuredTitle.textContent = featured.title;
       elements.featuredPath.textContent = featured.file;
@@ -116,7 +191,7 @@
 
     elements.tagCloud.innerHTML = "";
     if (tags.length === 0) {
-      elements.tagCloud.innerHTML = '<div class="empty-state">这里还没有标签。</div>';
+      elements.tagCloud.innerHTML = `<div class="empty-state">${text.noTags}</div>`;
     } else {
       tags.forEach((tagGroup) => {
         const item = document.createElement("button");
@@ -164,7 +239,7 @@
     elements.topicChips.innerHTML = "";
 
     if (entries.length === 0) {
-      elements.topicChips.innerHTML = '<div class="empty-state">当前筛选下没有分类。</div>';
+      elements.topicChips.innerHTML = `<div class="empty-state">${text.noTopics}</div>`;
       return;
     }
 
@@ -174,7 +249,7 @@
       item.className = "topic-chip";
       item.innerHTML = `
         <strong>${escapeHtml(entry.name)}</strong>
-        <span>${entry.count} 篇</span>
+        <span>${entry.count} \u7bc7</span>
       `;
       item.addEventListener("click", () => {
         state.selectedTopic = state.selectedTopic === entry.name ? "" : entry.name;
@@ -185,11 +260,11 @@
   }
 
   function renderPostGrid(posts, total) {
-    elements.resultMeta.textContent = `${total} 篇结果`;
+    elements.resultMeta.textContent = `${total} ${text.resultUnit}`;
     elements.postList.innerHTML = "";
 
     if (posts.length === 0) {
-      elements.postList.innerHTML = '<div class="empty-state">这次没搜到，换个词试试。</div>';
+      elements.postList.innerHTML = `<div class="empty-state">${text.noPosts}</div>`;
       return;
     }
 
@@ -204,7 +279,7 @@
         </div>
         <div class="post-grid__side">
           <span class="post-badge">${escapeHtml(getPrimaryCategory(post))}</span>
-          <span class="post-grid__date">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</span>
+          <span class="post-grid__date">${escapeHtml(post.date ? formatDate(post.date) : text.undated)}</span>
         </div>
       `;
       elements.postList.appendChild(item);
@@ -216,20 +291,20 @@
     const chips = [];
 
     if (state.query) {
-      chips.push(`搜索: ${state.query}`);
+      chips.push(`${text.searchPrefix}: ${state.query}`);
     }
     if (state.selectedTopic) {
-      chips.push(`分类: ${state.selectedTopic}`);
+      chips.push(`${text.topicPrefix}: ${state.selectedTopic}`);
     }
     if (state.selectedTag) {
-      chips.push(`标签: #${state.selectedTag}`);
+      chips.push(`${text.tagPrefix}: #${state.selectedTag}`);
     }
     if (state.sort === "title") {
-      chips.push("排序: 标题 A-Z");
+      chips.push(`${text.sortPrefix}: ${text.sortTitle}`);
     }
 
     if (chips.length === 0) {
-      elements.activeFilters.innerHTML = '<span class="filter-chip">现在是全部内容</span>';
+      elements.activeFilters.innerHTML = `<span class="filter-chip">${text.emptyFilters}</span>`;
       return;
     }
 
@@ -245,7 +320,7 @@
     elements.vaultTree.innerHTML = "";
 
     if (!root) {
-      elements.vaultTree.innerHTML = '<div class="empty-state">目录暂时不可用。</div>';
+      elements.vaultTree.innerHTML = `<div class="empty-state">${text.archiveUnavailable}</div>`;
       return;
     }
 
@@ -289,7 +364,7 @@
       <a class="post-link" href="${getPostHref(post.id)}">
         <h3 class="post-title">${escapeHtml(post.title)}</h3>
         <p class="post-path">${escapeHtml(post.file)}</p>
-        <p class="post-meta">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</p>
+        <p class="post-meta">${escapeHtml(post.date ? formatDate(post.date) : text.undated)}</p>
       </a>
     `;
     return card;
@@ -380,14 +455,14 @@
   }
 
   function renderFailure() {
-    elements.featuredTitle.textContent = "首页加载失败";
-    elements.featuredPath.textContent = "稍后刷新再试";
-    elements.recentList.innerHTML = '<div class="empty-state">最近文章加载失败。</div>';
-    elements.topicChips.innerHTML = '<div class="empty-state">分类加载失败。</div>';
-    elements.postList.innerHTML = '<div class="empty-state">文章列表加载失败。</div>';
-    elements.tagCloud.innerHTML = '<div class="empty-state">标签加载失败。</div>';
-    elements.recentMiniList.innerHTML = '<div class="empty-state">最近更新加载失败。</div>';
-    elements.vaultTree.innerHTML = '<div class="empty-state">目录加载失败。</div>';
+    elements.featuredTitle.textContent = text.loadFailure;
+    elements.featuredPath.textContent = text.loadRetry;
+    elements.recentList.innerHTML = `<div class="empty-state">${text.loadFailure}</div>`;
+    elements.topicChips.innerHTML = `<div class="empty-state">${text.loadFailure}</div>`;
+    elements.postList.innerHTML = `<div class="empty-state">${text.loadFailure}</div>`;
+    elements.tagCloud.innerHTML = `<div class="empty-state">${text.loadFailure}</div>`;
+    elements.recentMiniList.innerHTML = `<div class="empty-state">${text.loadFailure}</div>`;
+    elements.vaultTree.innerHTML = `<div class="empty-state">${text.loadFailure}</div>`;
   }
 
   function formatDate(dateString) {
