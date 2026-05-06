@@ -23,10 +23,10 @@
     featuredCategory: document.getElementById("featuredCategory"),
     featuredTitle: document.getElementById("featuredTitle"),
     featuredPath: document.getElementById("featuredPath"),
-    topicGrid: document.getElementById("topicGrid"),
+    recentList: document.getElementById("recentList"),
+    topicChips: document.getElementById("topicChips"),
     postList: document.getElementById("postList"),
     resultMeta: document.getElementById("resultMeta"),
-    topicRail: document.getElementById("topicRail"),
     tagCloud: document.getElementById("tagCloud"),
     recentMiniList: document.getElementById("recentMiniList"),
     vaultTree: document.getElementById("vaultTree")
@@ -77,18 +77,19 @@
     state.categories = await categoriesResponse.json();
     state.tags = tagsResponse && tagsResponse.ok ? await tagsResponse.json() : [];
 
-    renderStaticShell();
+    renderStaticParts();
     renderFilteredView();
   }
 
-  function renderStaticShell() {
-    const latestPosts = sortPostsByFreshness(state.posts).slice(0, 5);
-    const topics = getTopicEntries(state.categories, 6);
-    const tags = [...state.tags].sort((a, b) => b.count - a.count).slice(0, 10);
-    const featured = sortPostsByFreshness(state.posts)[0];
+  function renderStaticParts() {
+    const orderedPosts = sortPostsByFreshness(state.posts);
+    const featured = orderedPosts[0];
+    const recent = orderedPosts.slice(1, 5);
+    const latestMini = orderedPosts.slice(0, 5);
+    const tags = [...state.tags].sort((a, b) => b.count - a.count).slice(0, 12);
 
     elements.totalPosts.textContent = String(state.posts.length);
-    elements.totalTopics.textContent = String(state.categories?.children?.length || 0);
+    elements.totalTopics.textContent = String((state.categories?.children || []).filter((item) => item.name !== ".trash").length);
     elements.totalTags.textContent = String(state.tags.length);
 
     if (featured) {
@@ -101,25 +102,21 @@
       elements.featuredPath.textContent = featured.file;
     }
 
-    elements.topicRail.innerHTML = "";
-    topics.forEach((topic) => {
-      const item = document.createElement("button");
-      item.type = "button";
-      item.className = "topic-rail__item";
+    elements.recentList.innerHTML = "";
+    recent.forEach((post) => {
+      const item = document.createElement("a");
+      item.className = "recent-list__item";
+      item.href = getPostHref(post.id);
       item.innerHTML = `
-        <span>${topic.count} 篇</span>
-        <strong>${escapeHtml(topic.name)}</strong>
+        <strong>${escapeHtml(post.title)}</strong>
+        <div class="recent-list__meta">${escapeHtml(post.date ? formatDate(post.date) : post.file)}</div>
       `;
-      item.addEventListener("click", () => {
-        state.selectedTopic = state.selectedTopic === topic.name ? "" : topic.name;
-        renderFilteredView();
-      });
-      elements.topicRail.appendChild(item);
+      elements.recentList.appendChild(item);
     });
 
     elements.tagCloud.innerHTML = "";
     if (tags.length === 0) {
-      elements.tagCloud.innerHTML = '<div class="empty-state">当前没有标签数据。</div>';
+      elements.tagCloud.innerHTML = '<div class="empty-state">这里还没有标签。</div>';
     } else {
       tags.forEach((tagGroup) => {
         const item = document.createElement("button");
@@ -138,7 +135,7 @@
     }
 
     elements.recentMiniList.innerHTML = "";
-    latestPosts.forEach((post) => {
+    latestMini.forEach((post) => {
       const item = document.createElement("a");
       item.className = "mini-list__item";
       item.href = getPostHref(post.id);
@@ -155,58 +152,59 @@
   function renderFilteredView() {
     const filteredPosts = applyFilters(state.posts);
     const sortedPosts = sortPosts(filteredPosts).slice(0, 18);
-    const topicEntries = getTopicEntriesFromPosts(filteredPosts, state.categories, 6);
+    const topicEntries = getTopicEntriesFromPosts(filteredPosts, state.categories, 10);
 
     renderActiveFilters();
-    renderTopicGrid(topicEntries);
-    renderPostList(sortedPosts, filteredPosts.length);
-    syncSideSelections();
+    renderTopicChips(topicEntries);
+    renderPostGrid(sortedPosts, filteredPosts.length);
+    syncSelectedStates();
   }
 
-  function renderTopicGrid(entries) {
-    elements.topicGrid.innerHTML = "";
+  function renderTopicChips(entries) {
+    elements.topicChips.innerHTML = "";
 
     if (entries.length === 0) {
-      elements.topicGrid.innerHTML = '<div class="empty-state">当前筛选下没有可展示的专题。</div>';
+      elements.topicChips.innerHTML = '<div class="empty-state">当前筛选下没有分类。</div>';
       return;
     }
 
-    entries.forEach((node) => {
-      const representative = getRepresentativePost(node);
-      const card = document.createElement("a");
-      card.className = "topic-card";
-      card.href = representative ? getPostHref(representative.id) : "#vault-browser";
-      card.innerHTML = `
-        <span class="topic-card__count">${node.count} 篇</span>
-        <h3>${escapeHtml(node.name)}</h3>
-        <p>${escapeHtml(summarizeTopic(node))}</p>
-        <span class="topic-card__path">${escapeHtml(node.path)}</span>
+    entries.forEach((entry) => {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "topic-chip";
+      item.innerHTML = `
+        <strong>${escapeHtml(entry.name)}</strong>
+        <span>${entry.count} 篇</span>
       `;
-      elements.topicGrid.appendChild(card);
+      item.addEventListener("click", () => {
+        state.selectedTopic = state.selectedTopic === entry.name ? "" : entry.name;
+        renderFilteredView();
+      });
+      elements.topicChips.appendChild(item);
     });
   }
 
-  function renderPostList(posts, total) {
+  function renderPostGrid(posts, total) {
     elements.resultMeta.textContent = `${total} 篇结果`;
     elements.postList.innerHTML = "";
 
     if (posts.length === 0) {
-      elements.postList.innerHTML = '<div class="empty-state">没有找到符合当前筛选条件的文章。</div>';
+      elements.postList.innerHTML = '<div class="empty-state">这次没搜到，换个词试试。</div>';
       return;
     }
 
     posts.forEach((post) => {
       const item = document.createElement("a");
-      item.className = "post-list__item";
+      item.className = "post-grid__item";
       item.href = getPostHref(post.id);
       item.innerHTML = `
-        <div class="post-list__main">
+        <div class="post-grid__main">
           <strong>${escapeHtml(post.title)}</strong>
-          <div class="post-list__path">${escapeHtml(post.file)}</div>
+          <div class="post-grid__path">${escapeHtml(post.file)}</div>
         </div>
-        <div class="post-list__aside">
+        <div class="post-grid__side">
           <span class="post-badge">${escapeHtml(getPrimaryCategory(post))}</span>
-          <span class="post-list__date">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</span>
+          <span class="post-grid__date">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</span>
         </div>
       `;
       elements.postList.appendChild(item);
@@ -231,7 +229,7 @@
     }
 
     if (chips.length === 0) {
-      elements.activeFilters.innerHTML = '<span class="filter-chip">未启用筛选</span>';
+      elements.activeFilters.innerHTML = '<span class="filter-chip">现在是全部内容</span>';
       return;
     }
 
@@ -337,19 +335,9 @@
     });
   }
 
-  function getTopicEntries(categories, limit) {
-    if (!categories || !Array.isArray(categories.children)) {
-      return [];
-    }
-
-    return [...categories.children]
-      .filter((node) => node.name !== ".trash")
-      .sort((left, right) => right.count - left.count)
-      .slice(0, limit);
-  }
-
   function getTopicEntriesFromPosts(posts, categories, limit) {
     const counts = new Map();
+    const categoryMap = new Map((categories?.children || []).map((node) => [node.name, node]));
 
     posts.forEach((post) => {
       const topic = getPrimaryCategory(post);
@@ -359,57 +347,27 @@
       counts.set(topic, (counts.get(topic) || 0) + 1);
     });
 
-    const categoryMap = new Map((categories?.children || []).map((node) => [node.name, node]));
     return [...counts.entries()]
       .sort((left, right) => right[1] - left[1])
       .slice(0, limit)
-      .map(([name]) => categoryMap.get(name))
-      .filter(Boolean);
+      .map(([name, count]) => ({
+        ...(categoryMap.get(name) || { name, path: name }),
+        count
+      }));
   }
 
-  function syncSideSelections() {
-    elements.topicRail.querySelectorAll(".topic-rail__item").forEach((item) => {
-      item.style.borderColor = "";
-      item.style.background = "";
-      if (item.textContent.includes(state.selectedTopic)) {
-        item.style.borderColor = "rgba(31, 92, 87, 0.3)";
-        item.style.background = "rgba(31, 92, 87, 0.08)";
-      }
+  function syncSelectedStates() {
+    elements.topicChips.querySelectorAll(".topic-chip").forEach((item) => {
+      const active = state.selectedTopic && item.textContent.includes(state.selectedTopic);
+      item.style.borderColor = active ? "rgba(34, 77, 88, 0.26)" : "";
+      item.style.background = active ? "rgba(34, 77, 88, 0.08)" : "";
     });
 
     elements.tagCloud.querySelectorAll(".tag-cloud__item").forEach((item) => {
-      item.style.borderColor = "";
-      item.style.background = "";
-      if (state.selectedTag && item.textContent.includes(`#${state.selectedTag}`)) {
-        item.style.borderColor = "rgba(31, 92, 87, 0.3)";
-        item.style.background = "rgba(31, 92, 87, 0.08)";
-      }
+      const active = state.selectedTag && item.textContent.includes(`#${state.selectedTag}`);
+      item.style.borderColor = active ? "rgba(34, 77, 88, 0.26)" : "";
+      item.style.background = active ? "rgba(34, 77, 88, 0.08)" : "";
     });
-  }
-
-  function getRepresentativePost(node) {
-    const candidates = collectNodePosts(node);
-    return sortPostsByFreshness(candidates)[0] || null;
-  }
-
-  function collectNodePosts(node) {
-    const currentPosts = Array.isArray(node.posts) ? node.posts : [];
-    const childPosts = Array.isArray(node.children)
-      ? node.children.flatMap((child) => collectNodePosts(child))
-      : [];
-    return currentPosts.concat(childPosts);
-  }
-
-  function summarizeTopic(node) {
-    if (Array.isArray(node.children) && node.children.length > 0) {
-      return node.children.slice(0, 3).map((child) => child.name).join(" · ");
-    }
-
-    if (Array.isArray(node.posts) && node.posts.length > 0) {
-      return node.posts[0].title;
-    }
-
-    return "持续整理中";
   }
 
   function getPrimaryCategory(post) {
@@ -423,12 +381,13 @@
 
   function renderFailure() {
     elements.featuredTitle.textContent = "首页加载失败";
-    elements.featuredPath.textContent = "请稍后刷新重试";
-    elements.topicGrid.innerHTML = '<div class="empty-state">专题载入失败。</div>';
-    elements.postList.innerHTML = '<div class="empty-state">文章列表载入失败。</div>';
-    elements.tagCloud.innerHTML = '<div class="empty-state">标签载入失败。</div>';
-    elements.recentMiniList.innerHTML = '<div class="empty-state">最近文章载入失败。</div>';
-    elements.vaultTree.innerHTML = '<div class="empty-state">目录载入失败。</div>';
+    elements.featuredPath.textContent = "稍后刷新再试";
+    elements.recentList.innerHTML = '<div class="empty-state">最近文章加载失败。</div>';
+    elements.topicChips.innerHTML = '<div class="empty-state">分类加载失败。</div>';
+    elements.postList.innerHTML = '<div class="empty-state">文章列表加载失败。</div>';
+    elements.tagCloud.innerHTML = '<div class="empty-state">标签加载失败。</div>';
+    elements.recentMiniList.innerHTML = '<div class="empty-state">最近更新加载失败。</div>';
+    elements.vaultTree.innerHTML = '<div class="empty-state">目录加载失败。</div>';
   }
 
   function formatDate(dateString) {
