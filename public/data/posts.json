@@ -3,6 +3,8 @@
     "id": 1,
     "title": "计算机操作系统",
     "tags": [],
+    "aliases": [],
+    "basename": "计算机操作系统",
     "file": ".trash/八股/计算机操作系统.md",
     "folder": ".trash/八股",
     "folders": [
@@ -14,6 +16,8 @@
     "id": 2,
     "title": "计算机网络",
     "tags": [],
+    "aliases": [],
+    "basename": "计算机网络",
     "file": ".trash/八股/计算机网络.md",
     "folder": ".trash/八股",
     "folders": [
@@ -25,6 +29,8 @@
     "id": 3,
     "title": "未命名",
     "tags": [],
+    "aliases": [],
+    "basename": "未命名",
     "file": ".trash/八股/未命名.md",
     "folder": ".trash/八股",
     "folders": [
@@ -36,6 +42,8 @@
     "id": 4,
     "title": "Docker知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Docker知识总结",
     "file": ".trash/八股/Docker知识总结.md",
     "folder": ".trash/八股",
     "folders": [
@@ -47,6 +55,8 @@
     "id": 5,
     "title": "Java知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Java知识总结",
     "file": ".trash/八股/Java知识总结.md",
     "folder": ".trash/八股",
     "folders": [
@@ -58,6 +68,8 @@
     "id": 6,
     "title": "JVM笔记",
     "tags": [],
+    "aliases": [],
+    "basename": "JVM笔记",
     "file": ".trash/八股/JVM笔记.md",
     "folder": ".trash/八股",
     "folders": [
@@ -69,6 +81,8 @@
     "id": 7,
     "title": "Kafka学习",
     "tags": [],
+    "aliases": [],
+    "basename": "Kafka学习",
     "file": ".trash/八股/Kafka学习.md",
     "folder": ".trash/八股",
     "folders": [
@@ -80,6 +94,8 @@
     "id": 8,
     "title": "Mysql知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Mysql知识总结",
     "file": ".trash/八股/Mysql知识总结.md",
     "folder": ".trash/八股",
     "folders": [
@@ -91,6 +107,8 @@
     "id": 9,
     "title": "redis知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "redis知识总结",
     "file": ".trash/八股/redis知识总结.md",
     "folder": ".trash/八股",
     "folders": [
@@ -102,6 +120,8 @@
     "id": 10,
     "title": "Spring知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Spring知识总结",
     "file": ".trash/八股/Spring知识总结.md",
     "folder": ".trash/八股",
     "folders": [
@@ -113,6 +133,8 @@
     "id": 11,
     "title": "SQL题总结",
     "tags": [],
+    "aliases": [],
+    "basename": "SQL题总结",
     "file": ".trash/八股/SQL题总结.md",
     "folder": ".trash/八股",
     "folders": [
@@ -124,6 +146,8 @@
     "id": 12,
     "title": "笔记",
     "tags": [],
+    "aliases": [],
+    "basename": "笔记",
     "file": ".trash/笔记.md",
     "folder": ".trash",
     "folders": [
@@ -134,6 +158,8 @@
     "id": 13,
     "title": "编译",
     "tags": [],
+    "aliases": [],
+    "basename": "编译",
     "file": ".trash/编译.md",
     "folder": ".trash",
     "folders": [
@@ -144,6 +170,8 @@
     "id": 14,
     "title": "计算机操作系统",
     "tags": [],
+    "aliases": [],
+    "basename": "计算机操作系统",
     "file": ".trash/计算机操作系统.md",
     "folder": ".trash",
     "folders": [
@@ -154,6 +182,8 @@
     "id": 15,
     "title": "计算机网络",
     "tags": [],
+    "aliases": [],
+    "basename": "计算机网络",
     "file": ".trash/计算机网络.md",
     "folder": ".trash",
     "folders": [
@@ -164,6 +194,8 @@
     "id": 16,
     "title": "计网",
     "tags": [],
+    "aliases": [],
+    "basename": "计网",
     "file": ".trash/计网.md",
     "folder": ".trash",
     "folders": [
@@ -174,6 +206,8 @@
     "id": 17,
     "title": "济南",
     "tags": [],
+    "aliases": [],
+    "basename": "济南",
     "file": ".trash/济南.md",
     "folder": ".trash",
     "folders": [
@@ -184,6 +218,8 @@
     "id": 18,
     "title": "难点QA",
     "tags": [],
+    "aliases": [],
+    "basename": "难点QA",
     "file": ".trash/难点QA.md",
     "folder": ".trash",
     "folders": [
@@ -194,6 +230,8 @@
     "id": 19,
     "title": "软工（考完）",
     "tags": [],
+    "aliases": [],
+    "basename": "软工（考完）",
     "file": ".trash/软工（考完）.md",
     "folder": ".trash",
     "folders": [
@@ -204,6 +242,8 @@
     "id": 20,
     "title": "三大日志 2",
     "tags": [],
+    "aliases": [],
+    "basename": "三大日志 2",
     "file": ".trash/三大日志 2.md",
     "folder": ".trash",
     "folders": [
@@ -214,6 +254,8 @@
     "id": 21,
     "title": "三大日志",
     "tags": [],
+    "aliases": [],
+    "basename": "三大日志",
     "file": ".trash/三大日志.md",
     "folder": ".trash",
     "folders": [
@@ -224,6 +266,8 @@
     "id": 22,
     "title": "未命名 2",
     "tags": [],
+    "aliases": [],
+    "basename": "未命名 2",
     "file": ".trash/未命名 2.md",
     "folder": ".trash",
     "folders": [
@@ -234,6 +278,8 @@
     "id": 23,
     "title": "未命名",
     "tags": [],
+    "aliases": [],
+    "basename": "未命名",
     "file": ".trash/未命名.md",
     "folder": ".trash",
     "folders": [
@@ -244,6 +290,8 @@
     "id": 24,
     "title": "项目的难点",
     "tags": [],
+    "aliases": [],
+    "basename": "项目的难点",
     "file": ".trash/项目的难点.md",
     "folder": ".trash",
     "folders": [
@@ -254,6 +302,8 @@
     "id": 25,
     "title": "项目三大模块",
     "tags": [],
+    "aliases": [],
+    "basename": "项目三大模块",
     "file": ".trash/项目三大模块.md",
     "folder": ".trash",
     "folders": [
@@ -264,6 +314,8 @@
     "id": 26,
     "title": "项目要点QA 2",
     "tags": [],
+    "aliases": [],
+    "basename": "项目要点QA 2",
     "file": ".trash/项目要点QA 2.md",
     "folder": ".trash",
     "folders": [
@@ -274,6 +326,8 @@
     "id": 27,
     "title": "项目要点QA",
     "tags": [],
+    "aliases": [],
+    "basename": "项目要点QA",
     "file": ".trash/项目要点QA.md",
     "folder": ".trash",
     "folders": [
@@ -284,6 +338,8 @@
     "id": 28,
     "title": "AAA重新 2",
     "tags": [],
+    "aliases": [],
+    "basename": "AAA重新 2",
     "file": ".trash/AAA重新 2.md",
     "folder": ".trash",
     "folders": [
@@ -294,6 +350,8 @@
     "id": 29,
     "title": "AAA重新",
     "tags": [],
+    "aliases": [],
+    "basename": "AAA重新",
     "file": ".trash/AAA重新.md",
     "folder": ".trash",
     "folders": [
@@ -304,6 +362,8 @@
     "id": 30,
     "title": "AIAGent面试",
     "tags": [],
+    "aliases": [],
+    "basename": "AIAGent面试",
     "file": ".trash/AIAGent面试.md",
     "folder": ".trash",
     "folders": [
@@ -314,6 +374,8 @@
     "id": 31,
     "title": "bat文件制作",
     "tags": [],
+    "aliases": [],
+    "basename": "bat文件制作",
     "file": ".trash/bat文件制作.md",
     "folder": ".trash",
     "folders": [
@@ -324,6 +386,8 @@
     "id": 32,
     "title": "Canal的原理 2",
     "tags": [],
+    "aliases": [],
+    "basename": "Canal的原理 2",
     "file": ".trash/Canal的原理 2.md",
     "folder": ".trash",
     "folders": [
@@ -334,6 +398,8 @@
     "id": 33,
     "title": "Canal的原理",
     "tags": [],
+    "aliases": [],
+    "basename": "Canal的原理",
     "file": ".trash/Canal的原理.md",
     "folder": ".trash",
     "folders": [
@@ -344,6 +410,8 @@
     "id": 34,
     "title": "Docker知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Docker知识总结",
     "file": ".trash/Docker知识总结.md",
     "folder": ".trash",
     "folders": [
@@ -354,6 +422,8 @@
     "id": 35,
     "title": "Java知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Java知识总结",
     "file": ".trash/Java知识总结.md",
     "folder": ".trash",
     "folders": [
@@ -364,6 +434,8 @@
     "id": 36,
     "title": "JVM笔记",
     "tags": [],
+    "aliases": [],
+    "basename": "JVM笔记",
     "file": ".trash/JVM笔记.md",
     "folder": ".trash",
     "folders": [
@@ -374,6 +446,8 @@
     "id": 37,
     "title": "Kafka学习",
     "tags": [],
+    "aliases": [],
+    "basename": "Kafka学习",
     "file": ".trash/Kafka学习.md",
     "folder": ".trash",
     "folders": [
@@ -384,6 +458,8 @@
     "id": 38,
     "title": "mysql结构与索引 2",
     "tags": [],
+    "aliases": [],
+    "basename": "mysql结构与索引 2",
     "file": ".trash/mysql结构与索引 2.md",
     "folder": ".trash",
     "folders": [
@@ -394,6 +470,8 @@
     "id": 39,
     "title": "mysql结构与索引",
     "tags": [],
+    "aliases": [],
+    "basename": "mysql结构与索引",
     "file": ".trash/mysql结构与索引.md",
     "folder": ".trash",
     "folders": [
@@ -404,6 +482,8 @@
     "id": 40,
     "title": "mysql事务与锁 2",
     "tags": [],
+    "aliases": [],
+    "basename": "mysql事务与锁 2",
     "file": ".trash/mysql事务与锁 2.md",
     "folder": ".trash",
     "folders": [
@@ -414,6 +494,8 @@
     "id": 41,
     "title": "mysql事务与锁",
     "tags": [],
+    "aliases": [],
+    "basename": "mysql事务与锁",
     "file": ".trash/mysql事务与锁.md",
     "folder": ".trash",
     "folders": [
@@ -424,6 +506,8 @@
     "id": 42,
     "title": "Mysql知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Mysql知识总结",
     "file": ".trash/Mysql知识总结.md",
     "folder": ".trash",
     "folders": [
@@ -434,6 +518,8 @@
     "id": 43,
     "title": "Netty及其应用 2",
     "tags": [],
+    "aliases": [],
+    "basename": "Netty及其应用 2",
     "file": ".trash/Netty及其应用 2.md",
     "folder": ".trash",
     "folders": [
@@ -444,6 +530,8 @@
     "id": 44,
     "title": "Netty及其应用",
     "tags": [],
+    "aliases": [],
+    "basename": "Netty及其应用",
     "file": ".trash/Netty及其应用.md",
     "folder": ".trash",
     "folders": [
@@ -454,6 +542,8 @@
     "id": 45,
     "title": "rag和模拟打通",
     "tags": [],
+    "aliases": [],
+    "basename": "rag和模拟打通",
     "file": ".trash/rag和模拟打通.md",
     "folder": ".trash",
     "folders": [
@@ -464,6 +554,8 @@
     "id": 46,
     "title": "redis知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "redis知识总结",
     "file": ".trash/redis知识总结.md",
     "folder": ".trash",
     "folders": [
@@ -474,6 +566,8 @@
     "id": 47,
     "title": "Spring的循环依赖问题 2",
     "tags": [],
+    "aliases": [],
+    "basename": "Spring的循环依赖问题 2",
     "file": ".trash/Spring的循环依赖问题 2.md",
     "folder": ".trash",
     "folders": [
@@ -484,6 +578,8 @@
     "id": 48,
     "title": "Spring的循环依赖问题",
     "tags": [],
+    "aliases": [],
+    "basename": "Spring的循环依赖问题",
     "file": ".trash/Spring的循环依赖问题.md",
     "folder": ".trash",
     "folders": [
@@ -494,6 +590,8 @@
     "id": 49,
     "title": "Spring知识总结",
     "tags": [],
+    "aliases": [],
+    "basename": "Spring知识总结",
     "file": ".trash/Spring知识总结.md",
     "folder": ".trash",
     "folders": [
@@ -504,6 +602,8 @@
     "id": 50,
     "title": "SpringAI 2",
     "tags": [],
+    "aliases": [],
+    "basename": "SpringAI 2",
     "file": ".trash/SpringAI 2.md",
     "folder": ".trash",
     "folders": [
@@ -514,6 +614,8 @@
     "id": 51,
     "title": "SpringAI",
     "tags": [],
+    "aliases": [],
+    "basename": "SpringAI",
     "file": ".trash/SpringAI.md",
     "folder": ".trash",
     "folders": [
@@ -524,6 +626,8 @@
     "id": 52,
     "title": "SQL题总结",
     "tags": [],
+    "aliases": [],
+    "basename": "SQL题总结",
     "file": ".trash/SQL题总结.md",
     "folder": ".trash",
     "folders": [
@@ -534,6 +638,8 @@
     "id": 53,
     "title": "Word",
     "tags": [],
+    "aliases": [],
+    "basename": "Word",
     "file": ".trash/Word.md",
     "folder": ".trash",
     "folders": [
@@ -544,6 +650,8 @@
     "id": 54,
     "title": "调度",
     "tags": [],
+    "aliases": [],
+    "basename": "调度",
     "file": "概念/操作系统/操作系统原理/调度与死锁/调度.md",
     "folder": "概念/操作系统/操作系统原理/调度与死锁",
     "folders": [
@@ -557,6 +665,8 @@
     "id": 55,
     "title": "调度算法",
     "tags": [],
+    "aliases": [],
+    "basename": "调度算法",
     "file": "概念/操作系统/操作系统原理/调度与死锁/调度算法.md",
     "folder": "概念/操作系统/操作系统原理/调度与死锁",
     "folders": [
@@ -570,6 +680,8 @@
     "id": 56,
     "title": "死锁",
     "tags": [],
+    "aliases": [],
+    "basename": "死锁",
     "file": "概念/操作系统/操作系统原理/调度与死锁/死锁.md",
     "folder": "概念/操作系统/操作系统原理/调度与死锁",
     "folders": [
@@ -581,9 +693,11 @@
   },
   {
     "id": 57,
-    "title": "作业",
+    "title": "同步和互斥",
     "tags": [],
-    "file": "概念/操作系统/操作系统原理/调度与死锁/作业.md",
+    "aliases": [],
+    "basename": "同步和互斥",
+    "file": "概念/操作系统/操作系统原理/调度与死锁/同步和互斥.md",
     "folder": "概念/操作系统/操作系统原理/调度与死锁",
     "folders": [
       "概念",
@@ -594,8 +708,25 @@
   },
   {
     "id": 58,
+    "title": "作业",
+    "tags": [],
+    "aliases": [],
+    "basename": "作业",
+    "file": "概念/操作系统/操作系统原理/调度与死锁/作业.md",
+    "folder": "概念/操作系统/操作系统原理/调度与死锁",
+    "folders": [
+      "概念",
+      "操作系统",
+      "操作系统原理",
+      "调度与死锁"
+    ]
+  },
+  {
+    "id": 59,
     "title": "操作系统内核",
     "tags": [],
+    "aliases": [],
+    "basename": "操作系统内核",
     "file": "概念/操作系统/操作系统原理/概述/操作系统内核.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -606,9 +737,13 @@
     ]
   },
   {
-    "id": 59,
+    "id": 60,
     "title": "访管指令",
     "tags": [],
+    "aliases": [
+      "系统调用指令"
+    ],
+    "basename": "访管指令",
     "file": "概念/操作系统/操作系统原理/概述/访管指令.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -619,9 +754,11 @@
     ]
   },
   {
-    "id": 60,
+    "id": 61,
     "title": "分时&实时操作系统",
     "tags": [],
+    "aliases": [],
+    "basename": "分时&实时操作系统",
     "file": "概念/操作系统/操作系统原理/概述/分时&实时操作系统.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -632,9 +769,11 @@
     ]
   },
   {
-    "id": 61,
+    "id": 62,
     "title": "库函数与系统调用",
     "tags": [],
+    "aliases": [],
+    "basename": "库函数与系统调用",
     "file": "概念/操作系统/操作系统原理/概述/库函数与系统调用.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -645,9 +784,16 @@
     ]
   },
   {
-    "id": 62,
+    "id": 63,
     "title": "命令解释程序与图形用户界面",
     "tags": [],
+    "aliases": [
+      "shell",
+      "命令解释程序",
+      "图形用户界面",
+      "GUI"
+    ],
+    "basename": "命令解释程序与图形用户界面",
     "file": "概念/操作系统/操作系统原理/概述/命令解释程序与图形用户界面.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -658,9 +804,11 @@
     ]
   },
   {
-    "id": 63,
+    "id": 64,
     "title": "批处理操作系统",
     "tags": [],
+    "aliases": [],
+    "basename": "批处理操作系统",
     "file": "概念/操作系统/操作系统原理/概述/批处理操作系统.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -671,9 +819,11 @@
     ]
   },
   {
-    "id": 64,
+    "id": 65,
     "title": "时钟机制",
     "tags": [],
+    "aliases": [],
+    "basename": "时钟机制",
     "file": "概念/操作系统/操作系统原理/概述/时钟机制.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -684,9 +834,14 @@
     ]
   },
   {
-    "id": 65,
+    "id": 66,
     "title": "特权指令与非特权指令",
     "tags": [],
+    "aliases": [
+      "特权指令",
+      "非特权指令"
+    ],
+    "basename": "特权指令与非特权指令",
     "file": "概念/操作系统/操作系统原理/概述/特权指令与非特权指令.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -697,9 +852,11 @@
     ]
   },
   {
-    "id": 66,
+    "id": 67,
     "title": "微内核与宏内核",
     "tags": [],
+    "aliases": [],
+    "basename": "微内核与宏内核",
     "file": "概念/操作系统/操作系统原理/概述/微内核与宏内核.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -710,9 +867,13 @@
     ]
   },
   {
-    "id": 67,
+    "id": 68,
     "title": "系统程序",
     "tags": [],
+    "aliases": [
+      "系统工具"
+    ],
+    "basename": "系统程序",
     "file": "概念/操作系统/操作系统原理/概述/系统程序.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -723,9 +884,11 @@
     ]
   },
   {
-    "id": 68,
+    "id": 69,
     "title": "虚拟机",
     "tags": [],
+    "aliases": [],
+    "basename": "虚拟机",
     "file": "概念/操作系统/操作系统原理/概述/虚拟机.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -736,9 +899,11 @@
     ]
   },
   {
-    "id": 69,
+    "id": 70,
     "title": "原理",
     "tags": [],
+    "aliases": [],
+    "basename": "原理",
     "file": "概念/操作系统/操作系统原理/概述/原理.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -749,9 +914,11 @@
     ]
   },
   {
-    "id": 70,
+    "id": 71,
     "title": "指令集体系结构 ISA",
     "tags": [],
+    "aliases": [],
+    "basename": "指令集体系结构 ISA",
     "file": "概念/操作系统/操作系统原理/概述/指令集体系结构 ISA.md",
     "folder": "概念/操作系统/操作系统原理/概述",
     "folders": [
@@ -762,9 +929,11 @@
     ]
   },
   {
-    "id": 71,
+    "id": 72,
     "title": "并发与并行",
     "tags": [],
+    "aliases": [],
+    "basename": "并发与并行",
     "file": "概念/操作系统/操作系统原理/进程/并发与并行.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -775,9 +944,11 @@
     ]
   },
   {
-    "id": 72,
+    "id": 73,
     "title": "不可再现性 & 可再现性",
     "tags": [],
+    "aliases": [],
+    "basename": "不可再现性 & 可再现性",
     "file": "概念/操作系统/操作系统原理/进程/不可再现性 & 可再现性.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -788,35 +959,11 @@
     ]
   },
   {
-    "id": 73,
-    "title": "互斥&同步",
-    "tags": [],
-    "file": "概念/操作系统/操作系统原理/进程/互斥&同步.md",
-    "folder": "概念/操作系统/操作系统原理/进程",
-    "folders": [
-      "概念",
-      "操作系统",
-      "操作系统原理",
-      "进程"
-    ]
-  },
-  {
     "id": 74,
-    "title": "基本概念",
-    "tags": [],
-    "file": "概念/操作系统/操作系统原理/进程/基本概念.md",
-    "folder": "概念/操作系统/操作系统原理/进程",
-    "folders": [
-      "概念",
-      "操作系统",
-      "操作系统原理",
-      "进程"
-    ]
-  },
-  {
-    "id": 75,
     "title": "结构",
     "tags": [],
+    "aliases": [],
+    "basename": "结构",
     "file": "概念/操作系统/操作系统原理/进程/结构.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -827,9 +974,11 @@
     ]
   },
   {
-    "id": 76,
+    "id": 75,
     "title": "进程的控制",
     "tags": [],
+    "aliases": [],
+    "basename": "进程的控制",
     "file": "概念/操作系统/操作系统原理/进程/进程的控制.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -840,9 +989,14 @@
     ]
   },
   {
-    "id": 77,
+    "id": 76,
     "title": "进程通信IPC",
     "tags": [],
+    "aliases": [
+      "进程通信",
+      "IPC"
+    ],
+    "basename": "进程通信IPC",
     "file": "概念/操作系统/操作系统原理/进程/进程通信IPC.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -853,9 +1007,11 @@
     ]
   },
   {
-    "id": 78,
+    "id": 77,
     "title": "子进程与父进程",
     "tags": [],
+    "aliases": [],
+    "basename": "子进程与父进程",
     "file": "概念/操作系统/操作系统原理/进程/子进程与父进程.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -866,9 +1022,11 @@
     ]
   },
   {
-    "id": 79,
+    "id": 78,
     "title": "UM & KM",
     "tags": [],
+    "aliases": [],
+    "basename": "UM & KM",
     "file": "概念/操作系统/操作系统原理/进程/UM & KM.md",
     "folder": "概念/操作系统/操作系统原理/进程",
     "folders": [
@@ -879,9 +1037,11 @@
     ]
   },
   {
-    "id": 80,
+    "id": 79,
     "title": "地址绑定",
     "tags": [],
+    "aliases": [],
+    "basename": "地址绑定",
     "file": "概念/操作系统/操作系统原理/内存管理/地址绑定.md",
     "folder": "概念/操作系统/操作系统原理/内存管理",
     "folders": [
@@ -892,9 +1052,11 @@
     ]
   },
   {
-    "id": 81,
+    "id": 80,
     "title": "分页",
     "tags": [],
+    "aliases": [],
+    "basename": "分页",
     "file": "概念/操作系统/操作系统原理/内存管理/分页.md",
     "folder": "概念/操作系统/操作系统原理/内存管理",
     "folders": [
@@ -905,9 +1067,11 @@
     ]
   },
   {
-    "id": 82,
+    "id": 81,
     "title": "基本硬件",
     "tags": [],
+    "aliases": [],
+    "basename": "基本硬件",
     "file": "概念/操作系统/操作系统原理/内存管理/基本硬件.md",
     "folder": "概念/操作系统/操作系统原理/内存管理",
     "folders": [
@@ -918,10 +1082,30 @@
     ]
   },
   {
-    "id": 83,
+    "id": 82,
     "title": "内存管理单元MMU",
     "tags": [],
+    "aliases": [
+      "MMU",
+      "内存管理单元"
+    ],
+    "basename": "内存管理单元MMU",
     "file": "概念/操作系统/操作系统原理/内存管理/内存管理单元MMU.md",
+    "folder": "概念/操作系统/操作系统原理/内存管理",
+    "folders": [
+      "概念",
+      "操作系统",
+      "操作系统原理",
+      "内存管理"
+    ]
+  },
+  {
+    "id": 83,
+    "title": "内存管理概念",
+    "tags": [],
+    "aliases": [],
+    "basename": "内存管理概念",
+    "file": "概念/操作系统/操作系统原理/内存管理/内存管理概念.md",
     "folder": "概念/操作系统/操作系统原理/内存管理",
     "folders": [
       "概念",
@@ -934,6 +1118,8 @@
     "id": 84,
     "title": "通用存储",
     "tags": [],
+    "aliases": [],
+    "basename": "通用存储",
     "file": "概念/操作系统/操作系统原理/内存管理/通用存储.md",
     "folder": "概念/操作系统/操作系统原理/内存管理",
     "folders": [
@@ -947,6 +1133,8 @@
     "id": 85,
     "title": "无存储器抽象",
     "tags": [],
+    "aliases": [],
+    "basename": "无存储器抽象",
     "file": "概念/操作系统/操作系统原理/内存管理/无存储器抽象.md",
     "folder": "概念/操作系统/操作系统原理/内存管理",
     "folders": [
@@ -958,9 +1146,26 @@
   },
   {
     "id": 86,
-    "title": "未命名",
+    "title": "虚拟内存管理",
     "tags": [],
-    "file": "概念/操作系统/操作系统原理/文件管理/未命名.md",
+    "aliases": [],
+    "basename": "虚拟内存管理",
+    "file": "概念/操作系统/操作系统原理/内存管理/虚拟内存管理.md",
+    "folder": "概念/操作系统/操作系统原理/内存管理",
+    "folders": [
+      "概念",
+      "操作系统",
+      "操作系统原理",
+      "内存管理"
+    ]
+  },
+  {
+    "id": 87,
+    "title": "目录",
+    "tags": [],
+    "aliases": [],
+    "basename": "目录",
+    "file": "概念/操作系统/操作系统原理/文件管理/目录.md",
     "folder": "概念/操作系统/操作系统原理/文件管理",
     "folders": [
       "概念",
@@ -970,9 +1175,41 @@
     ]
   },
   {
-    "id": 87,
+    "id": 88,
+    "title": "文件",
+    "tags": [],
+    "aliases": [],
+    "basename": "文件",
+    "file": "概念/操作系统/操作系统原理/文件管理/文件.md",
+    "folder": "概念/操作系统/操作系统原理/文件管理",
+    "folders": [
+      "概念",
+      "操作系统",
+      "操作系统原理",
+      "文件管理"
+    ]
+  },
+  {
+    "id": 89,
+    "title": "文件系统",
+    "tags": [],
+    "aliases": [],
+    "basename": "文件系统",
+    "file": "概念/操作系统/操作系统原理/文件管理/文件系统.md",
+    "folder": "概念/操作系统/操作系统原理/文件管理",
+    "folders": [
+      "概念",
+      "操作系统",
+      "操作系统原理",
+      "文件管理"
+    ]
+  },
+  {
+    "id": 90,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "概念/操作系统/操作系统原理/线程/基本概念.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -983,9 +1220,11 @@
     ]
   },
   {
-    "id": 88,
+    "id": 91,
     "title": "结构",
     "tags": [],
+    "aliases": [],
+    "basename": "结构",
     "file": "概念/操作系统/操作系统原理/线程/结构.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -996,9 +1235,11 @@
     ]
   },
   {
-    "id": 89,
+    "id": 92,
     "title": "线程控制",
     "tags": [],
+    "aliases": [],
+    "basename": "线程控制",
     "file": "概念/操作系统/操作系统原理/线程/线程控制.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -1009,9 +1250,11 @@
     ]
   },
   {
-    "id": 90,
+    "id": 93,
     "title": "线程库ULT & KLT",
     "tags": [],
+    "aliases": [],
+    "basename": "线程库ULT & KLT",
     "file": "概念/操作系统/操作系统原理/线程/线程库ULT & KLT.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -1022,9 +1265,11 @@
     ]
   },
   {
-    "id": 91,
+    "id": 94,
     "title": "线程通信",
     "tags": [],
+    "aliases": [],
+    "basename": "线程通信",
     "file": "概念/操作系统/操作系统原理/线程/线程通信.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -1035,9 +1280,11 @@
     ]
   },
   {
-    "id": 92,
+    "id": 95,
     "title": "线程栈保护",
     "tags": [],
+    "aliases": [],
+    "basename": "线程栈保护",
     "file": "概念/操作系统/操作系统原理/线程/线程栈保护.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -1048,9 +1295,11 @@
     ]
   },
   {
-    "id": 93,
+    "id": 96,
     "title": "ULT & KLT",
     "tags": [],
+    "aliases": [],
+    "basename": "ULT & KLT",
     "file": "概念/操作系统/操作系统原理/线程/ULT & KLT.md",
     "folder": "概念/操作系统/操作系统原理/线程",
     "folders": [
@@ -1061,9 +1310,11 @@
     ]
   },
   {
-    "id": 94,
+    "id": 97,
     "title": "活锁",
     "tags": [],
+    "aliases": [],
+    "basename": "活锁",
     "file": "概念/操作系统/操作系统原理/杂记--小问题/活锁.md",
     "folder": "概念/操作系统/操作系统原理/杂记--小问题",
     "folders": [
@@ -1074,9 +1325,11 @@
     ]
   },
   {
-    "id": 95,
+    "id": 98,
     "title": "能不能根据“当前运行的是 ULT 还是 KLT”判断 CPU 在用户态还是内核态？",
     "tags": [],
+    "aliases": [],
+    "basename": "能不能根据“当前运行的是 ULT 还是 KLT”判断 CPU 在用户态还是内核态？",
     "file": "概念/操作系统/操作系统原理/杂记--小问题/能不能根据“当前运行的是 ULT 还是 KLT”判断 CPU 在用户态还是内核态？.md",
     "folder": "概念/操作系统/操作系统原理/杂记--小问题",
     "folders": [
@@ -1087,9 +1340,11 @@
     ]
   },
   {
-    "id": 96,
+    "id": 99,
     "title": "CPU饥饿",
     "tags": [],
+    "aliases": [],
+    "basename": "CPU饥饿",
     "file": "概念/操作系统/操作系统原理/杂记--小问题/CPU饥饿.md",
     "folder": "概念/操作系统/操作系统原理/杂记--小问题",
     "folders": [
@@ -1100,9 +1355,14 @@
     ]
   },
   {
-    "id": 97,
+    "id": 100,
     "title": "不能被中断的程序",
     "tags": [],
+    "aliases": [
+      "原语",
+      "临界区"
+    ],
+    "basename": "不能被中断的程序",
     "file": "概念/操作系统/操作系统原理/中断/不能被中断的程序.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1113,9 +1373,11 @@
     ]
   },
   {
-    "id": 98,
+    "id": 101,
     "title": "拉 IRQ 线",
     "tags": [],
+    "aliases": [],
+    "basename": "拉 IRQ 线",
     "file": "概念/操作系统/操作系统原理/中断/拉 IRQ 线.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1126,9 +1388,11 @@
     ]
   },
   {
-    "id": 99,
+    "id": 102,
     "title": "缺页中断",
     "tags": [],
+    "aliases": [],
+    "basename": "缺页中断",
     "file": "概念/操作系统/操作系统原理/中断/缺页中断.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1139,9 +1403,11 @@
     ]
   },
   {
-    "id": 100,
+    "id": 103,
     "title": "中断",
     "tags": [],
+    "aliases": [],
+    "basename": "中断",
     "file": "概念/操作系统/操作系统原理/中断/中断.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1152,9 +1418,11 @@
     ]
   },
   {
-    "id": 101,
+    "id": 104,
     "title": "中断控制器",
     "tags": [],
+    "aliases": [],
+    "basename": "中断控制器",
     "file": "概念/操作系统/操作系统原理/中断/中断控制器.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1165,9 +1433,16 @@
     ]
   },
   {
-    "id": 102,
+    "id": 105,
     "title": "中断向量表IDT",
     "tags": [],
+    "aliases": [
+      "IDT",
+      "中断向量表",
+      "IRQ",
+      "ISR"
+    ],
+    "basename": "中断向量表IDT",
     "file": "概念/操作系统/操作系统原理/中断/中断向量表IDT.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1178,9 +1453,11 @@
     ]
   },
   {
-    "id": 103,
+    "id": 106,
     "title": "中断指令与中断处理程序",
     "tags": [],
+    "aliases": [],
+    "basename": "中断指令与中断处理程序",
     "file": "概念/操作系统/操作系统原理/中断/中断指令与中断处理程序.md",
     "folder": "概念/操作系统/操作系统原理/中断",
     "folders": [
@@ -1191,9 +1468,14 @@
     ]
   },
   {
-    "id": 104,
+    "id": 107,
     "title": "IF中断允许位",
     "tags": [],
+    "aliases": [
+      "IF",
+      "中断允许位"
+    ],
+    "basename": "IF中断允许位",
     "file": "概念/操作系统/操作系统原理/中断/pwd/IF中断允许位.md",
     "folder": "概念/操作系统/操作系统原理/中断/pwd",
     "folders": [
@@ -1205,9 +1487,14 @@
     ]
   },
   {
-    "id": 105,
+    "id": 108,
     "title": "PSW程序状态字寄存器",
     "tags": [],
+    "aliases": [
+      "PSW",
+      "程序状态字"
+    ],
+    "basename": "PSW程序状态字寄存器",
     "file": "概念/操作系统/操作系统原理/中断/pwd/PSW程序状态字寄存器.md",
     "folder": "概念/操作系统/操作系统原理/中断/pwd",
     "folders": [
@@ -1219,9 +1506,11 @@
     ]
   },
   {
-    "id": 106,
+    "id": 109,
     "title": "常用命令",
     "tags": [],
+    "aliases": [],
+    "basename": "常用命令",
     "file": "概念/操作系统/linux/常用命令.md",
     "folder": "概念/操作系统/linux",
     "folders": [
@@ -1231,9 +1520,11 @@
     ]
   },
   {
-    "id": 107,
+    "id": 110,
     "title": "文件管理",
     "tags": [],
+    "aliases": [],
+    "basename": "文件管理",
     "file": "概念/操作系统/linux/文件管理.md",
     "folder": "概念/操作系统/linux",
     "folders": [
@@ -1243,9 +1534,11 @@
     ]
   },
   {
-    "id": 108,
+    "id": 111,
     "title": "差错检测和纠正",
     "tags": [],
+    "aliases": [],
+    "basename": "差错检测和纠正",
     "file": "概念/计算机网络/基本概念/数据链路层/差错检测和纠正.md",
     "folder": "概念/计算机网络/基本概念/数据链路层",
     "folders": [
@@ -1256,50 +1549,79 @@
     ]
   },
   {
-    "id": 109,
-    "title": "多路访问链路和协议",
+    "id": 112,
+    "title": "基带以太网",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/多路访问链路和协议.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层"
-    ]
-  },
-  {
-    "id": 110,
-    "title": "广域网",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/广域网.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
+    "aliases": [],
+    "basename": "基带以太网",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网/基带以太网.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网",
     "folders": [
       "概念",
       "计算机网络",
       "基本概念",
       "数据链路层",
-      "交换局域网"
+      "交换局域网",
+      "局域网"
     ]
   },
   {
-    "id": 111,
+    "id": 113,
     "title": "吉比特以太网",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/吉比特以太网.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
+    "aliases": [],
+    "basename": "吉比特以太网",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网/吉比特以太网.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网",
     "folders": [
       "概念",
       "计算机网络",
       "基本概念",
       "数据链路层",
-      "交换局域网"
+      "交换局域网",
+      "局域网"
     ]
   },
   {
-    "id": 112,
+    "id": 114,
+    "title": "令牌传递协议",
+    "tags": [],
+    "aliases": [],
+    "basename": "令牌传递协议",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网/令牌传递协议.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "交换局域网",
+      "局域网"
+    ]
+  },
+  {
+    "id": 115,
+    "title": "以太网",
+    "tags": [],
+    "aliases": [],
+    "basename": "以太网",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网/以太网.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网/局域网",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "交换局域网",
+      "局域网"
+    ]
+  },
+  {
+    "id": 116,
     "title": "链路层交换机",
     "tags": [],
+    "aliases": [],
+    "basename": "链路层交换机",
     "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/链路层交换机.md",
     "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
     "folders": [
@@ -1311,66 +1633,18 @@
     ]
   },
   {
-    "id": 113,
-    "title": "链路层寻址&ARP",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/链路层寻址&ARP.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层",
-      "交换局域网"
-    ]
-  },
-  {
-    "id": 114,
-    "title": "链路虚拟化",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/链路虚拟化.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层",
-      "交换局域网"
-    ]
-  },
-  {
-    "id": 115,
-    "title": "令牌传递协议",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/令牌传递协议.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层",
-      "交换局域网"
-    ]
-  },
-  {
-    "id": 116,
-    "title": "轮询协议",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/轮询协议.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层",
-      "交换局域网"
-    ]
-  },
-  {
     "id": 117,
-    "title": "虚拟局域网VLAN",
+    "title": "链路层寻址 & ARP",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/虚拟局域网VLAN.md",
+    "aliases": [
+      "ARP",
+      "MAC",
+      "链路层寻址",
+      "LAN地址",
+      "物理地址"
+    ],
+    "basename": "链路层寻址 & ARP",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/链路层寻址 & ARP.md",
     "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
     "folders": [
       "概念",
@@ -1382,9 +1656,14 @@
   },
   {
     "id": 118,
-    "title": "以太网",
+    "title": "链路虚拟化",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/以太网.md",
+    "aliases": [
+      "MPLS",
+      "多协议标签转换"
+    ],
+    "basename": "链路虚拟化",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/链路虚拟化.md",
     "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
     "folders": [
       "概念",
@@ -1396,22 +1675,30 @@
   },
   {
     "id": 119,
-    "title": "链路层协议",
+    "title": "虚拟局域网VLAN",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/链路层协议.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层",
+    "aliases": [
+      "虚拟局域网",
+      "VLAN"
+    ],
+    "basename": "虚拟局域网VLAN",
+    "file": "概念/计算机网络/基本概念/数据链路层/交换局域网/虚拟局域网VLAN.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/交换局域网",
     "folders": [
       "概念",
       "计算机网络",
       "基本概念",
-      "数据链路层"
+      "数据链路层",
+      "交换局域网"
     ]
   },
   {
     "id": 120,
-    "title": "码分多址CDMA",
+    "title": "局域网与广域网",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/码分多址CDMA.md",
+    "aliases": [],
+    "basename": "局域网与广域网",
+    "file": "概念/计算机网络/基本概念/数据链路层/局域网与广域网.md",
     "folder": "概念/计算机网络/基本概念/数据链路层",
     "folders": [
       "概念",
@@ -1422,9 +1709,11 @@
   },
   {
     "id": 121,
-    "title": "前向纠错FEC",
+    "title": "可靠传输",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/前向纠错FEC.md",
+    "aliases": [],
+    "basename": "可靠传输",
+    "file": "概念/计算机网络/基本概念/数据链路层/可靠传输.md",
     "folder": "概念/计算机网络/基本概念/数据链路层",
     "folders": [
       "概念",
@@ -1435,9 +1724,11 @@
   },
   {
     "id": 122,
-    "title": "时隙ALOHA",
+    "title": "链路层协议",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/时隙ALOHA.md",
+    "aliases": [],
+    "basename": "链路层协议",
+    "file": "概念/计算机网络/基本概念/数据链路层/链路层协议.md",
     "folder": "概念/计算机网络/基本概念/数据链路层",
     "folders": [
       "概念",
@@ -1448,8 +1739,124 @@
   },
   {
     "id": 123,
+    "title": "多路访问链路和协议",
+    "tags": [],
+    "aliases": [],
+    "basename": "多路访问链路和协议",
+    "file": "概念/计算机网络/基本概念/数据链路层/流量控制/多路访问链路和协议.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/流量控制",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "流量控制"
+    ]
+  },
+  {
+    "id": 124,
+    "title": "介质访问控制与算法",
+    "tags": [],
+    "aliases": [],
+    "basename": "介质访问控制与算法",
+    "file": "概念/计算机网络/基本概念/数据链路层/流量控制/介质访问控制与算法.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/流量控制",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "流量控制"
+    ]
+  },
+  {
+    "id": 125,
+    "title": "轮询协议",
+    "tags": [],
+    "aliases": [],
+    "basename": "轮询协议",
+    "file": "概念/计算机网络/基本概念/数据链路层/流量控制/轮询协议.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/流量控制",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "流量控制"
+    ]
+  },
+  {
+    "id": 126,
+    "title": "时隙ALOHA",
+    "tags": [],
+    "aliases": [],
+    "basename": "时隙ALOHA",
+    "file": "概念/计算机网络/基本概念/数据链路层/流量控制/时隙ALOHA.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/流量控制",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "流量控制"
+    ]
+  },
+  {
+    "id": 127,
+    "title": "CSMA",
+    "tags": [],
+    "aliases": [],
+    "basename": "CSMA",
+    "file": "概念/计算机网络/基本概念/数据链路层/流量控制/CSMA.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/流量控制",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "流量控制"
+    ]
+  },
+  {
+    "id": 128,
+    "title": "FDM & TDM",
+    "tags": [],
+    "aliases": [],
+    "basename": "FDM & TDM",
+    "file": "概念/计算机网络/基本概念/数据链路层/流量控制/FDM & TDM.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层/流量控制",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层",
+      "流量控制"
+    ]
+  },
+  {
+    "id": 129,
+    "title": "前向纠错FEC",
+    "tags": [],
+    "aliases": [
+      "FEC",
+      "前向纠错"
+    ],
+    "basename": "前向纠错FEC",
+    "file": "概念/计算机网络/基本概念/数据链路层/前向纠错FEC.md",
+    "folder": "概念/计算机网络/基本概念/数据链路层",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "数据链路层"
+    ]
+  },
+  {
+    "id": 130,
     "title": "数据中心网络",
     "tags": [],
+    "aliases": [],
+    "basename": "数据中心网络",
     "file": "概念/计算机网络/基本概念/数据链路层/数据中心网络.md",
     "folder": "概念/计算机网络/基本概念/数据链路层",
     "folders": [
@@ -1460,48 +1867,11 @@
     ]
   },
   {
-    "id": 124,
-    "title": "CSMA",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/CSMA.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层"
-    ]
-  },
-  {
-    "id": 125,
-    "title": "DRAM",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/DRAM.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层"
-    ]
-  },
-  {
-    "id": 126,
-    "title": "FDM & TDM",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/数据链路层/FDM & TDM.md",
-    "folder": "概念/计算机网络/基本概念/数据链路层",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "数据链路层"
-    ]
-  },
-  {
-    "id": 127,
+    "id": 131,
     "title": "MTU",
     "tags": [],
+    "aliases": [],
+    "basename": "MTU",
     "file": "概念/计算机网络/基本概念/数据链路层/MTU.md",
     "folder": "概念/计算机网络/基本概念/数据链路层",
     "folders": [
@@ -1512,9 +1882,11 @@
     ]
   },
   {
-    "id": 128,
+    "id": 132,
     "title": "安全电子邮件",
     "tags": [],
+    "aliases": [],
+    "basename": "安全电子邮件",
     "file": "概念/计算机网络/基本概念/网安/安全电子邮件.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1525,9 +1897,11 @@
     ]
   },
   {
-    "id": 129,
+    "id": 133,
     "title": "安全通信",
     "tags": [],
+    "aliases": [],
+    "basename": "安全通信",
     "file": "概念/计算机网络/基本概念/网安/安全通信.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1538,9 +1912,13 @@
     ]
   },
   {
-    "id": 130,
+    "id": 134,
     "title": "端点鉴别",
     "tags": [],
+    "aliases": [
+      "ap4.0"
+    ],
+    "basename": "端点鉴别",
     "file": "概念/计算机网络/基本概念/网安/端点鉴别.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1551,9 +1929,11 @@
     ]
   },
   {
-    "id": 131,
+    "id": 135,
     "title": "防火墙",
     "tags": [],
+    "aliases": [],
+    "basename": "防火墙",
     "file": "概念/计算机网络/基本概念/网安/防火墙.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1564,9 +1944,15 @@
     ]
   },
   {
-    "id": 132,
+    "id": 136,
     "title": "防火墙&入侵检测IDS",
     "tags": [],
+    "aliases": [
+      "防火墙",
+      "IDS",
+      "入侵检测"
+    ],
+    "basename": "防火墙&入侵检测IDS",
     "file": "概念/计算机网络/基本概念/网安/防火墙&入侵检测IDS.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1577,9 +1963,11 @@
     ]
   },
   {
-    "id": 133,
+    "id": 137,
     "title": "凯撒密码",
     "tags": [],
+    "aliases": [],
+    "basename": "凯撒密码",
     "file": "概念/计算机网络/基本概念/网安/凯撒密码.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1590,9 +1978,11 @@
     ]
   },
   {
-    "id": 134,
+    "id": 138,
     "title": "密码学",
     "tags": [],
+    "aliases": [],
+    "basename": "密码学",
     "file": "概念/计算机网络/基本概念/网安/密码学.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1603,9 +1993,11 @@
     ]
   },
   {
-    "id": 135,
+    "id": 139,
     "title": "数字签名",
     "tags": [],
+    "aliases": [],
+    "basename": "数字签名",
     "file": "概念/计算机网络/基本概念/网安/数字签名.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1616,9 +2008,11 @@
     ]
   },
   {
-    "id": 136,
+    "id": 140,
     "title": "CA证书颁发机构",
     "tags": [],
+    "aliases": [],
+    "basename": "CA证书颁发机构",
     "file": "概念/计算机网络/基本概念/网安/CA证书颁发机构.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1629,9 +2023,11 @@
     ]
   },
   {
-    "id": 137,
+    "id": 141,
     "title": "PGP",
     "tags": [],
+    "aliases": [],
+    "basename": "PGP",
     "file": "概念/计算机网络/基本概念/网安/PGP.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1642,9 +2038,15 @@
     ]
   },
   {
-    "id": 138,
+    "id": 142,
     "title": "SSL",
     "tags": [],
+    "aliases": [
+      "安全套阶字层",
+      "运输层安全性",
+      "TLS"
+    ],
+    "basename": "SSL",
     "file": "概念/计算机网络/基本概念/网安/SSL.md",
     "folder": "概念/计算机网络/基本概念/网安",
     "folders": [
@@ -1655,9 +2057,14 @@
     ]
   },
   {
-    "id": 139,
+    "id": 143,
     "title": "边界网关协议BGP",
     "tags": [],
+    "aliases": [
+      "边界网关协议",
+      "BGP"
+    ],
+    "basename": "边界网关协议BGP",
     "file": "概念/计算机网络/基本概念/网络层/路由器/边界网关协议BGP.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1669,9 +2076,15 @@
     ]
   },
   {
-    "id": 140,
+    "id": 144,
     "title": "距离向量算法DV",
     "tags": [],
+    "aliases": [
+      "距离向量算法",
+      "DV",
+      "DV算法"
+    ],
+    "basename": "距离向量算法DV",
     "file": "概念/计算机网络/基本概念/网络层/路由器/距离向量算法DV.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1683,9 +2096,14 @@
     ]
   },
   {
-    "id": 141,
+    "id": 145,
     "title": "开放最短路优先OSPF",
     "tags": [],
+    "aliases": [
+      "OSPF",
+      "开放最短路优先"
+    ],
+    "basename": "开放最短路优先OSPF",
     "file": "概念/计算机网络/基本概念/网络层/路由器/开放最短路优先OSPF.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1697,9 +2115,15 @@
     ]
   },
   {
-    "id": 142,
+    "id": 146,
     "title": "链路状态算法LS",
     "tags": [],
+    "aliases": [
+      "链路状态算法",
+      "LS",
+      "LS算法"
+    ],
+    "basename": "链路状态算法LS",
     "file": "概念/计算机网络/基本概念/网络层/路由器/链路状态算法LS.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1711,9 +2135,11 @@
     ]
   },
   {
-    "id": 143,
+    "id": 147,
     "title": "路由器",
     "tags": [],
+    "aliases": [],
+    "basename": "路由器",
     "file": "概念/计算机网络/基本概念/网络层/路由器/路由器.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1725,9 +2151,11 @@
     ]
   },
   {
-    "id": 144,
+    "id": 148,
     "title": "路由选择算法",
     "tags": [],
+    "aliases": [],
+    "basename": "路由选择算法",
     "file": "概念/计算机网络/基本概念/网络层/路由器/路由选择算法.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1739,9 +2167,11 @@
     ]
   },
   {
-    "id": 145,
+    "id": 149,
     "title": "通用转发",
     "tags": [],
+    "aliases": [],
+    "basename": "通用转发",
     "file": "概念/计算机网络/基本概念/网络层/路由器/通用转发.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1753,9 +2183,14 @@
     ]
   },
   {
-    "id": 146,
+    "id": 150,
     "title": "自治系统AS",
     "tags": [],
+    "aliases": [
+      "AS",
+      "路由自治系统"
+    ],
+    "basename": "自治系统AS",
     "file": "概念/计算机网络/基本概念/网络层/路由器/自治系统AS.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1767,9 +2202,11 @@
     ]
   },
   {
-    "id": 147,
+    "id": 151,
     "title": "HOL阻塞",
     "tags": [],
+    "aliases": [],
+    "basename": "HOL阻塞",
     "file": "概念/计算机网络/基本概念/网络层/路由器/HOL阻塞.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1781,9 +2218,11 @@
     ]
   },
   {
-    "id": 148,
+    "id": 152,
     "title": "MD5鉴别",
     "tags": [],
+    "aliases": [],
+    "basename": "MD5鉴别",
     "file": "概念/计算机网络/基本概念/网络层/路由器/MD5鉴别.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1795,9 +2234,13 @@
     ]
   },
   {
-    "id": 149,
+    "id": 153,
     "title": "SDN控制平面",
     "tags": [],
+    "aliases": [
+      "SDN"
+    ],
+    "basename": "SDN控制平面",
     "file": "概念/计算机网络/基本概念/网络层/路由器/SDN控制平面.md",
     "folder": "概念/计算机网络/基本概念/网络层/路由器",
     "folders": [
@@ -1809,9 +2252,11 @@
     ]
   },
   {
-    "id": 150,
+    "id": 154,
     "title": "网络层服务",
     "tags": [],
+    "aliases": [],
+    "basename": "网络层服务",
     "file": "概念/计算机网络/基本概念/网络层/网络层服务.md",
     "folder": "概念/计算机网络/基本概念/网络层",
     "folders": [
@@ -1822,9 +2267,14 @@
     ]
   },
   {
-    "id": 151,
+    "id": 155,
     "title": "因特网控制报文协议ICMP",
     "tags": [],
+    "aliases": [
+      "ICMP",
+      "因特网控制报文协议"
+    ],
+    "basename": "因特网控制报文协议ICMP",
     "file": "概念/计算机网络/基本概念/网络层/因特网控制报文协议ICMP.md",
     "folder": "概念/计算机网络/基本概念/网络层",
     "folders": [
@@ -1835,9 +2285,11 @@
     ]
   },
   {
-    "id": 152,
+    "id": 156,
     "title": "ICANN",
     "tags": [],
+    "aliases": [],
+    "basename": "ICANN",
     "file": "概念/计算机网络/基本概念/网络层/ICANN.md",
     "folder": "概念/计算机网络/基本概念/网络层",
     "folders": [
@@ -1848,9 +2300,14 @@
     ]
   },
   {
-    "id": 153,
+    "id": 157,
     "title": "分配IP地址",
     "tags": [],
+    "aliases": [
+      "DHCP",
+      "NAT"
+    ],
+    "basename": "分配IP地址",
     "file": "概念/计算机网络/基本概念/网络层/IP/分配IP地址.md",
     "folder": "概念/计算机网络/基本概念/网络层/IP",
     "folders": [
@@ -1862,9 +2319,11 @@
     ]
   },
   {
-    "id": 154,
+    "id": 158,
     "title": "任播地址",
     "tags": [],
+    "aliases": [],
+    "basename": "任播地址",
     "file": "概念/计算机网络/基本概念/网络层/IP/任播地址.md",
     "folder": "概念/计算机网络/基本概念/网络层/IP",
     "folders": [
@@ -1876,9 +2335,16 @@
     ]
   },
   {
-    "id": 155,
+    "id": 159,
     "title": "网际寻址",
     "tags": [],
+    "aliases": [
+      "IPv4",
+      "IPv6",
+      "寻址",
+      "IP"
+    ],
+    "basename": "网际寻址",
     "file": "概念/计算机网络/基本概念/网络层/IP/网际寻址.md",
     "folder": "概念/计算机网络/基本概念/网络层/IP",
     "folders": [
@@ -1890,9 +2356,14 @@
     ]
   },
   {
-    "id": 156,
+    "id": 160,
     "title": "无类别域间路由选择CIDR",
     "tags": [],
+    "aliases": [
+      "无类别域间路由选择",
+      "CIDR"
+    ],
+    "basename": "无类别域间路由选择CIDR",
     "file": "概念/计算机网络/基本概念/网络层/IP/无类别域间路由选择CIDR.md",
     "folder": "概念/计算机网络/基本概念/网络层/IP",
     "folders": [
@@ -1904,9 +2375,11 @@
     ]
   },
   {
-    "id": 157,
+    "id": 161,
     "title": "ABC类固定划分网络（分类编址）",
     "tags": [],
+    "aliases": [],
+    "basename": "ABC类固定划分网络（分类编址）",
     "file": "概念/计算机网络/基本概念/网络层/IP/ABC类固定划分网络（分类编址）.md",
     "folder": "概念/计算机网络/基本概念/网络层/IP",
     "folders": [
@@ -1918,9 +2391,11 @@
     ]
   },
   {
-    "id": 158,
+    "id": 162,
     "title": "IP任播",
     "tags": [],
+    "aliases": [],
+    "basename": "IP任播",
     "file": "概念/计算机网络/基本概念/网络层/IP/IP任播.md",
     "folder": "概念/计算机网络/基本概念/网络层/IP",
     "folders": [
@@ -1932,10 +2407,12 @@
     ]
   },
   {
-    "id": 159,
-    "title": "码元",
+    "id": 163,
+    "title": "编码类型",
     "tags": [],
-    "file": "概念/计算机网络/基本概念/物理层/码元.md",
+    "aliases": [],
+    "basename": "编码类型",
+    "file": "概念/计算机网络/基本概念/物理层/编码类型.md",
     "folder": "概念/计算机网络/基本概念/物理层",
     "folders": [
       "概念",
@@ -1945,9 +2422,73 @@
     ]
   },
   {
-    "id": 160,
+    "id": 164,
+    "title": "调制技术",
+    "tags": [],
+    "aliases": [],
+    "basename": "调制技术",
+    "file": "概念/计算机网络/基本概念/物理层/调制技术.md",
+    "folder": "概念/计算机网络/基本概念/物理层",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "物理层"
+    ]
+  },
+  {
+    "id": 165,
+    "title": "基本概念",
+    "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
+    "file": "概念/计算机网络/基本概念/物理层/基本概念.md",
+    "folder": "概念/计算机网络/基本概念/物理层",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "物理层"
+    ]
+  },
+  {
+    "id": 166,
+    "title": "物理接口",
+    "tags": [],
+    "aliases": [],
+    "basename": "物理接口",
+    "file": "概念/计算机网络/基本概念/物理层/物理接口.md",
+    "folder": "概念/计算机网络/基本概念/物理层",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "物理层"
+    ]
+  },
+  {
+    "id": 167,
+    "title": "信道容量的计算",
+    "tags": [],
+    "aliases": [],
+    "basename": "信道容量的计算",
+    "file": "概念/计算机网络/基本概念/物理层/信道容量的计算.md",
+    "folder": "概念/计算机网络/基本概念/物理层",
+    "folders": [
+      "概念",
+      "计算机网络",
+      "基本概念",
+      "物理层"
+    ]
+  },
+  {
+    "id": 168,
     "title": "进程通信",
     "tags": [],
+    "aliases": [
+      "套接字"
+    ],
+    "basename": "进程通信",
     "file": "概念/计算机网络/基本概念/应用层/进程通信.md",
     "folder": "概念/计算机网络/基本概念/应用层",
     "folders": [
@@ -1958,9 +2499,11 @@
     ]
   },
   {
-    "id": 161,
+    "id": 169,
     "title": "套接字编程",
     "tags": [],
+    "aliases": [],
+    "basename": "套接字编程",
     "file": "概念/计算机网络/基本概念/应用层/套接字编程.md",
     "folder": "概念/计算机网络/基本概念/应用层",
     "folders": [
@@ -1971,9 +2514,11 @@
     ]
   },
   {
-    "id": 162,
+    "id": 170,
     "title": "网络协议栈软件",
     "tags": [],
+    "aliases": [],
+    "basename": "网络协议栈软件",
     "file": "概念/计算机网络/基本概念/应用层/网络协议栈软件.md",
     "folder": "概念/计算机网络/基本概念/应用层",
     "folders": [
@@ -1984,9 +2529,15 @@
     ]
   },
   {
-    "id": 163,
+    "id": 171,
     "title": "电子邮件",
     "tags": [],
+    "aliases": [
+      "SMTP",
+      "POP3",
+      "IMAP"
+    ],
+    "basename": "电子邮件",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件/电子邮件.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件",
     "folders": [
@@ -1999,9 +2550,11 @@
     ]
   },
   {
-    "id": 164,
+    "id": 172,
     "title": "多用途因特网邮件扩展MIME",
     "tags": [],
+    "aliases": [],
+    "basename": "多用途因特网邮件扩展MIME",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件/多用途因特网邮件扩展MIME.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件",
     "folders": [
@@ -2014,9 +2567,11 @@
     ]
   },
   {
-    "id": 165,
+    "id": 173,
     "title": "命令",
     "tags": [],
+    "aliases": [],
+    "basename": "命令",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件/命令.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件",
     "folders": [
@@ -2029,9 +2584,11 @@
     ]
   },
   {
-    "id": 166,
+    "id": 174,
     "title": "状态码",
     "tags": [],
+    "aliases": [],
+    "basename": "状态码",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件/状态码.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/电子邮件",
     "folders": [
@@ -2044,9 +2601,11 @@
     ]
   },
   {
-    "id": 167,
+    "id": 175,
     "title": "简单网络管理协议SNMPv2",
     "tags": [],
+    "aliases": [],
+    "basename": "简单网络管理协议SNMPv2",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/简单网络管理协议SNMPv2.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议",
     "folders": [
@@ -2058,9 +2617,14 @@
     ]
   },
   {
-    "id": 168,
+    "id": 176,
     "title": "内容分发网CDN",
     "tags": [],
+    "aliases": [
+      "内容分发网",
+      "CDN"
+    ],
+    "basename": "内容分发网CDN",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/视频分发/内容分发网CDN.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/视频分发",
     "folders": [
@@ -2073,9 +2637,14 @@
     ]
   },
   {
-    "id": 169,
+    "id": 177,
     "title": "HTTP流和DASH",
     "tags": [],
+    "aliases": [
+      "HTTP流",
+      "DASH"
+    ],
+    "basename": "HTTP流和DASH",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/视频分发/HTTP流和DASH.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/视频分发",
     "folders": [
@@ -2088,9 +2657,11 @@
     ]
   },
   {
-    "id": 170,
+    "id": 178,
     "title": "应用层协议",
     "tags": [],
+    "aliases": [],
+    "basename": "应用层协议",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/应用层协议.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议",
     "folders": [
@@ -2102,9 +2673,13 @@
     ]
   },
   {
-    "id": 171,
+    "id": 179,
     "title": "DNS：目录服务",
     "tags": [],
+    "aliases": [
+      "DNS"
+    ],
+    "basename": "DNS：目录服务",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/DNS：目录服务.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议",
     "folders": [
@@ -2116,9 +2691,13 @@
     ]
   },
   {
-    "id": 172,
+    "id": 180,
     "title": "FTP",
     "tags": [],
+    "aliases": [
+      "文件传输协议"
+    ],
+    "basename": "FTP",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/FTP.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议",
     "folders": [
@@ -2130,9 +2709,13 @@
     ]
   },
   {
-    "id": 173,
+    "id": 181,
     "title": "常见状态码及其短语",
     "tags": [],
+    "aliases": [
+      "状态码"
+    ],
+    "basename": "常见状态码及其短语",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/常见状态码及其短语.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2145,9 +2728,11 @@
     ]
   },
   {
-    "id": 174,
+    "id": 182,
     "title": "持续&非持续连接",
     "tags": [],
+    "aliases": [],
+    "basename": "持续&非持续连接",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/持续&非持续连接.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2160,9 +2745,11 @@
     ]
   },
   {
-    "id": 175,
+    "id": 183,
     "title": "DELETE",
     "tags": [],
+    "aliases": [],
+    "basename": "DELETE",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段/DELETE.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段",
     "folders": [
@@ -2176,9 +2763,11 @@
     ]
   },
   {
-    "id": 176,
+    "id": 184,
     "title": "GET",
     "tags": [],
+    "aliases": [],
+    "basename": "GET",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段/GET.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段",
     "folders": [
@@ -2192,9 +2781,11 @@
     ]
   },
   {
-    "id": 177,
+    "id": 185,
     "title": "HEAD",
     "tags": [],
+    "aliases": [],
+    "basename": "HEAD",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段/HEAD.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段",
     "folders": [
@@ -2208,9 +2799,11 @@
     ]
   },
   {
-    "id": 178,
+    "id": 186,
     "title": "POST",
     "tags": [],
+    "aliases": [],
+    "basename": "POST",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段/POST.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段",
     "folders": [
@@ -2224,9 +2817,11 @@
     ]
   },
   {
-    "id": 179,
+    "id": 187,
     "title": "PUT",
     "tags": [],
+    "aliases": [],
+    "basename": "PUT",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段/PUT.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段",
     "folders": [
@@ -2240,9 +2835,11 @@
     ]
   },
   {
-    "id": 180,
+    "id": 188,
     "title": "PUT与POST的区别",
     "tags": [],
+    "aliases": [],
+    "basename": "PUT与POST的区别",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段/PUT与POST的区别.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/方法字段",
     "folders": [
@@ -2256,9 +2853,11 @@
     ]
   },
   {
-    "id": 181,
+    "id": 189,
     "title": "条件GET方法",
     "tags": [],
+    "aliases": [],
+    "basename": "条件GET方法",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/条件GET方法.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2271,9 +2870,14 @@
     ]
   },
   {
-    "id": 182,
+    "id": 190,
     "title": "往返时间（RTT）",
     "tags": [],
+    "aliases": [
+      "往返时间",
+      "RTT"
+    ],
+    "basename": "往返时间（RTT）",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/往返时间（RTT）.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2286,9 +2890,11 @@
     ]
   },
   {
-    "id": 183,
+    "id": 191,
     "title": "无状态协议",
     "tags": [],
+    "aliases": [],
+    "basename": "无状态协议",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/无状态协议.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2301,9 +2907,11 @@
     ]
   },
   {
-    "id": 184,
+    "id": 192,
     "title": "重定向",
     "tags": [],
+    "aliases": [],
+    "basename": "重定向",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/重定向.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2316,9 +2924,11 @@
     ]
   },
   {
-    "id": 185,
+    "id": 193,
     "title": "Cookie",
     "tags": [],
+    "aliases": [],
+    "basename": "Cookie",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/Cookie.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2331,9 +2941,14 @@
     ]
   },
   {
-    "id": 186,
+    "id": 194,
     "title": "Web和HTTP",
     "tags": [],
+    "aliases": [
+      "HTTP",
+      "Web"
+    ],
+    "basename": "Web和HTTP",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/Web和HTTP.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2346,9 +2961,11 @@
     ]
   },
   {
-    "id": 187,
+    "id": 195,
     "title": "Web缓存",
     "tags": [],
+    "aliases": [],
+    "basename": "Web缓存",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP/Web缓存.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议/HTTP",
     "folders": [
@@ -2361,9 +2978,11 @@
     ]
   },
   {
-    "id": 188,
+    "id": 196,
     "title": "NFS",
     "tags": [],
+    "aliases": [],
+    "basename": "NFS",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/NFS.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议",
     "folders": [
@@ -2375,9 +2994,15 @@
     ]
   },
   {
-    "id": 189,
+    "id": 197,
     "title": "P2P文件分发",
     "tags": [],
+    "aliases": [
+      "BitTorrent",
+      "分布式散列表",
+      "DHT"
+    ],
+    "basename": "P2P文件分发",
     "file": "概念/计算机网络/基本概念/应用层/应用层协议/P2P文件分发.md",
     "folder": "概念/计算机网络/基本概念/应用层/应用层协议",
     "folders": [
@@ -2389,9 +3014,11 @@
     ]
   },
   {
-    "id": 190,
+    "id": 198,
     "title": "telnet",
     "tags": [],
+    "aliases": [],
+    "basename": "telnet",
     "file": "概念/计算机网络/基本概念/应用层/telnet.md",
     "folder": "概念/计算机网络/基本概念/应用层",
     "folders": [
@@ -2402,9 +3029,11 @@
     ]
   },
   {
-    "id": 191,
+    "id": 199,
     "title": "端到端原则",
     "tags": [],
+    "aliases": [],
+    "basename": "端到端原则",
     "file": "概念/计算机网络/基本概念/运输层/端到端原则.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2415,9 +3044,11 @@
     ]
   },
   {
-    "id": 192,
+    "id": 200,
     "title": "端口号",
     "tags": [],
+    "aliases": [],
+    "basename": "端口号",
     "file": "概念/计算机网络/基本概念/运输层/端口号.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2428,9 +3059,11 @@
     ]
   },
   {
-    "id": 193,
+    "id": 201,
     "title": "多路复用与多路分解",
     "tags": [],
+    "aliases": [],
+    "basename": "多路复用与多路分解",
     "file": "概念/计算机网络/基本概念/运输层/多路复用与多路分解.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2441,9 +3074,11 @@
     ]
   },
   {
-    "id": 194,
+    "id": 202,
     "title": "套接字",
     "tags": [],
+    "aliases": [],
+    "basename": "套接字",
     "file": "概念/计算机网络/基本概念/运输层/套接字.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2454,9 +3089,11 @@
     ]
   },
   {
-    "id": 195,
+    "id": 203,
     "title": "运输服务（协议）",
     "tags": [],
+    "aliases": [],
+    "basename": "运输服务（协议）",
     "file": "概念/计算机网络/基本概念/运输层/运输服务（协议）.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2467,9 +3104,13 @@
     ]
   },
   {
-    "id": 196,
+    "id": 204,
     "title": "可靠数据传输原理",
     "tags": [],
+    "aliases": [
+      "rdt"
+    ],
+    "basename": "可靠数据传输原理",
     "file": "概念/计算机网络/基本概念/运输层/TCP/可靠传输/可靠数据传输原理.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/可靠传输",
     "folders": [
@@ -2482,9 +3123,13 @@
     ]
   },
   {
-    "id": 197,
+    "id": 205,
     "title": "流水线可靠数据传输协议（P-RDT）",
     "tags": [],
+    "aliases": [
+      "P-RDT"
+    ],
+    "basename": "流水线可靠数据传输协议（P-RDT）",
     "file": "概念/计算机网络/基本概念/运输层/TCP/可靠传输/流水线可靠数据传输协议（P-RDT）.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/可靠传输",
     "folders": [
@@ -2497,9 +3142,11 @@
     ]
   },
   {
-    "id": 198,
+    "id": 206,
     "title": "发送&接收缓存",
     "tags": [],
+    "aliases": [],
+    "basename": "发送&接收缓存",
     "file": "概念/计算机网络/基本概念/运输层/TCP/数据传输方式/发送&接收缓存.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/数据传输方式",
     "folders": [
@@ -2512,9 +3159,11 @@
     ]
   },
   {
-    "id": 199,
+    "id": 207,
     "title": "粘包问题",
     "tags": [],
+    "aliases": [],
+    "basename": "粘包问题",
     "file": "概念/计算机网络/基本概念/运输层/TCP/数据传输方式/粘包问题.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/数据传输方式",
     "folders": [
@@ -2527,9 +3176,11 @@
     ]
   },
   {
-    "id": 200,
+    "id": 208,
     "title": "字节流传输",
     "tags": [],
+    "aliases": [],
+    "basename": "字节流传输",
     "file": "概念/计算机网络/基本概念/运输层/TCP/数据传输方式/字节流传输.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/数据传输方式",
     "folders": [
@@ -2542,9 +3193,11 @@
     ]
   },
   {
-    "id": 201,
+    "id": 209,
     "title": "三次握手",
     "tags": [],
+    "aliases": [],
+    "basename": "三次握手",
     "file": "概念/计算机网络/基本概念/运输层/TCP/握手与挥手/三次握手.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/握手与挥手",
     "folders": [
@@ -2557,9 +3210,11 @@
     ]
   },
   {
-    "id": 202,
+    "id": 210,
     "title": "四次挥手",
     "tags": [],
+    "aliases": [],
+    "basename": "四次挥手",
     "file": "概念/计算机网络/基本概念/运输层/TCP/握手与挥手/四次挥手.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/握手与挥手",
     "folders": [
@@ -2572,9 +3227,11 @@
     ]
   },
   {
-    "id": 203,
+    "id": 211,
     "title": "超时与重传",
     "tags": [],
+    "aliases": [],
+    "basename": "超时与重传",
     "file": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制/超时与重传.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制",
     "folders": [
@@ -2587,9 +3244,11 @@
     ]
   },
   {
-    "id": 204,
+    "id": 212,
     "title": "端到端拥塞控制实践",
     "tags": [],
+    "aliases": [],
+    "basename": "端到端拥塞控制实践",
     "file": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制/端到端拥塞控制实践.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制",
     "folders": [
@@ -2602,9 +3261,11 @@
     ]
   },
   {
-    "id": 205,
+    "id": 213,
     "title": "拥塞控制原理",
     "tags": [],
+    "aliases": [],
+    "basename": "拥塞控制原理",
     "file": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制/拥塞控制原理.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制",
     "folders": [
@@ -2617,9 +3278,11 @@
     ]
   },
   {
-    "id": 206,
+    "id": 214,
     "title": "重传定时器与自计时的区别",
     "tags": [],
+    "aliases": [],
+    "basename": "重传定时器与自计时的区别",
     "file": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制/重传定时器与自计时的区别.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制",
     "folders": [
@@ -2632,9 +3295,11 @@
     ]
   },
   {
-    "id": 207,
+    "id": 215,
     "title": "自计时",
     "tags": [],
+    "aliases": [],
+    "basename": "自计时",
     "file": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制/自计时.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制",
     "folders": [
@@ -2647,9 +3312,14 @@
     ]
   },
   {
-    "id": 208,
+    "id": 216,
     "title": "MSS最大报文长度",
     "tags": [],
+    "aliases": [
+      "MSS",
+      "最大报文长度"
+    ],
+    "basename": "MSS最大报文长度",
     "file": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制/MSS最大报文长度.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/拥塞控制",
     "folders": [
@@ -2662,9 +3332,11 @@
     ]
   },
   {
-    "id": 209,
+    "id": 217,
     "title": "TCP",
     "tags": [],
+    "aliases": [],
+    "basename": "TCP",
     "file": "概念/计算机网络/基本概念/运输层/TCP/TCP.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP",
     "folders": [
@@ -2676,9 +3348,14 @@
     ]
   },
   {
-    "id": 210,
+    "id": 218,
     "title": "序号和确认号",
     "tags": [],
+    "aliases": [
+      "序号",
+      "确认号"
+    ],
+    "basename": "序号和确认号",
     "file": "概念/计算机网络/基本概念/运输层/TCP/TCP结构/序号和确认号.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/TCP结构",
     "folders": [
@@ -2691,9 +3368,11 @@
     ]
   },
   {
-    "id": 211,
+    "id": 219,
     "title": "TCP 6bit 标志位",
     "tags": [],
+    "aliases": [],
+    "basename": "TCP 6bit 标志位",
     "file": "概念/计算机网络/基本概念/运输层/TCP/TCP结构/TCP 6bit 标志位.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/TCP结构",
     "folders": [
@@ -2706,9 +3385,11 @@
     ]
   },
   {
-    "id": 212,
+    "id": 220,
     "title": "TCP报文段结构",
     "tags": [],
+    "aliases": [],
+    "basename": "TCP报文段结构",
     "file": "概念/计算机网络/基本概念/运输层/TCP/TCP结构/TCP报文段结构.md",
     "folder": "概念/计算机网络/基本概念/运输层/TCP/TCP结构",
     "folders": [
@@ -2721,9 +3402,11 @@
     ]
   },
   {
-    "id": 213,
+    "id": 221,
     "title": "UDP",
     "tags": [],
+    "aliases": [],
+    "basename": "UDP",
     "file": "概念/计算机网络/基本概念/运输层/UDP.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2734,9 +3417,11 @@
     ]
   },
   {
-    "id": 214,
+    "id": 222,
     "title": "UDP校验和",
     "tags": [],
+    "aliases": [],
+    "basename": "UDP校验和",
     "file": "概念/计算机网络/基本概念/运输层/UDP校验和.md",
     "folder": "概念/计算机网络/基本概念/运输层",
     "folders": [
@@ -2747,9 +3432,11 @@
     ]
   },
   {
-    "id": 215,
+    "id": 223,
     "title": "点到点连接&端到端连接",
     "tags": [],
+    "aliases": [],
+    "basename": "点到点连接&端到端连接",
     "file": "概念/计算机网络/基本概念/杂记--小问题/点到点连接&端到端连接.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2760,22 +3447,11 @@
     ]
   },
   {
-    "id": 216,
-    "title": "基带以太网",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/杂记--小问题/基带以太网.md",
-    "folder": "概念/计算机网络/基本概念/杂记--小问题",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "杂记--小问题"
-    ]
-  },
-  {
-    "id": 217,
+    "id": 224,
     "title": "路由器与链路层交换机的区别",
     "tags": [],
+    "aliases": [],
+    "basename": "路由器与链路层交换机的区别",
     "file": "概念/计算机网络/基本概念/杂记--小问题/路由器与链路层交换机的区别.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2786,9 +3462,14 @@
     ]
   },
   {
-    "id": 218,
+    "id": 225,
     "title": "模拟信号 & 数字信号",
     "tags": [],
+    "aliases": [
+      "模拟信号",
+      "数字信号"
+    ],
+    "basename": "模拟信号 & 数字信号",
     "file": "概念/计算机网络/基本概念/杂记--小问题/模拟信号 & 数字信号.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2799,9 +3480,11 @@
     ]
   },
   {
-    "id": 219,
+    "id": 226,
     "title": "请求地址解析&请求域名解析",
     "tags": [],
+    "aliases": [],
+    "basename": "请求地址解析&请求域名解析",
     "file": "概念/计算机网络/基本概念/杂记--小问题/请求地址解析&请求域名解析.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2812,9 +3495,11 @@
     ]
   },
   {
-    "id": 220,
+    "id": 227,
     "title": "全双工与半双工与单工",
     "tags": [],
+    "aliases": [],
+    "basename": "全双工与半双工与单工",
     "file": "概念/计算机网络/基本概念/杂记--小问题/全双工与半双工与单工.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2825,9 +3510,11 @@
     ]
   },
   {
-    "id": 221,
+    "id": 228,
     "title": "什么是边界，为什么在TCP中不能保留边界？",
     "tags": [],
+    "aliases": [],
+    "basename": "什么是边界，为什么在TCP中不能保留边界？",
     "file": "概念/计算机网络/基本概念/杂记--小问题/什么是边界，为什么在TCP中不能保留边界？.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2838,9 +3525,11 @@
     ]
   },
   {
-    "id": 222,
+    "id": 229,
     "title": "数据包",
     "tags": [],
+    "aliases": [],
+    "basename": "数据包",
     "file": "概念/计算机网络/基本概念/杂记--小问题/数据包.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2851,9 +3540,11 @@
     ]
   },
   {
-    "id": 223,
+    "id": 230,
     "title": "有限状态机FSM",
     "tags": [],
+    "aliases": [],
+    "basename": "有限状态机FSM",
     "file": "概念/计算机网络/基本概念/杂记--小问题/有限状态机FSM.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2864,9 +3555,11 @@
     ]
   },
   {
-    "id": 224,
+    "id": 231,
     "title": "运输层协议为什么是软件层",
     "tags": [],
+    "aliases": [],
+    "basename": "运输层协议为什么是软件层",
     "file": "概念/计算机网络/基本概念/杂记--小问题/运输层协议为什么是软件层.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2877,9 +3570,11 @@
     ]
   },
   {
-    "id": 225,
+    "id": 232,
     "title": "Cookie，Session，Token",
     "tags": [],
+    "aliases": [],
+    "basename": "Cookie，Session，Token",
     "file": "概念/计算机网络/基本概念/杂记--小问题/Cookie，Session，Token.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2890,9 +3585,11 @@
     ]
   },
   {
-    "id": 226,
+    "id": 233,
     "title": "ISP",
     "tags": [],
+    "aliases": [],
+    "basename": "ISP",
     "file": "概念/计算机网络/基本概念/杂记--小问题/ISP.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2903,9 +3600,11 @@
     ]
   },
   {
-    "id": 227,
+    "id": 234,
     "title": "IXP",
     "tags": [],
+    "aliases": [],
+    "basename": "IXP",
     "file": "概念/计算机网络/基本概念/杂记--小问题/IXP.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2916,22 +3615,11 @@
     ]
   },
   {
-    "id": 228,
-    "title": "MSL",
-    "tags": [],
-    "file": "概念/计算机网络/基本概念/杂记--小问题/MSL.md",
-    "folder": "概念/计算机网络/基本概念/杂记--小问题",
-    "folders": [
-      "概念",
-      "计算机网络",
-      "基本概念",
-      "杂记--小问题"
-    ]
-  },
-  {
-    "id": 229,
+    "id": 235,
     "title": "RFC",
     "tags": [],
+    "aliases": [],
+    "basename": "RFC",
     "file": "概念/计算机网络/基本概念/杂记--小问题/RFC.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2942,9 +3630,11 @@
     ]
   },
   {
-    "id": 230,
+    "id": 236,
     "title": "TCP的连接需要两套套接字（欢迎与连接），为什么在套接字编程的时候只写一个？",
     "tags": [],
+    "aliases": [],
+    "basename": "TCP的连接需要两套套接字（欢迎与连接），为什么在套接字编程的时候只写一个？",
     "file": "概念/计算机网络/基本概念/杂记--小问题/TCP的连接需要两套套接字（欢迎与连接），为什么在套接字编程的时候只写一个？.md",
     "folder": "概念/计算机网络/基本概念/杂记--小问题",
     "folders": [
@@ -2955,9 +3645,11 @@
     ]
   },
   {
-    "id": 231,
+    "id": 237,
     "title": "总论：如何传输数据？",
     "tags": [],
+    "aliases": [],
+    "basename": "总论：如何传输数据？",
     "file": "概念/计算机网络/基本概念/总论：如何传输数据？.md",
     "folder": "概念/计算机网络/基本概念",
     "folders": [
@@ -2967,9 +3659,11 @@
     ]
   },
   {
-    "id": 232,
+    "id": 238,
     "title": "总思维导图",
     "tags": [],
+    "aliases": [],
+    "basename": "总思维导图",
     "file": "概念/计算机网络/基本概念/总思维导图.md",
     "folder": "概念/计算机网络/基本概念",
     "folders": [
@@ -2979,9 +3673,11 @@
     ]
   },
   {
-    "id": 233,
+    "id": 239,
     "title": "OSI七层模型",
     "tags": [],
+    "aliases": [],
+    "basename": "OSI七层模型",
     "file": "概念/计算机网络/基本概念/OSI七层模型.md",
     "folder": "概念/计算机网络/基本概念",
     "folders": [
@@ -2991,9 +3687,11 @@
     ]
   },
   {
-    "id": 234,
+    "id": 240,
     "title": "常用命令",
     "tags": [],
+    "aliases": [],
+    "basename": "常用命令",
     "file": "概念/计算机网络/ensp/常用命令.md",
     "folder": "概念/计算机网络/ensp",
     "folders": [
@@ -3003,9 +3701,11 @@
     ]
   },
   {
-    "id": 235,
+    "id": 241,
     "title": "多处理机系统",
     "tags": [],
+    "aliases": [],
+    "basename": "多处理机系统",
     "file": "概念/计算机组成原理/多处理机系统.md",
     "folder": "概念/计算机组成原理",
     "folders": [
@@ -3014,9 +3714,11 @@
     ]
   },
   {
-    "id": 236,
+    "id": 242,
     "title": "程序计数器PC",
     "tags": [],
+    "aliases": [],
+    "basename": "程序计数器PC",
     "file": "概念/计算机组成原理/结构/程序计数器PC.md",
     "folder": "概念/计算机组成原理/结构",
     "folders": [
@@ -3026,9 +3728,11 @@
     ]
   },
   {
-    "id": 237,
+    "id": 243,
     "title": "磁盘控制器",
     "tags": [],
+    "aliases": [],
+    "basename": "磁盘控制器",
     "file": "概念/计算机组成原理/结构/磁盘控制器.md",
     "folder": "概念/计算机组成原理/结构",
     "folders": [
@@ -3038,9 +3742,11 @@
     ]
   },
   {
-    "id": 238,
+    "id": 244,
     "title": "基本结构",
     "tags": [],
+    "aliases": [],
+    "basename": "基本结构",
     "file": "概念/计算机组成原理/结构/基本结构.md",
     "folder": "概念/计算机组成原理/结构",
     "folders": [
@@ -3050,9 +3756,11 @@
     ]
   },
   {
-    "id": 239,
+    "id": 245,
     "title": "寄存器",
     "tags": [],
+    "aliases": [],
+    "basename": "寄存器",
     "file": "概念/计算机组成原理/结构/寄存器.md",
     "folder": "概念/计算机组成原理/结构",
     "folders": [
@@ -3062,9 +3770,14 @@
     ]
   },
   {
-    "id": 240,
+    "id": 246,
     "title": "主存",
     "tags": [],
+    "aliases": [
+      "主存储器",
+      "内存"
+    ],
+    "basename": "主存",
     "file": "概念/计算机组成原理/结构/主存.md",
     "folder": "概念/计算机组成原理/结构",
     "folders": [
@@ -3074,9 +3787,14 @@
     ]
   },
   {
-    "id": 241,
+    "id": 247,
     "title": "cpu",
     "tags": [],
+    "aliases": [
+      "处理器",
+      "中央处理单元"
+    ],
+    "basename": "cpu",
     "file": "概念/计算机组成原理/结构/cpu.md",
     "folder": "概念/计算机组成原理/结构",
     "folders": [
@@ -3086,9 +3804,11 @@
     ]
   },
   {
-    "id": 242,
+    "id": 248,
     "title": "容量",
     "tags": [],
+    "aliases": [],
+    "basename": "容量",
     "file": "概念/计算机组成原理/容量.md",
     "folder": "概念/计算机组成原理",
     "folders": [
@@ -3097,9 +3817,11 @@
     ]
   },
   {
-    "id": 243,
+    "id": 249,
     "title": "指令（MIPS）",
     "tags": [],
+    "aliases": [],
+    "basename": "指令（MIPS）",
     "file": "概念/计算机组成原理/指令（MIPS）.md",
     "folder": "概念/计算机组成原理",
     "folders": [
@@ -3108,9 +3830,11 @@
     ]
   },
   {
-    "id": 244,
+    "id": 250,
     "title": "关系数据库标准语言SQL",
     "tags": [],
+    "aliases": [],
+    "basename": "关系数据库标准语言SQL",
     "file": "概念/数据库/关系数据库标准语言SQL.md",
     "folder": "概念/数据库",
     "folders": [
@@ -3119,9 +3843,11 @@
     ]
   },
   {
-    "id": 245,
+    "id": 251,
     "title": "数据库安全性",
     "tags": [],
+    "aliases": [],
+    "basename": "数据库安全性",
     "file": "概念/数据库/数据库安全性.md",
     "folder": "概念/数据库",
     "folders": [
@@ -3130,9 +3856,11 @@
     ]
   },
   {
-    "id": 246,
+    "id": 252,
     "title": "数据库完整性",
     "tags": [],
+    "aliases": [],
+    "basename": "数据库完整性",
     "file": "概念/数据库/数据库完整性.md",
     "folder": "概念/数据库",
     "folders": [
@@ -3141,9 +3869,11 @@
     ]
   },
   {
-    "id": 247,
+    "id": 253,
     "title": "背包问题",
     "tags": [],
+    "aliases": [],
+    "basename": "背包问题",
     "file": "概念/算法系列/扩展算法/动态规划/背包问题.md",
     "folder": "概念/算法系列/扩展算法/动态规划",
     "folders": [
@@ -3154,9 +3884,11 @@
     ]
   },
   {
-    "id": 248,
+    "id": 254,
     "title": "区间dp",
     "tags": [],
+    "aliases": [],
+    "basename": "区间dp",
     "file": "概念/算法系列/扩展算法/动态规划/区间dp.md",
     "folder": "概念/算法系列/扩展算法/动态规划",
     "folders": [
@@ -3167,9 +3899,11 @@
     ]
   },
   {
-    "id": 249,
+    "id": 255,
     "title": "树形dp",
     "tags": [],
+    "aliases": [],
+    "basename": "树形dp",
     "file": "概念/算法系列/扩展算法/动态规划/树形dp.md",
     "folder": "概念/算法系列/扩展算法/动态规划",
     "folders": [
@@ -3180,9 +3914,11 @@
     ]
   },
   {
-    "id": 250,
+    "id": 256,
     "title": "状压dp",
     "tags": [],
+    "aliases": [],
+    "basename": "状压dp",
     "file": "概念/算法系列/扩展算法/动态规划/状压dp.md",
     "folder": "概念/算法系列/扩展算法/动态规划",
     "folders": [
@@ -3193,9 +3929,11 @@
     ]
   },
   {
-    "id": 251,
+    "id": 257,
     "title": "dp基本用法",
     "tags": [],
+    "aliases": [],
+    "basename": "dp基本用法",
     "file": "概念/算法系列/扩展算法/动态规划/dp基本用法.md",
     "folder": "概念/算法系列/扩展算法/动态规划",
     "folders": [
@@ -3206,9 +3944,11 @@
     ]
   },
   {
-    "id": 252,
+    "id": 258,
     "title": "对数器",
     "tags": [],
+    "aliases": [],
+    "basename": "对数器",
     "file": "概念/算法系列/扩展算法/对数器.md",
     "folder": "概念/算法系列/扩展算法",
     "folders": [
@@ -3218,9 +3958,11 @@
     ]
   },
   {
-    "id": 253,
+    "id": 259,
     "title": "二分",
     "tags": [],
+    "aliases": [],
+    "basename": "二分",
     "file": "概念/算法系列/扩展算法/二分.md",
     "folder": "概念/算法系列/扩展算法",
     "folders": [
@@ -3230,9 +3972,11 @@
     ]
   },
   {
-    "id": 254,
+    "id": 260,
     "title": "螺旋矩阵",
     "tags": [],
+    "aliases": [],
+    "basename": "螺旋矩阵",
     "file": "概念/算法系列/扩展算法/模拟/螺旋矩阵.md",
     "folder": "概念/算法系列/扩展算法/模拟",
     "folders": [
@@ -3243,9 +3987,11 @@
     ]
   },
   {
-    "id": 255,
+    "id": 261,
     "title": "质数筛法",
     "tags": [],
+    "aliases": [],
+    "basename": "质数筛法",
     "file": "概念/算法系列/扩展算法/质数筛法.md",
     "folder": "概念/算法系列/扩展算法",
     "folders": [
@@ -3255,9 +4001,11 @@
     ]
   },
   {
-    "id": 256,
+    "id": 262,
     "title": "最短路径",
     "tags": [],
+    "aliases": [],
+    "basename": "最短路径",
     "file": "概念/算法系列/扩展算法/最短路径.md",
     "folder": "概念/算法系列/扩展算法",
     "folders": [
@@ -3267,9 +4015,11 @@
     ]
   },
   {
-    "id": 257,
+    "id": 263,
     "title": "时间复杂度",
     "tags": [],
+    "aliases": [],
+    "basename": "时间复杂度",
     "file": "概念/算法系列/时间复杂度.md",
     "folder": "概念/算法系列",
     "folders": [
@@ -3278,9 +4028,11 @@
     ]
   },
   {
-    "id": 258,
+    "id": 264,
     "title": "二分",
     "tags": [],
+    "aliases": [],
+    "basename": "二分",
     "file": "概念/算法系列/数据结构/查找/二分.md",
     "folder": "概念/算法系列/数据结构/查找",
     "folders": [
@@ -3291,9 +4043,11 @@
     ]
   },
   {
-    "id": 259,
+    "id": 265,
     "title": "散列哈希",
     "tags": [],
+    "aliases": [],
+    "basename": "散列哈希",
     "file": "概念/算法系列/数据结构/查找/散列哈希.md",
     "folder": "概念/算法系列/数据结构/查找",
     "folders": [
@@ -3304,9 +4058,11 @@
     ]
   },
   {
-    "id": 260,
+    "id": 266,
     "title": "B-树 & B+树",
     "tags": [],
+    "aliases": [],
+    "basename": "B-树 & B+树",
     "file": "概念/算法系列/数据结构/查找/B-树 & B+树.md",
     "folder": "概念/算法系列/数据结构/查找",
     "folders": [
@@ -3317,9 +4073,11 @@
     ]
   },
   {
-    "id": 261,
+    "id": 267,
     "title": "单调队列",
     "tags": [],
+    "aliases": [],
+    "basename": "单调队列",
     "file": "概念/算法系列/数据结构/队列/单调队列.md",
     "folder": "概念/算法系列/数据结构/队列",
     "folders": [
@@ -3330,9 +4088,11 @@
     ]
   },
   {
-    "id": 262,
+    "id": 268,
     "title": "队列",
     "tags": [],
+    "aliases": [],
+    "basename": "队列",
     "file": "概念/算法系列/数据结构/队列/队列.md",
     "folder": "概念/算法系列/数据结构/队列",
     "folders": [
@@ -3343,9 +4103,11 @@
     ]
   },
   {
-    "id": 263,
+    "id": 269,
     "title": "优先队列",
     "tags": [],
+    "aliases": [],
+    "basename": "优先队列",
     "file": "概念/算法系列/数据结构/队列/优先队列.md",
     "folder": "概念/算法系列/数据结构/队列",
     "folders": [
@@ -3356,9 +4118,11 @@
     ]
   },
   {
-    "id": 264,
+    "id": 270,
     "title": "插入",
     "tags": [],
+    "aliases": [],
+    "basename": "插入",
     "file": "概念/算法系列/数据结构/排序/插入.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3369,9 +4133,11 @@
     ]
   },
   {
-    "id": 265,
+    "id": 271,
     "title": "堆排序",
     "tags": [],
+    "aliases": [],
+    "basename": "堆排序",
     "file": "概念/算法系列/数据结构/排序/堆排序.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3382,9 +4148,11 @@
     ]
   },
   {
-    "id": 266,
+    "id": 272,
     "title": "归并",
     "tags": [],
+    "aliases": [],
+    "basename": "归并",
     "file": "概念/算法系列/数据结构/排序/归并.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3395,9 +4163,11 @@
     ]
   },
   {
-    "id": 267,
+    "id": 273,
     "title": "计数 & 基数",
     "tags": [],
+    "aliases": [],
+    "basename": "计数 & 基数",
     "file": "概念/算法系列/数据结构/排序/计数 & 基数.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3408,9 +4178,11 @@
     ]
   },
   {
-    "id": 268,
+    "id": 274,
     "title": "交换",
     "tags": [],
+    "aliases": [],
+    "basename": "交换",
     "file": "概念/算法系列/数据结构/排序/交换.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3421,9 +4193,11 @@
     ]
   },
   {
-    "id": 269,
+    "id": 275,
     "title": "排序总览",
     "tags": [],
+    "aliases": [],
+    "basename": "排序总览",
     "file": "概念/算法系列/数据结构/排序/排序总览.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3434,9 +4208,11 @@
     ]
   },
   {
-    "id": 270,
+    "id": 276,
     "title": "桶排序",
     "tags": [],
+    "aliases": [],
+    "basename": "桶排序",
     "file": "概念/算法系列/数据结构/排序/桶排序.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3447,9 +4223,11 @@
     ]
   },
   {
-    "id": 271,
+    "id": 277,
     "title": "外部",
     "tags": [],
+    "aliases": [],
+    "basename": "外部",
     "file": "概念/算法系列/数据结构/排序/外部.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3460,9 +4238,11 @@
     ]
   },
   {
-    "id": 272,
+    "id": 278,
     "title": "选择",
     "tags": [],
+    "aliases": [],
+    "basename": "选择",
     "file": "概念/算法系列/数据结构/排序/选择.md",
     "folder": "概念/算法系列/数据结构/排序",
     "folders": [
@@ -3473,9 +4253,11 @@
     ]
   },
   {
-    "id": 273,
+    "id": 279,
     "title": "并查集→最小生成树",
     "tags": [],
+    "aliases": [],
+    "basename": "并查集→最小生成树",
     "file": "概念/算法系列/数据结构/树/并查集→最小生成树.md",
     "folder": "概念/算法系列/数据结构/树",
     "folders": [
@@ -3486,9 +4268,11 @@
     ]
   },
   {
-    "id": 274,
+    "id": 280,
     "title": "二叉树",
     "tags": [],
+    "aliases": [],
+    "basename": "二叉树",
     "file": "概念/算法系列/数据结构/树/二叉树.md",
     "folder": "概念/算法系列/数据结构/树",
     "folders": [
@@ -3499,9 +4283,11 @@
     ]
   },
   {
-    "id": 275,
+    "id": 281,
     "title": "哈夫曼树",
     "tags": [],
+    "aliases": [],
+    "basename": "哈夫曼树",
     "file": "概念/算法系列/数据结构/树/哈夫曼树.md",
     "folder": "概念/算法系列/数据结构/树",
     "folders": [
@@ -3512,9 +4298,11 @@
     ]
   },
   {
-    "id": 276,
+    "id": 282,
     "title": "前缀树",
     "tags": [],
+    "aliases": [],
+    "basename": "前缀树",
     "file": "概念/算法系列/数据结构/树/前缀树.md",
     "folder": "概念/算法系列/数据结构/树",
     "folders": [
@@ -3525,9 +4313,11 @@
     ]
   },
   {
-    "id": 277,
+    "id": 283,
     "title": "森林",
     "tags": [],
+    "aliases": [],
+    "basename": "森林",
     "file": "概念/算法系列/数据结构/树/森林.md",
     "folder": "概念/算法系列/数据结构/树",
     "folders": [
@@ -3538,9 +4328,11 @@
     ]
   },
   {
-    "id": 278,
+    "id": 284,
     "title": "线段树",
     "tags": [],
+    "aliases": [],
+    "basename": "线段树",
     "file": "概念/算法系列/数据结构/树/线段树.md",
     "folder": "概念/算法系列/数据结构/树",
     "folders": [
@@ -3551,9 +4343,11 @@
     ]
   },
   {
-    "id": 279,
+    "id": 285,
     "title": "记忆化搜索",
     "tags": [],
+    "aliases": [],
+    "basename": "记忆化搜索",
     "file": "概念/算法系列/数据结构/图/记忆化搜索.md",
     "folder": "概念/算法系列/数据结构/图",
     "folders": [
@@ -3564,9 +4358,11 @@
     ]
   },
   {
-    "id": 280,
+    "id": 286,
     "title": "拓扑排序",
     "tags": [],
+    "aliases": [],
+    "basename": "拓扑排序",
     "file": "概念/算法系列/数据结构/图/拓扑排序.md",
     "folder": "概念/算法系列/数据结构/图",
     "folders": [
@@ -3577,9 +4373,11 @@
     ]
   },
   {
-    "id": 281,
+    "id": 287,
     "title": "图的表示",
     "tags": [],
+    "aliases": [],
+    "basename": "图的表示",
     "file": "概念/算法系列/数据结构/图/图的表示.md",
     "folder": "概念/算法系列/数据结构/图",
     "folders": [
@@ -3590,9 +4388,11 @@
     ]
   },
   {
-    "id": 282,
+    "id": 288,
     "title": "A星，Floyd",
     "tags": [],
+    "aliases": [],
+    "basename": "A星，Floyd",
     "file": "概念/算法系列/数据结构/图/A星，Floyd.md",
     "folder": "概念/算法系列/数据结构/图",
     "folders": [
@@ -3603,9 +4403,11 @@
     ]
   },
   {
-    "id": 283,
+    "id": 289,
     "title": "dfs与bfs",
     "tags": [],
+    "aliases": [],
+    "basename": "dfs与bfs",
     "file": "概念/算法系列/数据结构/图/dfs与bfs.md",
     "folder": "概念/算法系列/数据结构/图",
     "folders": [
@@ -3616,9 +4418,11 @@
     ]
   },
   {
-    "id": 284,
+    "id": 290,
     "title": "差分",
     "tags": [],
+    "aliases": [],
+    "basename": "差分",
     "file": "概念/算法系列/数据结构/线性表/差分.md",
     "folder": "概念/算法系列/数据结构/线性表",
     "folders": [
@@ -3629,9 +4433,11 @@
     ]
   },
   {
-    "id": 285,
+    "id": 291,
     "title": "链表",
     "tags": [],
+    "aliases": [],
+    "basename": "链表",
     "file": "概念/算法系列/数据结构/线性表/链表/链表.md",
     "folder": "概念/算法系列/数据结构/线性表/链表",
     "folders": [
@@ -3643,9 +4449,11 @@
     ]
   },
   {
-    "id": 286,
+    "id": 292,
     "title": "移除链表元素",
     "tags": [],
+    "aliases": [],
+    "basename": "移除链表元素",
     "file": "概念/算法系列/数据结构/线性表/链表/移除链表元素.md",
     "folder": "概念/算法系列/数据结构/线性表/链表",
     "folders": [
@@ -3657,9 +4465,11 @@
     ]
   },
   {
-    "id": 287,
+    "id": 293,
     "title": "顺序存储",
     "tags": [],
+    "aliases": [],
+    "basename": "顺序存储",
     "file": "概念/算法系列/数据结构/线性表/顺序存储.md",
     "folder": "概念/算法系列/数据结构/线性表",
     "folders": [
@@ -3670,9 +4480,11 @@
     ]
   },
   {
-    "id": 288,
+    "id": 294,
     "title": "字符串哈希",
     "tags": [],
+    "aliases": [],
+    "basename": "字符串哈希",
     "file": "概念/算法系列/数据结构/线性表/字符串/字符串哈希.md",
     "folder": "概念/算法系列/数据结构/线性表/字符串",
     "folders": [
@@ -3684,9 +4496,11 @@
     ]
   },
   {
-    "id": 289,
+    "id": 295,
     "title": "kmp",
     "tags": [],
+    "aliases": [],
+    "basename": "kmp",
     "file": "概念/算法系列/数据结构/线性表/字符串/kmp.md",
     "folder": "概念/算法系列/数据结构/线性表/字符串",
     "folders": [
@@ -3698,9 +4512,11 @@
     ]
   },
   {
-    "id": 290,
+    "id": 296,
     "title": "string 字符串",
     "tags": [],
+    "aliases": [],
+    "basename": "string 字符串",
     "file": "概念/算法系列/数据结构/线性表/字符串/string 字符串.md",
     "folder": "概念/算法系列/数据结构/线性表/字符串",
     "folders": [
@@ -3712,9 +4528,11 @@
     ]
   },
   {
-    "id": 291,
+    "id": 297,
     "title": "单调栈",
     "tags": [],
+    "aliases": [],
+    "basename": "单调栈",
     "file": "概念/算法系列/数据结构/栈/单调栈.md",
     "folder": "概念/算法系列/数据结构/栈",
     "folders": [
@@ -3725,9 +4543,11 @@
     ]
   },
   {
-    "id": 292,
+    "id": 298,
     "title": "栈",
     "tags": [],
+    "aliases": [],
+    "basename": "栈",
     "file": "概念/算法系列/数据结构/栈/栈.md",
     "folder": "概念/算法系列/数据结构/栈",
     "folders": [
@@ -3738,9 +4558,11 @@
     ]
   },
   {
-    "id": 293,
+    "id": 299,
     "title": "正则 & 前缀 & 后缀表达式",
     "tags": [],
+    "aliases": [],
+    "basename": "正则 & 前缀 & 后缀表达式",
     "file": "概念/算法系列/数据结构/栈/正则 & 前缀 & 后缀表达式.md",
     "folder": "概念/算法系列/数据结构/栈",
     "folders": [
@@ -3751,9 +4573,11 @@
     ]
   },
   {
-    "id": 294,
+    "id": 300,
     "title": "结构体访问方式区别",
     "tags": [],
+    "aliases": [],
+    "basename": "结构体访问方式区别",
     "file": "概念/算法系列/杂记-小问题/结构体访问方式区别.md",
     "folder": "概念/算法系列/杂记-小问题",
     "folders": [
@@ -3763,9 +4587,11 @@
     ]
   },
   {
-    "id": 295,
+    "id": 301,
     "title": "malloc 与 new 的区别",
     "tags": [],
+    "aliases": [],
+    "basename": "malloc 与 new 的区别",
     "file": "概念/算法系列/杂记-小问题/malloc 与 new 的区别.md",
     "folder": "概念/算法系列/杂记-小问题",
     "folders": [
@@ -3775,9 +4601,11 @@
     ]
   },
   {
-    "id": 296,
+    "id": 302,
     "title": "malloc的返回值是什么",
     "tags": [],
+    "aliases": [],
+    "basename": "malloc的返回值是什么",
     "file": "概念/算法系列/杂记-小问题/malloc的返回值是什么.md",
     "folder": "概念/算法系列/杂记-小问题",
     "folders": [
@@ -3787,9 +4615,11 @@
     ]
   },
   {
-    "id": 297,
+    "id": 303,
     "title": "sizeof为什么获取不了arr的长度？",
     "tags": [],
+    "aliases": [],
+    "basename": "sizeof为什么获取不了arr的长度？",
     "file": "概念/算法系列/杂记-小问题/sizeof为什么获取不了arr的长度？.md",
     "folder": "概念/算法系列/杂记-小问题",
     "folders": [
@@ -3799,9 +4629,11 @@
     ]
   },
   {
-    "id": 298,
+    "id": 304,
     "title": "姜泽旭",
     "tags": [],
+    "aliases": [],
+    "basename": "姜泽旭",
     "file": "共享文件/看书/姜泽旭.md",
     "folder": "共享文件/看书",
     "folders": [
@@ -3810,9 +4642,11 @@
     ]
   },
   {
-    "id": 299,
+    "id": 305,
     "title": "梁李璇",
     "tags": [],
+    "aliases": [],
+    "basename": "梁李璇",
     "file": "共享文件/看书/梁李璇.md",
     "folder": "共享文件/看书",
     "folders": [
@@ -3821,9 +4655,23 @@
     ]
   },
   {
-    "id": 300,
+    "id": 306,
+    "title": "聊天 1",
+    "tags": [],
+    "aliases": [],
+    "basename": "聊天 1",
+    "file": "共享文件/聊天 1.md",
+    "folder": "共享文件",
+    "folders": [
+      "共享文件"
+    ]
+  },
+  {
+    "id": 307,
     "title": "聊天",
     "tags": [],
+    "aliases": [],
+    "basename": "聊天",
     "file": "共享文件/聊天.md",
     "folder": "共享文件",
     "folders": [
@@ -3831,9 +4679,11 @@
     ]
   },
   {
-    "id": 301,
+    "id": 308,
     "title": "英语",
     "tags": [],
+    "aliases": [],
+    "basename": "英语",
     "file": "共享文件/英语.md",
     "folder": "共享文件",
     "folders": [
@@ -3841,9 +4691,50 @@
     ]
   },
   {
-    "id": 302,
+    "id": 309,
+    "title": "链路层交换机",
+    "tags": [],
+    "aliases": [],
+    "basename": "链路层交换机",
+    "file": "共享文件/整理笔记/链路层交换机.md",
+    "folder": "共享文件/整理笔记",
+    "folders": [
+      "共享文件",
+      "整理笔记"
+    ]
+  },
+  {
+    "id": 310,
+    "title": "以太网",
+    "tags": [],
+    "aliases": [],
+    "basename": "以太网",
+    "file": "共享文件/整理笔记/以太网.md",
+    "folder": "共享文件/整理笔记",
+    "folders": [
+      "共享文件",
+      "整理笔记"
+    ]
+  },
+  {
+    "id": 311,
+    "title": "Cache",
+    "tags": [],
+    "aliases": [],
+    "basename": "Cache",
+    "file": "共享文件/整理笔记/Cache.md",
+    "folder": "共享文件/整理笔记",
+    "folders": [
+      "共享文件",
+      "整理笔记"
+    ]
+  },
+  {
+    "id": 312,
     "title": "计算机操作系统",
     "tags": [],
+    "aliases": [],
+    "basename": "计算机操作系统",
     "file": "姜/计算机操作系统.md",
     "folder": "姜",
     "folders": [
@@ -3851,9 +4742,11 @@
     ]
   },
   {
-    "id": 303,
+    "id": 313,
     "title": "简历",
     "tags": [],
+    "aliases": [],
+    "basename": "简历",
     "file": "姜/简历.md",
     "folder": "姜",
     "folders": [
@@ -3861,9 +4754,11 @@
     ]
   },
   {
-    "id": 304,
+    "id": 314,
     "title": "简历编写",
     "tags": [],
+    "aliases": [],
+    "basename": "简历编写",
     "file": "姜/简历编写.md",
     "folder": "姜",
     "folders": [
@@ -3871,9 +4766,11 @@
     ]
   },
   {
-    "id": 305,
+    "id": 315,
     "title": "未命名 1",
     "tags": [],
+    "aliases": [],
+    "basename": "未命名 1",
     "file": "姜/未命名 1.md",
     "folder": "姜",
     "folders": [
@@ -3881,9 +4778,11 @@
     ]
   },
   {
-    "id": 306,
+    "id": 316,
     "title": "未命名",
     "tags": [],
+    "aliases": [],
+    "basename": "未命名",
     "file": "姜/未命名.md",
     "folder": "姜",
     "folders": [
@@ -3891,9 +4790,11 @@
     ]
   },
   {
-    "id": 307,
+    "id": 317,
     "title": "问题1",
     "tags": [],
+    "aliases": [],
+    "basename": "问题1",
     "file": "姜/问题1.md",
     "folder": "姜",
     "folders": [
@@ -3901,9 +4802,11 @@
     ]
   },
   {
-    "id": 308,
+    "id": 318,
     "title": "常用git命令",
     "tags": [],
+    "aliases": [],
+    "basename": "常用git命令",
     "file": "日常小记/常用git命令.md",
     "folder": "日常小记",
     "folders": [
@@ -3911,9 +4814,11 @@
     ]
   },
   {
-    "id": 309,
+    "id": 319,
     "title": "网站汇总",
     "tags": [],
+    "aliases": [],
+    "basename": "网站汇总",
     "file": "日常小记/网站汇总.md",
     "folder": "日常小记",
     "folders": [
@@ -3921,9 +4826,11 @@
     ]
   },
   {
-    "id": 310,
+    "id": 320,
     "title": "bat文件制作",
     "tags": [],
+    "aliases": [],
+    "basename": "bat文件制作",
     "file": "日常小记/bat文件制作.md",
     "folder": "日常小记",
     "folders": [
@@ -3931,9 +4838,11 @@
     ]
   },
   {
-    "id": 311,
+    "id": 321,
     "title": "ensp使用AR出现40问题",
     "tags": [],
+    "aliases": [],
+    "basename": "ensp使用AR出现40问题",
     "file": "日常小记/ensp使用AR出现40问题.md",
     "folder": "日常小记",
     "folders": [
@@ -3941,9 +4850,11 @@
     ]
   },
   {
-    "id": 312,
+    "id": 322,
     "title": "mermaid demo",
     "tags": [],
+    "aliases": [],
+    "basename": "mermaid demo",
     "file": "日常小记/mermaid demo.md",
     "folder": "日常小记",
     "folders": [
@@ -3951,9 +4862,11 @@
     ]
   },
   {
-    "id": 313,
+    "id": 323,
     "title": "MySQL 导入 CSV 数据完整流程",
     "tags": [],
+    "aliases": [],
+    "basename": "MySQL 导入 CSV 数据完整流程",
     "file": "日常小记/MySQL 导入 CSV 数据完整流程.md",
     "folder": "日常小记",
     "folders": [
@@ -3961,9 +4874,11 @@
     ]
   },
   {
-    "id": 314,
+    "id": 324,
     "title": "ollama一般指令",
     "tags": [],
+    "aliases": [],
+    "basename": "ollama一般指令",
     "file": "日常小记/ollama一般指令.md",
     "folder": "日常小记",
     "folders": [
@@ -3971,9 +4886,11 @@
     ]
   },
   {
-    "id": 315,
+    "id": 325,
     "title": "vscode快捷键合集",
     "tags": [],
+    "aliases": [],
+    "basename": "vscode快捷键合集",
     "file": "日常小记/vscode快捷键合集.md",
     "folder": "日常小记",
     "folders": [
@@ -3981,9 +4898,11 @@
     ]
   },
   {
-    "id": 316,
+    "id": 326,
     "title": "函数",
     "tags": [],
+    "aliases": [],
+    "basename": "函数",
     "file": "授课/社团授课/函数.md",
     "folder": "授课/社团授课",
     "folders": [
@@ -3992,9 +4911,11 @@
     ]
   },
   {
-    "id": 317,
+    "id": 327,
     "title": "课时1",
     "tags": [],
+    "aliases": [],
+    "basename": "课时1",
     "file": "授课/社团授课/课时1.md",
     "folder": "授课/社团授课",
     "folders": [
@@ -4003,9 +4924,11 @@
     ]
   },
   {
-    "id": 318,
+    "id": 328,
     "title": "循环语句",
     "tags": [],
+    "aliases": [],
+    "basename": "循环语句",
     "file": "授课/社团授课/循环语句.md",
     "folder": "授课/社团授课",
     "folders": [
@@ -4014,9 +4937,11 @@
     ]
   },
   {
-    "id": 319,
+    "id": 329,
     "title": "课时1 - 初理解结构",
     "tags": [],
+    "aliases": [],
+    "basename": "课时1 - 初理解结构",
     "file": "授课/社团授课/c语言/课时1 - 初理解结构.md",
     "folder": "授课/社团授课/c语言",
     "folders": [
@@ -4026,9 +4951,11 @@
     ]
   },
   {
-    "id": 320,
+    "id": 330,
     "title": "课时2 - 循环",
     "tags": [],
+    "aliases": [],
+    "basename": "课时2 - 循环",
     "file": "授课/社团授课/c语言/课时2 - 循环.md",
     "folder": "授课/社团授课/c语言",
     "folders": [
@@ -4038,9 +4965,11 @@
     ]
   },
   {
-    "id": 321,
+    "id": 331,
     "title": "课时3 - 数组",
     "tags": [],
+    "aliases": [],
+    "basename": "课时3 - 数组",
     "file": "授课/社团授课/c语言/课时3 - 数组.md",
     "folder": "授课/社团授课/c语言",
     "folders": [
@@ -4050,9 +4979,11 @@
     ]
   },
   {
-    "id": 322,
+    "id": 332,
     "title": "课时4 - 函数",
     "tags": [],
+    "aliases": [],
+    "basename": "课时4 - 函数",
     "file": "授课/社团授课/c语言/课时4 - 函数.md",
     "folder": "授课/社团授课/c语言",
     "folders": [
@@ -4062,9 +4993,11 @@
     ]
   },
   {
-    "id": 323,
+    "id": 333,
     "title": "指针",
     "tags": [],
+    "aliases": [],
+    "basename": "指针",
     "file": "授课/社团授课/c语言/指针.md",
     "folder": "授课/社团授课/c语言",
     "folders": [
@@ -4074,9 +5007,11 @@
     ]
   },
   {
-    "id": 324,
+    "id": 334,
     "title": "常见函数",
     "tags": [],
+    "aliases": [],
+    "basename": "常见函数",
     "file": "授课/STL/常见函数.md",
     "folder": "授课/STL",
     "folders": [
@@ -4085,9 +5020,11 @@
     ]
   },
   {
-    "id": 325,
+    "id": 335,
     "title": "前置知识",
     "tags": [],
+    "aliases": [],
+    "basename": "前置知识",
     "file": "授课/STL/前置知识.md",
     "folder": "授课/STL",
     "folders": [
@@ -4096,9 +5033,11 @@
     ]
   },
   {
-    "id": 326,
+    "id": 336,
     "title": "容器",
     "tags": [],
+    "aliases": [],
+    "basename": "容器",
     "file": "授课/STL/容器.md",
     "folder": "授课/STL",
     "folders": [
@@ -4107,20 +5046,11 @@
     ]
   },
   {
-    "id": 327,
-    "title": "介质访问控制与算法",
-    "tags": [],
-    "file": "项目管理&备赛备考/个人博客/介质访问控制与算法.md",
-    "folder": "项目管理&备赛备考/个人博客",
-    "folders": [
-      "项目管理&备赛备考",
-      "个人博客"
-    ]
-  },
-  {
-    "id": 328,
+    "id": 337,
     "title": "项目",
     "tags": [],
+    "aliases": [],
+    "basename": "项目",
     "file": "项目管理&备赛备考/合作项目/项目.md",
     "folder": "项目管理&备赛备考/合作项目",
     "folders": [
@@ -4129,9 +5059,11 @@
     ]
   },
   {
-    "id": 329,
+    "id": 338,
     "title": "api设计",
     "tags": [],
+    "aliases": [],
+    "basename": "api设计",
     "file": "项目管理&备赛备考/合作项目/api设计.md",
     "folder": "项目管理&备赛备考/合作项目",
     "folders": [
@@ -4140,21 +5072,11 @@
     ]
   },
   {
-    "id": 330,
-    "title": "编码和调制",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/计网/编码和调制.md",
-    "folder": "项目管理&备赛备考/考研/计网",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "计网"
-    ]
-  },
-  {
-    "id": 331,
+    "id": 339,
     "title": "交换方式",
     "tags": [],
+    "aliases": [],
+    "basename": "交换方式",
     "file": "项目管理&备赛备考/考研/计网/交换方式.md",
     "folder": "项目管理&备赛备考/考研/计网",
     "folders": [
@@ -4164,9 +5086,11 @@
     ]
   },
   {
-    "id": 332,
+    "id": 340,
     "title": "介质访问控制",
     "tags": [],
+    "aliases": [],
+    "basename": "介质访问控制",
     "file": "项目管理&备赛备考/考研/计网/介质访问控制.md",
     "folder": "项目管理&备赛备考/考研/计网",
     "folders": [
@@ -4176,21 +5100,11 @@
     ]
   },
   {
-    "id": 333,
-    "title": "局域网和广域网",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/计网/局域网和广域网.md",
-    "folder": "项目管理&备赛备考/考研/计网",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "计网"
-    ]
-  },
-  {
-    "id": 334,
+    "id": 341,
     "title": "考点难点",
     "tags": [],
+    "aliases": [],
+    "basename": "考点难点",
     "file": "项目管理&备赛备考/考研/计网/考点难点.md",
     "folder": "项目管理&备赛备考/考研/计网",
     "folders": [
@@ -4200,9 +5114,11 @@
     ]
   },
   {
-    "id": 335,
+    "id": 342,
     "title": "流量控制",
     "tags": [],
+    "aliases": [],
+    "basename": "流量控制",
     "file": "项目管理&备赛备考/考研/计网/流量控制.md",
     "folder": "项目管理&备赛备考/考研/计网",
     "folders": [
@@ -4212,21 +5128,11 @@
     ]
   },
   {
-    "id": 336,
-    "title": "数据链路层设备",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/计网/数据链路层设备.md",
-    "folder": "项目管理&备赛备考/考研/计网",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "计网"
-    ]
-  },
-  {
-    "id": 337,
+    "id": 343,
     "title": "通信概念",
     "tags": [],
+    "aliases": [],
+    "basename": "通信概念",
     "file": "项目管理&备赛备考/考研/计网/通信概念.md",
     "folder": "项目管理&备赛备考/考研/计网",
     "folders": [
@@ -4236,21 +5142,11 @@
     ]
   },
   {
-    "id": 338,
-    "title": "域名系统DNS-练习",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/计网/域名系统DNS-练习.md",
-    "folder": "项目管理&备赛备考/考研/计网",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "计网"
-    ]
-  },
-  {
-    "id": 339,
+    "id": 344,
     "title": "IP",
     "tags": [],
+    "aliases": [],
+    "basename": "IP",
     "file": "项目管理&备赛备考/考研/计网/IP.md",
     "folder": "项目管理&备赛备考/考研/计网",
     "folders": [
@@ -4260,9 +5156,11 @@
     ]
   },
   {
-    "id": 340,
+    "id": 345,
     "title": "存储系统",
     "tags": [],
+    "aliases": [],
+    "basename": "存储系统",
     "file": "项目管理&备赛备考/考研/计组/存储系统.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4272,9 +5170,11 @@
     ]
   },
   {
-    "id": 341,
+    "id": 346,
     "title": "多模块存储器：主存与CPU的连接",
     "tags": [],
+    "aliases": [],
+    "basename": "多模块存储器：主存与CPU的连接",
     "file": "项目管理&备赛备考/考研/计组/多模块存储器：主存与CPU的连接.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4284,9 +5184,11 @@
     ]
   },
   {
-    "id": 342,
+    "id": 347,
     "title": "浮点数表示",
     "tags": [],
+    "aliases": [],
+    "basename": "浮点数表示",
     "file": "项目管理&备赛备考/考研/计组/浮点数表示.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4296,9 +5198,11 @@
     ]
   },
   {
-    "id": 343,
+    "id": 348,
     "title": "格式和寻址方式",
     "tags": [],
+    "aliases": [],
+    "basename": "格式和寻址方式",
     "file": "项目管理&备赛备考/考研/计组/格式和寻址方式.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4308,9 +5212,11 @@
     ]
   },
   {
-    "id": 344,
+    "id": 349,
     "title": "计算机层次结构",
     "tags": [],
+    "aliases": [],
+    "basename": "计算机层次结构",
     "file": "项目管理&备赛备考/考研/计组/计算机层次结构.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4320,9 +5226,11 @@
     ]
   },
   {
-    "id": 345,
+    "id": 350,
     "title": "考点难点",
     "tags": [],
+    "aliases": [],
+    "basename": "考点难点",
     "file": "项目管理&备赛备考/考研/计组/考点难点.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4332,9 +5240,11 @@
     ]
   },
   {
-    "id": 346,
+    "id": 351,
     "title": "控制器",
     "tags": [],
+    "aliases": [],
+    "basename": "控制器",
     "file": "项目管理&备赛备考/考研/计组/控制器.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4344,9 +5254,11 @@
     ]
   },
   {
-    "id": 347,
+    "id": 352,
     "title": "类型转换",
     "tags": [],
+    "aliases": [],
+    "basename": "类型转换",
     "file": "项目管理&备赛备考/考研/计组/类型转换.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4356,9 +5268,11 @@
     ]
   },
   {
-    "id": 348,
+    "id": 353,
     "title": "数据对齐",
     "tags": [],
+    "aliases": [],
+    "basename": "数据对齐",
     "file": "项目管理&备赛备考/考研/计组/数据对齐.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4368,9 +5282,11 @@
     ]
   },
   {
-    "id": 349,
+    "id": 354,
     "title": "外存",
     "tags": [],
+    "aliases": [],
+    "basename": "外存",
     "file": "项目管理&备赛备考/考研/计组/外存.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4380,9 +5296,11 @@
     ]
   },
   {
-    "id": 350,
+    "id": 355,
     "title": "性能指标",
     "tags": [],
+    "aliases": [],
+    "basename": "性能指标",
     "file": "项目管理&备赛备考/考研/计组/性能指标.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4392,9 +5310,11 @@
     ]
   },
   {
-    "id": 351,
+    "id": 356,
     "title": "虚拟存储器",
     "tags": [],
+    "aliases": [],
+    "basename": "虚拟存储器",
     "file": "项目管理&备赛备考/考研/计组/虚拟存储器.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4404,9 +5324,11 @@
     ]
   },
   {
-    "id": 352,
+    "id": 357,
     "title": "运算电路",
     "tags": [],
+    "aliases": [],
+    "basename": "运算电路",
     "file": "项目管理&备赛备考/考研/计组/运算电路.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4416,9 +5338,11 @@
     ]
   },
   {
-    "id": 353,
+    "id": 358,
     "title": "整数表示",
     "tags": [],
+    "aliases": [],
+    "basename": "整数表示",
     "file": "项目管理&备赛备考/考研/计组/整数表示.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4428,9 +5352,11 @@
     ]
   },
   {
-    "id": 354,
+    "id": 359,
     "title": "指令操作码",
     "tags": [],
+    "aliases": [],
+    "basename": "指令操作码",
     "file": "项目管理&备赛备考/考研/计组/指令操作码.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4440,9 +5366,11 @@
     ]
   },
   {
-    "id": 355,
+    "id": 360,
     "title": "Cache",
     "tags": [],
+    "aliases": [],
+    "basename": "Cache",
     "file": "项目管理&备赛备考/考研/计组/Cache.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4452,9 +5380,11 @@
     ]
   },
   {
-    "id": 356,
+    "id": 361,
     "title": "CPU功能和结构",
     "tags": [],
+    "aliases": [],
+    "basename": "CPU功能和结构",
     "file": "项目管理&备赛备考/考研/计组/CPU功能和结构.md",
     "folder": "项目管理&备赛备考/考研/计组",
     "folders": [
@@ -4464,9 +5394,25 @@
     ]
   },
   {
-    "id": 357,
+    "id": 362,
+    "title": "考点难点",
+    "tags": [],
+    "aliases": [],
+    "basename": "考点难点",
+    "file": "项目管理&备赛备考/考研/数据结构/考点难点.md",
+    "folder": "项目管理&备赛备考/考研/数据结构",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数据结构"
+    ]
+  },
+  {
+    "id": 363,
     "title": "数组和特殊矩阵",
     "tags": [],
+    "aliases": [],
+    "basename": "数组和特殊矩阵",
     "file": "项目管理&备赛备考/考研/数据结构/数组和特殊矩阵.md",
     "folder": "项目管理&备赛备考/考研/数据结构",
     "folders": [
@@ -4476,9 +5422,11 @@
     ]
   },
   {
-    "id": 358,
+    "id": 364,
     "title": "算法",
     "tags": [],
+    "aliases": [],
+    "basename": "算法",
     "file": "项目管理&备赛备考/考研/数据结构/算法.md",
     "folder": "项目管理&备赛备考/考研/数据结构",
     "folders": [
@@ -4488,9 +5436,11 @@
     ]
   },
   {
-    "id": 359,
+    "id": 365,
     "title": "线性表",
     "tags": [],
+    "aliases": [],
+    "basename": "线性表",
     "file": "项目管理&备赛备考/考研/数据结构/线性表.md",
     "folder": "项目管理&备赛备考/考研/数据结构",
     "folders": [
@@ -4500,9 +5450,11 @@
     ]
   },
   {
-    "id": 360,
+    "id": 366,
     "title": "栈和队列的应用",
     "tags": [],
+    "aliases": [],
+    "basename": "栈和队列的应用",
     "file": "项目管理&备赛备考/考研/数据结构/栈和队列的应用.md",
     "folder": "项目管理&备赛备考/考研/数据结构",
     "folders": [
@@ -4512,9 +5464,11 @@
     ]
   },
   {
-    "id": 361,
+    "id": 367,
     "title": "KMP",
     "tags": [],
+    "aliases": [],
+    "basename": "KMP",
     "file": "项目管理&备赛备考/考研/数据结构/KMP.md",
     "folder": "项目管理&备赛备考/考研/数据结构",
     "folders": [
@@ -4524,9 +5478,59 @@
     ]
   },
   {
-    "id": 362,
+    "id": 368,
+    "title": "不等式",
+    "tags": [],
+    "aliases": [],
+    "basename": "不等式",
+    "file": "项目管理&备赛备考/考研/数一/高数/不等式/不等式.md",
+    "folder": "项目管理&备赛备考/考研/数一/高数/不等式",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数一",
+      "高数",
+      "不等式"
+    ]
+  },
+  {
+    "id": 369,
+    "title": "导数",
+    "tags": [],
+    "aliases": [],
+    "basename": "导数",
+    "file": "项目管理&备赛备考/考研/数一/高数/导数微分/导数.md",
+    "folder": "项目管理&备赛备考/考研/数一/高数/导数微分",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数一",
+      "高数",
+      "导数微分"
+    ]
+  },
+  {
+    "id": 370,
+    "title": "简单函数导数",
+    "tags": [],
+    "aliases": [],
+    "basename": "简单函数导数",
+    "file": "项目管理&备赛备考/考研/数一/高数/导数微分/简单函数导数.md",
+    "folder": "项目管理&备赛备考/考研/数一/高数/导数微分",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数一",
+      "高数",
+      "导数微分"
+    ]
+  },
+  {
+    "id": 371,
     "title": "函数",
     "tags": [],
+    "aliases": [],
+    "basename": "函数",
     "file": "项目管理&备赛备考/考研/数一/高数/函数.md",
     "folder": "项目管理&备赛备考/考研/数一/高数",
     "folders": [
@@ -4537,23 +5541,11 @@
     ]
   },
   {
-    "id": 363,
-    "title": "00型，∞∞型",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/数一/高数/极限/00型，∞∞型.md",
-    "folder": "项目管理&备赛备考/考研/数一/高数/极限",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "数一",
-      "高数",
-      "极限"
-    ]
-  },
-  {
-    "id": 364,
+    "id": 372,
     "title": "分式中有变限积分",
     "tags": [],
+    "aliases": [],
+    "basename": "分式中有变限积分",
     "file": "项目管理&备赛备考/考研/数一/高数/极限/分式中有变限积分.md",
     "folder": "项目管理&备赛备考/考研/数一/高数/极限",
     "folders": [
@@ -4565,9 +5557,11 @@
     ]
   },
   {
-    "id": 365,
+    "id": 373,
     "title": "极限",
     "tags": [],
+    "aliases": [],
+    "basename": "极限",
     "file": "项目管理&备赛备考/考研/数一/高数/极限/极限.md",
     "folder": "项目管理&备赛备考/考研/数一/高数/极限",
     "folders": [
@@ -4579,9 +5573,43 @@
     ]
   },
   {
-    "id": 366,
+    "id": 374,
+    "title": "未定式计算",
+    "tags": [],
+    "aliases": [],
+    "basename": "未定式计算",
+    "file": "项目管理&备赛备考/考研/数一/高数/极限/未定式计算.md",
+    "folder": "项目管理&备赛备考/考研/数一/高数/极限",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数一",
+      "高数",
+      "极限"
+    ]
+  },
+  {
+    "id": 375,
+    "title": "一些做极限的方法",
+    "tags": [],
+    "aliases": [],
+    "basename": "一些做极限的方法",
+    "file": "项目管理&备赛备考/考研/数一/高数/极限/一些做极限的方法.md",
+    "folder": "项目管理&备赛备考/考研/数一/高数/极限",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数一",
+      "高数",
+      "极限"
+    ]
+  },
+  {
+    "id": 376,
     "title": "指数特殊考法",
     "tags": [],
+    "aliases": [],
+    "basename": "指数特殊考法",
     "file": "项目管理&备赛备考/考研/数一/高数/极限/指数特殊考法.md",
     "folder": "项目管理&备赛备考/考研/数一/高数/极限",
     "folders": [
@@ -4593,9 +5621,27 @@
     ]
   },
   {
-    "id": 367,
+    "id": 377,
+    "title": "数列",
+    "tags": [],
+    "aliases": [],
+    "basename": "数列",
+    "file": "项目管理&备赛备考/考研/数一/高数/数列/数列.md",
+    "folder": "项目管理&备赛备考/考研/数一/高数/数列",
+    "folders": [
+      "项目管理&备赛备考",
+      "考研",
+      "数一",
+      "高数",
+      "数列"
+    ]
+  },
+  {
+    "id": 378,
     "title": "操作系统概念",
     "tags": [],
+    "aliases": [],
+    "basename": "操作系统概念",
     "file": "项目管理&备赛备考/考研/OS/操作系统概念.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
@@ -4605,9 +5651,11 @@
     ]
   },
   {
-    "id": 368,
+    "id": 379,
     "title": "处理机调度",
     "tags": [],
+    "aliases": [],
+    "basename": "处理机调度",
     "file": "项目管理&备赛备考/考研/OS/处理机调度.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
@@ -4617,9 +5665,11 @@
     ]
   },
   {
-    "id": 369,
+    "id": 380,
     "title": "磁盘",
     "tags": [],
+    "aliases": [],
+    "basename": "磁盘",
     "file": "项目管理&备赛备考/考研/OS/磁盘.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
@@ -4629,9 +5679,11 @@
     ]
   },
   {
-    "id": 370,
+    "id": 381,
     "title": "考点难点",
     "tags": [],
+    "aliases": [],
+    "basename": "考点难点",
     "file": "项目管理&备赛备考/考研/OS/考点难点.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
@@ -4641,33 +5693,11 @@
     ]
   },
   {
-    "id": 371,
-    "title": "目录",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/OS/目录.md",
-    "folder": "项目管理&备赛备考/考研/OS",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "OS"
-    ]
-  },
-  {
-    "id": 372,
-    "title": "内存管理概念",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/OS/内存管理概念.md",
-    "folder": "项目管理&备赛备考/考研/OS",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "OS"
-    ]
-  },
-  {
-    "id": 373,
+    "id": 382,
     "title": "死锁",
     "tags": [],
+    "aliases": [],
+    "basename": "死锁",
     "file": "项目管理&备赛备考/考研/OS/死锁.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
@@ -4677,10 +5707,12 @@
     ]
   },
   {
-    "id": 374,
-    "title": "同步和互斥",
+    "id": 383,
+    "title": "文件与目录",
     "tags": [],
-    "file": "项目管理&备赛备考/考研/OS/同步和互斥.md",
+    "aliases": [],
+    "basename": "文件与目录",
+    "file": "项目管理&备赛备考/考研/OS/文件与目录.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
       "项目管理&备赛备考",
@@ -4689,45 +5721,11 @@
     ]
   },
   {
-    "id": 375,
-    "title": "文件",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/OS/文件.md",
-    "folder": "项目管理&备赛备考/考研/OS",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "OS"
-    ]
-  },
-  {
-    "id": 376,
-    "title": "文件系统",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/OS/文件系统.md",
-    "folder": "项目管理&备赛备考/考研/OS",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "OS"
-    ]
-  },
-  {
-    "id": 377,
-    "title": "虚拟内存管理",
-    "tags": [],
-    "file": "项目管理&备赛备考/考研/OS/虚拟内存管理.md",
-    "folder": "项目管理&备赛备考/考研/OS",
-    "folders": [
-      "项目管理&备赛备考",
-      "考研",
-      "OS"
-    ]
-  },
-  {
-    "id": 378,
+    "id": 384,
     "title": "IO设备",
     "tags": [],
+    "aliases": [],
+    "basename": "IO设备",
     "file": "项目管理&备赛备考/考研/OS/IO设备.md",
     "folder": "项目管理&备赛备考/考研/OS",
     "folders": [
@@ -4737,9 +5735,11 @@
     ]
   },
   {
-    "id": 379,
+    "id": 385,
     "title": "2025-2026上",
     "tags": [],
+    "aliases": [],
+    "basename": "2025-2026上",
     "file": "项目管理&备赛备考/期末/2025-2026上.md",
     "folder": "项目管理&备赛备考/期末",
     "folders": [
@@ -4748,9 +5748,11 @@
     ]
   },
   {
-    "id": 380,
+    "id": 386,
     "title": "未命名",
     "tags": [],
+    "aliases": [],
+    "basename": "未命名",
     "file": "项目管理&备赛备考/期末/鸿蒙/未命名.md",
     "folder": "项目管理&备赛备考/期末/鸿蒙",
     "folders": [
@@ -4760,9 +5762,11 @@
     ]
   },
   {
-    "id": 381,
+    "id": 387,
     "title": "以赛代考",
     "tags": [],
+    "aliases": [],
+    "basename": "以赛代考",
     "file": "项目管理&备赛备考/期末/鸿蒙/以赛代考.md",
     "folder": "项目管理&备赛备考/期末/鸿蒙",
     "folders": [
@@ -4772,9 +5776,11 @@
     ]
   },
   {
-    "id": 382,
+    "id": 388,
     "title": "共同封闭&共同重用",
     "tags": [],
+    "aliases": [],
+    "basename": "共同封闭&共同重用",
     "file": "项目管理&备赛备考/软考/共同封闭&共同重用.md",
     "folder": "项目管理&备赛备考/软考",
     "folders": [
@@ -4783,9 +5789,13 @@
     ]
   },
   {
-    "id": 383,
+    "id": 389,
     "title": "哈夫曼树",
     "tags": [],
+    "aliases": [
+      "最优二叉树"
+    ],
+    "basename": "哈夫曼树",
     "file": "项目管理&备赛备考/软考/哈夫曼树.md",
     "folder": "项目管理&备赛备考/软考",
     "folders": [
@@ -4794,9 +5804,11 @@
     ]
   },
   {
-    "id": 384,
+    "id": 390,
     "title": "码距",
     "tags": [],
+    "aliases": [],
+    "basename": "码距",
     "file": "项目管理&备赛备考/软考/计算机基础/码距.md",
     "folder": "项目管理&备赛备考/软考/计算机基础",
     "folders": [
@@ -4806,9 +5818,11 @@
     ]
   },
   {
-    "id": 385,
+    "id": 391,
     "title": "数据表示",
     "tags": [],
+    "aliases": [],
+    "basename": "数据表示",
     "file": "项目管理&备赛备考/软考/计算机基础/数据表示.md",
     "folder": "项目管理&备赛备考/软考/计算机基础",
     "folders": [
@@ -4818,9 +5832,11 @@
     ]
   },
   {
-    "id": 386,
+    "id": 392,
     "title": "校验码",
     "tags": [],
+    "aliases": [],
+    "basename": "校验码",
     "file": "项目管理&备赛备考/软考/计算机基础/校验码.md",
     "folder": "项目管理&备赛备考/软考/计算机基础",
     "folders": [
@@ -4830,9 +5846,11 @@
     ]
   },
   {
-    "id": 387,
+    "id": 393,
     "title": "中央处理单元",
     "tags": [],
+    "aliases": [],
+    "basename": "中央处理单元",
     "file": "项目管理&备赛备考/软考/计算机基础/中央处理单元.md",
     "folder": "项目管理&备赛备考/软考/计算机基础",
     "folders": [
@@ -4842,9 +5860,11 @@
     ]
   },
   {
-    "id": 388,
+    "id": 394,
     "title": "耦合与内聚",
     "tags": [],
+    "aliases": [],
+    "basename": "耦合与内聚",
     "file": "项目管理&备赛备考/软考/耦合与内聚.md",
     "folder": "项目管理&备赛备考/软考",
     "folders": [
@@ -4853,9 +5873,11 @@
     ]
   },
   {
-    "id": 389,
+    "id": 395,
     "title": "白盒测试",
     "tags": [],
+    "aliases": [],
+    "basename": "白盒测试",
     "file": "项目管理&备赛备考/软考/软件工程/白盒测试.md",
     "folder": "项目管理&备赛备考/软考/软件工程",
     "folders": [
@@ -4865,9 +5887,11 @@
     ]
   },
   {
-    "id": 390,
+    "id": 396,
     "title": "过程模型",
     "tags": [],
+    "aliases": [],
+    "basename": "过程模型",
     "file": "项目管理&备赛备考/软考/软件工程/过程模型.md",
     "folder": "项目管理&备赛备考/软考/软件工程",
     "folders": [
@@ -4877,9 +5901,11 @@
     ]
   },
   {
-    "id": 391,
+    "id": 397,
     "title": "文法",
     "tags": [],
+    "aliases": [],
+    "basename": "文法",
     "file": "项目管理&备赛备考/软考/文法.md",
     "folder": "项目管理&备赛备考/软考",
     "folders": [
@@ -4888,9 +5914,11 @@
     ]
   },
   {
-    "id": 392,
+    "id": 398,
     "title": "程序流程图",
     "tags": [],
+    "aliases": [],
+    "basename": "程序流程图",
     "file": "项目管理&备赛备考/软考/下午题/程序流程图.md",
     "folder": "项目管理&备赛备考/软考/下午题",
     "folders": [
@@ -4900,9 +5928,11 @@
     ]
   },
   {
-    "id": 393,
+    "id": 399,
     "title": "面向对象程序设计",
     "tags": [],
+    "aliases": [],
+    "basename": "面向对象程序设计",
     "file": "项目管理&备赛备考/软考/下午题/面向对象程序设计.md",
     "folder": "项目管理&备赛备考/软考/下午题",
     "folders": [
@@ -4912,9 +5942,11 @@
     ]
   },
   {
-    "id": 394,
+    "id": 400,
     "title": "数据库设计基础知识",
     "tags": [],
+    "aliases": [],
+    "basename": "数据库设计基础知识",
     "file": "项目管理&备赛备考/软考/下午题/数据库设计基础知识.md",
     "folder": "项目管理&备赛备考/软考/下午题",
     "folders": [
@@ -4924,9 +5956,11 @@
     ]
   },
   {
-    "id": 395,
+    "id": 401,
     "title": "数据流图DFD",
     "tags": [],
+    "aliases": [],
+    "basename": "数据流图DFD",
     "file": "项目管理&备赛备考/软考/下午题/数据流图DFD.md",
     "folder": "项目管理&备赛备考/软考/下午题",
     "folders": [
@@ -4936,9 +5970,11 @@
     ]
   },
   {
-    "id": 396,
+    "id": 402,
     "title": "算法设计",
     "tags": [],
+    "aliases": [],
+    "basename": "算法设计",
     "file": "项目管理&备赛备考/软考/下午题/算法设计.md",
     "folder": "项目管理&备赛备考/软考/下午题",
     "folders": [
@@ -4948,9 +5984,11 @@
     ]
   },
   {
-    "id": 397,
+    "id": 403,
     "title": "UML基础知识",
     "tags": [],
+    "aliases": [],
+    "basename": "UML基础知识",
     "file": "项目管理&备赛备考/软考/下午题/UML基础知识.md",
     "folder": "项目管理&备赛备考/软考/下午题",
     "folders": [
@@ -4960,9 +5998,11 @@
     ]
   },
   {
-    "id": 398,
+    "id": 404,
     "title": "层次分析法",
     "tags": [],
+    "aliases": [],
+    "basename": "层次分析法",
     "file": "项目管理&备赛备考/数学建模/层次分析法.md",
     "folder": "项目管理&备赛备考/数学建模",
     "folders": [
@@ -4971,9 +6011,11 @@
     ]
   },
   {
-    "id": 399,
+    "id": 405,
     "title": "模糊综合评价",
     "tags": [],
+    "aliases": [],
+    "basename": "模糊综合评价",
     "file": "项目管理&备赛备考/数学建模/模糊综合评价.md",
     "folder": "项目管理&备赛备考/数学建模",
     "folders": [
@@ -4982,9 +6024,11 @@
     ]
   },
   {
-    "id": 400,
+    "id": 406,
     "title": "线性规划",
     "tags": [],
+    "aliases": [],
+    "basename": "线性规划",
     "file": "项目管理&备赛备考/数学建模/线性规划.md",
     "folder": "项目管理&备赛备考/数学建模",
     "folders": [
@@ -4993,9 +6037,11 @@
     ]
   },
   {
-    "id": 401,
+    "id": 407,
     "title": "2025.12.15",
     "tags": [],
+    "aliases": [],
+    "basename": "2025.12.15",
     "file": "英语/2025.12.15.md",
     "folder": "英语",
     "folders": [
@@ -5003,9 +6049,11 @@
     ]
   },
   {
-    "id": 402,
+    "id": 408,
     "title": "2025.12.16",
     "tags": [],
+    "aliases": [],
+    "basename": "2025.12.16",
     "file": "英语/2025.12.16.md",
     "folder": "英语",
     "folders": [
@@ -5013,9 +6061,11 @@
     ]
   },
   {
-    "id": 403,
+    "id": 409,
     "title": "2025.12.18",
     "tags": [],
+    "aliases": [],
+    "basename": "2025.12.18",
     "file": "英语/2025.12.18.md",
     "folder": "英语",
     "folders": [
@@ -5023,9 +6073,11 @@
     ]
   },
   {
-    "id": 404,
+    "id": 410,
     "title": "外刊地址汇总",
     "tags": [],
+    "aliases": [],
+    "basename": "外刊地址汇总",
     "file": "英语/外刊地址汇总.md",
     "folder": "英语",
     "folders": [
@@ -5033,9 +6085,11 @@
     ]
   },
   {
-    "id": 405,
+    "id": 411,
     "title": "A single DNS race condition brought AWS to its knees",
     "tags": [],
+    "aliases": [],
+    "basename": "A single DNS race condition brought AWS to its knees",
     "file": "英语/A single DNS race condition brought AWS to its knees.md",
     "folder": "英语",
     "folders": [
@@ -5043,9 +6097,11 @@
     ]
   },
   {
-    "id": 406,
+    "id": 412,
     "title": "变量与数据类型",
     "tags": [],
+    "aliases": [],
+    "basename": "变量与数据类型",
     "file": "语法/ArkTs/基础语法/变量与数据类型.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5055,9 +6111,11 @@
     ]
   },
   {
-    "id": 407,
+    "id": 413,
     "title": "泛型",
     "tags": [],
+    "aliases": [],
+    "basename": "泛型",
     "file": "语法/ArkTs/基础语法/泛型.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5067,9 +6125,11 @@
     ]
   },
   {
-    "id": 408,
+    "id": 414,
     "title": "封装，继承，多态",
     "tags": [],
+    "aliases": [],
+    "basename": "封装，继承，多态",
     "file": "语法/ArkTs/基础语法/封装，继承，多态.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5079,9 +6139,11 @@
     ]
   },
   {
-    "id": 409,
+    "id": 415,
     "title": "函数",
     "tags": [],
+    "aliases": [],
+    "basename": "函数",
     "file": "语法/ArkTs/基础语法/函数.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5091,9 +6153,11 @@
     ]
   },
   {
-    "id": 410,
+    "id": 416,
     "title": "接口",
     "tags": [],
+    "aliases": [],
+    "basename": "接口",
     "file": "语法/ArkTs/基础语法/接口.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5103,9 +6167,11 @@
     ]
   },
   {
-    "id": 411,
+    "id": 417,
     "title": "类",
     "tags": [],
+    "aliases": [],
+    "basename": "类",
     "file": "语法/ArkTs/基础语法/类.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5115,9 +6181,11 @@
     ]
   },
   {
-    "id": 412,
+    "id": 418,
     "title": "异常处理",
     "tags": [],
+    "aliases": [],
+    "basename": "异常处理",
     "file": "语法/ArkTs/基础语法/异常处理.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5127,9 +6195,11 @@
     ]
   },
   {
-    "id": 413,
+    "id": 419,
     "title": "lambda表达式",
     "tags": [],
+    "aliases": [],
+    "basename": "lambda表达式",
     "file": "语法/ArkTs/基础语法/lambda表达式.md",
     "folder": "语法/ArkTs/基础语法",
     "folders": [
@@ -5139,9 +6209,11 @@
     ]
   },
   {
-    "id": 414,
+    "id": 420,
     "title": "考点复习",
     "tags": [],
+    "aliases": [],
+    "basename": "考点复习",
     "file": "语法/ArkTs/考点复习.md",
     "folder": "语法/ArkTs",
     "folders": [
@@ -5150,9 +6222,11 @@
     ]
   },
   {
-    "id": 415,
+    "id": 421,
     "title": "属性动画 & 显示动画",
     "tags": [],
+    "aliases": [],
+    "basename": "属性动画 & 显示动画",
     "file": "语法/ArkTs/前端部分/动画与特效/属性动画 & 显示动画.md",
     "folder": "语法/ArkTs/前端部分/动画与特效",
     "folders": [
@@ -5163,9 +6237,11 @@
     ]
   },
   {
-    "id": 416,
+    "id": 422,
     "title": "Canvas对象",
     "tags": [],
+    "aliases": [],
+    "basename": "Canvas对象",
     "file": "语法/ArkTs/前端部分/动画与特效/Canvas对象.md",
     "folder": "语法/ArkTs/前端部分/动画与特效",
     "folders": [
@@ -5176,9 +6252,11 @@
     ]
   },
   {
-    "id": 417,
+    "id": 423,
     "title": "创建网格 (Grid & GridItem)",
     "tags": [],
+    "aliases": [],
+    "basename": "创建网格 (Grid & GridItem)",
     "file": "语法/ArkTs/前端部分/开发布局/创建网格 (Grid & GridItem).md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5189,9 +6267,11 @@
     ]
   },
   {
-    "id": 418,
+    "id": 424,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "语法/ArkTs/前端部分/开发布局/基本概念.md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5202,9 +6282,11 @@
     ]
   },
   {
-    "id": 419,
+    "id": 425,
     "title": "页面路由 (@ohos.router)(不推荐)",
     "tags": [],
+    "aliases": [],
+    "basename": "页面路由 (@ohos.router)(不推荐)",
     "file": "语法/ArkTs/前端部分/开发布局/路由/页面路由 (@ohos.router)(不推荐).md",
     "folder": "语法/ArkTs/前端部分/开发布局/路由",
     "folders": [
@@ -5216,9 +6298,11 @@
     ]
   },
   {
-    "id": 420,
+    "id": 426,
     "title": "轮播 Swiper",
     "tags": [],
+    "aliases": [],
+    "basename": "轮播 Swiper",
     "file": "语法/ArkTs/前端部分/开发布局/轮播 Swiper.md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5229,9 +6313,11 @@
     ]
   },
   {
-    "id": 421,
+    "id": 427,
     "title": "媒体查询 (@ohos.mediaquery)",
     "tags": [],
+    "aliases": [],
+    "basename": "媒体查询 (@ohos.mediaquery)",
     "file": "语法/ArkTs/前端部分/开发布局/媒体查询 (@ohos.mediaquery).md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5242,9 +6328,11 @@
     ]
   },
   {
-    "id": 422,
+    "id": 428,
     "title": "条件渲染",
     "tags": [],
+    "aliases": [],
+    "basename": "条件渲染",
     "file": "语法/ArkTs/前端部分/开发布局/渲染方式/条件渲染.md",
     "folder": "语法/ArkTs/前端部分/开发布局/渲染方式",
     "folders": [
@@ -5256,9 +6344,11 @@
     ]
   },
   {
-    "id": 423,
+    "id": 429,
     "title": "ForEach",
     "tags": [],
+    "aliases": [],
+    "basename": "ForEach",
     "file": "语法/ArkTs/前端部分/开发布局/渲染方式/渲染循环/ForEach.md",
     "folder": "语法/ArkTs/前端部分/开发布局/渲染方式/渲染循环",
     "folders": [
@@ -5271,9 +6361,11 @@
     ]
   },
   {
-    "id": 424,
+    "id": 430,
     "title": "LazyForEach",
     "tags": [],
+    "aliases": [],
+    "basename": "LazyForEach",
     "file": "语法/ArkTs/前端部分/开发布局/渲染方式/渲染循环/LazyForEach.md",
     "folder": "语法/ArkTs/前端部分/开发布局/渲染方式/渲染循环",
     "folders": [
@@ -5286,9 +6378,11 @@
     ]
   },
   {
-    "id": 425,
+    "id": 431,
     "title": "GridRow & GridCol",
     "tags": [],
+    "aliases": [],
+    "basename": "GridRow & GridCol",
     "file": "语法/ArkTs/前端部分/开发布局/GridRow & GridCol.md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5299,9 +6393,11 @@
     ]
   },
   {
-    "id": 426,
+    "id": 432,
     "title": "list列表",
     "tags": [],
+    "aliases": [],
+    "basename": "list列表",
     "file": "语法/ArkTs/前端部分/开发布局/list列表.md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5312,9 +6408,11 @@
     ]
   },
   {
-    "id": 427,
+    "id": 433,
     "title": "Row & Column",
     "tags": [],
+    "aliases": [],
+    "basename": "Row & Column",
     "file": "语法/ArkTs/前端部分/开发布局/Row & Column.md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5325,9 +6423,11 @@
     ]
   },
   {
-    "id": 428,
+    "id": 434,
     "title": "Stack",
     "tags": [],
+    "aliases": [],
+    "basename": "Stack",
     "file": "语法/ArkTs/前端部分/开发布局/Stack.md",
     "folder": "语法/ArkTs/前端部分/开发布局",
     "folders": [
@@ -5338,9 +6438,11 @@
     ]
   },
   {
-    "id": 429,
+    "id": 435,
     "title": "多组件协作",
     "tags": [],
+    "aliases": [],
+    "basename": "多组件协作",
     "file": "语法/ArkTs/前端部分/应用结构/多组件协作.md",
     "folder": "语法/ArkTs/前端部分/应用结构",
     "folders": [
@@ -5351,9 +6453,11 @@
     ]
   },
   {
-    "id": 430,
+    "id": 436,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "语法/ArkTs/前端部分/应用结构/基本概念.md",
     "folder": "语法/ArkTs/前端部分/应用结构",
     "folders": [
@@ -5364,9 +6468,11 @@
     ]
   },
   {
-    "id": 431,
+    "id": 437,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "语法/ArkTs/前端部分/装饰器/基本概念.md",
     "folder": "语法/ArkTs/前端部分/装饰器",
     "folders": [
@@ -5377,9 +6483,11 @@
     ]
   },
   {
-    "id": 432,
+    "id": 438,
     "title": "AppStorage",
     "tags": [],
+    "aliases": [],
+    "basename": "AppStorage",
     "file": "语法/ArkTs/前端部分/装饰器/应用级/AppStorage.md",
     "folder": "语法/ArkTs/前端部分/装饰器/应用级",
     "folders": [
@@ -5391,9 +6499,11 @@
     ]
   },
   {
-    "id": 433,
+    "id": 439,
     "title": "@Link",
     "tags": [],
+    "aliases": [],
+    "basename": "@Link",
     "file": "语法/ArkTs/前端部分/装饰器/组件级/@Link.md",
     "folder": "语法/ArkTs/前端部分/装饰器/组件级",
     "folders": [
@@ -5405,9 +6515,11 @@
     ]
   },
   {
-    "id": 434,
+    "id": 440,
     "title": "@ObjectLink+@Observed",
     "tags": [],
+    "aliases": [],
+    "basename": "@ObjectLink+@Observed",
     "file": "语法/ArkTs/前端部分/装饰器/组件级/@ObjectLink+@Observed.md",
     "folder": "语法/ArkTs/前端部分/装饰器/组件级",
     "folders": [
@@ -5419,9 +6531,11 @@
     ]
   },
   {
-    "id": 435,
+    "id": 441,
     "title": "@Prop",
     "tags": [],
+    "aliases": [],
+    "basename": "@Prop",
     "file": "语法/ArkTs/前端部分/装饰器/组件级/@Prop.md",
     "folder": "语法/ArkTs/前端部分/装饰器/组件级",
     "folders": [
@@ -5433,9 +6547,11 @@
     ]
   },
   {
-    "id": 436,
+    "id": 442,
     "title": "@Provide+@Consume",
     "tags": [],
+    "aliases": [],
+    "basename": "@Provide+@Consume",
     "file": "语法/ArkTs/前端部分/装饰器/组件级/@Provide+@Consume.md",
     "folder": "语法/ArkTs/前端部分/装饰器/组件级",
     "folders": [
@@ -5447,9 +6563,11 @@
     ]
   },
   {
-    "id": 437,
+    "id": 443,
     "title": "@State",
     "tags": [],
+    "aliases": [],
+    "basename": "@State",
     "file": "语法/ArkTs/前端部分/装饰器/组件级/@State.md",
     "folder": "语法/ArkTs/前端部分/装饰器/组件级",
     "folders": [
@@ -5461,9 +6579,11 @@
     ]
   },
   {
-    "id": 438,
+    "id": 444,
     "title": "@Watch",
     "tags": [],
+    "aliases": [],
+    "basename": "@Watch",
     "file": "语法/ArkTs/前端部分/装饰器/组件级/@Watch.md",
     "folder": "语法/ArkTs/前端部分/装饰器/组件级",
     "folders": [
@@ -5475,9 +6595,11 @@
     ]
   },
   {
-    "id": 439,
+    "id": 445,
     "title": "Tabs",
     "tags": [],
+    "aliases": [],
+    "basename": "Tabs",
     "file": "语法/ArkTs/前端部分/组件/Tabs.md",
     "folder": "语法/ArkTs/前端部分/组件",
     "folders": [
@@ -5488,9 +6610,11 @@
     ]
   },
   {
-    "id": 440,
+    "id": 446,
     "title": "键值型数据库",
     "tags": [],
+    "aliases": [],
+    "basename": "键值型数据库",
     "file": "语法/ArkTs/数据库/键值型数据库.md",
     "folder": "语法/ArkTs/数据库",
     "folders": [
@@ -5500,9 +6624,11 @@
     ]
   },
   {
-    "id": 441,
+    "id": 447,
     "title": "抽象类与虚拟函数",
     "tags": [],
+    "aliases": [],
+    "basename": "抽象类与虚拟函数",
     "file": "语法/cpp/抽象类与虚拟函数.md",
     "folder": "语法/cpp",
     "folders": [
@@ -5511,9 +6637,11 @@
     ]
   },
   {
-    "id": 442,
+    "id": 448,
     "title": "初始化列表（Initialization List）",
     "tags": [],
+    "aliases": [],
+    "basename": "初始化列表（Initialization List）",
     "file": "语法/cpp/初始化列表（Initialization List）.md",
     "folder": "语法/cpp",
     "folders": [
@@ -5522,9 +6650,11 @@
     ]
   },
   {
-    "id": 443,
+    "id": 449,
     "title": "operator 运算符重载",
     "tags": [],
+    "aliases": [],
+    "basename": "operator 运算符重载",
     "file": "语法/cpp/operator 运算符重载.md",
     "folder": "语法/cpp",
     "folders": [
@@ -5533,9 +6663,11 @@
     ]
   },
   {
-    "id": 444,
+    "id": 450,
     "title": "包",
     "tags": [],
+    "aliases": [],
+    "basename": "包",
     "file": "语法/Java/包.md",
     "folder": "语法/Java",
     "folders": [
@@ -5544,9 +6676,14 @@
     ]
   },
   {
-    "id": 445,
+    "id": 451,
     "title": "大数",
     "tags": [],
+    "aliases": [
+      "BigInterger",
+      "BigDecimal"
+    ],
+    "basename": "大数",
     "file": "语法/Java/大数.md",
     "folder": "语法/Java",
     "folders": [
@@ -5555,9 +6692,11 @@
     ]
   },
   {
-    "id": 446,
+    "id": 452,
     "title": "反射",
     "tags": [],
+    "aliases": [],
+    "basename": "反射",
     "file": "语法/Java/反射.md",
     "folder": "语法/Java",
     "folders": [
@@ -5566,9 +6705,11 @@
     ]
   },
   {
-    "id": 447,
+    "id": 453,
     "title": "泛型",
     "tags": [],
+    "aliases": [],
+    "basename": "泛型",
     "file": "语法/Java/泛型.md",
     "folder": "语法/Java",
     "folders": [
@@ -5577,9 +6718,13 @@
     ]
   },
   {
-    "id": 448,
+    "id": 454,
     "title": "泛型数组列表ArrayList",
     "tags": [],
+    "aliases": [
+      "ArrayList"
+    ],
+    "basename": "泛型数组列表ArrayList",
     "file": "语法/Java/泛型数组列表ArrayList.md",
     "folder": "语法/Java",
     "folders": [
@@ -5588,9 +6733,11 @@
     ]
   },
   {
-    "id": 449,
+    "id": 455,
     "title": "服务加载器",
     "tags": [],
+    "aliases": [],
+    "basename": "服务加载器",
     "file": "语法/Java/服务加载器.md",
     "folder": "语法/Java",
     "folders": [
@@ -5599,9 +6746,11 @@
     ]
   },
   {
-    "id": 450,
+    "id": 456,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "语法/Java/基本概念.md",
     "folder": "语法/Java",
     "folders": [
@@ -5610,9 +6759,11 @@
     ]
   },
   {
-    "id": 451,
+    "id": 457,
     "title": "基础语法",
     "tags": [],
+    "aliases": [],
+    "basename": "基础语法",
     "file": "语法/Java/基础语法.md",
     "folder": "语法/Java",
     "folders": [
@@ -5621,9 +6772,14 @@
     ]
   },
   {
-    "id": 452,
+    "id": 458,
     "title": "抽象类（abstract）",
     "tags": [],
+    "aliases": [
+      "抽象类",
+      "abstract"
+    ],
+    "basename": "抽象类（abstract）",
     "file": "语法/Java/类&接口/抽象类（abstract）.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5633,9 +6789,13 @@
     ]
   },
   {
-    "id": 453,
+    "id": 459,
     "title": "对象包装器与自动装箱",
     "tags": [],
+    "aliases": [
+      "对象包装器"
+    ],
+    "basename": "对象包装器与自动装箱",
     "file": "语法/Java/类&接口/对象包装器与自动装箱.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5645,9 +6805,11 @@
     ]
   },
   {
-    "id": 454,
+    "id": 460,
     "title": "多态",
     "tags": [],
+    "aliases": [],
+    "basename": "多态",
     "file": "语法/Java/类&接口/多态.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5657,9 +6819,11 @@
     ]
   },
   {
-    "id": 455,
+    "id": 461,
     "title": "返回类型的兼容性",
     "tags": [],
+    "aliases": [],
+    "basename": "返回类型的兼容性",
     "file": "语法/Java/类&接口/返回类型的兼容性.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5669,9 +6833,13 @@
     ]
   },
   {
-    "id": 456,
+    "id": 462,
     "title": "访问说明符",
     "tags": [],
+    "aliases": [
+      "方法可见性"
+    ],
+    "basename": "访问说明符",
     "file": "语法/Java/类&接口/访问说明符.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5681,9 +6849,11 @@
     ]
   },
   {
-    "id": 457,
+    "id": 463,
     "title": "继承",
     "tags": [],
+    "aliases": [],
+    "basename": "继承",
     "file": "语法/Java/类&接口/继承.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5693,9 +6863,11 @@
     ]
   },
   {
-    "id": 458,
+    "id": 464,
     "title": "接口",
     "tags": [],
+    "aliases": [],
+    "basename": "接口",
     "file": "语法/Java/类&接口/接口.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5705,9 +6877,11 @@
     ]
   },
   {
-    "id": 459,
+    "id": 465,
     "title": "类的受保护访问",
     "tags": [],
+    "aliases": [],
+    "basename": "类的受保护访问",
     "file": "语法/Java/类&接口/类的受保护访问.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5717,9 +6891,16 @@
     ]
   },
   {
-    "id": 460,
+    "id": 466,
     "title": "类与对象",
     "tags": [],
+    "aliases": [
+      "final",
+      "var",
+      "static",
+      "main"
+    ],
+    "basename": "类与对象",
     "file": "语法/Java/类&接口/类与对象.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5729,9 +6910,13 @@
     ]
   },
   {
-    "id": 461,
+    "id": 467,
     "title": "枚举类",
     "tags": [],
+    "aliases": [
+      "enum"
+    ],
+    "basename": "枚举类",
     "file": "语法/Java/类&接口/枚举类.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5741,9 +6926,11 @@
     ]
   },
   {
-    "id": 462,
+    "id": 468,
     "title": "内部类",
     "tags": [],
+    "aliases": [],
+    "basename": "内部类",
     "file": "语法/Java/类&接口/语法糖缩写/内部类.md",
     "folder": "语法/Java/类&接口/语法糖缩写",
     "folders": [
@@ -5754,9 +6941,11 @@
     ]
   },
   {
-    "id": 463,
+    "id": 469,
     "title": "lambda表达式",
     "tags": [],
+    "aliases": [],
+    "basename": "lambda表达式",
     "file": "语法/Java/类&接口/语法糖缩写/lambda表达式.md",
     "folder": "语法/Java/类&接口/语法糖缩写",
     "folders": [
@@ -5767,9 +6956,11 @@
     ]
   },
   {
-    "id": 464,
+    "id": 470,
     "title": "Final类和方法",
     "tags": [],
+    "aliases": [],
+    "basename": "Final类和方法",
     "file": "语法/Java/类&接口/Final类和方法.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5779,9 +6970,11 @@
     ]
   },
   {
-    "id": 465,
+    "id": 471,
     "title": "instanceof",
     "tags": [],
+    "aliases": [],
+    "basename": "instanceof",
     "file": "语法/Java/类&接口/instanceof.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5791,9 +6984,11 @@
     ]
   },
   {
-    "id": 466,
+    "id": 472,
     "title": "Object",
     "tags": [],
+    "aliases": [],
+    "basename": "Object",
     "file": "语法/Java/类&接口/Object.md",
     "folder": "语法/Java/类&接口",
     "folders": [
@@ -5803,9 +6998,13 @@
     ]
   },
   {
-    "id": 467,
+    "id": 473,
     "title": "内联（inlining）",
     "tags": [],
+    "aliases": [
+      "inline"
+    ],
+    "basename": "内联（inlining）",
     "file": "语法/Java/内联（inlining）.md",
     "folder": "语法/Java",
     "folders": [
@@ -5814,9 +7013,13 @@
     ]
   },
   {
-    "id": 468,
+    "id": 474,
     "title": "强制类型转换",
     "tags": [],
+    "aliases": [
+      "instanceof"
+    ],
+    "basename": "强制类型转换",
     "file": "语法/Java/强制类型转换.md",
     "folder": "语法/Java",
     "folders": [
@@ -5825,9 +7028,11 @@
     ]
   },
   {
-    "id": 469,
+    "id": 475,
     "title": "数组",
     "tags": [],
+    "aliases": [],
+    "basename": "数组",
     "file": "语法/Java/数组.md",
     "folder": "语法/Java",
     "folders": [
@@ -5836,9 +7041,11 @@
     ]
   },
   {
-    "id": 470,
+    "id": 476,
     "title": "异常",
     "tags": [],
+    "aliases": [],
+    "basename": "异常",
     "file": "语法/Java/异常.md",
     "folder": "语法/Java",
     "folders": [
@@ -5847,9 +7054,11 @@
     ]
   },
   {
-    "id": 471,
+    "id": 477,
     "title": "与cpp语法上的核心区别",
     "tags": [],
+    "aliases": [],
+    "basename": "与cpp语法上的核心区别",
     "file": "语法/Java/与cpp语法上的核心区别.md",
     "folder": "语法/Java",
     "folders": [
@@ -5858,9 +7067,11 @@
     ]
   },
   {
-    "id": 472,
+    "id": 478,
     "title": "JShell",
     "tags": [],
+    "aliases": [],
+    "basename": "JShell",
     "file": "语法/Java/JShell.md",
     "folder": "语法/Java",
     "folders": [
@@ -5869,9 +7080,11 @@
     ]
   },
   {
-    "id": 473,
+    "id": 479,
     "title": "创建对象与解构赋值--JS基础",
     "tags": [],
+    "aliases": [],
+    "basename": "创建对象与解构赋值--JS基础",
     "file": "语法/JavaScript/创建对象与解构赋值--JS基础.md",
     "folder": "语法/JavaScript",
     "folders": [
@@ -5880,9 +7093,11 @@
     ]
   },
   {
-    "id": 474,
+    "id": 480,
     "title": "接收到了参数怎么从后端要数据（react）",
     "tags": [],
+    "aliases": [],
+    "basename": "接收到了参数怎么从后端要数据（react）",
     "file": "语法/JavaScript/接收到了参数怎么从后端要数据（react）.md",
     "folder": "语法/JavaScript",
     "folders": [
@@ -5891,9 +7106,11 @@
     ]
   },
   {
-    "id": 475,
+    "id": 481,
     "title": "fs文件系统模块",
     "tags": [],
+    "aliases": [],
+    "basename": "fs文件系统模块",
     "file": "语法/JavaScript/Node.js/fs文件系统模块.md",
     "folder": "语法/JavaScript/Node.js",
     "folders": [
@@ -5903,9 +7120,11 @@
     ]
   },
   {
-    "id": 476,
+    "id": 482,
     "title": "开发环境",
     "tags": [],
+    "aliases": [],
+    "basename": "开发环境",
     "file": "语法/JavaScript/React/开发环境.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -5915,9 +7134,11 @@
     ]
   },
   {
-    "id": 477,
+    "id": 483,
     "title": "评论案例",
     "tags": [],
+    "aliases": [],
+    "basename": "评论案例",
     "file": "语法/JavaScript/React/评论案例.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -5927,9 +7148,11 @@
     ]
   },
   {
-    "id": 478,
+    "id": 484,
     "title": "事件绑定与组件",
     "tags": [],
+    "aliases": [],
+    "basename": "事件绑定与组件",
     "file": "语法/JavaScript/React/事件绑定与组件.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -5939,9 +7162,11 @@
     ]
   },
   {
-    "id": 479,
+    "id": 485,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "语法/JavaScript/React/异步代码/基本概念.md",
     "folder": "语法/JavaScript/React/异步代码",
     "folders": [
@@ -5952,9 +7177,11 @@
     ]
   },
   {
-    "id": 480,
+    "id": 486,
     "title": "async",
     "tags": [],
+    "aliases": [],
+    "basename": "async",
     "file": "语法/JavaScript/React/异步代码/async.md",
     "folder": "语法/JavaScript/React/异步代码",
     "folders": [
@@ -5965,9 +7192,11 @@
     ]
   },
   {
-    "id": 481,
+    "id": 487,
     "title": "Promise对象",
     "tags": [],
+    "aliases": [],
+    "basename": "Promise对象",
     "file": "语法/JavaScript/React/异步代码/Promise对象.md",
     "folder": "语法/JavaScript/React/异步代码",
     "folders": [
@@ -5978,9 +7207,11 @@
     ]
   },
   {
-    "id": 482,
+    "id": 488,
     "title": "then",
     "tags": [],
+    "aliases": [],
+    "basename": "then",
     "file": "语法/JavaScript/React/异步代码/then.md",
     "folder": "语法/JavaScript/React/异步代码",
     "folders": [
@@ -5991,9 +7222,11 @@
     ]
   },
   {
-    "id": 483,
+    "id": 489,
     "title": "组件基础样式",
     "tags": [],
+    "aliases": [],
+    "basename": "组件基础样式",
     "file": "语法/JavaScript/React/组件基础样式.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -6003,9 +7236,11 @@
     ]
   },
   {
-    "id": 484,
+    "id": 490,
     "title": "组件通信",
     "tags": [],
+    "aliases": [],
+    "basename": "组件通信",
     "file": "语法/JavaScript/React/组件通信.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -6015,9 +7250,11 @@
     ]
   },
   {
-    "id": 485,
+    "id": 491,
     "title": "css的引入",
     "tags": [],
+    "aliases": [],
+    "basename": "css的引入",
     "file": "语法/JavaScript/React/css的引入.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -6027,9 +7264,11 @@
     ]
   },
   {
-    "id": 486,
+    "id": 492,
     "title": "JSX基础",
     "tags": [],
+    "aliases": [],
+    "basename": "JSX基础",
     "file": "语法/JavaScript/React/JSX基础.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -6039,9 +7278,11 @@
     ]
   },
   {
-    "id": 487,
+    "id": 493,
     "title": "基本概念",
     "tags": [],
+    "aliases": [],
+    "basename": "基本概念",
     "file": "语法/JavaScript/React/React Hook（钩子）/基本概念.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）",
     "folders": [
@@ -6052,9 +7293,11 @@
     ]
   },
   {
-    "id": 488,
+    "id": 494,
     "title": "自定义Hook函数",
     "tags": [],
+    "aliases": [],
+    "basename": "自定义Hook函数",
     "file": "语法/JavaScript/React/React Hook（钩子）/自定义Hook函数.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）",
     "folders": [
@@ -6065,9 +7308,11 @@
     ]
   },
   {
-    "id": 489,
+    "id": 495,
     "title": "async function getList()",
     "tags": [],
+    "aliases": [],
+    "basename": "async function getList()",
     "file": "语法/JavaScript/React/React Hook（钩子）/useEffect/async function getList().md",
     "folder": "语法/JavaScript/React/React Hook（钩子）/useEffect",
     "folders": [
@@ -6079,9 +7324,11 @@
     ]
   },
   {
-    "id": 490,
+    "id": 496,
     "title": "json与fetch(URL)",
     "tags": [],
+    "aliases": [],
+    "basename": "json与fetch(URL)",
     "file": "语法/JavaScript/React/React Hook（钩子）/useEffect/json与fetch(URL).md",
     "folder": "语法/JavaScript/React/React Hook（钩子）/useEffect",
     "folders": [
@@ -6093,9 +7340,11 @@
     ]
   },
   {
-    "id": 491,
+    "id": 497,
     "title": "show && Son",
     "tags": [],
+    "aliases": [],
+    "basename": "show && Son",
     "file": "语法/JavaScript/React/React Hook（钩子）/useEffect/show && Son.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）/useEffect",
     "folders": [
@@ -6107,9 +7356,11 @@
     ]
   },
   {
-    "id": 492,
+    "id": 498,
     "title": "useEffect",
     "tags": [],
+    "aliases": [],
+    "basename": "useEffect",
     "file": "语法/JavaScript/React/React Hook（钩子）/useEffect/useEffect.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）/useEffect",
     "folders": [
@@ -6121,9 +7372,11 @@
     ]
   },
   {
-    "id": 493,
+    "id": 499,
     "title": "useNavigate",
     "tags": [],
+    "aliases": [],
+    "basename": "useNavigate",
     "file": "语法/JavaScript/React/React Hook（钩子）/useNavigate.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）",
     "folders": [
@@ -6134,9 +7387,11 @@
     ]
   },
   {
-    "id": 494,
+    "id": 500,
     "title": "useRef - 获取DOM",
     "tags": [],
+    "aliases": [],
+    "basename": "useRef - 获取DOM",
     "file": "语法/JavaScript/React/React Hook（钩子）/useRef - 获取DOM.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）",
     "folders": [
@@ -6147,9 +7402,11 @@
     ]
   },
   {
-    "id": 495,
+    "id": 501,
     "title": "受控表单绑定",
     "tags": [],
+    "aliases": [],
+    "basename": "受控表单绑定",
     "file": "语法/JavaScript/React/React Hook（钩子）/useState/受控表单绑定.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）/useState",
     "folders": [
@@ -6161,9 +7418,11 @@
     ]
   },
   {
-    "id": 496,
+    "id": 502,
     "title": "useState",
     "tags": [],
+    "aliases": [],
+    "basename": "useState",
     "file": "语法/JavaScript/React/React Hook（钩子）/useState/useState.md",
     "folder": "语法/JavaScript/React/React Hook（钩子）/useState",
     "folders": [
@@ -6175,9 +7434,11 @@
     ]
   },
   {
-    "id": 497,
+    "id": 503,
     "title": "Redux",
     "tags": [],
+    "aliases": [],
+    "basename": "Redux",
     "file": "语法/JavaScript/React/Redux.md",
     "folder": "语法/JavaScript/React",
     "folders": [
@@ -6187,9 +7448,11 @@
     ]
   },
   {
-    "id": 498,
+    "id": 504,
     "title": "404路由",
     "tags": [],
+    "aliases": [],
+    "basename": "404路由",
     "file": "语法/JavaScript/React/Router/404路由.md",
     "folder": "语法/JavaScript/React/Router",
     "folders": [
@@ -6200,9 +7463,11 @@
     ]
   },
   {
-    "id": 499,
+    "id": 505,
     "title": "抽象路由模块",
     "tags": [],
+    "aliases": [],
+    "basename": "抽象路由模块",
     "file": "语法/JavaScript/React/Router/抽象路由模块.md",
     "folder": "语法/JavaScript/React/Router",
     "folders": [
@@ -6213,9 +7478,11 @@
     ]
   },
   {
-    "id": 500,
+    "id": 506,
     "title": "导航传参",
     "tags": [],
+    "aliases": [],
+    "basename": "导航传参",
     "file": "语法/JavaScript/React/Router/导航传参.md",
     "folder": "语法/JavaScript/React/Router",
     "folders": [
@@ -6226,9 +7493,11 @@
     ]
   },
   {
-    "id": 501,
+    "id": 507,
     "title": "两种路由模式",
     "tags": [],
+    "aliases": [],
+    "basename": "两种路由模式",
     "file": "语法/JavaScript/React/Router/两种路由模式.md",
     "folder": "语法/JavaScript/React/Router",
     "folders": [
@@ -6239,9 +7508,11 @@
     ]
   },
   {
-    "id": 502,
+    "id": 508,
     "title": "路由导航",
     "tags": [],
+    "aliases": [],
+    "basename": "路由导航",
     "file": "语法/JavaScript/React/Router/路由导航.md",
     "folder": "语法/JavaScript/React/Router",
     "folders": [
@@ -6252,9 +7523,11 @@
     ]
   },
   {
-    "id": 503,
+    "id": 509,
     "title": "嵌套路由配置",
     "tags": [],
+    "aliases": [],
+    "basename": "嵌套路由配置",
     "file": "语法/JavaScript/React/Router/嵌套路由配置.md",
     "folder": "语法/JavaScript/React/Router",
     "folders": [
@@ -6265,9 +7538,11 @@
     ]
   },
   {
-    "id": 504,
+    "id": 510,
     "title": "标题编号",
     "tags": [],
+    "aliases": [],
+    "basename": "标题编号",
     "file": "语法/Markdown/标题编号.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6276,9 +7551,11 @@
     ]
   },
   {
-    "id": 505,
+    "id": 511,
     "title": "标题语法",
     "tags": [],
+    "aliases": [],
+    "basename": "标题语法",
     "file": "语法/Markdown/标题语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6287,9 +7564,11 @@
     ]
   },
   {
-    "id": 506,
+    "id": 512,
     "title": "表格",
     "tags": [],
+    "aliases": [],
+    "basename": "表格",
     "file": "语法/Markdown/表格.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6298,9 +7577,11 @@
     ]
   },
   {
-    "id": 507,
+    "id": 513,
     "title": "代码语法",
     "tags": [],
+    "aliases": [],
+    "basename": "代码语法",
     "file": "语法/Markdown/代码语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6309,9 +7590,11 @@
     ]
   },
   {
-    "id": 508,
+    "id": 514,
     "title": "定义列表",
     "tags": [],
+    "aliases": [],
+    "basename": "定义列表",
     "file": "语法/Markdown/定义列表.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6320,9 +7603,11 @@
     ]
   },
   {
-    "id": 509,
+    "id": 515,
     "title": "段落",
     "tags": [],
+    "aliases": [],
+    "basename": "段落",
     "file": "语法/Markdown/段落.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6331,9 +7616,11 @@
     ]
   },
   {
-    "id": 510,
+    "id": 516,
     "title": "分隔线语法",
     "tags": [],
+    "aliases": [],
+    "basename": "分隔线语法",
     "file": "语法/Markdown/分隔线语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6342,9 +7629,11 @@
     ]
   },
   {
-    "id": 511,
+    "id": 517,
     "title": "换行语法",
     "tags": [],
+    "aliases": [],
+    "basename": "换行语法",
     "file": "语法/Markdown/换行语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6353,9 +7642,11 @@
     ]
   },
   {
-    "id": 512,
+    "id": 518,
     "title": "脚注",
     "tags": [],
+    "aliases": [],
+    "basename": "脚注",
     "file": "语法/Markdown/脚注.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6364,9 +7655,11 @@
     ]
   },
   {
-    "id": 513,
+    "id": 519,
     "title": "链接语法",
     "tags": [],
+    "aliases": [],
+    "basename": "链接语法",
     "file": "语法/Markdown/链接语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6375,9 +7668,11 @@
     ]
   },
   {
-    "id": 514,
+    "id": 520,
     "title": "列表语法",
     "tags": [],
+    "aliases": [],
+    "basename": "列表语法",
     "file": "语法/Markdown/列表语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6386,9 +7681,11 @@
     ]
   },
   {
-    "id": 515,
+    "id": 521,
     "title": "内嵌 HTML 标签",
     "tags": [],
+    "aliases": [],
+    "basename": "内嵌 HTML 标签",
     "file": "语法/Markdown/内嵌 HTML 标签.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6397,9 +7694,11 @@
     ]
   },
   {
-    "id": 516,
+    "id": 522,
     "title": "强调语法",
     "tags": [],
+    "aliases": [],
+    "basename": "强调语法",
     "file": "语法/Markdown/强调语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6408,9 +7707,11 @@
     ]
   },
   {
-    "id": 517,
+    "id": 523,
     "title": "任务列表语法",
     "tags": [],
+    "aliases": [],
+    "basename": "任务列表语法",
     "file": "语法/Markdown/任务列表语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6419,9 +7720,11 @@
     ]
   },
   {
-    "id": 518,
+    "id": 524,
     "title": "删除线",
     "tags": [],
+    "aliases": [],
+    "basename": "删除线",
     "file": "语法/Markdown/删除线.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6430,9 +7733,11 @@
     ]
   },
   {
-    "id": 519,
+    "id": 525,
     "title": "使用 Emoji 表情",
     "tags": [],
+    "aliases": [],
+    "basename": "使用 Emoji 表情",
     "file": "语法/Markdown/使用 Emoji 表情.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6441,9 +7746,11 @@
     ]
   },
   {
-    "id": 520,
+    "id": 526,
     "title": "图片语法",
     "tags": [],
+    "aliases": [],
+    "basename": "图片语法",
     "file": "语法/Markdown/图片语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6452,9 +7759,11 @@
     ]
   },
   {
-    "id": 521,
+    "id": 527,
     "title": "围栏代码块",
     "tags": [],
+    "aliases": [],
+    "basename": "围栏代码块",
     "file": "语法/Markdown/围栏代码块.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6463,9 +7772,11 @@
     ]
   },
   {
-    "id": 522,
+    "id": 528,
     "title": "引用语法",
     "tags": [],
+    "aliases": [],
+    "basename": "引用语法",
     "file": "语法/Markdown/引用语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6474,9 +7785,11 @@
     ]
   },
   {
-    "id": 523,
+    "id": 529,
     "title": "转义字符语法",
     "tags": [],
+    "aliases": [],
+    "basename": "转义字符语法",
     "file": "语法/Markdown/转义字符语法.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6485,9 +7798,11 @@
     ]
   },
   {
-    "id": 524,
+    "id": 530,
     "title": "自动网址链接",
     "tags": [],
+    "aliases": [],
+    "basename": "自动网址链接",
     "file": "语法/Markdown/自动网址链接.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6496,9 +7811,11 @@
     ]
   },
   {
-    "id": 525,
+    "id": 531,
     "title": "综述",
     "tags": [],
+    "aliases": [],
+    "basename": "综述",
     "file": "语法/Markdown/综述.md",
     "folder": "语法/Markdown",
     "folders": [
@@ -6507,9 +7824,11 @@
     ]
   },
   {
-    "id": 526,
+    "id": 532,
     "title": "基础语法",
     "tags": [],
+    "aliases": [],
+    "basename": "基础语法",
     "file": "语法/matlab/基础语法.md",
     "folder": "语法/matlab",
     "folders": [
@@ -6518,9 +7837,11 @@
     ]
   },
   {
-    "id": 527,
+    "id": 533,
     "title": "函数",
     "tags": [],
+    "aliases": [],
+    "basename": "函数",
     "file": "语法/python/基础语法/函数.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6530,9 +7851,11 @@
     ]
   },
   {
-    "id": 528,
+    "id": 534,
     "title": "集合",
     "tags": [],
+    "aliases": [],
+    "basename": "集合",
     "file": "语法/python/基础语法/集合.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6542,9 +7865,11 @@
     ]
   },
   {
-    "id": 529,
+    "id": 535,
     "title": "考点复习",
     "tags": [],
+    "aliases": [],
+    "basename": "考点复习",
     "file": "语法/python/基础语法/考点复习.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6554,9 +7879,11 @@
     ]
   },
   {
-    "id": 530,
+    "id": 536,
     "title": "jieba库",
     "tags": [],
+    "aliases": [],
+    "basename": "jieba库",
     "file": "语法/python/基础语法/库与模块/jieba库.md",
     "folder": "语法/python/基础语法/库与模块",
     "folders": [
@@ -6567,9 +7894,11 @@
     ]
   },
   {
-    "id": 531,
+    "id": 537,
     "title": "os模块",
     "tags": [],
+    "aliases": [],
+    "basename": "os模块",
     "file": "语法/python/基础语法/库与模块/os模块.md",
     "folder": "语法/python/基础语法/库与模块",
     "folders": [
@@ -6580,9 +7909,11 @@
     ]
   },
   {
-    "id": 532,
+    "id": 538,
     "title": "shutil模块",
     "tags": [],
+    "aliases": [],
+    "basename": "shutil模块",
     "file": "语法/python/基础语法/库与模块/shutil模块.md",
     "folder": "语法/python/基础语法/库与模块",
     "folders": [
@@ -6593,9 +7924,11 @@
     ]
   },
   {
-    "id": 533,
+    "id": 539,
     "title": "类",
     "tags": [],
+    "aliases": [],
+    "basename": "类",
     "file": "语法/python/基础语法/类.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6605,9 +7938,11 @@
     ]
   },
   {
-    "id": 534,
+    "id": 540,
     "title": "列表",
     "tags": [],
+    "aliases": [],
+    "basename": "列表",
     "file": "语法/python/基础语法/列表.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6617,9 +7952,11 @@
     ]
   },
   {
-    "id": 535,
+    "id": 541,
     "title": "通用序列",
     "tags": [],
+    "aliases": [],
+    "basename": "通用序列",
     "file": "语法/python/基础语法/通用序列.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6629,9 +7966,11 @@
     ]
   },
   {
-    "id": 536,
+    "id": 542,
     "title": "文件操作",
     "tags": [],
+    "aliases": [],
+    "basename": "文件操作",
     "file": "语法/python/基础语法/文件操作.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6641,9 +7980,11 @@
     ]
   },
   {
-    "id": 537,
+    "id": 543,
     "title": "异常处理",
     "tags": [],
+    "aliases": [],
+    "basename": "异常处理",
     "file": "语法/python/基础语法/异常处理.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6653,9 +7994,11 @@
     ]
   },
   {
-    "id": 538,
+    "id": 544,
     "title": "元组",
     "tags": [],
+    "aliases": [],
+    "basename": "元组",
     "file": "语法/python/基础语法/元组.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6665,9 +8008,11 @@
     ]
   },
   {
-    "id": 539,
+    "id": 545,
     "title": "杂",
     "tags": [],
+    "aliases": [],
+    "basename": "杂",
     "file": "语法/python/基础语法/杂.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6677,9 +8022,11 @@
     ]
   },
   {
-    "id": 540,
+    "id": 546,
     "title": "字典",
     "tags": [],
+    "aliases": [],
+    "basename": "字典",
     "file": "语法/python/基础语法/字典.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6689,9 +8036,11 @@
     ]
   },
   {
-    "id": 541,
+    "id": 547,
     "title": "字符串",
     "tags": [],
+    "aliases": [],
+    "basename": "字符串",
     "file": "语法/python/基础语法/字符串.md",
     "folder": "语法/python/基础语法",
     "folders": [
@@ -6701,9 +8050,11 @@
     ]
   },
   {
-    "id": 542,
+    "id": 548,
     "title": "表单",
     "tags": [],
+    "aliases": [],
+    "basename": "表单",
     "file": "语法/python/django/表单.md",
     "folder": "语法/python/django",
     "folders": [
@@ -6713,9 +8064,11 @@
     ]
   },
   {
-    "id": 543,
+    "id": 549,
     "title": "开发环境配置",
     "tags": [],
+    "aliases": [],
+    "basename": "开发环境配置",
     "file": "语法/python/django/开发环境配置.md",
     "folder": "语法/python/django",
     "folders": [
@@ -6725,9 +8078,11 @@
     ]
   },
   {
-    "id": 544,
+    "id": 550,
     "title": "startproject",
     "tags": [],
+    "aliases": [],
+    "basename": "startproject",
     "file": "语法/python/django/startproject.md",
     "folder": "语法/python/django",
     "folders": [
@@ -6737,9 +8092,11 @@
     ]
   },
   {
-    "id": 545,
+    "id": 551,
     "title": "venv基础用法",
     "tags": [],
+    "aliases": [],
+    "basename": "venv基础用法",
     "file": "语法/python/venv/venv基础用法.md",
     "folder": "语法/python/venv",
     "folders": [

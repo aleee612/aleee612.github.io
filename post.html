@@ -4,1271 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文章 - aleee</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Obsidian notes published as a reading-first blog.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- KaTeX CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-  <!-- KaTeX JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-  <!-- KaTeX auto-render -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-  <style>
-    :root { 
-      --apple-blue: #007aff; 
-      --glass-bg: rgba(255, 255, 255, 0.72); 
-      --glass-border: rgba(255, 255, 255, 0.5); 
-      --soft-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08); 
-      --bezier: cubic-bezier(0.23, 1, 0.32, 1); 
-    } 
- 
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; } 
-    
-    /* 壁纸轮播容器 */
-    .wallpaper-carousel { 
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -2; 
-    } 
-    .wallpaper-slide { 
-      position: absolute; inset: 0; background-size: cover; background-position: center; 
-      opacity: 0; transition: opacity 2.5s var(--bezier), transform 10s linear; 
-      transform: scale(1.1); 
-    } 
-    .wallpaper-slide.active { opacity: 1; transform: scale(1); } 
- 
-    body { 
-      margin: 0; padding: 0; height: 100vh; overflow: hidden; 
-      font-family: 'Inter', 'Noto Sans SC', sans-serif; 
-      color: #1d1d1f; background: #f5f5f7; 
-    }
-    
-    body::before { 
-      content: ''; position: fixed; inset: 0; 
-      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.15) 100%); 
-      backdrop-filter: blur(40px) saturate(200%); -webkit-backdrop-filter: blur(40px) saturate(200%); 
-      z-index: -1; 
-    }
-
-    /* 主容器 */
-    .main-container { 
-      height: 100vh; display: flex; flex-direction: column; 
-      padding: 1.5rem; max-width: 1000px; margin: 0 auto; width: 100%; 
-    }
-    
-    .content-scroll { 
-      flex: 1; overflow-y: auto; padding-right: 6px; 
-      scrollbar-width: none; 
-      scroll-behavior: smooth; 
-    } 
-    .content-scroll::-webkit-scrollbar { width: 0px; }
-
-    /* 苹果美学毛玻璃 */
-    .apple-glass { 
-      background: var(--glass-bg); 
-      backdrop-filter: blur(25px) saturate(180%); 
-      border: 1px solid var(--glass-border); 
-      border-radius: 2.5rem; 
-      box-shadow: var(--soft-shadow); 
-      transition: transform 0.4s var(--bezier), box-shadow 0.4s var(--bezier); 
-    } 
- 
-    .apple-glass-strong {
-      background: rgba(255, 255, 255, 0.85); 
-      border-radius: 999px; 
-      padding: 0.75rem 1.5rem; 
-      border: 1px solid rgba(255, 255, 255, 0.7); 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-    }
-    
-    /* 动效 */ 
-    @keyframes fadeInUp { 
-      from { opacity: 0; transform: translateY(20px); } 
-      to { opacity: 1; transform: translateY(0); } 
-    } 
-    
-    #postContent:not(.hidden) { 
-      animation: fadeInUp 0.8s var(--bezier); 
-    } 
- 
-    .hover-elastic { 
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    } 
-    .hover-elastic:hover { transform: scale(1.08); } 
-    .hover-elastic:active { transform: scale(0.95); }
-
-    /* 文章正文美化 */ 
-    .post-content { font-size: 1.05rem; line-height: 1.8; color: #3c3c43; } 
-    .post-content h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.5rem; color: #1d1d1f; } 
-    .post-content h2 { font-size: 1.6rem; font-weight: 700; margin: 2rem 0 1rem; border-left: 4px solid var(--apple-blue); padding-left: 1rem; }
-    
-    .post-content h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 1.25rem 0 0.75rem;
-      color: #2d3748;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px solid rgba(0, 122, 255, 0.15);
-    }
-    
-    .post-content h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0.75rem 0 0.5rem;
-      color: #5a6578;
-    }
-    
-    .post-content h5 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin: 0.6rem 0 0.4rem;
-      color: #6a7588;
-    }
-    
-    .post-content p {
-      margin: 0.75rem 0;
-    }
-    
-    .post-content ul, .post-content ol {
-      margin: 0.75rem 0;
-      padding-left: 1.5rem;
-    }
-    
-    .post-content li {
-      margin: 0.35rem 0;
-    }
-    
-    .post-content code {
-      background: rgba(0, 0, 0, 0.05);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Monaco', 'Menlo', monospace;
-      font-size: 0.9em;
-    }
-    
-    .post-content pre {
-      background: rgba(0, 0, 0, 0.05);
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-    
-    .post-content pre code {
-      background: none;
-      padding: 0;
-    }
-    
-    .post-content blockquote {
-      border-left: 4px solid rgba(0, 122, 255, 0.3);
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #4a5568;
-      font-style: italic;
-    }
-    
-    .post-content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-
-    /* Obsidian 风格的 Markdown 样式 */
-    
-    /* 表格样式 */
-    .post-content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.9rem;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-    
-    .post-content th,
-    .post-content td {
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 0.8rem 1rem;
-      text-align: left;
-    }
-    
-    .post-content th {
-      background: rgba(0, 122, 255, 0.08);
-      font-weight: 600;
-      color: #1a202c;
-      border-bottom: 2px solid rgba(0, 122, 255, 0.2);
-    }
-    
-    .post-content tr:nth-child(even) {
-      background: rgba(0, 0, 0, 0.02);
-    }
-    
-    .post-content tr:hover {
-      background: rgba(0, 122, 255, 0.03);
-    }
-    
-    /* 任务列表样式 */
-    .post-content .task-item {
-      display: flex;
-      align-items: flex-start;
-      margin: 0.5rem 0;
-      padding: 0.3rem 0;
-    }
-    
-    .post-content .task-item input[type="checkbox"] {
-      margin-right: 0.75rem;
-      margin-top: 0.2rem;
-      width: 1.1rem;
-      height: 1.1rem;
-      accent-color: #007aff;
-    }
-    
-    .post-content .task-item span {
-      flex: 1;
-      line-height: 1.5;
-    }
-    
-    /* 代码高亮样式 */
-    .post-content pre {
-      background: rgba(0, 0, 0, 0.03);
-      padding: 1.25rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    
-    .post-content code {
-      background: rgba(0, 0, 0, 0.05);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-      font-size: 0.85em;
-    }
-    
-    .post-content pre code {
-      background: none;
-      padding: 0;
-      font-size: inherit;
-    }
-    
-    /* 图片样式 */
-    .post-content .markdown-image {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* 分隔线样式 */
-    .post-content .markdown-divider {
-      border: none;
-      border-top: 2px solid rgba(0, 0, 0, 0.1);
-      margin: 2rem 0;
-      height: 0;
-    }
-    
-    /* 链接样式 */
-    .post-content .external-link {
-      color: #007aff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(0, 122, 255, 0.3);
-      transition: all 0.2s ease;
-    }
-    
-    .post-content .external-link:hover {
-      color: #0056cc;
-      border-bottom-color: #0056cc;
-    }
-    
-    /* 删除线样式 */
-    .post-content del {
-      color: #6b7280;
-      text-decoration: line-through;
-    }
-    
-    /* 列表样式增强 - Obsidian风格 */
-    .post-content ul, .post-content ol {
-      margin: 1.25rem 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    
-    .post-content ul {
-      counter-reset: ul-counter;
-    }
-    
-    .post-content ul > li {
-      position: relative;
-      padding-left: 1.75rem;
-      margin: 0.75rem 0;
-      line-height: 1.7;
-    }
-    
-    .post-content ul > li::before {
-      content: '•';
-      position: absolute;
-      left: 0.5rem;
-      color: #007aff;
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    
-    .post-content ol {
-      counter-reset: ol-counter;
-    }
-    
-    .post-content ol > li {
-      position: relative;
-      padding-left: 2rem;
-      margin: 0.75rem 0;
-      line-height: 1.7;
-      counter-increment: ol-counter;
-    }
-    
-    .post-content ol > li::before {
-      content: counter(ol-counter) '.';
-      position: absolute;
-      left: 0.5rem;
-      color: #007aff;
-      font-weight: 600;
-      font-size: 0.95em;
-    }
-    
-    .post-content li {
-      margin: 0.5rem 0;
-      line-height: 1.6;
-    }
-    
-    .post-content ul ul, .post-content ol ol,
-    .post-content ul ol, .post-content ol ul {
-      margin: 0.5rem 0 0.5rem 0.5rem;
-    }
-    
-    .post-content ul ul > li::before {
-      content: '○';
-      font-size: 1em;
-    }
-    
-    .post-content ul ul ul > li::before {
-      content: '▪';
-      font-size: 0.9em;
-    }
-    
-    .post-content blockquote { 
-      background: rgba(0, 122, 255, 0.05); 
-      border-left: 4px solid var(--apple-blue); 
-      border-radius: 0 1rem 1rem 0; 
-      padding: 1.25rem 1.5rem; 
-      margin: 1.5rem 0; 
-    }
-    
-    .post-content blockquote p {
-      margin: 0.5rem 0;
-    }
-    
-    .post-content blockquote p:first-child {
-      margin-top: 0;
-    }
-    
-    .post-content blockquote p:last-child {
-      margin-bottom: 0;
-    }
-    
-    .post-content table { 
-      border-radius: 1rem; overflow: hidden; border: none; 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-    } 
-    .post-content th { background: rgba(0,122,255,0.1); font-weight: 600; }
-    
-    /* 数学公式样式 - Obsidian风格 */
-    .post-content .math-block {
-      display: block;
-      margin: 1.5rem auto;
-      padding: 1rem 1.5rem;
-      background: rgba(0, 122, 255, 0.03);
-      border-radius: 8px;
-      text-align: center;
-      overflow-x: auto;
-      font-size: 1.1em;
-    }
-    
-    .post-content .math-inline {
-      display: inline;
-      padding: 0.2rem 0.4rem;
-      background: rgba(0, 122, 255, 0.05);
-      border-radius: 4px;
-      font-size: 0.95em;
-    }
-
-    /* 返回顶部按钮 */
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 100;
-    }
-    
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .back-to-top:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.95);
-    }
-    
-    /* 阅读进度条 - 渐变流光 */ 
-    .reading-progress { 
-      position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 1000; 
-    } 
-    .reading-progress-bar { 
-      height: 100%; width: 0%; 
-      background: linear-gradient(90deg, #007aff, #5856d6, #ff2d55, #007aff); 
-      background-size: 200% auto; 
-      animation: shine 3s linear infinite; 
-      transition: width 0.2s ease; 
-    } 
-    @keyframes shine { to { background-position: 200% center; } }
-    
-    /* 目录导航侧边栏 */
-    .toc-sidebar, .font-size-panel { 
-      border-radius: 2rem; 
-      border: 1px solid rgba(255,255,255,0.8); 
-      box-shadow: 0 30px 60px rgba(0,0,0,0.12); 
-    }
-    
-    .toc-sidebar {
-      position: fixed;
-      right: -320px;
-      top: 100px;
-      width: 300px;
-      max-height: 60vh;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      padding: 1.5rem;
-      z-index: 900;
-      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow-y: auto;
-    }
-    
-    .toc-sidebar.active {
-      right: 20px;
-    }
-    
-    .toc-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #1a202c;
-    }
-    
-    .toc-item {
-      padding: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 2px solid rgba(0, 122, 255, 0.2);
-      color: #4a5568;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    
-    .toc-item:hover {
-      color: #007aff;
-      border-left-color: #007aff;
-      padding-left: 1.25rem;
-    }
-    
-    .toc-item.active { 
-      color: var(--apple-blue); 
-      background: rgba(0,122,255,0.08); 
-      border-radius: 0.75rem; 
-    }
-    
-    /* 渐变文本 */ 
-    .gradient-text { 
-      background: linear-gradient(135deg, #007aff 0%, #ff2d55 100%); 
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-    }
-    
-    /* 字体大小选择器 */
-    .font-size-panel {
-      position: fixed;
-      right: -200px;
-      top: 80px;
-      width: 180px;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-      padding: 1rem;
-      z-index: 900;
-      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .font-size-panel.active {
-      right: 20px;
-    }
-    
-    .font-size-option {
-      padding: 0.75rem;
-      margin: 0.25rem 0;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
-    }
-    
-    .font-size-option:hover {
-      background: rgba(0, 122, 255, 0.1);
-    }
-    
-    .font-size-option.active {
-      background: rgba(0, 122, 255, 0.2);
-      color: #007aff;
-      font-weight: 600;
-    }
-    
-    /* 点赞动画 */
-    .like-btn-active {
-      color: #ff2d55 !important;
-      animation: heartBeat 0.6s ease;
-    }
-    
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      25% { transform: scale(1.3); }
-      50% { transform: scale(1); }
-      75% { transform: scale(1.2); }
-    }
-    
-    /* 字体大小类 */
-    .font-size-small .post-content {
-      font-size: 0.9rem;
-    }
-    
-    .font-size-medium .post-content {
-      font-size: 1rem;
-    }
-    
-    .font-size-large .post-content {
-      font-size: 1.15rem;
-    }
-    
-    .font-size-xlarge .post-content {
-      font-size: 1.3rem;
-    }
-
-    /* 返回按钮 */
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 1rem;
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 999px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: #4a5568;
-      transition: all 0.3s ease;
-    }
-    
-    .back-btn:hover {
-      background: rgba(0, 0, 0, 0.1);
-      color: #2d3748;
-    }
-
-    /* 渐变文字 */
-    .gradient-text-vibrant {
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* 加载动画 */
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    
-    .loading-shimmer {
-      background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.06) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/post.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script type="module" src="./js/post.js"></script>
 </head>
 <body>
-  <!-- 壁纸轮播 -->
-  <div class="wallpaper-carousel" id="wallpaperCarousel">
-    <!-- 壁纸将通过JavaScript动态添加 -->
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="page-orb page-orb-a" aria-hidden="true"></div>
+  <div class="page-orb page-orb-b" aria-hidden="true"></div>
+
+  <div class="reading-progress" aria-hidden="true">
+    <div id="readingProgressBar" class="reading-progress__bar"></div>
   </div>
 
-  <div class="main-container">
-    <!-- 阅读进度条 -->
-    <div class="reading-progress" id="readingProgress">
-      <div class="reading-progress-bar" id="readingProgressBar"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./index.html">
+        <span class="brand__mark">aleee</span>
+        <span class="brand__meta">notes on the web</span>
+      </a>
+
+      <nav class="header-actions" aria-label="页面导航">
+        <a class="header-link" href="./index.html">返回首页</a>
+        <button id="mobileToolsToggle" class="header-icon-btn" type="button" aria-expanded="false" aria-controls="sideRail">
+          工具
+        </button>
+      </nav>
     </div>
-    
-    <!-- 顶部导航 -->
-    <header class="flex-none mb-4">
-      <div class="apple-glass-strong rounded-full px-6 py-3 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-2 font-black text-lg tracking-tight">
-          <span class="gradient-text-vibrant">aleee</span>
-        </a>
-        
-        <div class="flex items-center gap-2">
-          <button id="fontSizeBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="字体大小">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-          </button>
-          <button id="tocBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="目录">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-            </svg>
-          </button>
-          <button id="likeBtn" class="p-2 rounded-full hover:bg-white/50 transition-all" title="点赞">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </button>
-          <a href="index.html" class="back-btn">
-            <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回
-          </a>
-        </div>
+  </header>
+
+  <main class="page-shell">
+    <article class="article-panel">
+      <div id="loadingState" class="state-card">
+        <div class="state-card__line state-card__line--title"></div>
+        <div class="state-card__line state-card__line--meta"></div>
+        <div class="state-card__line"></div>
+        <div class="state-card__line"></div>
+        <div class="state-card__line state-card__line--short"></div>
       </div>
-    </header>
 
-    <!-- 主内容区 -->
-    <main class="content-scroll">
-      <article class="apple-glass rounded-2xl p-6 md:p-8 border border-white/50">
-        <!-- 加载状态 -->
-        <div id="loadingState">
-          <div class="loading-shimmer h-8 w-3/4 rounded mb-4"></div>
-          <div class="loading-shimmer h-4 w-1/2 rounded mb-6"></div>
-          <div class="space-y-3">
-            <div class="loading-shimmer h-3 w-full rounded"></div>
-            <div class="loading-shimmer h-3 w-full rounded"></div>
-            <div class="loading-shimmer h-3 w-3/4 rounded"></div>
+      <div id="errorState" class="state-card state-card--error" hidden>
+        <p class="state-card__eyebrow">Load Failed</p>
+        <h1 class="state-card__title">文章加载失败</h1>
+        <p class="state-card__text">没有找到对应内容，或者文章资源暂时不可用。</p>
+        <a class="chip-link" href="./index.html">返回首页</a>
+      </div>
+
+      <section id="postContent" class="post-layout" hidden>
+        <header class="post-hero">
+          <p class="post-hero__eyebrow">Obsidian Reader</p>
+          <h1 id="postTitle" class="post-hero__title"></h1>
+          <p id="postSummary" class="post-hero__summary" hidden></p>
+
+          <div class="post-meta-row">
+            <span id="postCategory" class="meta-pill"></span>
+            <span id="postDate" class="meta-pill" hidden></span>
+            <span id="postReadTime" class="meta-pill"></span>
+            <span id="postWordCount" class="meta-pill"></span>
           </div>
-        </div>
-        
-        <!-- 文章内容 -->
-        <div id="postContent" class="hidden">
-          <!-- 文章头部 -->
-          <header class="mb-6 pb-4 border-b border-gray-200/50">
-            <h1 id="postTitle" class="text-2xl md:text-3xl font-black text-gray-900 mb-3 leading-tight"></h1>
-            <div class="flex flex-wrap items-center gap-2 text-sm text-gray-500">
-              <span id="postCategory" class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full font-medium"></span>
-            </div>
-          </header>
-          
-          <!-- 正文 -->
-          <div id="postBody" class="post-content"></div>
-          
-          <!-- 文章底部 -->
-          <footer class="mt-8 pt-6 border-t border-gray-200/50">
-            <div class="flex items-center justify-between">
-              <a href="index.html" class="back-btn">
-                <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回首页
-              </a>
-              <div class="flex items-center gap-2 text-sm text-gray-500">
-                <button onclick="sharePost()" class="w-9 h-9 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 transition-all">
-                  <img src="icon/share.png" class="w-4 h-4" alt="分享">
-                </button>
-              </div>
-            </div>
-          </footer>
-        </div>
-        
-        <!-- 错误状态 -->
-        <div id="errorState" class="hidden text-center py-12">
-          <p class="text-5xl mb-4">😔</p>
-          <h2 class="text-lg font-bold text-gray-700 mb-2">文章加载失败</h2>
-          <p class="text-gray-500 mb-4 text-sm">抱歉，无法找到该文章</p>
-          <a href="index.html" class="back-btn inline-flex">
-            <img src="icon/reduce.png" class="w-4 h-4" alt=""> 返回首页
-          </a>
-        </div>
-      </article>
-    </main>
-  </div>
 
-  <!-- 返回顶部按钮 -->
-  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
-    <img src="icon/increase.png" class="w-5 h-5" alt="顶部">
+          <div class="post-hero__path-wrap">
+            <span class="post-hero__path-label">Vault Path</span>
+            <code id="postPath" class="post-hero__path"></code>
+          </div>
+        </header>
+
+        <div id="postBody" class="post-content markdown-body"></div>
+      </section>
+    </article>
+
+    <aside id="sideRail" class="side-rail" aria-label="阅读工具">
+      <section class="side-card side-card--sticky-top">
+        <div class="side-card__header">
+          <p class="side-card__eyebrow">Article</p>
+          <h2 class="side-card__title">文章信息</h2>
+        </div>
+
+        <dl class="meta-grid">
+          <div class="meta-grid__item">
+            <dt>分类</dt>
+            <dd id="metaCategory">-</dd>
+          </div>
+          <div class="meta-grid__item">
+            <dt>日期</dt>
+            <dd id="metaDate">-</dd>
+          </div>
+          <div class="meta-grid__item">
+            <dt>阅读</dt>
+            <dd id="metaReadTime">-</dd>
+          </div>
+          <div class="meta-grid__item">
+            <dt>字数</dt>
+            <dd id="metaWordCount">-</dd>
+          </div>
+        </dl>
+
+        <div class="tag-strip" id="tagStrip"></div>
+      </section>
+
+      <section class="side-card">
+        <div class="side-card__header">
+          <p class="side-card__eyebrow">Tools</p>
+          <h2 class="side-card__title">阅读工具</h2>
+        </div>
+
+        <div class="tool-grid">
+          <button id="decreaseFontBtn" class="tool-btn" type="button">A-</button>
+          <button id="increaseFontBtn" class="tool-btn" type="button">A+</button>
+          <button id="toggleWidthBtn" class="tool-btn tool-btn--wide" type="button">切换宽度</button>
+          <button id="copyLinkBtn" class="tool-btn tool-btn--wide" type="button">复制链接</button>
+          <button id="favoriteBtn" class="tool-btn tool-btn--wide" type="button">收藏文章</button>
+          <button id="scrollTopBtn" class="tool-btn tool-btn--wide" type="button">回到顶部</button>
+        </div>
+
+        <p id="actionFeedback" class="action-feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="side-card">
+        <div class="side-card__header">
+          <p class="side-card__eyebrow">Outline</p>
+          <h2 class="side-card__title">目录</h2>
+        </div>
+
+        <div id="tocEmpty" class="side-card__empty">当前文章没有标题目录。</div>
+        <nav id="tocList" class="toc-list" aria-label="文章目录"></nav>
+      </section>
+
+      <section class="side-card">
+        <div class="side-card__header">
+          <p class="side-card__eyebrow">Nearby</p>
+          <h2 class="side-card__title">相关笔记</h2>
+        </div>
+
+        <div id="relatedList" class="related-list"></div>
+      </section>
+    </aside>
+  </main>
+
+  <button id="backToTopBtn" class="floating-top-btn" type="button" aria-label="回到顶部">
+    ↑
   </button>
-
-  <script>
-    // 获取 URL 参数
-    function getUrlParam(name) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(name);
-    }
-
-    // 格式化日期
-    function formatDate(dateString) {
-      if (!dateString) return '';
-      const date = new Date(dateString);
-      if (isNaN(date.getTime())) return dateString;
-      return new Intl.DateTimeFormat('zh-CN', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }).format(date);
-    }
-
-    // Obsidian 风格的 Markdown 解析器
-    function parseMarkdown(content) {
-      if (!content) return '';
-      
-      // 转义 HTML
-      content = content.replace(/&/g, '&amp;')
-                       .replace(/</g, '&lt;')
-                       .replace(/>/g, '&gt;');
-      
-      // 代码块 - 支持语言高亮
-      content = content.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
-        const language = lang ? ` class="language-${lang}"` : '';
-        return `<pre><code${language}>${code.trim()}</code></pre>`;
-      });
-      
-      // 行内代码
-      content = content.replace(/`([^`]+)`/g, '<code>$1</code>');
-      
-      // LaTeX数学公式 - 块级公式 $$...$$
-      content = content.replace(/\$\$([\s\S]+?)\$\$/g, (match, formula) => {
-        return `<div class="math-block">${formula.trim()}</div>`;
-      });
-      
-      // LaTeX数学公式 - 行内公式 $...$（但不匹配$$）
-      content = content.replace(/\$([^\$\n]+?)\$/g, (match, formula) => {
-        return `<span class="math-inline">${formula.trim()}</span>`;
-      });
-      
-      // 表格处理 - 支持对齐方式和复杂表格
-      content = content.replace(/\|(.+)\|\n\|([-:\| ]+)\|\n((?:\|.+\|\n?)+)/g, (match, headerLine, alignLine, dataLines) => {
-        const lines = match.trim().split('\n');
-        if (lines.length < 2) return match;
-        
-        // 解析表头
-        const headerCells = lines[0].split('|').filter(c => c.trim() !== '');
-        const alignments = lines[1].split('|').filter(c => c.trim() !== '').map(align => {
-          const trimmed = align.trim();
-          if (trimmed.startsWith(':') && trimmed.endsWith(':')) return 'center';
-          if (trimmed.endsWith(':')) return 'right';
-          return 'left';
-        });
-        
-        let html = '<table><thead><tr>';
-        headerCells.forEach((cell, index) => {
-          const align = alignments[index] || 'left';
-          html += `<th style="text-align: ${align}">${cell.trim()}</th>`;
-        });
-        html += '</tr></thead><tbody>';
-        
-        // 解析数据行
-        for (let i = 2; i < lines.length; i++) {
-          const cells = lines[i].split('|').filter(c => c.trim() !== '');
-          if (cells.length > 0) {
-            html += '<tr>';
-            cells.forEach((cell, index) => {
-              const align = alignments[index] || 'left';
-              html += `<td style="text-align: ${align}">${parseInlineMarkdown(cell.trim())}</td>`;
-            });
-            html += '</tr>';
-          }
-        }
-        html += '</tbody></table>';
-        return html;
-      });
-      
-      // 任务列表
-      content = content.replace(/^\s*-\s*\[([ x])\]\s+(.*)$/gim, (match, checked, text) => {
-        const isChecked = checked.trim().toLowerCase() === 'x';
-        return `<div class="task-item"><input type="checkbox" ${isChecked ? 'checked' : ''} disabled> <span>${parseInlineMarkdown(text)}</span></div>`;
-      });
-      
-      // 标题
-      content = content.replace(/^###### (.*$)/gim, '<h6>$1</h6>');
-      content = content.replace(/^##### (.*$)/gim, '<h5>$1</h5>');
-      content = content.replace(/^#### (.*$)/gim, '<h4>$1</h4>');
-      content = content.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-      content = content.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-      content = content.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-      
-      // 粗体和斜体
-      content = content.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
-      content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
-      content = content.replace(/__(.*?)__/g, '<strong>$1</strong>');
-      content = content.replace(/_(.*?)_/g, '<em>$1</em>');
-      
-      // 删除线
-      content = content.replace(/~~(.*?)~~/g, '<del>$1</del>');
-      
-      // 链接
-      content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="external-link">$1</a>');
-      
-      // 图片 - 添加加载失败处理
-      content = content.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="markdown-image" onerror="this.src=\'https://api.dicebear.com/7.x/avataaars/svg?seed=image-error\'; this.alt=\'图片加载失败\'">');
-      
-      // 引用
-      content = content.replace(/^>\s*(.*$)/gim, '<blockquote>$1</blockquote>');
-      
-      // 无序列表 - 支持嵌套
-      content = parseLists(content);
-      
-      // 分隔线
-      content = content.replace(/^\s*[-*_]{3,}\s*$/gim, '<hr class="markdown-divider">');
-      
-      // 段落处理
-      content = parseParagraphs(content);
-      
-      return content;
-    }
-
-    // 解析行内 Markdown
-    function parseInlineMarkdown(text) {
-      if (!text) return '';
-      
-      // 粗体和斜体
-      text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
-      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-      text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
-      text = text.replace(/_(.*?)_/g, '<em>$1</em>');
-      
-      // 删除线
-      text = text.replace(/~~(.*?)~~/g, '<del>$1</del>');
-      
-      // 行内代码
-      text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
-      
-      // 链接
-      text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" class="external-link">$1</a>');
-      
-      return text;
-    }
-
-    // 解析列表
-    function parseLists(content) {
-      const lines = content.split('\n');
-      let result = [];
-      let currentList = null;
-      let currentLevel = 0;
-      
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        
-        // 检测列表项
-        const ulMatch = line.match(/^(\s*)[-*+]\s+(.*)$/);
-        const olMatch = line.match(/^(\s*)\d+\.\s+(.*)$/);
-        
-        if (ulMatch || olMatch) {
-          const match = ulMatch || olMatch;
-          const indent = match[1].length;
-          const itemText = match[2];
-          const isOrdered = !!olMatch;
-          const level = Math.floor(indent / 2);
-          
-          if (!currentList || level !== currentLevel) {
-            if (currentList) {
-              result.push(currentList.html + (isOrdered ? '</ol>' : '</ul>'));
-            }
-            currentList = {
-              isOrdered: isOrdered,
-              level: level,
-              html: isOrdered ? '<ol>' : '<ul>'
-            };
-            currentLevel = level;
-          }
-          
-          currentList.html += `<li>${parseInlineMarkdown(itemText)}</li>`;
-        } else {
-          if (currentList) {
-            result.push(currentList.html + (currentList.isOrdered ? '</ol>' : '</ul>'));
-            currentList = null;
-            currentLevel = 0;
-          }
-          result.push(line);
-        }
-      }
-      
-      if (currentList) {
-        result.push(currentList.html + (currentList.isOrdered ? '</ol>' : '</ul>'));
-      }
-      
-      return result.join('\n');
-    }
-
-    // 解析段落
-    function parseParagraphs(content) {
-      const blocks = content.split('\n\n');
-      let result = [];
-      
-      for (let block of blocks) {
-        if (!block.trim()) continue;
-        
-        // 跳过已经是 HTML 标签的块
-        if (block.match(/^<(h[1-6]|pre|blockquote|ul|ol|table|hr|img)/)) {
-          result.push(block);
-        } else if (block.match(/^<li>/)) {
-          result.push(block);
-        } else if (block.match(/^\s*[-*+]\s+\[([ x])\]/)) {
-          // 任务列表
-          result.push(block);
-        } else {
-          result.push(`<p>${parseInlineMarkdown(block)}</p>`);
-        }
-      }
-      
-      return result.join('\n');
-    }
-
-    // 加载文章
-    async function loadPost() {
-      const postId = getUrlParam('id');
-      
-      if (!postId) {
-        showError();
-        return;
-      }
-      
-      try {
-        const response = await fetch('data/posts.json');
-        const posts = await response.json();
-        
-        const post = posts.find(p => p.id == postId);
-        
-        if (!post) {
-          showError();
-          return;
-        }
-        
-        // 加载文章内容
-        const filePath = 'posts/' + post.file;
-        const contentResponse = await fetch(filePath);
-        let content = '';
-        
-        if (contentResponse.ok) {
-          content = await contentResponse.text();
-          content = content.replace(/^---[\s\S]*?---\n*/, '');
-        }
-        
-        // 显示文章
-        document.getElementById('postTitle').textContent = post.title;
-        document.getElementById('postCategory').textContent = post.file.split('/')[0];
-        document.getElementById('postBody').innerHTML = parseMarkdown(content) || '<p>暂无内容</p>';
-        
-        document.title = post.title + ' - aleee';
-        
-        document.getElementById('loadingState').classList.add('hidden');
-        document.getElementById('postContent').classList.remove('hidden');
-        
-        // 渲染LaTeX数学公式
-        if (typeof renderMathInElement !== 'undefined') {
-          renderMathInElement(document.getElementById('postBody'), {
-            delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false}
-            ],
-            throwOnError: false
-          });
-        }
-        
-      } catch (error) {
-        console.error('加载文章失败:', error);
-        showError();
-      }
-    }
-
-    // 显示错误
-    function showError() {
-      document.getElementById('loadingState').classList.add('hidden');
-      document.getElementById('errorState').classList.remove('hidden');
-    }
-
-    // 分享文章
-    function sharePost() {
-      if (navigator.share) {
-        navigator.share({
-          title: document.getElementById('postTitle').textContent,
-          url: window.location.href
-        });
-      } else {
-        navigator.clipboard.writeText(window.location.href);
-        alert('链接已复制到剪贴板');
-      }
-    }
-
-    // 返回顶部
-    function scrollToTop() {
-      document.querySelector('.content-scroll').scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-
-    // 监听滚动显示/隐藏返回顶部按钮
-    document.querySelector('.content-scroll').addEventListener('scroll', function() {
-      const btn = document.getElementById('backToTop');
-      if (this.scrollTop > 300) {
-        btn.classList.add('visible');
-      } else {
-        btn.classList.remove('visible');
-      }
-    });
-
-    // 初始化
-    loadPost();
-    
-    // 壁纸轮播功能
-    function initWallpaperCarousel() {
-      const carousel = document.getElementById('wallpaperCarousel');
-      
-      // 壁纸列表 - 使用相对路径
-      const wallpapers = [
-        'images/bg1.png',
-        'images/bg2.png',
-        'images/wallpaper1.png',
-        'images/wallpaper2.png',
-        'images/wallpaper3.jpg',
-        'images/wallpaper4.jpg',
-        'images/wallpaper5.jpg'
-      ];
-      
-      // 创建壁纸幻灯片
-      wallpapers.forEach((wallpaper, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'wallpaper-slide';
-        slide.style.backgroundImage = `url('${wallpaper}')`;
-        slide.dataset.index = index;
-        carousel.appendChild(slide);
-      });
-      
-      let currentSlide = 0;
-      const slides = carousel.querySelectorAll('.wallpaper-slide');
-      
-      // 显示第一张壁纸
-      if (slides.length > 0) {
-        slides[0].classList.add('active');
-      }
-      
-      // 轮播函数
-      function nextSlide() {
-        // 移除当前激活状态
-        slides.forEach(slide => slide.classList.remove('active'));
-        
-        // 切换到下一张
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-        
-        // 10分钟后切换到下一张
-        setTimeout(nextSlide, 10 * 60 * 1000); // 10分钟
-      }
-      
-      // 开始轮播
-      setTimeout(nextSlide, 10 * 60 * 1000); // 10分钟后开始第一次切换
-    }
-    
-    initWallpaperCarousel();
-    
-    // 目录导航侧边栏
-    const tocSidebar = document.createElement('div');
-    tocSidebar.className = 'toc-sidebar';
-    tocSidebar.id = 'tocSidebar';
-    tocSidebar.innerHTML = `
-      <div class="toc-title">📑 目录</div>
-      <div id="tocList"></div>
-    `;
-    document.body.appendChild(tocSidebar);
-    
-    // 字体大小选择器
-    const fontSizePanel = document.createElement('div');
-    fontSizePanel.className = 'font-size-panel';
-    fontSizePanel.id = 'fontSizePanel';
-    fontSizePanel.innerHTML = `
-      <div class="font-size-option" data-size="small">小</div>
-      <div class="font-size-option active" data-size="medium">中</div>
-      <div class="font-size-option" data-size="large">大</div>
-      <div class="font-size-option" data-size="xlarge">特大</div>
-    `;
-    document.body.appendChild(fontSizePanel);
-    
-    // 阅读进度条功能
-    function initReadingProgress() {
-      const progressBar = document.getElementById('readingProgressBar');
-      const contentScroll = document.querySelector('.content-scroll');
-      
-      contentScroll.addEventListener('scroll', () => {
-        const scrollTop = contentScroll.scrollTop;
-        const scrollHeight = contentScroll.scrollHeight - contentScroll.clientHeight;
-        const progress = (scrollTop / scrollHeight) * 100;
-        progressBar.style.width = progress + '%';
-      });
-    }
-    
-    // 目录导航功能
-    function initTOC() {
-      const tocBtn = document.getElementById('tocBtn');
-      const tocSidebar = document.getElementById('tocSidebar');
-      const tocList = document.getElementById('tocList');
-      const postBody = document.getElementById('postBody');
-      
-      let tocVisible = false;
-      
-      // 生成目录
-      function generateTOC() {
-        const headings = postBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        if (headings.length === 0) {
-          tocList.innerHTML = '<div style="color: #a0aec0; font-size: 0.9rem;">暂无目录</div>';
-          return;
-        }
-        
-        tocList.innerHTML = Array.from(headings).map((heading, index) => {
-          const level = parseInt(heading.tagName.charAt(1));
-          const indent = (level - 1) * 0.75;
-          heading.id = `heading-${index}`;
-          return `<div class="toc-item" data-target="heading-${index}" style="padding-left: ${1 + indent}rem;">${heading.textContent}</div>`;
-        }).join('');
-        
-        // 点击目录项跳转
-        tocList.querySelectorAll('.toc-item').forEach(item => {
-          item.addEventListener('click', () => {
-            const targetId = item.dataset.target;
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          });
-        });
-      }
-      
-      // 切换目录显示
-      tocBtn.addEventListener('click', () => {
-        tocVisible = !tocVisible;
-        tocSidebar.classList.toggle('active', tocVisible);
-        if (tocVisible) {
-          generateTOC();
-        }
-      });
-      
-      // 点击其他地方关闭
-      document.addEventListener('click', (e) => {
-        if (tocVisible && !tocSidebar.contains(e.target) && !tocBtn.contains(e.target)) {
-          tocVisible = false;
-          tocSidebar.classList.remove('active');
-        }
-      });
-    }
-    
-    // 字体大小功能
-    function initFontSize() {
-      const fontSizeBtn = document.getElementById('fontSizeBtn');
-      const fontSizePanel = document.getElementById('fontSizePanel');
-      const postContent = document.getElementById('postContent');
-      
-      let panelVisible = false;
-      const savedFontSize = localStorage.getItem('fontSize') || 'medium';
-      
-      // 应用保存的字体大小
-      postContent.classList.add(`font-size-${savedFontSize}`);
-      fontSizePanel.querySelector(`[data-size="${savedFontSize}"]`).classList.add('active');
-      fontSizePanel.querySelectorAll(`[data-size]:not([data-size="${savedFontSize}"])`).forEach(opt => opt.classList.remove('active'));
-      
-      // 切换面板显示
-      fontSizeBtn.addEventListener('click', () => {
-        panelVisible = !panelVisible;
-        fontSizePanel.classList.toggle('active', panelVisible);
-      });
-      
-      // 选择字体大小
-      fontSizePanel.querySelectorAll('.font-size-option').forEach(option => {
-        option.addEventListener('click', () => {
-          const size = option.dataset.size;
-          
-          // 移除所有字体大小类
-          postContent.classList.remove('font-size-small', 'font-size-medium', 'font-size-large', 'font-size-xlarge');
-          postContent.classList.add(`font-size-${size}`);
-          
-          // 更新选中状态
-          fontSizePanel.querySelectorAll('.font-size-option').forEach(opt => opt.classList.remove('active'));
-          option.classList.add('active');
-          
-          // 保存到本地存储
-          localStorage.setItem('fontSize', size);
-        });
-      });
-      
-      // 点击其他地方关闭
-      document.addEventListener('click', (e) => {
-        if (panelVisible && !fontSizePanel.contains(e.target) && !fontSizeBtn.contains(e.target)) {
-          panelVisible = false;
-          fontSizePanel.classList.remove('active');
-        }
-      });
-    }
-    
-    // 点赞功能
-    function initLike() {
-      const likeBtn = document.getElementById('likeBtn');
-      const postId = getUrlParam('id');
-      const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
-      
-      // 恢复点赞状态
-      if (likedPosts.includes(postId)) {
-        likeBtn.classList.add('like-btn-active');
-        likeBtn.querySelector('svg').style.fill = '#ff2d55';
-      }
-      
-      likeBtn.addEventListener('click', () => {
-        const isLiked = likeBtn.classList.contains('like-btn-active');
-        
-        if (isLiked) {
-          // 取消点赞
-          likeBtn.classList.remove('like-btn-active');
-          likeBtn.querySelector('svg').style.fill = 'none';
-          const index = likedPosts.indexOf(postId);
-          if (index > -1) likedPosts.splice(index, 1);
-        } else {
-          // 点赞
-          likeBtn.classList.add('like-btn-active');
-          likeBtn.querySelector('svg').style.fill = '#ff2d55';
-          likedPosts.push(postId);
-        }
-        
-        localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
-      });
-    }
-    
-    // 初始化所有功能
-    initReadingProgress();
-    initTOC();
-    initFontSize();
-    initLike();
-  </script>
 </body>
 </html>

@@ -5,6 +5,8 @@ import matter from "gray-matter";
 const sourceRoot = "D:/Obsidian Vault";
 const postsOutputRoot = "D:/my-blog/public/posts";
 const dataOutputRoot = "D:/my-blog/public/data";
+const ignoredDirectories = new Set([".git", ".obsidian", ".smart-env", "node_modules"]);
+const maxPublishedPdfSizeBytes = 50 * 1024 * 1024;
 
 function toForwardSlash(value) {
   return value.split(path.sep).join("/");
@@ -19,6 +21,21 @@ function normalizeTags(tags) {
     return tags
       .split(",")
       .map((tag) => tag.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+function normalizeAliases(aliases) {
+  if (Array.isArray(aliases)) {
+    return aliases.map((alias) => String(alias).trim()).filter(Boolean);
+  }
+
+  if (typeof aliases === "string") {
+    return aliases
+      .split(",")
+      .map((alias) => alias.trim())
       .filter(Boolean);
   }
 
@@ -60,6 +77,9 @@ async function collectMarkdownFiles(dirPath) {
     const fullPath = path.join(dirPath, entry.name);
 
     if (entry.isDirectory()) {
+      if (ignoredDirectories.has(entry.name)) {
+        continue;
+      }
       files.push(...(await collectMarkdownFiles(fullPath)));
       continue;
     }
@@ -70,6 +90,49 @@ async function collectMarkdownFiles(dirPath) {
   }
 
   return files;
+}
+
+async function collectAssetFiles(dirPath) {
+  const entries = await fs.readdir(dirPath, { withFileTypes: true });
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      if (ignoredDirectories.has(entry.name)) {
+        continue;
+      }
+      files.push(...(await collectAssetFiles(fullPath)));
+      continue;
+    }
+
+    if (entry.isFile() && path.extname(entry.name) && path.extname(entry.name).toLowerCase() !== ".md") {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+async function shouldPublishAsset(filePath) {
+  const extension = path.extname(filePath).toLowerCase();
+
+  if (extension !== ".pdf") {
+    return true;
+  }
+
+  const stat = await fs.stat(filePath);
+
+  if (stat.size <= maxPublishedPdfSizeBytes) {
+    return true;
+  }
+
+  console.log(
+    `[build] Skipping oversized PDF: ${toForwardSlash(filePath)} (${(stat.size / 1024 / 1024).toFixed(2)} MB)`
+  );
+
+  return false;
 }
 
 function buildCategoryTree(posts) {
@@ -160,11 +223,15 @@ async function buildContent() {
   await ensureDir(dataOutputRoot);
 
   const markdownFiles = await collectMarkdownFiles(sourceRoot);
+  const assetFiles = await collectAssetFiles(sourceRoot);
   markdownFiles.sort((a, b) => a.localeCompare(b));
+  assetFiles.sort((a, b) => a.localeCompare(b));
 
   console.log(`[build] Found ${markdownFiles.length} markdown file(s)`);
+  console.log(`[build] Found ${assetFiles.length} asset file(s)`);
 
   const posts = [];
+  const assets = [];
 
   for (const [index, filePath] of markdownFiles.entries()) {
     const relativePath = path.relative(sourceRoot, filePath);
@@ -185,7 +252,10 @@ async function buildContent() {
     const post = {
       id: index + 1,
       title: data.title ? String(data.title) : fileName,
+      summary: data.summary ? String(data.summary) : data.description ? String(data.description) : undefined,
       tags: normalizeTags(data.tags),
+      aliases: normalizeAliases(data.aliases ?? data.alias),
+      basename: fileName,
       file: outputRelativePath,
       folder: folderPath,
       folders
@@ -198,6 +268,33 @@ async function buildContent() {
     }
 
     posts.push(post);
+  }
+
+  for (const [index, filePath] of assetFiles.entries()) {
+    if (!(await shouldPublishAsset(filePath))) {
+      continue;
+    }
+
+    const relativePath = path.relative(sourceRoot, filePath);
+    const outputRelativePath = toForwardSlash(relativePath);
+    const outputPath = path.join(postsOutputRoot, relativePath);
+    const extension = path.extname(filePath);
+    const fileName = path.basename(filePath);
+    const baseName = path.basename(filePath, extension);
+    const folderPath = path.dirname(outputRelativePath) === "." ? "" : toForwardSlash(path.dirname(relativePath));
+
+    console.log(`[build] Copying asset ${index + 1}/${assetFiles.length}: ${outputRelativePath}`);
+
+    await ensureDir(path.dirname(outputPath));
+    await fs.copyFile(filePath, outputPath);
+
+    assets.push({
+      name: fileName,
+      basename: baseName,
+      ext: extension.toLowerCase(),
+      file: outputRelativePath,
+      folder: folderPath
+    });
   }
 
   const tagsMap = new Map();
@@ -228,14 +325,17 @@ async function buildContent() {
   const postsJsonPath = path.join(dataOutputRoot, "posts.json");
   const tagsJsonPath = path.join(dataOutputRoot, "tags.json");
   const categoriesJsonPath = path.join(dataOutputRoot, "categories.json");
+  const assetsJsonPath = path.join(dataOutputRoot, "assets.json");
 
   await fs.writeFile(postsJsonPath, `${JSON.stringify(posts, null, 2)}\n`, "utf8");
   await fs.writeFile(tagsJsonPath, `${JSON.stringify(tags, null, 2)}\n`, "utf8");
   await fs.writeFile(categoriesJsonPath, `${JSON.stringify(categories, null, 2)}\n`, "utf8");
+  await fs.writeFile(assetsJsonPath, `${JSON.stringify(assets, null, 2)}\n`, "utf8");
 
   console.log(`[build] Wrote ${toForwardSlash(postsJsonPath)}`);
   console.log(`[build] Wrote ${toForwardSlash(tagsJsonPath)}`);
   console.log(`[build] Wrote ${toForwardSlash(categoriesJsonPath)}`);
+  console.log(`[build] Wrote ${toForwardSlash(assetsJsonPath)}`);
   console.log("[build] Done");
 }
 
