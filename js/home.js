@@ -2,35 +2,63 @@
   const state = {
     posts: [],
     tags: [],
-    categories: null
+    categories: null,
+    query: "",
+    selectedTopic: "",
+    selectedTag: "",
+    sort: "latest"
   };
 
   const elements = {
     totalPosts: document.getElementById("totalPosts"),
     totalTopics: document.getElementById("totalTopics"),
     totalTags: document.getElementById("totalTags"),
-    heroPrimary: document.getElementById("heroPrimary"),
-    orbitTitle: document.getElementById("orbitTitle"),
-    orbitPath: document.getElementById("orbitPath"),
-    orbitNotes: document.getElementById("orbitNotes"),
-    featureSpotlight: document.getElementById("featureSpotlight"),
-    featureMeta: document.getElementById("featureMeta"),
-    featureTitle: document.getElementById("featureTitle"),
-    featurePath: document.getElementById("featurePath"),
-    featureStack: document.getElementById("featureStack"),
+    searchInput: document.getElementById("searchInput"),
+    sortSelect: document.getElementById("sortSelect"),
+    resetFiltersBtn: document.getElementById("resetFiltersBtn"),
+    activeFilters: document.getElementById("activeFilters"),
+    featuredCard: document.getElementById("featuredCard"),
+    featuredLink: document.getElementById("featuredLink"),
+    featuredDate: document.getElementById("featuredDate"),
+    featuredCategory: document.getElementById("featuredCategory"),
+    featuredTitle: document.getElementById("featuredTitle"),
+    featuredPath: document.getElementById("featuredPath"),
     topicGrid: document.getElementById("topicGrid"),
-    latestRiver: document.getElementById("latestRiver"),
+    postList: document.getElementById("postList"),
+    resultMeta: document.getElementById("resultMeta"),
+    topicRail: document.getElementById("topicRail"),
     tagCloud: document.getElementById("tagCloud"),
-    vaultRail: document.getElementById("vaultRail"),
+    recentMiniList: document.getElementById("recentMiniList"),
     vaultTree: document.getElementById("vaultTree")
   };
 
   function init() {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    bindEvents();
     loadHome().catch((error) => {
       console.error(error);
       renderFailure();
+    });
+  }
+
+  function bindEvents() {
+    elements.searchInput.addEventListener("input", (event) => {
+      state.query = event.target.value.trim();
+      renderFilteredView();
+    });
+
+    elements.sortSelect.addEventListener("change", (event) => {
+      state.sort = event.target.value;
+      renderFilteredView();
+    });
+
+    elements.resetFiltersBtn.addEventListener("click", () => {
+      state.query = "";
+      state.selectedTopic = "";
+      state.selectedTag = "";
+      state.sort = "latest";
+      elements.searchInput.value = "";
+      elements.sortSelect.value = "latest";
+      renderFilteredView();
     });
   }
 
@@ -49,89 +77,105 @@
     state.categories = await categoriesResponse.json();
     state.tags = tagsResponse && tagsResponse.ok ? await tagsResponse.json() : [];
 
-    renderHome();
+    renderStaticShell();
+    renderFilteredView();
   }
 
-  function renderHome() {
-    const posts = sortPostsByFreshness(state.posts);
-    const latestPosts = posts.slice(0, 8);
-    const featuredPosts = latestPosts.slice(0, 5);
-    const leadPost = featuredPosts[0] || posts[0];
-    const supportPosts = featuredPosts.slice(1);
+  function renderStaticShell() {
+    const latestPosts = sortPostsByFreshness(state.posts).slice(0, 5);
     const topics = getTopicEntries(state.categories, 6);
-    const hotTags = [...state.tags].sort((a, b) => b.count - a.count).slice(0, 10);
+    const tags = [...state.tags].sort((a, b) => b.count - a.count).slice(0, 10);
+    const featured = sortPostsByFreshness(state.posts)[0];
 
     elements.totalPosts.textContent = String(state.posts.length);
     elements.totalTopics.textContent = String(state.categories?.children?.length || 0);
     elements.totalTags.textContent = String(state.tags.length);
 
-    if (leadPost) {
-      const leadHref = `./post.html?id=${encodeURIComponent(leadPost.id)}`;
-      elements.heroPrimary.href = leadHref;
-      elements.orbitTitle.textContent = leadPost.title;
-      elements.orbitPath.textContent = leadPost.file;
-      elements.featureSpotlight.href = leadHref;
-      elements.featureTitle.textContent = leadPost.title;
-      elements.featurePath.textContent = leadPost.file;
-      elements.featureMeta.innerHTML = `
-        <span>${leadPost.date ? formatDate(leadPost.date) : "最新整理"}</span>
-        <span>${(leadPost.file || "Root").split("/")[0] || "Root"}</span>
-      `;
+    if (featured) {
+      const href = getPostHref(featured.id);
+      elements.featuredCard.href = href;
+      elements.featuredLink.href = href;
+      elements.featuredDate.textContent = featured.date ? formatDate(featured.date) : "最近整理";
+      elements.featuredCategory.textContent = getPrimaryCategory(featured);
+      elements.featuredTitle.textContent = featured.title;
+      elements.featuredPath.textContent = featured.file;
     }
 
-    renderOrbitNotes(featuredPosts);
-    renderFeatureStack(supportPosts);
-    renderTopics(topics);
-    renderLatest(latestPosts);
-    renderTags(hotTags);
-    renderVaultRail(state.categories?.children?.slice(0, 5) || []);
+    elements.topicRail.innerHTML = "";
+    topics.forEach((topic) => {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "topic-rail__item";
+      item.innerHTML = `
+        <span>${topic.count} 篇</span>
+        <strong>${escapeHtml(topic.name)}</strong>
+      `;
+      item.addEventListener("click", () => {
+        state.selectedTopic = state.selectedTopic === topic.name ? "" : topic.name;
+        renderFilteredView();
+      });
+      elements.topicRail.appendChild(item);
+    });
+
+    elements.tagCloud.innerHTML = "";
+    if (tags.length === 0) {
+      elements.tagCloud.innerHTML = '<div class="empty-state">当前没有标签数据。</div>';
+    } else {
+      tags.forEach((tagGroup) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "tag-cloud__item";
+        item.innerHTML = `
+          <strong>#${escapeHtml(tagGroup.tag)}</strong>
+          <span>${tagGroup.count}</span>
+        `;
+        item.addEventListener("click", () => {
+          state.selectedTag = state.selectedTag === tagGroup.tag ? "" : tagGroup.tag;
+          renderFilteredView();
+        });
+        elements.tagCloud.appendChild(item);
+      });
+    }
+
+    elements.recentMiniList.innerHTML = "";
+    latestPosts.forEach((post) => {
+      const item = document.createElement("a");
+      item.className = "mini-list__item";
+      item.href = getPostHref(post.id);
+      item.innerHTML = `
+        <strong>${escapeHtml(post.title)}</strong>
+        <div class="mini-list__meta">${escapeHtml(post.date ? formatDate(post.date) : post.file)}</div>
+      `;
+      elements.recentMiniList.appendChild(item);
+    });
+
     renderVaultTree(state.categories);
   }
 
-  function renderOrbitNotes(posts) {
-    elements.orbitNotes.innerHTML = "";
+  function renderFilteredView() {
+    const filteredPosts = applyFilters(state.posts);
+    const sortedPosts = sortPosts(filteredPosts).slice(0, 18);
+    const topicEntries = getTopicEntriesFromPosts(filteredPosts, state.categories, 6);
 
-    posts.forEach((post, index) => {
-      const note = document.createElement("a");
-      note.className = "orbit__note";
-      note.href = `./post.html?id=${encodeURIComponent(post.id)}`;
-      note.style.setProperty("--orbit-index", String(index));
-      note.style.setProperty("--orbit-count", String(posts.length));
-      note.innerHTML = `
-        <span class="orbit__note-index">${String(index + 1).padStart(2, "0")}</span>
-        <strong>${escapeHtml(post.title)}</strong>
-        <span>${escapeHtml(post.date ? formatDate(post.date) : post.file)}</span>
-      `;
-      elements.orbitNotes.appendChild(note);
-    });
+    renderActiveFilters();
+    renderTopicGrid(topicEntries);
+    renderPostList(sortedPosts, filteredPosts.length);
+    syncSideSelections();
   }
 
-  function renderFeatureStack(posts) {
-    elements.featureStack.innerHTML = "";
-
-    posts.forEach((post) => {
-      const item = document.createElement("a");
-      item.className = "feature-stack__item";
-      item.href = `./post.html?id=${encodeURIComponent(post.id)}`;
-      item.innerHTML = `
-        <span class="feature-stack__label">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</span>
-        <strong>${escapeHtml(post.title)}</strong>
-        <span>${escapeHtml(post.file)}</span>
-      `;
-      elements.featureStack.appendChild(item);
-    });
-  }
-
-  function renderTopics(nodes) {
+  function renderTopicGrid(entries) {
     elements.topicGrid.innerHTML = "";
 
-    nodes.forEach((node) => {
+    if (entries.length === 0) {
+      elements.topicGrid.innerHTML = '<div class="empty-state">当前筛选下没有可展示的专题。</div>';
+      return;
+    }
+
+    entries.forEach((node) => {
       const representative = getRepresentativePost(node);
       const card = document.createElement("a");
       card.className = "topic-card";
-      card.href = representative
-        ? `./post.html?id=${encodeURIComponent(representative.id)}`
-        : "#vault-browser";
+      card.href = representative ? getPostHref(representative.id) : "#vault-browser";
       card.innerHTML = `
         <span class="topic-card__count">${node.count} 篇</span>
         <h3>${escapeHtml(node.name)}</h3>
@@ -142,55 +186,60 @@
     });
   }
 
-  function renderLatest(posts) {
-    elements.latestRiver.innerHTML = "";
+  function renderPostList(posts, total) {
+    elements.resultMeta.textContent = `${total} 篇结果`;
+    elements.postList.innerHTML = "";
 
-    posts.forEach((post, index) => {
-      const card = document.createElement("a");
-      card.className = "latest-card";
-      card.href = `./post.html?id=${encodeURIComponent(post.id)}`;
-      card.innerHTML = `
-        <span class="latest-card__index">${String(index + 1).padStart(2, "0")}</span>
-        <div class="latest-card__content">
-          <strong>${escapeHtml(post.title)}</strong>
-          <p>${escapeHtml(post.file)}</p>
-        </div>
-        <span class="latest-card__date">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</span>
-      `;
-      elements.latestRiver.appendChild(card);
-    });
-  }
-
-  function renderTags(tags) {
-    elements.tagCloud.innerHTML = "";
-
-    if (tags.length === 0) {
-      elements.tagCloud.innerHTML = '<div class="empty-state">当前没有可展示的标签。</div>';
+    if (posts.length === 0) {
+      elements.postList.innerHTML = '<div class="empty-state">没有找到符合当前筛选条件的文章。</div>';
       return;
     }
 
-    tags.forEach((tagGroup) => {
-      const pill = document.createElement("div");
-      pill.className = "tag-cloud__pill";
-      pill.innerHTML = `
-        <strong>#${escapeHtml(tagGroup.tag)}</strong>
-        <span>${tagGroup.count}</span>
+    posts.forEach((post) => {
+      const item = document.createElement("a");
+      item.className = "post-list__item";
+      item.href = getPostHref(post.id);
+      item.innerHTML = `
+        <div class="post-list__main">
+          <strong>${escapeHtml(post.title)}</strong>
+          <div class="post-list__path">${escapeHtml(post.file)}</div>
+        </div>
+        <div class="post-list__aside">
+          <span class="post-badge">${escapeHtml(getPrimaryCategory(post))}</span>
+          <span class="post-list__date">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</span>
+        </div>
       `;
-      elements.tagCloud.appendChild(pill);
+      elements.postList.appendChild(item);
     });
   }
 
-  function renderVaultRail(nodes) {
-    elements.vaultRail.innerHTML = "";
+  function renderActiveFilters() {
+    elements.activeFilters.innerHTML = "";
+    const chips = [];
 
-    nodes.forEach((node) => {
-      const item = document.createElement("div");
-      item.className = "vault-rail-card";
-      item.innerHTML = `
-        <span>${escapeHtml(node.name)}</span>
-        <strong>${node.count}</strong>
-      `;
-      elements.vaultRail.appendChild(item);
+    if (state.query) {
+      chips.push(`搜索: ${state.query}`);
+    }
+    if (state.selectedTopic) {
+      chips.push(`分类: ${state.selectedTopic}`);
+    }
+    if (state.selectedTag) {
+      chips.push(`标签: #${state.selectedTag}`);
+    }
+    if (state.sort === "title") {
+      chips.push("排序: 标题 A-Z");
+    }
+
+    if (chips.length === 0) {
+      elements.activeFilters.innerHTML = '<span class="filter-chip">未启用筛选</span>';
+      return;
+    }
+
+    chips.forEach((label) => {
+      const chip = document.createElement("span");
+      chip.className = "filter-chip";
+      chip.textContent = label;
+      elements.activeFilters.appendChild(chip);
     });
   }
 
@@ -221,7 +270,7 @@
     if (Array.isArray(node.posts) && node.posts.length > 0) {
       const postsGrid = document.createElement("div");
       postsGrid.className = "category-posts";
-      node.posts.forEach((post) => postsGrid.appendChild(createPostCard(post)));
+      node.posts.slice(0, 8).forEach((post) => postsGrid.appendChild(createPostCard(post)));
       wrapper.appendChild(postsGrid);
     }
 
@@ -239,7 +288,7 @@
     const card = document.createElement("div");
     card.className = "post-card";
     card.innerHTML = `
-      <a class="post-link" href="./post.html?id=${encodeURIComponent(post.id)}">
+      <a class="post-link" href="${getPostHref(post.id)}">
         <h3 class="post-title">${escapeHtml(post.title)}</h3>
         <p class="post-path">${escapeHtml(post.file)}</p>
         <p class="post-meta">${escapeHtml(post.date ? formatDate(post.date) : "未标注日期")}</p>
@@ -248,21 +297,25 @@
     return card;
   }
 
-  function renderFailure() {
-    elements.orbitTitle.textContent = "首页加载失败";
-    elements.orbitPath.textContent = "请稍后刷新重试";
-    elements.featureTitle.textContent = "当前无法读取数据";
-    elements.featurePath.textContent = "请检查 data/posts.json 是否可访问";
-    elements.featureStack.innerHTML = '<div class="empty-state">数据载入失败。</div>';
-    elements.topicGrid.innerHTML = '<div class="empty-state">专题载入失败。</div>';
-    elements.latestRiver.innerHTML = '<div class="empty-state">最近更新载入失败。</div>';
-    elements.tagCloud.innerHTML = '<div class="empty-state">标签载入失败。</div>';
-    elements.vaultTree.innerHTML = '<div class="empty-state">目录载入失败。</div>';
+  function applyFilters(posts) {
+    return posts.filter((post) => {
+      const matchesQuery = !state.query || `${post.title} ${post.file} ${post.folder || ""}`
+        .toLowerCase()
+        .includes(state.query.toLowerCase());
+
+      const matchesTopic = !state.selectedTopic || getPrimaryCategory(post) === state.selectedTopic;
+      const matchesTag = !state.selectedTag || (post.tags || []).includes(state.selectedTag);
+
+      return matchesQuery && matchesTopic && matchesTag;
+    });
   }
 
-  function handleScroll() {
-    const ratio = Math.min(window.scrollY / 1200, 1);
-    document.documentElement.style.setProperty("--scroll-ratio", String(ratio));
+  function sortPosts(posts) {
+    if (state.sort === "title") {
+      return [...posts].sort((left, right) => String(left.title).localeCompare(String(right.title), "zh-CN"));
+    }
+
+    return sortPostsByFreshness(posts);
   }
 
   function sortPostsByFreshness(posts) {
@@ -290,8 +343,53 @@
     }
 
     return [...categories.children]
+      .filter((node) => node.name !== ".trash")
       .sort((left, right) => right.count - left.count)
       .slice(0, limit);
+  }
+
+  function getTopicEntriesFromPosts(posts, categories, limit) {
+    const counts = new Map();
+
+    posts.forEach((post) => {
+      const topic = getPrimaryCategory(post);
+      if (!topic || topic === ".trash") {
+        return;
+      }
+      counts.set(topic, (counts.get(topic) || 0) + 1);
+    });
+
+    const categoryMap = new Map((categories?.children || []).map((node) => [node.name, node]));
+    return [...counts.entries()]
+      .sort((left, right) => right[1] - left[1])
+      .slice(0, limit)
+      .map(([name]) => categoryMap.get(name))
+      .filter(Boolean);
+  }
+
+  function syncSideSelections() {
+    elements.topicRail.querySelectorAll(".topic-rail__item").forEach((item) => {
+      item.style.borderColor = "";
+      item.style.background = "";
+      if (item.textContent.includes(state.selectedTopic)) {
+        item.style.borderColor = "rgba(31, 92, 87, 0.3)";
+        item.style.background = "rgba(31, 92, 87, 0.08)";
+      }
+    });
+
+    elements.tagCloud.querySelectorAll(".tag-cloud__item").forEach((item) => {
+      item.style.borderColor = "";
+      item.style.background = "";
+      if (state.selectedTag && item.textContent.includes(`#${state.selectedTag}`)) {
+        item.style.borderColor = "rgba(31, 92, 87, 0.3)";
+        item.style.background = "rgba(31, 92, 87, 0.08)";
+      }
+    });
+  }
+
+  function getRepresentativePost(node) {
+    const candidates = collectNodePosts(node);
+    return sortPostsByFreshness(candidates)[0] || null;
   }
 
   function collectNodePosts(node) {
@@ -300,11 +398,6 @@
       ? node.children.flatMap((child) => collectNodePosts(child))
       : [];
     return currentPosts.concat(childPosts);
-  }
-
-  function getRepresentativePost(node) {
-    const candidates = collectNodePosts(node);
-    return sortPostsByFreshness(candidates)[0] || null;
   }
 
   function summarizeTopic(node) {
@@ -317,6 +410,25 @@
     }
 
     return "持续整理中";
+  }
+
+  function getPrimaryCategory(post) {
+    const segments = String(post.file || "").split("/");
+    return segments[0] || "Root";
+  }
+
+  function getPostHref(id) {
+    return `./post.html?id=${encodeURIComponent(id)}`;
+  }
+
+  function renderFailure() {
+    elements.featuredTitle.textContent = "首页加载失败";
+    elements.featuredPath.textContent = "请稍后刷新重试";
+    elements.topicGrid.innerHTML = '<div class="empty-state">专题载入失败。</div>';
+    elements.postList.innerHTML = '<div class="empty-state">文章列表载入失败。</div>';
+    elements.tagCloud.innerHTML = '<div class="empty-state">标签载入失败。</div>';
+    elements.recentMiniList.innerHTML = '<div class="empty-state">最近文章载入失败。</div>';
+    elements.vaultTree.innerHTML = '<div class="empty-state">目录载入失败。</div>';
   }
 
   function formatDate(dateString) {

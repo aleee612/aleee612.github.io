@@ -3,146 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>aleee - 笔记首页</title>
-  <meta name="description" content="一个从 Obsidian 笔记生长出来的个人知识主页。">
+  <title>aleee - 笔记主页</title>
+  <meta name="description" content="一个更适合检索、浏览与回看的 Obsidian 笔记主页。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600;6..72,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="page-orb page-orb-a" aria-hidden="true"></div>
-  <div class="page-orb page-orb-b" aria-hidden="true"></div>
+  <div class="page-grid" aria-hidden="true"></div>
 
-  <header class="hero">
-    <div class="hero__copy">
-      <p class="hero__kicker">ALEEE VAULT</p>
-      <h1 class="hero__title">把笔记变成可以逛、可以读、也可以反复回看的首页。</h1>
-      <p class="hero__lead">
-        这里不是文件树导出页，而是一个阅读入口。
-        先看值得打开的内容，再沿着专题和目录深入整个知识库。
-      </p>
-
-      <div class="hero__actions">
-        <a id="heroPrimary" class="hero-btn hero-btn--primary" href="./post.html">开始阅读</a>
-        <a class="hero-btn hero-btn--secondary" href="#vault-browser">浏览完整目录</a>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand-block">
+        <p class="brand-block__eyebrow">ALEEE VAULT</p>
+        <h1 class="brand-block__title">一个更适合查找和回看的笔记首页</h1>
+        <p class="brand-block__intro">
+          保留 Obsidian 的结构感，但首页优先解决两件事：快速找到内容，以及清楚地知道从哪里开始看。
+        </p>
       </div>
 
-      <div class="signal-grid">
-        <div class="signal-card">
-          <span class="signal-card__label">文章总数</span>
-          <strong id="totalPosts" class="signal-card__value">0</strong>
+      <div class="overview-strip">
+        <div class="overview-pill">
+          <span>文章</span>
+          <strong id="totalPosts">0</strong>
         </div>
-        <div class="signal-card">
-          <span class="signal-card__label">专题入口</span>
-          <strong id="totalTopics" class="signal-card__value">0</strong>
+        <div class="overview-pill">
+          <span>专题</span>
+          <strong id="totalTopics">0</strong>
         </div>
-        <div class="signal-card">
-          <span class="signal-card__label">标签分组</span>
-          <strong id="totalTags" class="signal-card__value">0</strong>
+        <div class="overview-pill">
+          <span>标签</span>
+          <strong id="totalTags">0</strong>
         </div>
-      </div>
-    </div>
-
-    <div class="hero__visual">
-      <div class="orbit">
-        <div class="orbit__halo"></div>
-        <div class="orbit__ring orbit__ring--outer"></div>
-        <div class="orbit__ring orbit__ring--inner"></div>
-
-        <div class="orbit__core">
-          <span class="orbit__badge">Latest Dispatch</span>
-          <h2 id="orbitTitle">载入中...</h2>
-          <p id="orbitPath">正在整理最新文章</p>
-        </div>
-
-        <div id="orbitNotes" class="orbit__notes"></div>
       </div>
     </div>
   </header>
 
-  <main class="home-main">
-    <section class="home-section">
-      <div class="section-lead">
-        <div>
-          <p class="section-lead__eyebrow">Featured</p>
-          <h2 class="section-lead__title">先读这几篇</h2>
-        </div>
-        <div class="section-lead__aside">
-          <p>首页先解决“现在看什么”，而不是一开始就把整棵目录摊开。</p>
-        </div>
+  <main class="workspace">
+    <section class="control-panel">
+      <div class="control-panel__main">
+        <label class="search-box" for="searchInput">
+          <span class="search-box__label">搜索笔记</span>
+          <input id="searchInput" type="search" placeholder="搜索标题、路径、分类..." autocomplete="off">
+        </label>
+
+        <label class="select-box" for="sortSelect">
+          <span class="search-box__label">排序方式</span>
+          <select id="sortSelect">
+            <option value="latest">按最近更新</option>
+            <option value="title">按标题 A-Z</option>
+          </select>
+        </label>
+
+        <button id="resetFiltersBtn" class="ghost-btn" type="button">清空筛选</button>
       </div>
 
-      <div class="featured-layout">
-        <a id="featureSpotlight" class="feature-spotlight" href="./post.html">
-          <div id="featureMeta" class="feature-spotlight__meta"></div>
-          <h3 id="featureTitle">载入中...</h3>
-          <p id="featurePath">正在读取文章路径</p>
-        </a>
-
-        <div id="featureStack" class="feature-stack"></div>
-      </div>
-    </section>
-
-    <section class="home-section">
-      <div class="section-lead">
-        <div>
-          <p class="section-lead__eyebrow">Topics</p>
-          <h2 class="section-lead__title">按专题进入</h2>
-        </div>
-        <div class="section-lead__aside">
-          <p>把整个 Vault 先折叠成几个可记住的入口，而不是默认文件树。</p>
-        </div>
-      </div>
-
-      <div id="topicGrid" class="topic-grid"></div>
-    </section>
-
-    <section class="home-section">
-      <div class="section-lead">
-        <div>
-          <p class="section-lead__eyebrow">Recent</p>
-          <h2 class="section-lead__title">最近更新</h2>
-        </div>
-        <div class="section-lead__aside">
-          <p>保留时间感，让首页像持续滚动的笔记流，而不是一次性归档。</p>
-        </div>
-      </div>
-
-      <div id="latestRiver" class="latest-river"></div>
-    </section>
-
-    <section class="home-section">
-      <div class="section-lead">
-        <div>
-          <p class="section-lead__eyebrow">Signals</p>
-          <h2 class="section-lead__title">高频标签</h2>
-        </div>
-        <div class="section-lead__aside">
-          <p>如果你已经知道自己要找哪类内容，可以直接从标签密度切进去。</p>
-        </div>
-      </div>
-
-      <div id="tagCloud" class="tag-cloud"></div>
-    </section>
-
-    <section id="vault-browser" class="home-section vault-browser">
-      <div class="section-lead">
-        <div>
-          <p class="section-lead__eyebrow">Archive</p>
-          <h2 class="section-lead__title">完整目录</h2>
-        </div>
-        <div class="section-lead__aside">
-          <p>完整树结构仍然保留，但降级为需要时再展开的浏览器。</p>
-        </div>
-      </div>
-
-      <div class="vault-browser__grid">
-        <div id="vaultRail" class="vault-browser__rail"></div>
-        <div id="vaultTree" class="vault-browser__tree"></div>
+      <div class="active-filters">
+        <span class="active-filters__label">当前筛选</span>
+        <div id="activeFilters" class="active-filters__chips"></div>
       </div>
     </section>
+
+    <div class="content-grid">
+      <div class="main-column">
+        <section class="panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Start Here</p>
+              <h2 class="panel__title">推荐起点</h2>
+            </div>
+            <a id="featuredLink" class="panel__action" href="./post.html">打开文章</a>
+          </div>
+
+          <a id="featuredCard" class="featured-card" href="./post.html">
+            <div class="featured-card__meta">
+              <span id="featuredDate">最近整理</span>
+              <span id="featuredCategory">分类</span>
+            </div>
+            <h3 id="featuredTitle">载入中...</h3>
+            <p id="featuredPath">正在读取文章路径</p>
+          </a>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Topics</p>
+              <h2 class="panel__title">专题导航</h2>
+            </div>
+            <span class="panel__meta">按分类密度挑选入口</span>
+          </div>
+
+          <div id="topicGrid" class="topic-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Results</p>
+              <h2 class="panel__title">文章列表</h2>
+            </div>
+            <span id="resultMeta" class="panel__meta">0 篇结果</span>
+          </div>
+
+          <div id="postList" class="post-list"></div>
+        </section>
+
+        <section id="vault-browser" class="panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Archive</p>
+              <h2 class="panel__title">完整目录</h2>
+            </div>
+            <span class="panel__meta">需要时再展开</span>
+          </div>
+
+          <div id="vaultTree" class="vault-tree"></div>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="panel side-panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Pinned</p>
+              <h2 class="panel__title">高频分类</h2>
+            </div>
+          </div>
+
+          <div id="topicRail" class="topic-rail"></div>
+        </section>
+
+        <section class="panel side-panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Tags</p>
+              <h2 class="panel__title">标签密度</h2>
+            </div>
+          </div>
+
+          <div id="tagCloud" class="tag-cloud"></div>
+        </section>
+
+        <section class="panel side-panel">
+          <div class="panel__header">
+            <div>
+              <p class="panel__eyebrow">Recent</p>
+              <h2 class="panel__title">最近 5 篇</h2>
+            </div>
+          </div>
+
+          <div id="recentMiniList" class="mini-list"></div>
+        </section>
+      </aside>
+    </div>
   </main>
 
   <script src="./js/home.js"></script>
